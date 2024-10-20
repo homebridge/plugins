@@ -14,8 +14,8 @@ Create [an issue](https://github.com/homebridge/plugins/issues/new/choose) to:
 
 - request verification for your plugin
 - request an icon for your verified plugin
-- request a transfer of ownership for a plugin
-- request to maintain an unmaintained plugin
+- request a transfer into the Homebridge organization (you can choose whether to continue maintaining the plugin)
+- request to maintain an unmaintained plugin listed [here](https://github.com/homebridge/plugins/wiki/Unmaintained-Plugins#available-plugins)
 
 More info on these topics can be found below.
 
@@ -101,7 +101,7 @@ We will generally do our best to contact existing developers of plugins before r
 
 </details>
 
-## Transfer to Homebridge
+## Transfer to the Homebridge Plugins Organization
 
 See the [Unmaintained Plugins](https://github.com/homebridge/plugins/wiki/Unmaintained-Plugins) wiki page for more information about transferring an unmaintained plugin to the Homebridge project.
 

@@ -1,0 +1,12 @@
+[
+  {
+    "from": "homebridge-ewelink",
+    "to": "@homebridge-plugins/homebridge-ewelink",
+    "switch": "12.3.3"
+  },
+  {
+    "from": "homebridge-govee",
+    "to": "@homebridge-plugins/homebridge-govee",
+    "switch": "10.12.1"
+  }
+]

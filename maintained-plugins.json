@@ -1,0 +1,21 @@
+[
+  "@homebridge-plugins/homebridge-ewelink",
+  "@homebridge-plugins/homebridge-govee",
+  "homebridge-air",
+  "homebridge-arlo",
+  "homebridge-august",
+  "homebridge-blinkcameras",
+  "homebridge-cloudflared-tunnel",
+  "homebridge-deebot",
+  "homebridge-flume",
+  "homebridge-meater",
+  "homebridge-meross",
+  "homebridge-noip",
+  "homebridge-rainbird",
+  "homebridge-resideo",
+  "homebridge-roomba2",
+  "homebridge-thermobit",
+  "homebridge-tp-link-powerline",
+  "homebridge-virtual-device",
+  "homebridge-wemo"
+]

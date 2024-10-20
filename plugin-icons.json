@@ -1,6 +1,8 @@
 {
   "@0x5e/homebridge-tuya-platform": "icons/homebridge-tuya-platform.png",
   "@chazepps/homebridge-hejhome": "icons/homebridge-hejhome.png",
+  "@homebridge-plugins/homebridge-ewelink": "icons/homebridge-ewelink.png",
+  "@homebridge-plugins/homebridge-govee": "icons/homebridge-govee.png",
   "@pietrolubini/homebridge-ecoflow": "icons/homebridge-ecoflow.png",
   "@switchbot/homebridge-switchbot": "icons/homebridge-switchbot.png",
   "@vandubois/homebridge-virtual-switch": "icons/homebridge-virtual-switch.png",

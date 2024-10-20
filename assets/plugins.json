@@ -1,0 +1,4474 @@
+{
+  "@0x5e/homebridge-tuya-platform": {
+    "hidden": false,
+    "icon": "icons/homebridge-tuya-platform.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@balansse/homebridge-vivint": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@busse/homebridge-pluggit": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@chazepps/homebridge-hejhome": {
+    "hidden": false,
+    "icon": "icons/homebridge-hejhome.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@danielgindi/homebridge-bcp-charger": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@hansfriedrich/homebridge-feller-wiser": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@hernas/homebridge-panasonic-heat-pump": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@hernas/homebridge-salus-sq610": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@homebridge-plugins/homebridge-ewelink": {
+    "hidden": false,
+    "icon": "icons/homebridge-ewelink.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": "bwp91",
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@homebridge-plugins/homebridge-govee": {
+    "hidden": false,
+    "icon": "icons/homebridge-govee.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": "bwp91",
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@jdes/homebridge-tost-corp-somfy-rts-web": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@milo526/homebridge-tuya-web": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@o-lukas/homebridge-smartthings-tv": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@ohmantics/homebridge-airmega": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@pietrolubini/homebridge-ecoflow": {
+    "hidden": false,
+    "icon": "icons/homebridge-ecoflow.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@puchupala/homebridge-nature-remo-multi-toggle-light": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@rsauget/homebridge-flexom": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@string-bean/homebridge-drayton-wiser": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@switchbot/homebridge-switchbot": {
+    "hidden": false,
+    "icon": "icons/homebridge-switchbot.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@ubreu/homebridge-helios-kwl": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@ubreu/homebridge-ibricks": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@vandubois/homebridge-virtual-switch": {
+    "hidden": false,
+    "icon": "icons/homebridge-virtual-switch.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@xenuiswatching/homebridge-hubspace": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-2-enet": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-3em-energy-meter": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-433-arduino": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-abode-lights": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-actron-neo": {
+    "hidden": false,
+    "icon": "icons/homebridge-actron-neo.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-actron-que": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-adguardhome": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-adt-pulse": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-advanced-timer": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-aeg-robot": {
+    "hidden": false,
+    "icon": "icons/homebridge-aeg-robot.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-aeg-wellbeing": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-agile-octopus-rates": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-air": {
+    "hidden": false,
+    "icon": "icons/homebridge-air.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-air-q": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-airconditioner-mitsubishi-au-nz": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-airport-express-connected": {
+    "hidden": false,
+    "icon": "icons/homebridge-airport-express-connected.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-airthings": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-airtouch5-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-airzone-cloud": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-aladdin-connect-garage-door": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-aladdinconnect": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-alexa": {
+    "hidden": false,
+    "icon": "icons/homebridge-alexa.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-alexa-player": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-alexa-smarthome": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-alphaess": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-amazondash-mac": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ambiback": {
+    "hidden": false,
+    "icon": "icons/homebridge-ambiback.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ambient-weather-sensors": {
+    "hidden": false,
+    "icon": "icons/homebridge-ambient-weather-sensors.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-androidtv": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-anthemreceiver": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-apc-back-ups-hs500": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-appletv-enhanced": {
+    "hidden": false,
+    "icon": "icons/homebridge-appletv-enhanced.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-aqicn": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-argo": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-arlo": {
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": false,
+    "verifiedPlus": false
+  },
+  "homebridge-atomberg-fan": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-august": {
+    "hidden": false,
+    "icon": "icons/homebridge-august.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-automower": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-automower-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-awair2": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-away-mode": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-aws-iot": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-balboa-spa": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-batterytender": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-bed-control": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-beoplay": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-better-roku": {
+    "hidden": false,
+    "icon": "icons/homebridge-better-roku.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-blauberg-vento": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ble-thermobeacon": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-blinds": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-blinds-cmd": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-blink-for-home": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-blinkcameras": {
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": false,
+    "verifiedPlus": false
+  },
+  "homebridge-blueair-purifier": {
+    "hidden": false,
+    "icon": "icons/homebridge-blueair-purifier.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-bold": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-bold-ble": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-bond": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-boschcontrolpanel_bgseries": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-bravia": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-bravia-tvos": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-brewer": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-broadlink-heater-cooler": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-browsercam": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-button-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-caddx-interlogix": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-calendar-scheduler": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-camera-ffmpeg": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-camera-ui": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-carrier-infinity": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-cgd-garage-door": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-cleanmate": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-cloudflared-tunnel": {
+    "hidden": false,
+    "icon": "icons/homebridge-cloudflared-tunnel.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-cmd4-advantageair": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-comed-hourlypricing": {
+    "hidden": false,
+    "icon": "icons/homebridge-comed-hourlypricing.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-comelit-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-comelit-sb-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-comelit-vedo-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-config-ui": {
+    "hidden": true,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": false,
+    "verifiedPlus": false
+  },
+  "homebridge-config-ui-rdp": {
+    "hidden": true,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": false,
+    "verifiedPlus": false
+  },
+  "homebridge-config-ui-x": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-connectlife-ac": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-cool-automation": {
+    "hidden": false,
+    "icon": "icons/homebridge-cool-automation.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-coviva-hager": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-cron-scheduler": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-cuby": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-daelim-smarthome": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-dafang-mqtt-republish": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-dahua-alerts": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-daikin-cloud": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-daikin-local": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-daikin-local-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-daikin-oneplus": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-daikin-smart-ac": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-daikin-tempsensor-nocloud": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-davis": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-deconz": {
+    "hidden": false,
+    "icon": "icons/homebridge-deconz.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-deebot": {
+    "hidden": false,
+    "icon": "icons/homebridge-deebot.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-deebotecovacs": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-delay-switch": {
+    "hidden": false,
+    "icon": "icons/homebridge-delay-switch.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-denon-heos": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-denon-tv": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-device-alive": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-deye": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-dolphin": {
+    "hidden": false,
+    "icon": "icons/homebridge-dolphin.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-doorbird": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-dreamscreen-rm": {
+    "hidden": false,
+    "icon": "icons/homebridge-dreamscreen-rm.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-dreo": {
+    "hidden": false,
+    "icon": "icons/homebridge-dreo.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-dummy": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-dune-hd": {
+    "hidden": false,
+    "icon": "icons/homebridge-dune-hd.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-dynamicapi": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-dyson-bp01": {
+    "hidden": false,
+    "icon": "icons/homebridge-dyson-bp01.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-dyson-pure-cool": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-easee": {
+    "hidden": false,
+    "icon": "icons/homebridge-easee.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ecoforest-thermostat": {
+    "hidden": false,
+    "icon": "icons/homebridge-ecoforest-thermostat.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ecoplug": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ecowitt-weather-sensors": {
+    "hidden": false,
+    "icon": "icons/homebridge-ecowitt-weather-sensors.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-edomoticz": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-eggtimer-plugin": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-egreat-androidtv": {
+    "hidden": false,
+    "icon": "icons/homebridge-egreat-androidtv.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-electra-smart": {
+    "hidden": false,
+    "icon": "icons/homebridge-electra-smart.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-elkm1": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-eltako-minisafe2": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-enphase-envoy": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-enviroindoor": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-enviroplus": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-envirourban": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-envisalink": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-envisalink-ademco": {
+    "hidden": false,
+    "icon": "icons/homebridge-envisalink-ademco.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-eosstb": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-eufy-security": {
+    "hidden": false,
+    "icon": "icons/homebridge-eufy-security.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-evohome": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ewelink": {
+    "hidden": false,
+    "icon": "icons/homebridge-ewelink.png",
+    "maintained": false,
+    "newScope": {
+      "from": "homebridge-ewelink",
+      "to": "@homebridge-plugins/homebridge-ewelink",
+      "switch": "12.3.3"
+    },
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-exivo": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ezviz": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-fenix-tft-wifi": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-fhem": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-fibaro-hc3": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-fibaro-home-center": {
+    "hidden": false,
+    "icon": "icons/homebridge-fibaro-home-center.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-flair": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-flobymoen": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-flume": {
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-fordpass": {
+    "hidden": false,
+    "icon": "icons/homebridge-fordpass.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-foxess": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-freeathome-local-api": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-freebox-player-delta": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-frigidaire-dehumidifier": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-fritz-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ftp-motion": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-fujitsu-airstage": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-futurehome": {
+    "hidden": false,
+    "icon": "icons/homebridge-futurehome.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-genie-aladdin-connect": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-glances": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-gogogate2": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-google-nest-sdm": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-govee": {
+    "hidden": false,
+    "icon": "icons/homebridge-govee.png",
+    "maintained": false,
+    "newScope": {
+      "from": "homebridge-govee",
+      "to": "@homebridge-plugins/homebridge-govee",
+      "switch": "10.12.1"
+    },
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-gpio-doorbell": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-gpio-rgb-ledstrip": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-gpio-rgbw-ledstrip": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-gree-ac": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-green-mountain-grills": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-grohe-sense": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-gsh": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-haieracbridge-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-harmony": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-hatch-baby-rest": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-hikconnect": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-hilo": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-homeconnect": {
+    "hidden": false,
+    "icon": "icons/homebridge-homeconnect.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-homekit-control": {
+    "hidden": false,
+    "icon": "icons/homebridge-homekit-control.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-homeqtt-alarm": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-homewizard-energy-socket": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-homewizard-power-consumption": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-homeworks": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-hsd": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-http-curtain": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-http-garage-doors": {
+    "hidden": false,
+    "icon": "icons/homebridge-http-garage-doors.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-http-iot": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-http-json-thermometer": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-http-leak-sensor": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-http-sensors-switches": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-hubitat-tonesto7": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-hubspace": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-hue": {
+    "hidden": false,
+    "icon": "icons/homebridge-hue.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-hunter-hydrawise": {
+    "hidden": false,
+    "icon": "icons/homebridge-hunter-hydrawise.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-hyperion-jub": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-hyundai-bluelink": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-i6-bigassfans": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-infinitude-v2": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-intelliclima": {
+    "hidden": false,
+    "icon": "icons/homebridge-intelliclima.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-intercom-automation-hat": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-irobot-v2": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-itho-daalderop": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-jablotron": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-jewish-calendar": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-juicebox": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-kasa-hub": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-kasa-python": {
+    "hidden": false,
+    "icon": "icons/homebridge-kasa-python.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-keylights": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-kiwigrid": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-kodi": {
+    "hidden": false,
+    "icon": "icons/homebridge-kodi.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-konnected": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-kumo": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-landroid": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-lay-z-spa": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-level-sense": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-leviton": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-levoit-air-purifier": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-levoit-humidifiers": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-lg-enervu": {
+    "hidden": false,
+    "icon": "icons/homebridge-lg-enervu.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-lg-thinq": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-lg-thinq-ac": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-lgwebos-tv": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-lifx-plugin": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-lighthouse": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-lightwaverf": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-linak": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-litter-robot-connect": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-logic-switch": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-logo-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-loxone-control": {
+    "hidden": false,
+    "icon": "icons/homebridge-loxone-control.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-loxone-proxy": {
+    "hidden": false,
+    "icon": "icons/homebridge-loxone-proxy.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-lutron-caseta-leap": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-luxtronik2": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-magic-occupancy": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-magichome-dynamic-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-meater": {
+    "hidden": false,
+    "icon": "icons/homebridge-meater.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-melcloud-control": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-meraki-control": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mercedesme": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-meross": {
+    "hidden": false,
+    "icon": "icons/homebridge-meross.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mertik-fireplace": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-messenger": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mhacwifi1-lan": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mhi-wfrac": {
+    "hidden": false,
+    "icon": "icons/homebridge-mhi-wfrac.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mi-humidifier": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mi-hygrothermograph": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-micronova-agua-iot-stove": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-midea-platform": {
+    "hidden": false,
+    "icon": "icons/homebridge-midea-platform.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mieleathome": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mihomegateway": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-milighthub-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-miot": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mobilelink": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-moodo": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-moonraker": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mqtt": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mqtt-ceiling-fan-remote": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mqtt-tasmota": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mqttsmokesensor": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mqttthing": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-multiswitcheroo": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-music": {
+    "hidden": false,
+    "icon": "icons/homebridge-music.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-musiccast-multiroom": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-my-wallbox": {
+    "hidden": false,
+    "icon": "icons/homebridge-my-wallbox.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mylink": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-myplace": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-myq": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-mysmartblinds-bridge": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-naim-audio": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-nb": {
+    "hidden": false,
+    "icon": "icons/homebridge-nb.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-neptun-smart": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ness-d16x": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-nest": {
+    "hidden": false,
+    "icon": "icons/homebridge-nest.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-nest-cam": {
+    "hidden": false,
+    "icon": "icons/homebridge-nest-cam.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-network-presence": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ngbs-icon-thermostat": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-node-alarm-dot-com": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-noip": {
+    "hidden": false,
+    "icon": "icons/homebridge-noip.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-nordpool-baltics": {
+    "hidden": false,
+    "icon": "icons/homebridge-nordpool-baltics.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-notifyevents": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-nukiio": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-nuvo": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-octoprint-motion": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-omnik": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-omnilink-platform": {
+    "hidden": false,
+    "icon": "icons/homebridge-omnilink-platform.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-onstar": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-open-sesame": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-openrgb": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-opensprinkler-api": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-openwebif-tv": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-oppo-udp": {
+    "hidden": false,
+    "icon": "icons/homebridge-oppo-udp.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-orbit-irrigation": {
+    "hidden": false,
+    "icon": "icons/homebridge-orbit-irrigation.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-otgw": {
+    "hidden": false,
+    "icon": "icons/homebridge-otgw.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-overda-uranus": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-owfs": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-p1": {
+    "hidden": false,
+    "icon": "icons/homebridge-p1.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-panasonic-ac-platform": {
+    "hidden": false,
+    "icon": "icons/homebridge-panasonic-ac-platform.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-panasonic-miraie-ac-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-pc-volume": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-pentair-intellicenter": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-pentair-screenlogic": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-people-pro": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-petkit-pet-feeder": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-petkit-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-petsafe-smart-feed": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-philips-air": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-philips-android-tv": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-philipsair-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-philipstv-saphitvos": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-pichler-pkom4": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-pico": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-pico-w-bridge": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-pihole": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-platform-maxcube": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-platform-orbit": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-playstation": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-playstation-game-title": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-plex-webhooks": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-plugin-govee": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-plugin-update-check": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-porsche-taycan": {
+    "hidden": false,
+    "icon": "icons/homebridge-porsche-taycan.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-presence-switch-msgraph": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-presence-switch-slack": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-printer": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-programmable-http-switch": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-prosegur": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-prusa-link": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-purpleair": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-purpleair-sensor": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-qolsys": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ra2-select": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-rachio-irrigation": {
+    "hidden": false,
+    "icon": "icons/homebridge-rachio-irrigation.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-rademacher-homepilot": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-radiora2": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-rainbird": {
+    "hidden": false,
+    "icon": "icons/homebridge-rainbird.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ratgdo": {
+    "hidden": false,
+    "icon": "icons/homebridge-ratgdo.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-red-alert-via-kumta": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-remootio": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-resideo": {
+    "hidden": false,
+    "icon": "icons/homebridge-resideo.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-rgb-ledstrip": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ring": {
+    "hidden": false,
+    "icon": "icons/homebridge-ring.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-rinnai-controlr": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-rinnai-touch-platform": {
+    "hidden": false,
+    "icon": "icons/homebridge-rinnai-touch-platform.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-robonect": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-rocket-smart-home-ui": {
+    "hidden": true,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": false,
+    "verifiedPlus": false
+  },
+  "homebridge-rointe-unofficial": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-roomba2": {
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-roomme": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-rpi": {
+    "hidden": false,
+    "icon": "icons/homebridge-rpi.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-rpi-rf-switch": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-samsung-tizen": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-samsungtv-2014": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-samsungtvht": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-saphi-tv": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-schedule": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-scout": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-securitysystem": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-sensibo-ac": {
+    "hidden": false,
+    "icon": "icons/homebridge-sensibo-ac.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-sensit-tank-monitor": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-sepsadsecurity": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-server": {
+    "hidden": true,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": false,
+    "verifiedPlus": false
+  },
+  "homebridge-sharkiq": {
+    "hidden": false,
+    "icon": "icons/homebridge-sharkiq.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-shelly": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-shelly-ng": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-shortcuts-buttons": {
+    "hidden": false,
+    "icon": "icons/homebridge-shortcuts-buttons.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-sht3x": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-signalk": {
+    "hidden": false,
+    "icon": "icons/homebridge-signalk.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-simplisafe3": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-sinricpro": {
+    "hidden": false,
+    "icon": "icons/homebridge-sinricpro.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-skybell": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-slide-shutter": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-sma-home-manager": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-smart-irrigation": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-smartcielo": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-smartdry": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-smartglass": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-smarthomeng": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-smartthings": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-smartthings-ik": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-smtp-motion": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-snowsense": {
+    "hidden": false,
+    "icon": "icons/homebridge-snowsense.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-solaxcloud-api": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-solis5g-battery": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-somfy-hotwired": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-somfy-tahoma-screen": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-somneo": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-sonos": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-sonos-multiroom": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-sonos-starter-track": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-sony-audio": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-sp108e-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-spanet": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-spotify-speaker": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-spruce-irrigation": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-stagekit": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-stagg-ekg-plus": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-star-projector": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-sunsa": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-switch-button": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-switchbot-bluetooth-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-switchbot-for-mac": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-switchbot-sensor-ble": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-switcher-platform": {
+    "hidden": false,
+    "icon": "icons/homebridge-switcher-platform.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tadiran-ac": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tado-ac": {
+    "hidden": false,
+    "icon": "icons/homebridge-tado-ac.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tado-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tapo-camera": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tasmota": {
+    "hidden": false,
+    "icon": "icons/homebridge-tasmota.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tasmota-control": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tasmota-zbbridge": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tcc": {
+    "hidden": false,
+    "icon": "icons/homebridge-tcc.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-television-universal-control": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-temperature-sensor-dht": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tempstick": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tesla": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tesy-heater-v2": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-texecom-connect": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-thermobit": {
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tibber-price": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tibberswitch": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tidbyt": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tiko": {
+    "hidden": false,
+    "icon": "icons/homebridge-tiko.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tivo-control": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-to-hoobs": {
+    "hidden": true,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": false,
+    "verifiedPlus": false
+  },
+  "homebridge-tovala": {
+    "hidden": false,
+    "icon": "icons/homebridge-tovala.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tp-link-access-control": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tp-link-powerline": {
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": false,
+    "verifiedPlus": false
+  },
+  "homebridge-tp-link-tapo": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tplink-smarthome": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ttlock": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tuya": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tuya-ir": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tuya-platform": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-tuya-platform-talrhvfork": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-twinkly-plus": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-uconnect": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ueboom": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ui": {
+    "hidden": true,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": false,
+    "verifiedPlus": false
+  },
+  "homebridge-unifi-access": {
+    "hidden": false,
+    "icon": "icons/homebridge-unifi-access.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-unifi-occupancy": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-unifi-poe-control": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-unifi-protect": {
+    "hidden": false,
+    "icon": "icons/homebridge-unifi-protect.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-unifi-protect-camera-motion": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-unifi-smartpower": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ups": {
+    "hidden": false,
+    "icon": "icons/homebridge-ups.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-velux-active": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-verisure": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-vesync-v2": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-videodoorbell": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-vieramatic": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-virtual-device": {
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": false,
+    "verifiedPlus": false
+  },
+  "homebridge-volvo": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-washingmachine-pow": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-wattbox": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-wattbox-ip": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-weather-plus": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-weatherflow-tempest": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-webos-tv": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-website-change-check": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-wemo": {
+    "hidden": false,
+    "icon": "icons/homebridge-wemo.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-winix-purifiers": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-wiser": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-wled-ws": {
+    "hidden": false,
+    "icon": "icons/homebridge-wled-ws.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-wol": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-ws": {
+    "hidden": false,
+    "icon": "icons/homebridge-ws.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-wyze-robovac": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-wyze-smart-home": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-xbox-tv": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-xfinityhome": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-xiaomi-aqara-ac-cooler": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-xiaomi-fan": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-xiaomi-mi-air-purifier": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-xiaomi-roborock-vacuum": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-yamaha-receiver": {
+    "hidden": false,
+    "icon": "icons/homebridge-yamaha-receiver.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-yeelighter": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-yet-another-ping": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-yindl": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-yokis-usb": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-yolink": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-z2m": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-zidoo-androidtv": {
+    "hidden": false,
+    "icon": "icons/homebridge-zidoo-androidtv.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-zigbee-nt": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-zp": {
+    "hidden": false,
+    "icon": "icons/homebridge-zp.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  }
+}

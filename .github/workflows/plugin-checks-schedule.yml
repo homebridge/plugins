@@ -14,7 +14,8 @@ jobs:
       - name: Randomly Select Plugin
         id: get-verified-plugin
         run: |
-          echo "plugin=$(jq -r '.[]' verified-plugins.json | sed '/^$/d' | shuf -n 1)" >> $GITHUB_ENV
+          plugin=$(jq -r 'to_entries | map(select(.value.verified == true)) | .[].key' assets/plugins.json | shuf -n 1)
+          echo "plugin=$plugin" >> $GITHUB_ENV
         shell: bash
       - name: Check Plugin
         uses: ./src/plugin-checks

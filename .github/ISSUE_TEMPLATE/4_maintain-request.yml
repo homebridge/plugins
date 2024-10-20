@@ -1,5 +1,5 @@
 name: Plugin Maintain Request
-description: Request to maintain a Homebridge plugin.
+description: Request to maintain a Homebridge plugin that has been listed as unmaintained.
 title: 'Maintain Request: homebridge-'
 labels:
   - request-maintain
@@ -7,6 +7,11 @@ body:
   - type: markdown
     attributes:
       value: '## Basic Details'
+  - type: markdown
+    attributes:
+      value: |
+        - The GitHub repository will remain in the Homebridge Plugins organization.
+        - You will be granted admin access to the GitHub repository, and maintainer access to the NPM package.
   - type: input
     id: plugin-name
     attributes:

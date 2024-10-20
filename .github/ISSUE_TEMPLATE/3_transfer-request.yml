@@ -1,5 +1,5 @@
 name: Plugin Transfer Request
-description: Request to transfer your plugin into Homebridge ownership.
+description: Request to transfer your plugin into the Homebridge Plugins organization.
 title: 'Transfer Request: homebridge-'
 labels:
   - request-transfer
@@ -11,9 +11,8 @@ body:
     attributes:
       value: |
         - You must be the developer of the plugin to request the transfer.
-        - You must be willing to transfer the GitHub repository to the Homebridge Plugins organization.
         - You must be willing to transfer the NPM package to the Homebridge organization.
-        - Another developer may request to maintain the plugin.
+        - You will be granted admin access to the GitHub repository, and maintainer access to the NPM package.
   - type: input
     id: plugin-name
     attributes:
@@ -24,8 +23,36 @@ body:
       required: true
   - type: input
     attributes:
+      label: NPM Username
+      placeholder: npm-user
+    validations:
+      required: true
+  - type: input
+    attributes:
       label: Link To GitHub Repo
       placeholder: https://github.com/homebridge/homebridge-xyz
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: '## Maintenance'
+  - type: markdown
+    attributes:
+      value: |
+        If you select yes to the following question, then:
+        - We will not list the plugin as unmaintained
+        - We will reject requests to take ownership of the plugin from other developers
+
+        If you select no to the following question, then:
+        - We will list the plugin as unmaintained
+        - We may accept requests to take ownership of the plugin from other developers
+  - type: dropdown
+    attributes:
+      label: Do you plan to continue maintaining the plugin?
+      options:
+        - Yes - I will continue to maintain the plugin
+        - No - I will not continue to maintain the plugin
+      default: 0
     validations:
       required: true
   - type: markdown
