@@ -9,6 +9,7 @@
   "@hernas/homebridge-salus-sq610",
   "@homebridge-plugins/homebridge-ewelink",
   "@homebridge-plugins/homebridge-govee",
+  "@homebridge-plugins/homebridge-meross",
   "@jdes/homebridge-tost-corp-somfy-rts-web",
   "@milo526/homebridge-tuya-web",
   "@o-lukas/homebridge-smartthings-tv",

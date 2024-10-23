@@ -8,5 +8,10 @@
     "from": "homebridge-govee",
     "to": "@homebridge-plugins/homebridge-govee",
     "switch": "10.12.1"
+  },
+  {
+    "from": "homebridge-meross",
+    "to": "@homebridge-plugins/homebridge-meross",
+    "switch": "10.8.0"
   }
 ]

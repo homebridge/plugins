@@ -89,6 +89,15 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-meross": {
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": "bwp91",
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@jdes/homebridge-tost-corp-somfy-rts-web": {
     "hidden": false,
     "icon": null,
@@ -2279,7 +2288,11 @@
     "hidden": false,
     "icon": "icons/homebridge-meross.png",
     "maintained": true,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-meross",
+      "to": "@homebridge-plugins/homebridge-meross",
+      "switch": "10.8.0"
+    },
     "scoped": false,
     "verified": true,
     "verifiedPlus": false

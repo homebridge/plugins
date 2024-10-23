@@ -1,6 +1,7 @@
 [
   "@homebridge-plugins/homebridge-ewelink",
   "@homebridge-plugins/homebridge-govee",
+  "@homebridge-plugins/homebridge-meross",
   "homebridge-air",
   "homebridge-arlo",
   "homebridge-august",

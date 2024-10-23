@@ -1,4 +1,5 @@
 {
   "@homebridge-plugins/homebridge-ewelink": "bwp91",
-  "@homebridge-plugins/homebridge-govee": "bwp91"
+  "@homebridge-plugins/homebridge-govee": "bwp91",
+  "@homebridge-plugins/homebridge-meross": "bwp91"
 }
