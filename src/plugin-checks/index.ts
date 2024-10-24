@@ -20,7 +20,7 @@ class PluginChecks {
 
   async run() {
     try {
-      const pluginName = getInput('plugin', { required: true })
+      const pluginName = getInput('plugin', { required: true }).toLowerCase()
       console.log('**************************')
       console.log(`Running checks for plugin: ${pluginName}.`)
       console.log('**************************')
