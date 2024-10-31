@@ -327,7 +327,11 @@
     "hidden": false,
     "icon": "icons/homebridge-air.png",
     "maintained": true,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-air",
+      "to": "@homebridge-plugins/homebridge-air",
+      "switch": "0.1.0"
+    },
     "scoped": false,
     "verified": true,
     "verifiedPlus": false
@@ -543,7 +547,11 @@
     "hidden": false,
     "icon": "icons/homebridge-august.png",
     "maintained": true,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-august",
+      "to": "@homebridge-plugins/homebridge-august",
+      "switch": "2.2.7"
+    },
     "scoped": false,
     "verified": true,
     "verifiedPlus": false
@@ -858,7 +866,11 @@
     "hidden": false,
     "icon": "icons/homebridge-cloudflared-tunnel.png",
     "maintained": true,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-cloudflared-tunnel",
+      "to": "@homebridge-plugins/homebridge-cloudflared-tunnel",
+      "switch": "1.1.0"
+    },
     "scoped": false,
     "verified": true,
     "verifiedPlus": false
@@ -2252,7 +2264,11 @@
     "hidden": false,
     "icon": "icons/homebridge-meater.png",
     "maintained": true,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-meater",
+      "to": "@homebridge-plugins/homebridge-meater",
+      "switch": "1.1.2"
+    },
     "scoped": false,
     "verified": true,
     "verifiedPlus": false
@@ -2634,7 +2650,11 @@
     "hidden": false,
     "icon": "icons/homebridge-noip.png",
     "maintained": true,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-noip",
+      "to": "@homebridge-plugins/homebridge-noip",
+      "switch": "3.0.4"
+    },
     "scoped": false,
     "verified": true,
     "verifiedPlus": false
@@ -3147,7 +3167,11 @@
     "hidden": false,
     "icon": "icons/homebridge-rainbird.png",
     "maintained": true,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-rainbird",
+      "to": "@homebridge-plugins/homebridge-rainbird",
+      "switch": "2.1.2"
+    },
     "scoped": false,
     "verified": true,
     "verifiedPlus": false
@@ -3183,7 +3207,11 @@
     "hidden": false,
     "icon": "icons/homebridge-resideo.png",
     "maintained": true,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-resideo",
+      "to": "@homebridge-plugins/homebridge-resideo",
+      "switch": "2.1.6"
+    },
     "scoped": false,
     "verified": true,
     "verifiedPlus": false

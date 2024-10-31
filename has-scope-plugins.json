@@ -13,5 +13,40 @@
     "from": "homebridge-meross",
     "to": "@homebridge-plugins/homebridge-meross",
     "switch": "10.8.0"
+  },
+  {
+    "from": "homebridge-air",
+    "to": "@homebridge-plugins/homebridge-air",
+    "switch": "0.1.0"
+  },
+  {
+    "from": "homebridge-august",
+    "to": "@homebridge-plugins/homebridge-august",
+    "switch": "2.2.7"
+  },
+  {
+    "from": "homebridge-cloudflared-tunnel",
+    "to": "@homebridge-plugins/homebridge-cloudflared-tunnel",
+    "switch": "1.1.0"
+  },
+  {
+    "from": "homebridge-meater",
+    "to": "@homebridge-plugins/homebridge-meater",
+    "switch": "1.1.2"
+  },
+  {
+    "from": "homebridge-noip",
+    "to": "@homebridge-plugins/homebridge-noip",
+    "switch": "3.0.4"
+  },
+  {
+    "from": "homebridge-rainbird",
+    "to": "@homebridge-plugins/homebridge-rainbird",
+    "switch": "2.1.2"
+  },
+  {
+    "from": "homebridge-resideo",
+    "to": "@homebridge-plugins/homebridge-resideo",
+    "switch": "2.1.6"
   }
 ]
