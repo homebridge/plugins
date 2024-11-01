@@ -1,20 +1,5 @@
 [
   {
-    "from": "homebridge-ewelink",
-    "to": "@homebridge-plugins/homebridge-ewelink",
-    "switch": "12.3.3"
-  },
-  {
-    "from": "homebridge-govee",
-    "to": "@homebridge-plugins/homebridge-govee",
-    "switch": "10.12.1"
-  },
-  {
-    "from": "homebridge-meross",
-    "to": "@homebridge-plugins/homebridge-meross",
-    "switch": "10.8.0"
-  },
-  {
     "from": "homebridge-air",
     "to": "@homebridge-plugins/homebridge-air",
     "switch": "0.1.0"
@@ -30,9 +15,24 @@
     "switch": "1.1.0"
   },
   {
+    "from": "homebridge-ewelink",
+    "to": "@homebridge-plugins/homebridge-ewelink",
+    "switch": "12.3.3"
+  },
+  {
+    "from": "homebridge-govee",
+    "to": "@homebridge-plugins/homebridge-govee",
+    "switch": "10.12.1"
+  },
+  {
     "from": "homebridge-meater",
     "to": "@homebridge-plugins/homebridge-meater",
     "switch": "1.1.2"
+  },
+  {
+    "from": "homebridge-meross",
+    "to": "@homebridge-plugins/homebridge-meross",
+    "switch": "10.8.0"
   },
   {
     "from": "homebridge-noip",

@@ -71,6 +71,33 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-air": {
+    "hidden": false,
+    "icon": "icons/homebridge-air.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": "donavanbecker",
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@homebridge-plugins/homebridge-august": {
+    "hidden": false,
+    "icon": "icons/homebridge-august.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": "donavanbecker",
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@homebridge-plugins/homebridge-cloudflared-tunnel": {
+    "hidden": false,
+    "icon": "icons/homebridge-cloudflared-tunnel.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": "donavanbecker",
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-ewelink": {
     "hidden": false,
     "icon": "icons/homebridge-ewelink.png",
@@ -89,12 +116,48 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-meater": {
+    "hidden": false,
+    "icon": "icons/homebridge-meater.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": "donavanbecker",
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-meross": {
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-meross.png",
     "maintained": true,
     "newScope": false,
     "scoped": "bwp91",
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@homebridge-plugins/homebridge-noip": {
+    "hidden": false,
+    "icon": "icons/homebridge-noip.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": "donavanbecker",
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@homebridge-plugins/homebridge-rainbird": {
+    "hidden": false,
+    "icon": "icons/homebridge-rainbird.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": "donavanbecker",
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@homebridge-plugins/homebridge-resideo": {
+    "hidden": false,
+    "icon": "icons/homebridge-resideo.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": "donavanbecker",
     "verified": true,
     "verifiedPlus": false
   },
