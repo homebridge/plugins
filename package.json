@@ -35,9 +35,13 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.8.0",
+    "@fastify/pre-commit": "^2.2.0",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.7.9",
-    "eslint": "^9.13.0",
+    "@types/node": "^22.8.6",
+    "eslint": "^9.14.0",
     "eslint-plugin-format": "^0.1.2"
-  }
+  },
+  "pre-commit": [
+    "sort-json-files"
+  ]
 }
