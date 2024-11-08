@@ -1749,8 +1749,8 @@
   },
   "homebridge-gsh": {
     "hidden": false,
-    "icon": null,
-    "maintained": false,
+    "icon": "icons/homebridge-gsh.png",
+    "maintained": true,
     "newScope": false,
     "scoped": false,
     "verified": true,

@@ -9,6 +9,7 @@
   "homebridge-cloudflared-tunnel",
   "homebridge-deebot",
   "homebridge-flume",
+  "homebridge-gsh",
   "homebridge-meater",
   "homebridge-meross",
   "homebridge-noip",
