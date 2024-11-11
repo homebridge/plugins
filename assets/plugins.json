@@ -74,7 +74,7 @@
   "@homebridge-plugins/homebridge-air": {
     "hidden": false,
     "icon": "icons/homebridge-air.png",
-    "maintained": false,
+    "maintained": true,
     "newScope": false,
     "scoped": "donavanbecker",
     "verified": true,
@@ -83,7 +83,7 @@
   "@homebridge-plugins/homebridge-august": {
     "hidden": false,
     "icon": "icons/homebridge-august.png",
-    "maintained": false,
+    "maintained": true,
     "newScope": false,
     "scoped": "donavanbecker",
     "verified": true,
@@ -92,7 +92,7 @@
   "@homebridge-plugins/homebridge-cloudflared-tunnel": {
     "hidden": false,
     "icon": "icons/homebridge-cloudflared-tunnel.png",
-    "maintained": false,
+    "maintained": true,
     "newScope": false,
     "scoped": "donavanbecker",
     "verified": true,
@@ -119,7 +119,7 @@
   "@homebridge-plugins/homebridge-meater": {
     "hidden": false,
     "icon": "icons/homebridge-meater.png",
-    "maintained": false,
+    "maintained": true,
     "newScope": false,
     "scoped": "donavanbecker",
     "verified": true,
@@ -137,7 +137,7 @@
   "@homebridge-plugins/homebridge-noip": {
     "hidden": false,
     "icon": "icons/homebridge-noip.png",
-    "maintained": false,
+    "maintained": true,
     "newScope": false,
     "scoped": "donavanbecker",
     "verified": true,
@@ -146,7 +146,7 @@
   "@homebridge-plugins/homebridge-rainbird": {
     "hidden": false,
     "icon": "icons/homebridge-rainbird.png",
-    "maintained": false,
+    "maintained": true,
     "newScope": false,
     "scoped": "donavanbecker",
     "verified": true,
@@ -155,7 +155,16 @@
   "@homebridge-plugins/homebridge-resideo": {
     "hidden": false,
     "icon": "icons/homebridge-resideo.png",
-    "maintained": false,
+    "maintained": true,
+    "newScope": false,
+    "scoped": "donavanbecker",
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@homebridge-plugins/homebridge-smarthq": {
+    "hidden": false,
+    "icon": "icons/homebridge-smarthq.png",
+    "maintained": true,
     "newScope": false,
     "scoped": "donavanbecker",
     "verified": true,

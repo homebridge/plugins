@@ -17,6 +17,7 @@
   "@homebridge-plugins/homebridge-noip",
   "@homebridge-plugins/homebridge-rainbird",
   "@homebridge-plugins/homebridge-resideo",
+  "@homebridge-plugins/homebridge-smarthq",
   "@jdes/homebridge-tost-corp-somfy-rts-web",
   "@milo526/homebridge-tuya-web",
   "@o-lukas/homebridge-smartthings-tv",

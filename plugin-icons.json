@@ -11,6 +11,7 @@
   "@homebridge-plugins/homebridge-noip": "icons/homebridge-noip.png",
   "@homebridge-plugins/homebridge-rainbird": "icons/homebridge-rainbird.png",
   "@homebridge-plugins/homebridge-resideo": "icons/homebridge-resideo.png",
+  "@homebridge-plugins/homebridge-smarthq": "icons/homebridge-smarthq.png",
   "@pietrolubini/homebridge-ecoflow": "icons/homebridge-ecoflow.png",
   "@switchbot/homebridge-switchbot": "icons/homebridge-switchbot.png",
   "@vandubois/homebridge-virtual-switch": "icons/homebridge-virtual-switch.png",
