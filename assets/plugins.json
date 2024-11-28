@@ -4287,6 +4287,15 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-virtual-accessories": {
+    "hidden": false,
+    "icon": "icons/homebridge-virtual-accessories.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-virtual-device": {
     "hidden": false,
     "icon": null,
