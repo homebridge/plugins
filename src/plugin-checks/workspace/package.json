@@ -9,7 +9,7 @@
   "main": "index.js",
   "dependencies": {
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.10.1",
+    "@types/node": "^22.10.2",
     "@types/semver": "^7.5.8",
     "fs-extra": "^11.2.0",
     "semver": "^7.6.3",

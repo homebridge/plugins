@@ -2379,7 +2379,7 @@
     "newScope": {
       "from": "homebridge-meross",
       "to": "@homebridge-plugins/homebridge-meross",
-      "switch": "10.8.0"
+      "switch": "10.8.1"
     },
     "scoped": false,
     "verified": true,
