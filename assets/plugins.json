@@ -1696,7 +1696,7 @@
     "newScope": {
       "from": "homebridge-govee",
       "to": "@homebridge-plugins/homebridge-govee",
-      "switch": "10.12.1"
+      "switch": "10.15.0"
     },
     "scoped": false,
     "verified": true,
@@ -2379,7 +2379,7 @@
     "newScope": {
       "from": "homebridge-meross",
       "to": "@homebridge-plugins/homebridge-meross",
-      "switch": "10.8.0"
+      "switch": "10.8.1"
     },
     "scoped": false,
     "verified": true,
