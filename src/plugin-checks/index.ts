@@ -17,6 +17,7 @@ class PluginChecks {
   private pluginName: string
   private passed: string[] = []
   private failed: string[] = []
+  private version: string = ''
 
   async run() {
     try {
@@ -56,6 +57,10 @@ class PluginChecks {
       allPassed = false
       comment += '⚠️ Please action these failures and then comment `/check` to run the checks again. Let us know if you need any help.\n\n'
       comment += 'If updating your `package.json` and `config.schema.json` files, don\'t forget to publish a new version to NPM.'
+    }
+
+    if (this.version) {
+      comment += `\n\nThese checks were run against v${this.version} of the plugin.`
     }
 
     await this.addComment(allPassed, comment)
@@ -169,9 +174,10 @@ class PluginChecks {
     }
 
     if (await fs.pathExists(checksJsonFile)) {
-      const checksJson = await fs.readJson(checksJsonFile) as { passed: string[], failed: string[] }
+      const checksJson = await fs.readJson(checksJsonFile) as { passed: string[], failed: string[], version: string }
       this.passed.push(...checksJson.passed)
       this.failed.push(...checksJson.failed)
+      this.version = checksJson.version
     } else {
       this.failed.push('JSON results file not found')
     }

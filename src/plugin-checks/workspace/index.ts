@@ -23,12 +23,14 @@ class CheckHomebridgePlugin {
   passed: string[] = []
 
   packageName: string
+  packageVersion: string
   testPath: string
   gitHubRepo: string
   gitHubAuthor: string
 
   constructor() {
     this.packageName = process.env.HOMEBRIDGE_PLUGIN_NAME as string
+    this.packageVersion = '' as string
     this.testPath = '' as string
     this.gitHubRepo = '' as string
     this.gitHubAuthor = '' as string
@@ -62,6 +64,7 @@ class CheckHomebridgePlugin {
     await fs.writeJson('/results/results.json', {
       failed: this.failed,
       passed: this.passed,
+      version: this.packageVersion,
     })
 
     process.exit(this.failed.length ? 1 : 0)
@@ -85,7 +88,7 @@ class CheckHomebridgePlugin {
 
   async install() {
     return new Promise<void>((resolve, reject) => {
-      const proc = spawn('npm', ['install', this.packageName], {
+      const proc = spawn('npm', ['install', `${this.packageName}@latest`], {
         cwd: this.testPath,
         stdio: 'inherit',
       })
@@ -119,6 +122,7 @@ class CheckHomebridgePlugin {
         parts.pop()
         this.gitHubRepo = parts.pop()
         this.gitHubAuthor = parts.pop()
+        this.packageVersion = packageJSON.version
 
         // Verify that the bugs.url starts with https://
         if (packageJSON.bugs.url.startsWith('https://')) {
