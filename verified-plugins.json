@@ -114,6 +114,7 @@
   "homebridge-cuby",
   "homebridge-daelim-smarthome",
   "homebridge-dafang-mqtt-republish",
+  "homebridge-dahua-alarm",
   "homebridge-dahua-alerts",
   "homebridge-daikin-cloud",
   "homebridge-daikin-local",
