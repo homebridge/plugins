@@ -1972,6 +1972,15 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-hue-daylight-sync": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-hunter-hydrawise": {
     "hidden": false,
     "icon": "icons/homebridge-hunter-hydrawise.png",
