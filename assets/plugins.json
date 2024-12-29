@@ -3810,6 +3810,15 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-sternet-smart-lan": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-sunsa": {
     "hidden": false,
     "icon": null,
