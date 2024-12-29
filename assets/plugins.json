@@ -1379,6 +1379,15 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-electricitymaps": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-elkm1": {
     "hidden": false,
     "icon": null,
