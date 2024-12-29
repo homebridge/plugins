@@ -4422,6 +4422,15 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-wiz-lan": {
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-wled-ws": {
     "hidden": false,
     "icon": "icons/homebridge-wled-ws.png",
