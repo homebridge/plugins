@@ -9,12 +9,12 @@
   "main": "index.js",
   "dependencies": {
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.10.2",
+    "@types/node": "^22.10.5",
     "@types/semver": "^7.5.8",
     "fs-extra": "^11.2.0",
     "semver": "^7.6.3",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2",
-    "undici": "^7.2.0"
+    "typescript": "^5.7.3",
+    "undici": "^7.2.1"
   }
 }
