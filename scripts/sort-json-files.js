@@ -21,6 +21,24 @@ const scopedSorted = scopedSortedKeys.reduce((obj, key) => {
 
 fs.writeFileSync('scoped-plugins.json', `${JSON.stringify(scopedSorted, null, 2)}\n`)
 
+const authors = JSON.parse(fs.readFileSync('plugin-authors.json', 'utf8'))
+const authorsSortedKeys = Object.keys(authors).sort()
+const authorsSorted = authorsSortedKeys.reduce((obj, key) => {
+  obj[key] = authors[key]
+  return obj
+}, {})
+
+fs.writeFileSync('plugin-authors.json', `${JSON.stringify(authorsSorted, null, 2)}\n`)
+
+const names = JSON.parse(fs.readFileSync('plugin-names.json', 'utf8'))
+const namesSortedKeys = Object.keys(names).sort()
+const namesSorted = namesSortedKeys.reduce((obj, key) => {
+  obj[key] = names[key]
+  return obj
+}, {})
+
+fs.writeFileSync('plugin-names.json', `${JSON.stringify(namesSorted, null, 2)}\n`)
+
 const hasScope = JSON.parse(fs.readFileSync('has-scope-plugins.json', 'utf8'))
 const hasScopeSorted = hasScope.sort((a, b) => a.from.localeCompare(b.from))
 const hasScopeKeys = hasScopeSorted.map(plugin => plugin.from)
@@ -57,14 +75,18 @@ const fullJson = verifiedSorted
   .concat(maintainedPlugins)
   .concat(hasScopeKeys)
   .concat(scopedSortedKeys)
+  .concat(authorsSortedKeys)
+  .concat(namesSortedKeys)
   .sort()
   .reduce((obj, key) => {
     obj[key] = {
+      name: namesSortedKeys.includes(key) ? namesSorted[key] : null,
       hidden: hidden.includes(key),
       icon: (verified.includes(key) || verifiedPlus.includes(key)) && fs.existsSync(`./${icons[key]}`) ? icons[key] : null,
       maintained: maintained.includes(key),
       newScope: hasScopeKeys.includes(key) ? hasScope.find(plugin => plugin.from === key) : false,
       scoped: scopedSortedKeys.includes(key) ? scopedSorted[key] : false,
+      author: authorsSortedKeys.includes(key) ? authorsSorted[key] : null,
       verified: verified.includes(key),
       verifiedPlus: verifiedPlus.includes(key),
     }
@@ -73,6 +95,9 @@ const fullJson = verifiedSorted
 
 const filteredJson = Object.keys(fullJson).reduce((obj, key) => {
   obj[key] = Object.entries(fullJson[key]).reduce((props, [propKey, propValue]) => {
+    if (['author', 'name'].includes(propKey)) {
+      return props
+    }
     if (propValue === true) {
       props[propKey] = 1
     } else if (typeof propValue === 'string') {
@@ -87,8 +112,44 @@ const filteredJson = Object.keys(fullJson).reduce((obj, key) => {
   return obj
 }, {})
 
+const shortenedKeys = {
+  name: 'n',
+  hidden: 'h',
+  icon: 'i',
+  maintained: 'm',
+  newScope: 's',
+  author: 'a',
+  verified: 'v',
+  verifiedPlus: 'p',
+}
+
+const filteredJsonV2 = Object.keys(fullJson).reduce((obj, key) => {
+  obj[key] = Object.entries(fullJson[key]).reduce((props, [propKey, propValue]) => {
+    if (propKey === 'scoped') {
+      return props
+    }
+    const shortKey = shortenedKeys[propKey] || propKey
+    if (propValue === true) {
+      props[shortKey] = 1
+    } else if (typeof propValue === 'string') {
+      if (propKey === 'icon') {
+        props[shortKey] = propValue
+          .replace('icons/', '')
+          .replace('.png', '')
+      } else {
+        props[shortKey] = propValue
+      }
+    } else if (propValue && typeof propValue === 'object') {
+      props[shortKey] = propValue
+    }
+    return props
+  }, {})
+  return obj
+}, {})
+
 fs.writeFileSync('./assets/plugins.json', `${JSON.stringify(fullJson, null, 2)}\n`)
 fs.writeFileSync('./assets/plugins.min.json', JSON.stringify(filteredJson))
+fs.writeFileSync('./assets/plugins-v2.min.json', JSON.stringify(filteredJsonV2))
 
 const fullArray = Object.values(fullJson)
 

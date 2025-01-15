@@ -1,0 +1,22 @@
+{
+  "@homebridge-plugins/homebridge-air": "donavanbecker",
+  "@homebridge-plugins/homebridge-august": "donavanbecker",
+  "@homebridge-plugins/homebridge-cloudflared-tunnel": "donavanbecker",
+  "@homebridge-plugins/homebridge-ewelink": "bwp91",
+  "@homebridge-plugins/homebridge-govee": "bwp91",
+  "@homebridge-plugins/homebridge-meater": "donavanbecker",
+  "@homebridge-plugins/homebridge-meross": "bwp91",
+  "@homebridge-plugins/homebridge-noip": "donavanbecker",
+  "@homebridge-plugins/homebridge-rainbird": "donavanbecker",
+  "@homebridge-plugins/homebridge-resideo": "donavanbecker",
+  "@homebridge-plugins/homebridge-smarthq": "donavanbecker",
+  "homebridge-air": "donavanbecker",
+  "homebridge-august": "donavanbecker",
+  "homebridge-cloudflared-tunnel": "donavanbecker",
+  "homebridge-gsh": "northernman",
+  "homebridge-meater": "donavanbecker",
+  "homebridge-noip": "donavanbecker",
+  "homebridge-rainbird": "donavanbecker",
+  "homebridge-resideo": "donavanbecker",
+  "homebridge-smarthq": "donavanbecker"
+}
