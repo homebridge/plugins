@@ -7,6 +7,7 @@
   "@homebridge-plugins/homebridge-meater": "donavanbecker",
   "@homebridge-plugins/homebridge-meross": "bwp91",
   "@homebridge-plugins/homebridge-noip": "donavanbecker",
+  "@homebridge-plugins/homebridge-plugin-update-check": "sunookitsune",
   "@homebridge-plugins/homebridge-rainbird": "donavanbecker",
   "@homebridge-plugins/homebridge-resideo": "donavanbecker",
   "@homebridge-plugins/homebridge-smarthq": "donavanbecker"

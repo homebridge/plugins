@@ -175,6 +175,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-plugin-update-check": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": "sunookitsune",
+    "author": "sunookitsune",
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-rainbird": {
     "name": null,
     "hidden": false,
@@ -491,7 +502,7 @@
     "newScope": {
       "from": "homebridge-air",
       "to": "@homebridge-plugins/homebridge-air",
-      "switch": "0.1.0"
+      "switch": "1.0.0"
     },
     "scoped": false,
     "author": "donavanbecker",
@@ -759,7 +770,7 @@
     "newScope": {
       "from": "homebridge-august",
       "to": "@homebridge-plugins/homebridge-august",
-      "switch": "2.2.7"
+      "switch": "3.0.0"
     },
     "scoped": false,
     "author": "donavanbecker",
@@ -1148,7 +1159,7 @@
     "newScope": {
       "from": "homebridge-cloudflared-tunnel",
       "to": "@homebridge-plugins/homebridge-cloudflared-tunnel",
-      "switch": "1.1.0"
+      "switch": "2.0.0"
     },
     "scoped": false,
     "author": "donavanbecker",
@@ -2887,7 +2898,7 @@
     "newScope": {
       "from": "homebridge-meater",
       "to": "@homebridge-plugins/homebridge-meater",
-      "switch": "1.1.2"
+      "switch": "2.0.0"
     },
     "scoped": false,
     "author": "donavanbecker",
@@ -3357,7 +3368,7 @@
     "newScope": {
       "from": "homebridge-noip",
       "to": "@homebridge-plugins/homebridge-noip",
-      "switch": "3.0.4"
+      "switch": "4.0.0"
     },
     "scoped": false,
     "author": "donavanbecker",
@@ -3820,7 +3831,11 @@
     "hidden": false,
     "icon": null,
     "maintained": false,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-plugin-update-check",
+      "to": "@homebridge-plugins/homebridge-plugin-update-check",
+      "switch": "1.0.2"
+    },
     "scoped": false,
     "author": null,
     "verified": true,
@@ -3988,7 +4003,7 @@
     "newScope": {
       "from": "homebridge-rainbird",
       "to": "@homebridge-plugins/homebridge-rainbird",
-      "switch": "2.1.2"
+      "switch": "3.0.0"
     },
     "scoped": false,
     "author": "donavanbecker",
@@ -4036,7 +4051,7 @@
     "newScope": {
       "from": "homebridge-resideo",
       "to": "@homebridge-plugins/homebridge-resideo",
-      "switch": "2.1.6"
+      "switch": "3.0.0"
     },
     "scoped": false,
     "author": "donavanbecker",

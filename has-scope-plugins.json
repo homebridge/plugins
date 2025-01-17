@@ -2,17 +2,17 @@
   {
     "from": "homebridge-air",
     "to": "@homebridge-plugins/homebridge-air",
-    "switch": "0.1.0"
+    "switch": "1.0.0"
   },
   {
     "from": "homebridge-august",
     "to": "@homebridge-plugins/homebridge-august",
-    "switch": "2.2.7"
+    "switch": "3.0.0"
   },
   {
     "from": "homebridge-cloudflared-tunnel",
     "to": "@homebridge-plugins/homebridge-cloudflared-tunnel",
-    "switch": "1.1.0"
+    "switch": "2.0.0"
   },
   {
     "from": "homebridge-ewelink",
@@ -27,7 +27,7 @@
   {
     "from": "homebridge-meater",
     "to": "@homebridge-plugins/homebridge-meater",
-    "switch": "1.1.2"
+    "switch": "2.0.0"
   },
   {
     "from": "homebridge-meross",
@@ -37,12 +37,17 @@
   {
     "from": "homebridge-noip",
     "to": "@homebridge-plugins/homebridge-noip",
-    "switch": "3.0.4"
+    "switch": "4.0.0"
+  },
+  {
+    "from": "homebridge-plugin-update-check",
+    "to": "@homebridge-plugins/homebridge-plugin-update-check",
+    "switch": "1.0.2"
   },
   {
     "from": "homebridge-rainbird",
     "to": "@homebridge-plugins/homebridge-rainbird",
-    "switch": "2.1.2"
+    "switch": "3.0.0"
   },
   {
     "from": "homebridge-resideo",
