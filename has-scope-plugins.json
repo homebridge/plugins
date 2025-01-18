@@ -1,5 +1,10 @@
 [
   {
+    "from": "@homebridge-plugins/homebridge-roomba2",
+    "to": "@homebridge-plugins/homebridge-roomba",
+    "switch": "1.5.3"
+  },
+  {
     "from": "homebridge-air",
     "to": "@homebridge-plugins/homebridge-air",
     "switch": "1.0.0"
@@ -62,6 +67,11 @@
   {
     "from": "homebridge-resideo",
     "to": "@homebridge-plugins/homebridge-resideo",
-    "switch": "2.1.6"
+    "switch": "3.0.0"
+  },
+  {
+    "from": "homebridge-roomba2",
+    "to": "@homebridge-plugins/homebridge-roomba",
+    "switch": "1.5.3"
   }
 ]

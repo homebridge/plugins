@@ -230,6 +230,32 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-roomba": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-roomba.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "author": "karlvr",
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@homebridge-plugins/homebridge-roomba2": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": {
+      "from": "@homebridge-plugins/homebridge-roomba2",
+      "to": "@homebridge-plugins/homebridge-roomba",
+      "switch": "1.5.3"
+    },
+    "scoped": false,
+    "author": null,
+    "verified": false,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-smarthq": {
     "name": null,
     "hidden": false,
@@ -4169,8 +4195,12 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": true,
-    "newScope": false,
+    "maintained": false,
+    "newScope": {
+      "from": "homebridge-roomba2",
+      "to": "@homebridge-plugins/homebridge-roomba",
+      "switch": "1.5.3"
+    },
     "scoped": false,
     "author": null,
     "verified": true,

@@ -20,6 +20,7 @@
   "@homebridge-plugins/homebridge-plugin-update-check",
   "@homebridge-plugins/homebridge-rainbird",
   "@homebridge-plugins/homebridge-resideo",
+  "@homebridge-plugins/homebridge-roomba",
   "@homebridge-plugins/homebridge-smarthq",
   "@jdes/homebridge-tost-corp-somfy-rts-web",
   "@milo526/homebridge-tuya-web",
