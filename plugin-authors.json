@@ -1,6 +1,7 @@
 {
   "@homebridge-plugins/homebridge-air": "donavanbecker",
   "@homebridge-plugins/homebridge-august": "donavanbecker",
+  "@homebridge-plugins/homebridge-camera-ffmpeg": "sunookitsune",
   "@homebridge-plugins/homebridge-cloudflared-tunnel": "donavanbecker",
   "@homebridge-plugins/homebridge-ewelink": "bwp91",
   "@homebridge-plugins/homebridge-govee": "bwp91",

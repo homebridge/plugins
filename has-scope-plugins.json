@@ -10,6 +10,11 @@
     "switch": "3.0.0"
   },
   {
+    "from": "homebridge-camera-ffmpeg",
+    "to": "@homebridge-plugins/homebridge-camera-ffmpeg",
+    "switch": "3.1.4"
+  },
+  {
     "from": "homebridge-cloudflared-tunnel",
     "to": "@homebridge-plugins/homebridge-cloudflared-tunnel",
     "switch": "2.0.0"

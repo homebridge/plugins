@@ -109,6 +109,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-camera-ffmpeg": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-camera-ffmpeg.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": "sunookitsune",
+    "author": "sunookitsune",
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-cloudflared-tunnel": {
     "name": null,
     "hidden": false,
@@ -1101,7 +1112,11 @@
     "hidden": false,
     "icon": null,
     "maintained": false,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-camera-ffmpeg",
+      "to": "@homebridge-plugins/homebridge-camera-ffmpeg",
+      "switch": "3.1.4"
+    },
     "scoped": false,
     "author": null,
     "verified": true,

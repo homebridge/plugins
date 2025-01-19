@@ -1,6 +1,7 @@
 [
   "@homebridge-plugins/homebridge-air",
   "@homebridge-plugins/homebridge-august",
+  "@homebridge-plugins/homebridge-camera-ffmpeg",
   "@homebridge-plugins/homebridge-cloudflared-tunnel",
   "@homebridge-plugins/homebridge-ewelink",
   "@homebridge-plugins/homebridge-govee",
