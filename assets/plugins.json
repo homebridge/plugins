@@ -153,6 +153,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-lutron-caseta-leap": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-lutron-caseta-leap.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": "thenewwazoo",
+    "author": "thenewwazoo",
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-meater": {
     "name": null,
     "hidden": false,
@@ -2866,7 +2877,11 @@
     "hidden": false,
     "icon": null,
     "maintained": false,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-lutron-caseta-leap",
+      "to": "@homebridge-plugins/homebridge-lutron-caseta-leap",
+      "switch": "2.6.0"
+    },
     "scoped": false,
     "author": null,
     "verified": true,

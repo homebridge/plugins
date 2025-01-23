@@ -30,6 +30,11 @@
     "switch": "10.15.0"
   },
   {
+    "from": "homebridge-lutron-caseta-leap",
+    "to": "@homebridge-plugins/homebridge-lutron-caseta-leap",
+    "switch": "2.6.0"
+  },
+  {
     "from": "homebridge-meater",
     "to": "@homebridge-plugins/homebridge-meater",
     "switch": "2.0.0"

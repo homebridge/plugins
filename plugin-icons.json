@@ -7,6 +7,7 @@
   "@homebridge-plugins/homebridge-cloudflared-tunnel": "icons/homebridge-cloudflared-tunnel.png",
   "@homebridge-plugins/homebridge-ewelink": "icons/homebridge-ewelink.png",
   "@homebridge-plugins/homebridge-govee": "icons/homebridge-govee.png",
+  "@homebridge-plugins/homebridge-lutron-caseta-leap": "icons/homebridge-lutron-caseta-leap.png",
   "@homebridge-plugins/homebridge-meater": "icons/homebridge-meater.png",
   "@homebridge-plugins/homebridge-meross": "icons/homebridge-meross.png",
   "@homebridge-plugins/homebridge-noip": "icons/homebridge-noip.png",

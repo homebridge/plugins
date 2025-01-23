@@ -5,6 +5,7 @@
   "@homebridge-plugins/homebridge-cloudflared-tunnel": "donavanbecker",
   "@homebridge-plugins/homebridge-ewelink": "bwp91",
   "@homebridge-plugins/homebridge-govee": "bwp91",
+  "@homebridge-plugins/homebridge-lutron-caseta-leap": "thenewwazoo",
   "@homebridge-plugins/homebridge-meater": "donavanbecker",
   "@homebridge-plugins/homebridge-meross": "bwp91",
   "@homebridge-plugins/homebridge-noip": "donavanbecker",
