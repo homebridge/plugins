@@ -1,10 +1,5 @@
 [
   {
-    "from": "@homebridge-plugins/homebridge-roomba2",
-    "to": "@homebridge-plugins/homebridge-roomba",
-    "switch": "1.5.3"
-  },
-  {
     "from": "homebridge-air",
     "to": "@homebridge-plugins/homebridge-air",
     "switch": "1.0.0"

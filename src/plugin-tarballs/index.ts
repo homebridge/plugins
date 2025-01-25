@@ -269,7 +269,7 @@ class PluginTarballs {
           await fs.writeJson(path.join(targetDir, 'package.json'), { private: true })
 
           // install plugin
-          await execAsync(`npm install ${plugin.name}@${plugin.version}`, {
+          await execAsync(`npm install ${plugin.name}@${plugin.version} --omit=dev`, {
             cwd: targetDir,
             env: Object.assign({
               npm_config_audit: 'false',
