@@ -1,5 +1,6 @@
 [
   "@homebridge-plugins/homebridge-air",
+  "@homebridge-plugins/homebridge-aladdin-connect",
   "@homebridge-plugins/homebridge-august",
   "@homebridge-plugins/homebridge-camera-ffmpeg",
   "@homebridge-plugins/homebridge-cloudflared-tunnel",

@@ -98,6 +98,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-aladdin-connect": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-aladdin-connect.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": "derek-miller",
+    "author": "derek-miller",
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-august": {
     "name": null,
     "hidden": false,
@@ -2092,9 +2103,13 @@
     "hidden": false,
     "icon": null,
     "maintained": false,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-genie-aladdin-connect",
+      "to": "@homebridge-plugins/homebridge-aladdin-connect",
+      "switch": "4.2.1"
+    },
     "scoped": false,
-    "author": null,
+    "author": "derek-miller",
     "verified": true,
     "verifiedPlus": false
   },

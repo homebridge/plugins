@@ -1,5 +1,6 @@
 {
   "@homebridge-plugins/homebridge-air": "donavanbecker",
+  "@homebridge-plugins/homebridge-aladdin-connect": "derek-miller",
   "@homebridge-plugins/homebridge-august": "donavanbecker",
   "@homebridge-plugins/homebridge-camera-ffmpeg": "sunookitsune",
   "@homebridge-plugins/homebridge-cloudflared-tunnel": "donavanbecker",

@@ -2,6 +2,7 @@
   "@0x5e/homebridge-tuya-platform": "icons/homebridge-tuya-platform.png",
   "@chazepps/homebridge-hejhome": "icons/homebridge-hejhome.png",
   "@homebridge-plugins/homebridge-air": "icons/homebridge-air.png",
+  "@homebridge-plugins/homebridge-aladdin-connect": "icons/homebridge-aladdin-connect.png",
   "@homebridge-plugins/homebridge-august": "icons/homebridge-august.png",
   "@homebridge-plugins/homebridge-camera-ffmpeg": "icons/homebridge-camera-ffmpeg.png",
   "@homebridge-plugins/homebridge-cloudflared-tunnel": "icons/homebridge-cloudflared-tunnel.png",

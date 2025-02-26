@@ -25,6 +25,11 @@
     "switch": "12.3.3"
   },
   {
+    "from": "homebridge-genie-aladdin-connect",
+    "to": "@homebridge-plugins/homebridge-aladdin-connect",
+    "switch": "4.2.1"
+  },
+  {
     "from": "homebridge-govee",
     "to": "@homebridge-plugins/homebridge-govee",
     "switch": "10.15.0"
