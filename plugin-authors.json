@@ -15,6 +15,8 @@
   "@homebridge-plugins/homebridge-resideo": "donavanbecker",
   "@homebridge-plugins/homebridge-roomba": "karlvr",
   "@homebridge-plugins/homebridge-smarthq": "donavanbecker",
+  "@homebridge-plugins/homebridge-unifi-network": "derek-miller",
+  "@homebridge-plugins/homebridge-wattbox": "derek-miller",
   "homebridge-air": "donavanbecker",
   "homebridge-august": "donavanbecker",
   "homebridge-cloudflared-tunnel": "donavanbecker",
@@ -24,5 +26,7 @@
   "homebridge-noip": "donavanbecker",
   "homebridge-rainbird": "donavanbecker",
   "homebridge-resideo": "donavanbecker",
-  "homebridge-smarthq": "donavanbecker"
+  "homebridge-smarthq": "donavanbecker",
+  "homebridge-unifi-smartpower": "derek-miller",
+  "homebridge-wattbox": "derek-miller"
 }

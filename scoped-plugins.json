@@ -14,5 +14,7 @@
   "@homebridge-plugins/homebridge-rainbird": "donavanbecker",
   "@homebridge-plugins/homebridge-resideo": "donavanbecker",
   "@homebridge-plugins/homebridge-roomba": "karlvr",
-  "@homebridge-plugins/homebridge-smarthq": "donavanbecker"
+  "@homebridge-plugins/homebridge-smarthq": "donavanbecker",
+  "@homebridge-plugins/homebridge-unifi-network": "derek-miller",
+  "@homebridge-plugins/homebridge-wattbox": "derek-miller"
 }

@@ -263,6 +263,28 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-unifi-network": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": "derek-miller",
+    "author": "derek-miller",
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@homebridge-plugins/homebridge-wattbox": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": "derek-miller",
+    "author": "derek-miller",
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@jdes/homebridge-tost-corp-somfy-rts-web": {
     "name": null,
     "hidden": false,
@@ -5311,9 +5333,13 @@
     "hidden": false,
     "icon": null,
     "maintained": false,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-unifi-smartpower",
+      "to": "@homebridge-plugins/homebridge-unifi-network",
+      "switch": "2.3.0"
+    },
     "scoped": false,
-    "author": null,
+    "author": "derek-miller",
     "verified": true,
     "verifiedPlus": false
   },
@@ -5443,9 +5469,13 @@
     "hidden": false,
     "icon": null,
     "maintained": false,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-wattbox",
+      "to": "@homebridge-plugins/homebridge-wattbox",
+      "switch": "3.2.0"
+    },
     "scoped": false,
-    "author": null,
+    "author": "derek-miller",
     "verified": true,
     "verifiedPlus": false
   },
