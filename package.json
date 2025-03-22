@@ -27,17 +27,17 @@
     "@actions/core": "^1.11.1",
     "@actions/github": "^6.0.0",
     "@octokit/core": "^6.1.4",
-    "axios": "^1.7.9",
+    "axios": "^1.8.4",
     "form-data": "^4.0.2",
     "fs-extra": "^11.3.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.3.0",
+    "@antfu/eslint-config": "^4.10.2",
     "@fastify/pre-commit": "^2.2.0",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.13.5",
+    "@types/node": "^22.13.11",
     "eslint-plugin-format": "^1.0.1"
   },
   "pre-commit": [
