@@ -173,7 +173,7 @@ class CheckHomebridgePlugin {
       if (packageJSON.engines) {
         if (packageJSON.engines.node) {
           try {
-            // Obtain the latest version of Node version 18 and 20
+            // Obtain the latest Node.js versions
             const { body } = await request('https://nodejs.org/dist/index.json', {
               headers: {
                 'User-Agent': 'Homebridge Plugin Checks',
@@ -181,16 +181,10 @@ class CheckHomebridgePlugin {
             })
             const versionList = await body.json() as any
 
-            // Get the newest v18, v20 and v22 in the list
-            const latest18 = versionList.filter((x: { version: string }) => x.version.startsWith('v18'))[0].version as string
+            // Get the newest v20 and v22 in the list
             const latest20 = versionList.filter((x: { version: string }) => x.version.startsWith('v20'))[0].version as string
             const latest22 = versionList.filter((x: { version: string }) => x.version.startsWith('v22'))[0].version as string
 
-            if (satisfies(latest18, packageJSON.engines.node)) {
-              this.passed.push('Package JSON: `engines.node` property is compatible with Node 18')
-            } else {
-              this.failed.push('Package JSON: `engines.node` property is not compatible with Node 18')
-            }
             if (satisfies(latest20, packageJSON.engines.node)) {
               this.passed.push('Package JSON: `engines.node` property is compatible with Node 20')
             } else {
