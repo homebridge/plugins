@@ -497,7 +497,7 @@
   "homebridge-adguardhome": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-adguardhome.png",
     "maintained": false,
     "newScope": false,
     "scoped": false,
