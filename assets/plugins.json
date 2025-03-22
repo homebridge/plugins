@@ -285,6 +285,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-wemo": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-wemo.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": "bwp91",
+    "author": "bwp91",
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@jdes/homebridge-tost-corp-somfy-rts-web": {
     "name": null,
     "hidden": false,
@@ -5539,7 +5550,11 @@
     "hidden": false,
     "icon": "icons/homebridge-wemo.png",
     "maintained": true,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-wemo",
+      "to": "@homebridge-plugins/homebridge-wemo",
+      "switch": "7.0.0"
+    },
     "scoped": false,
     "author": null,
     "verified": true,

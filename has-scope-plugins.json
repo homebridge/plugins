@@ -83,5 +83,10 @@
     "from": "homebridge-wattbox",
     "to": "@homebridge-plugins/homebridge-wattbox",
     "switch": "3.2.0"
+  },
+  {
+    "from": "homebridge-wemo",
+    "to": "@homebridge-plugins/homebridge-wemo",
+    "switch": "7.0.0"
   }
 ]
