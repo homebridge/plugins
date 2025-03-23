@@ -103,6 +103,7 @@
   "homebridge-brewer",
   "homebridge-broadlink-heater-cooler",
   "homebridge-browsercam",
+  "homebridge-bthome",
   "homebridge-button-platform",
   "homebridge-caddx-interlogix",
   "homebridge-calendar-scheduler",
