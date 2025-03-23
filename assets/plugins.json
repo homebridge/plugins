@@ -1632,6 +1632,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-digitalstrom-plugin": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-dolphin": {
     "name": null,
     "hidden": false,
