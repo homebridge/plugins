@@ -527,6 +527,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-adb": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-adb.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-adguardhome": {
     "name": null,
     "hidden": false,

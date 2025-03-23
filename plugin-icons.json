@@ -22,6 +22,7 @@
   "@switchbot/homebridge-switchbot": "icons/homebridge-switchbot.png",
   "@vandubois/homebridge-virtual-switch": "icons/homebridge-virtual-switch.png",
   "homebridge-actron-neo": "icons/homebridge-actron-neo.png",
+  "homebridge-adb": "icons/homebridge-adb.png",
   "homebridge-adguardhome": "icons/homebridge-adguardhome.png",
   "homebridge-aeg-robot": "icons/homebridge-aeg-robot.png",
   "homebridge-air": "icons/homebridge-air.png",

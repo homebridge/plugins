@@ -47,6 +47,7 @@
   "homebridge-abode-lights",
   "homebridge-actron-neo",
   "homebridge-actron-que",
+  "homebridge-adb",
   "homebridge-adguardhome",
   "homebridge-adt-pulse",
   "homebridge-advanced-timer",
