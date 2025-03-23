@@ -1,4 +1,5 @@
 {
   "@homebridge-plugins/homebridge-ewelink": "Homebridge eWeLink",
-  "homebridge-gsh": "Homebridge Google Smart Home"
+  "homebridge-gsh": "Homebridge Google Smart Home",
+  "homebridge-lacrosseview": "Homebridge La Crosse View"
 }

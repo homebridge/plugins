@@ -2755,6 +2755,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-lacrosseview": {
+    "name": "Homebridge La Crosse View",
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "verified": false,
+    "verifiedPlus": false
+  },
   "homebridge-landroid": {
     "name": null,
     "hidden": false,
