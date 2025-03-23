@@ -263,6 +263,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-tado": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-tado.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": "seydx",
+    "author": "seydx",
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-unifi-network": {
     "name": null,
     "hidden": false,
@@ -4924,9 +4935,13 @@
   "homebridge-tado-platform": {
     "name": null,
     "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
+    "icon": "icons/homebridge-tado.png",
+    "maintained": true,
+    "newScope": {
+      "from": "homebridge-tado-platform",
+      "to": "@homebridge-plugins/homebridge-tado",
+      "switch": "6.0.14"
+    },
     "scoped": false,
     "author": null,
     "verified": true,

@@ -75,6 +75,11 @@
     "switch": "1.5.3"
   },
   {
+    "from": "homebridge-tado-platform",
+    "to": "@homebridge-plugins/homebridge-tado",
+    "switch": "6.0.14"
+  },
+  {
     "from": "homebridge-unifi-smartpower",
     "to": "@homebridge-plugins/homebridge-unifi-network",
     "switch": "2.3.0"
