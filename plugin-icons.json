@@ -1,6 +1,7 @@
 {
   "@0x5e/homebridge-tuya-platform": "icons/homebridge-tuya-platform.png",
   "@chazepps/homebridge-hejhome": "icons/homebridge-hejhome.png",
+  "@elshaer/homebridge-hdl-buspro-enhanced": "icons/homebridge-hdl-buspro-enhanced.png",
   "@homebridge-plugins/homebridge-air": "icons/homebridge-air.png",
   "@homebridge-plugins/homebridge-aladdin-connect": "icons/homebridge-aladdin-connect.png",
   "@homebridge-plugins/homebridge-august": "icons/homebridge-august.png",

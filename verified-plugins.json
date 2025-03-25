@@ -5,6 +5,7 @@
   "@chazepps/homebridge-hejhome",
   "@danielgindi/homebridge-bcp-charger",
   "@dr_chai/homebridge-airthings",
+  "@elshaer/homebridge-hdl-buspro-enhanced",
   "@hansfriedrich/homebridge-feller-wiser",
   "@hernas/homebridge-panasonic-heat-pump",
   "@hernas/homebridge-salus-sq610",

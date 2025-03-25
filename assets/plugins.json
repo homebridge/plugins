@@ -65,6 +65,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@elshaer/homebridge-hdl-buspro-enhanced": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-hdl-buspro-enhanced.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@hansfriedrich/homebridge-feller-wiser": {
     "name": null,
     "hidden": false,

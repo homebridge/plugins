@@ -37,7 +37,7 @@
     "@antfu/eslint-config": "^4.11.0",
     "@fastify/pre-commit": "^2.2.0",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.13.11",
+    "@types/node": "^22.13.13",
     "eslint-plugin-format": "^1.0.1"
   },
   "pre-commit": [
