@@ -2821,6 +2821,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-leridian-dynamics": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-level-sense": {
     "name": null,
     "hidden": false,
