@@ -24,12 +24,13 @@ jobs:
         run: npm install && npm run plugin-checks:build
       - name: Extract Plugin Name
         id: extract
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             PLUGIN_NAME=${{ github.event.inputs.plugin }}
           else
-            BODY="${{ github.event.issue.body }}"
-            PLUGIN_NAME=$(echo "$BODY" | awk 'NR==3' | tr -d ' ')
+            PLUGIN_NAME=$(echo "$ISSUE_BODY" | awk 'NR==3' | tr -d ' ')
           fi
           echo "PLUGIN_NAME=$PLUGIN_NAME" >> $GITHUB_ENV
       - name: Check Plugin
