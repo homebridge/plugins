@@ -373,6 +373,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@petro-kushchak/homebridge-homepod-radio": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-homepod-radio.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@pietrolubini/homebridge-ecoflow": {
     "name": null,
     "hidden": false,
