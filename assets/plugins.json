@@ -1808,6 +1808,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-econet-rheem": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-econet-rheem.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-ecoplug": {
     "name": null,
     "hidden": false,
