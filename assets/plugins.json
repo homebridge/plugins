@@ -395,6 +395,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@pst-on-npm/homebridge-enocean": {
+    "name": "Homebridge EnOcean",
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@puchupala/homebridge-nature-remo-multi-toggle-light": {
     "name": null,
     "hidden": false,

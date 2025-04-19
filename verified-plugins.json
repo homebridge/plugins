@@ -35,6 +35,7 @@
   "@ohmantics/homebridge-airmega",
   "@petro-kushchak/homebridge-homepod-radio",
   "@pietrolubini/homebridge-ecoflow",
+  "@pst-on-npm/homebridge-enocean",
   "@puchupala/homebridge-nature-remo-multi-toggle-light",
   "@rsauget/homebridge-flexom",
   "@string-bean/homebridge-drayton-wiser",
