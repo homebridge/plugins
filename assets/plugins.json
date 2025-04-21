@@ -861,6 +861,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-aqara-ir-controller": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-aqicn": {
     "name": null,
     "hidden": false,
