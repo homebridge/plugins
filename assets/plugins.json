@@ -2560,7 +2560,7 @@
   "homebridge-http-sensors-switches": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-http-sensors-switches.png",
     "maintained": false,
     "newScope": false,
     "scoped": false,

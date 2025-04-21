@@ -65,6 +65,7 @@
   "homebridge-homeconnect": "icons/homebridge-homeconnect.png",
   "homebridge-homekit-control": "icons/homebridge-homekit-control.png",
   "homebridge-http-garage-doors": "icons/homebridge-http-garage-doors.png",
+  "homebridge-http-sensors-switches": "icons/homebridge-http-sensors-switches.png",
   "homebridge-hue": "icons/homebridge-hue.png",
   "homebridge-hunter-hydrawise": "icons/homebridge-hunter-hydrawise.png",
   "homebridge-intelliclima": "icons/homebridge-intelliclima.png",
