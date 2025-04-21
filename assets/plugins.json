@@ -3783,6 +3783,17 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-palgate": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-palgate.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-panasonic-ac-platform": {
     "name": null,
     "hidden": false,
