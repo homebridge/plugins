@@ -186,17 +186,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "@homebridge-plugins/homebridge-gsh": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": "NorthernMan54",
-    "verified": false,
-    "verifiedPlus": false
-  },
   "@homebridge-plugins/homebridge-lutron-caseta-leap": {
     "name": null,
     "hidden": false,
@@ -2134,11 +2123,11 @@
   "homebridge-flume": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-flume.png",
     "maintained": true,
     "newScope": false,
     "scoped": false,
-    "author": null,
+    "author": "mpatfield",
     "verified": true,
     "verifiedPlus": false
   },
