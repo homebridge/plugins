@@ -26,7 +26,7 @@
   "dependencies": {
     "@actions/core": "^1.11.1",
     "@actions/github": "^6.0.1",
-    "@octokit/core": "^6.1.5",
+    "@octokit/core": "^7.0.2",
     "axios": "^1.9.0",
     "form-data": "^4.0.2",
     "fs-extra": "^11.3.0",
@@ -34,10 +34,10 @@
     "typescript": "^5.8.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.13.1",
+    "@antfu/eslint-config": "^4.13.2",
     "@fastify/pre-commit": "^2.2.0",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.15.19",
+    "@types/node": "^22.15.21",
     "eslint-plugin-format": "^1.0.1"
   },
   "pre-commit": [
