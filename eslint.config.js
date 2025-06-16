@@ -3,8 +3,6 @@ import antfu from '@antfu/eslint-config'
 export default antfu({
   rules: {
     'curly': ['error'],
-    'import/extensions': ['error', 'ignorePackages'],
-    'import/order': 'off',
     'jsdoc/check-alignment': 'error',
     'jsdoc/check-line-alignment': 'error',
     'new-cap': 'off',

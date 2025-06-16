@@ -220,7 +220,7 @@
     "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-noip": {
-    "name": null,
+    "name": "Homebridge No-IP",
     "hidden": false,
     "icon": "icons/homebridge-noip.png",
     "maintained": true,
@@ -2018,7 +2018,7 @@
     "verifiedPlus": false
   },
   "homebridge-ewelink": {
-    "name": null,
+    "name": "Homebridge eWeLink",
     "hidden": false,
     "icon": "icons/homebridge-ewelink.png",
     "maintained": false,
@@ -3571,7 +3571,7 @@
     "verifiedPlus": false
   },
   "homebridge-noip": {
-    "name": null,
+    "name": "Homebridge No-IP",
     "hidden": false,
     "icon": "icons/homebridge-noip.png",
     "maintained": true,
