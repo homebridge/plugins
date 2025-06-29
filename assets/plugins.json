@@ -2943,7 +2943,7 @@
     "verifiedPlus": false
   },
   "homebridge-lgwebos-tv": {
-    "name": null,
+    "name": "LG webOS TV",
     "hidden": false,
     "icon": null,
     "maintained": false,
@@ -3827,8 +3827,8 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-pentair-intellicenter": {
-    "name": null,
+  "homebridge-pentair-intellicenter-ai": {
+    "name": "Homebridge Pentair IntelliCenter AI",
     "hidden": false,
     "icon": null,
     "maintained": false,

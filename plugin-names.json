@@ -5,5 +5,7 @@
   "homebridge-ewelink": "Homebridge eWeLink",
   "homebridge-gsh": "Homebridge Google Smart Home",
   "homebridge-lacrosseview": "Homebridge La Crosse View",
-  "homebridge-noip": "Homebridge No-IP"
+  "homebridge-lgwebos-tv": "LG webOS TV",
+  "homebridge-noip": "Homebridge No-IP",
+  "homebridge-pentair-intellicenter-ai": "Homebridge Pentair IntelliCenter AI"
 }
