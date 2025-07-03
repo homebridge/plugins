@@ -39,6 +39,15 @@ const namesSorted = namesSortedKeys.reduce((obj, key) => {
 
 fs.writeFileSync('plugin-names.json', `${JSON.stringify(namesSorted, null, 2)}\n`)
 
+const changelogs = JSON.parse(fs.readFileSync('plugin-changelogs.json', 'utf8'))
+const changelogsSortedKeys = Object.keys(changelogs).sort()
+const changelogsSorted = changelogsSortedKeys.reduce((obj, key) => {
+  obj[key] = changelogs[key]
+  return obj
+}, {})
+
+fs.writeFileSync('plugin-changelogs.json', `${JSON.stringify(changelogsSorted, null, 2)}\n`)
+
 const hasScope = JSON.parse(fs.readFileSync('has-scope-plugins.json', 'utf8'))
 const hasScopeSorted = hasScope.sort((a, b) => a.from.localeCompare(b.from))
 const hasScopeKeys = hasScopeSorted.map(plugin => plugin.from)
@@ -77,6 +86,7 @@ const fullJson = verifiedSorted
   .concat(scopedSortedKeys)
   .concat(authorsSortedKeys)
   .concat(namesSortedKeys)
+  .concat(changelogsSortedKeys)
   .sort()
   .reduce((obj, key) => {
     obj[key] = {
@@ -87,6 +97,7 @@ const fullJson = verifiedSorted
       newScope: hasScopeKeys.includes(key) ? hasScope.find(plugin => plugin.from === key) : false,
       scoped: scopedSortedKeys.includes(key) ? scopedSorted[key] : false,
       author: authorsSortedKeys.includes(key) ? authorsSorted[key] : null,
+      changelog: changelogsSortedKeys.includes(key) ? changelogsSorted[key] : null,
       verified: verified.includes(key),
       verifiedPlus: verifiedPlus.includes(key),
     }
@@ -95,7 +106,7 @@ const fullJson = verifiedSorted
 
 const filteredJson = Object.keys(fullJson).reduce((obj, key) => {
   obj[key] = Object.entries(fullJson[key]).reduce((props, [propKey, propValue]) => {
-    if (['author', 'name'].includes(propKey)) {
+    if (['author', 'name', 'changelog'].includes(propKey)) {
       return props
     }
     if (propValue === true) {
@@ -119,6 +130,7 @@ const shortenedKeys = {
   maintained: 'm',
   newScope: 's',
   author: 'a',
+  changelog: 'c',
   verified: 'v',
   verifiedPlus: 'p',
 }
