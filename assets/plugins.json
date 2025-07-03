@@ -4714,7 +4714,7 @@
   "homebridge-robonect": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-robonect.png",
     "maintained": false,
     "newScope": false,
     "scoped": false,
