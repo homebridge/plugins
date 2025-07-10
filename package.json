@@ -19,6 +19,8 @@
     "lint:fix": "npm run lint -- --fix",
     "plugin-checks:build": "tsc -p src/plugin-checks",
     "plugin-checks:run": "node src/plugin-checks/index.js",
+    "plugin-lists:build": "tsc -p src/plugin-lists",
+    "plugin-lists:run": "node src/plugin-lists/index.js",
     "plugin-tarballs:build": "tsc -p src/plugin-tarballs",
     "plugin-tarballs:run": "node src/plugin-tarballs/index.js",
     "sort-json-files": "node scripts/sort-json-files.js"
@@ -26,7 +28,7 @@
   "dependencies": {
     "@actions/core": "^1.11.1",
     "@actions/github": "^6.0.1",
-    "@octokit/core": "^7.0.2",
+    "@octokit/core": "^7.0.3",
     "axios": "^1.10.0",
     "form-data": "^4.0.3",
     "fs-extra": "^11.3.0",
@@ -37,7 +39,7 @@
     "@antfu/eslint-config": "^4.16.2",
     "@fastify/pre-commit": "^2.2.0",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^24.0.10",
+    "@types/node": "^24.0.13",
     "eslint-plugin-format": "^1.0.1"
   },
   "pre-commit": [
