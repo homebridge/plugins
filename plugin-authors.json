@@ -4,6 +4,7 @@
   "@homebridge-plugins/homebridge-august": "donavanbecker",
   "@homebridge-plugins/homebridge-camera-ffmpeg": "sunookitsune",
   "@homebridge-plugins/homebridge-cloudflared-tunnel": "donavanbecker",
+  "@homebridge-plugins/homebridge-ecovacs": "bwp91",
   "@homebridge-plugins/homebridge-ewelink": "bwp91",
   "@homebridge-plugins/homebridge-govee": "bwp91",
   "@homebridge-plugins/homebridge-lutron-caseta-leap": "thenewwazoo",

@@ -20,6 +20,11 @@
     "switch": "2.0.0"
   },
   {
+    "from": "homebridge-deebot",
+    "to": "@homebridge-plugins/homebridge-ecovacs",
+    "switch": "7.0.0"
+  },
+  {
     "from": "homebridge-ewelink",
     "to": "@homebridge-plugins/homebridge-ewelink",
     "switch": "12.3.3"

@@ -179,6 +179,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-ecovacs": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-ecovacs.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": "bwp91",
+    "author": "bwp91",
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-ewelink": {
     "name": "Homebridge eWeLink",
     "hidden": false,
@@ -1626,13 +1638,17 @@
   "homebridge-deebot": {
     "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-deebot.png",
-    "maintained": true,
-    "newScope": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": {
+      "from": "homebridge-deebot",
+      "to": "@homebridge-plugins/homebridge-ecovacs",
+      "switch": "7.0.0"
+    },
     "scoped": false,
     "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-deebotecovacs": {
