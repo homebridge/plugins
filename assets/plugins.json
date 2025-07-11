@@ -3603,6 +3603,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-nest-accfactory": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-network-presence": {
     "name": null,
     "hidden": false,
