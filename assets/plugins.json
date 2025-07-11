@@ -783,18 +783,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-aladdinconnect": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-alexa": {
     "name": null,
     "hidden": false,
@@ -2743,18 +2731,6 @@
     "name": null,
     "hidden": false,
     "icon": "icons/homebridge-http-garage-doors.png",
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-http-iot": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
     "maintained": false,
     "newScope": false,
     "scoped": false,
