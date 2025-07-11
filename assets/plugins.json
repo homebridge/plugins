@@ -647,18 +647,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-aeg-wellbeing": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-agile-octopus-rates": {
     "name": null,
     "hidden": false,
@@ -748,18 +736,6 @@
     "verifiedPlus": false
   },
   "homebridge-airzone-cloud": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-aladdin-connect-garage-door": {
     "name": null,
     "hidden": false,
     "icon": null,
@@ -1051,18 +1027,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-batterytender": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-bed-control": {
     "name": null,
     "hidden": false,
@@ -1136,18 +1100,6 @@
     "verifiedPlus": false
   },
   "homebridge-blinds-cmd": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-blink-for-home": {
     "name": null,
     "hidden": false,
     "icon": null,
@@ -1267,18 +1219,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-broadlink-heater-cooler": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-browsercam": {
     "name": null,
     "hidden": false,
@@ -1292,18 +1232,6 @@
     "verifiedPlus": false
   },
   "homebridge-bthome": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-button-platform": {
     "name": null,
     "hidden": false,
     "icon": null,
@@ -1391,18 +1319,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-cleanmate": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-cloudflared-tunnel": {
     "name": null,
     "hidden": false,
@@ -1417,18 +1333,6 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false
-  },
-  "homebridge-cmd4-advantageair": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
     "verifiedPlus": false
   },
   "homebridge-comed-hourlypricing": {
@@ -1959,18 +1863,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-ecoplug": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-ecowitt-weather-sensors": {
     "name": null,
     "hidden": false,
@@ -2203,30 +2095,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-ezviz": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-fenix-tft-wifi": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-fhem": {
     "name": null,
     "hidden": false,
@@ -2324,18 +2192,6 @@
     "verifiedPlus": false
   },
   "homebridge-freeathome-local-api": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-freebox-player-delta": {
     "name": null,
     "hidden": false,
     "icon": null,
@@ -2635,18 +2491,6 @@
     "name": null,
     "hidden": false,
     "icon": "icons/homebridge-homekit-control.png",
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-homeqtt-alarm": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
     "maintained": false,
     "newScope": false,
     "scoped": false,
@@ -3159,18 +3003,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-lg-thinq-ac": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-lgwebos-tv": {
     "name": "LG webOS TV",
     "hidden": false,
@@ -3483,18 +3315,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-micronova-agua-iot-stove": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-midea-platform": {
     "name": null,
     "hidden": false,
@@ -3723,31 +3543,7 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-myq": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-mysmartblinds-bridge": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-naim-audio": {
     "name": null,
     "hidden": false,
     "icon": null,
@@ -3799,18 +3595,6 @@
     "name": null,
     "hidden": false,
     "icon": "icons/homebridge-nest.png",
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-nest-cam": {
-    "name": null,
-    "hidden": false,
-    "icon": "icons/homebridge-nest-cam.png",
     "maintained": false,
     "newScope": false,
     "scoped": false,
@@ -3947,18 +3731,6 @@
     "name": null,
     "hidden": false,
     "icon": "icons/homebridge-omnilink-platform.png",
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-onstar": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
     "maintained": false,
     "newScope": false,
     "scoped": false,
@@ -5003,18 +4775,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-slide-shutter": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-sma-home-manager": {
     "name": null,
     "hidden": false,
@@ -5028,30 +4788,6 @@
     "verifiedPlus": false
   },
   "homebridge-smart-irrigation": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-smartcielo": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-smartglass": {
     "name": null,
     "hidden": false,
     "icon": null,
@@ -5085,18 +4821,6 @@
     "author": "donavanbecker",
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false
-  },
-  "homebridge-smartthings": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
     "verifiedPlus": false
   },
   "homebridge-smartthings-ik": {
@@ -5727,18 +5451,6 @@
     "verified": false,
     "verifiedPlus": false
   },
-  "homebridge-tp-link-tapo": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-tplink-smarthome": {
     "name": null,
     "hidden": false,
@@ -5972,18 +5684,6 @@
     "verifiedPlus": false
   },
   "homebridge-verisure": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-vesync-v2": {
     "name": null,
     "hidden": false,
     "icon": null,
@@ -6364,18 +6064,6 @@
     "verifiedPlus": false
   },
   "homebridge-yindl": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-yokis-usb": {
     "name": null,
     "hidden": false,
     "icon": null,
