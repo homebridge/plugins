@@ -647,18 +647,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-aeg-robot": {
-    "name": null,
-    "hidden": false,
-    "icon": "icons/homebridge-aeg-robot.png",
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-aeg-wellbeing": {
     "name": null,
     "hidden": false,
@@ -5003,18 +4991,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-skybell": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-sleepme": {
     "name": null,
     "hidden": false,
@@ -5064,18 +5040,6 @@
     "verifiedPlus": false
   },
   "homebridge-smartcielo": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-smartdry": {
     "name": null,
     "hidden": false,
     "icon": null,
