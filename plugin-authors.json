@@ -21,13 +21,8 @@
   "@homebridge-plugins/homebridge-wemo": "bwp91",
   "homebridge-air": "donavanbecker",
   "homebridge-august": "donavanbecker",
-  "homebridge-cloudflared-tunnel": "donavanbecker",
   "homebridge-genie-aladdin-connect": "derek-miller",
   "homebridge-gsh": "NorthernMan54",
-  "homebridge-meater": "donavanbecker",
-  "homebridge-noip": "donavanbecker",
-  "homebridge-rainbird": "donavanbecker",
-  "homebridge-resideo": "donavanbecker",
   "homebridge-smarthq": "donavanbecker",
   "homebridge-unifi-smartpower": "derek-miller",
   "homebridge-wattbox": "derek-miller"

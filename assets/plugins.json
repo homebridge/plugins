@@ -1430,7 +1430,7 @@
   "homebridge-cloudflared-tunnel": {
     "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-cloudflared-tunnel.png",
+    "icon": null,
     "maintained": true,
     "newScope": {
       "from": "homebridge-cloudflared-tunnel",
@@ -1438,9 +1438,9 @@
       "switch": "2.0.0"
     },
     "scoped": false,
-    "author": "donavanbecker",
+    "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-cmd4-advantageair": {
@@ -2200,9 +2200,9 @@
     "verifiedPlus": false
   },
   "homebridge-ewelink": {
-    "name": "Homebridge eWeLink",
+    "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-ewelink.png",
+    "icon": null,
     "maintained": false,
     "newScope": {
       "from": "homebridge-ewelink",
@@ -2212,7 +2212,7 @@
     "scoped": false,
     "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-exivo": {
@@ -2486,7 +2486,7 @@
   "homebridge-govee": {
     "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-govee.png",
+    "icon": null,
     "maintained": false,
     "newScope": {
       "from": "homebridge-govee",
@@ -2496,7 +2496,7 @@
     "scoped": false,
     "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-gpio-doorbell": {
@@ -3382,7 +3382,7 @@
   "homebridge-meater": {
     "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-meater.png",
+    "icon": null,
     "maintained": true,
     "newScope": {
       "from": "homebridge-meater",
@@ -3390,9 +3390,9 @@
       "switch": "2.0.0"
     },
     "scoped": false,
-    "author": "donavanbecker",
+    "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-melcloud-control": {
@@ -3434,7 +3434,7 @@
   "homebridge-meross": {
     "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-meross.png",
+    "icon": null,
     "maintained": true,
     "newScope": {
       "from": "homebridge-meross",
@@ -3444,7 +3444,7 @@
     "scoped": false,
     "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-mertik-fireplace": {
@@ -3892,9 +3892,9 @@
     "verifiedPlus": false
   },
   "homebridge-noip": {
-    "name": "Homebridge No-IP",
+    "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-noip.png",
+    "icon": null,
     "maintained": true,
     "newScope": {
       "from": "homebridge-noip",
@@ -3902,9 +3902,9 @@
       "switch": "4.0.0"
     },
     "scoped": false,
-    "author": "donavanbecker",
+    "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-nordpool-baltics": {
@@ -4424,7 +4424,7 @@
     "scoped": false,
     "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-porsche-taycan": {
@@ -4598,7 +4598,7 @@
   "homebridge-rainbird": {
     "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-rainbird.png",
+    "icon": null,
     "maintained": true,
     "newScope": {
       "from": "homebridge-rainbird",
@@ -4606,9 +4606,9 @@
       "switch": "3.0.0"
     },
     "scoped": false,
-    "author": "donavanbecker",
+    "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-ratgdo": {
@@ -4650,7 +4650,7 @@
   "homebridge-resideo": {
     "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-resideo.png",
+    "icon": null,
     "maintained": true,
     "newScope": {
       "from": "homebridge-resideo",
@@ -4658,9 +4658,9 @@
       "switch": "3.0.0"
     },
     "scoped": false,
-    "author": "donavanbecker",
+    "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-rgb-ledstrip": {
@@ -4760,7 +4760,7 @@
     "scoped": false,
     "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-roomme": {
@@ -5510,7 +5510,7 @@
   "homebridge-tado-platform": {
     "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-tado.png",
+    "icon": null,
     "maintained": true,
     "newScope": {
       "from": "homebridge-tado-platform",
@@ -5520,7 +5520,7 @@
     "scoped": false,
     "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-tapo-camera": {
@@ -6206,7 +6206,7 @@
   "homebridge-wemo": {
     "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-wemo.png",
+    "icon": null,
     "maintained": true,
     "newScope": {
       "from": "homebridge-wemo",
@@ -6216,7 +6216,7 @@
     "scoped": false,
     "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-winix-purifiers": {
