@@ -1786,7 +1786,7 @@
   "homebridge-dummy": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-dummy.png",
     "maintained": false,
     "newScope": false,
     "scoped": false,
