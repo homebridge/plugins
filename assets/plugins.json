@@ -311,6 +311,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-sharkiq": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-sharkiq.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": "Bubba8291",
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-smarthq": {
     "name": null,
     "hidden": false,
@@ -369,6 +381,18 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
+    "verifiedPlus": false
+  },
+  "@homebridge-pluginshomebridge-sharkiq": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": "Bubba8291",
+    "changelog": null,
+    "verified": false,
     "verifiedPlus": false
   },
   "@jdes/homebridge-tost-corp-somfy-rts-web": {
@@ -4699,10 +4723,14 @@
     "name": null,
     "hidden": false,
     "icon": "icons/homebridge-sharkiq.png",
-    "maintained": false,
-    "newScope": false,
+    "maintained": true,
+    "newScope": {
+      "from": "homebridge-sharkiq",
+      "to": "@homebridge-plugins/homebridge-sharkiq",
+      "switch": "1.3.2"
+    },
     "scoped": false,
-    "author": null,
+    "author": "Bubba8291",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false

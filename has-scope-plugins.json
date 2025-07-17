@@ -80,6 +80,11 @@
     "switch": "1.5.3"
   },
   {
+    "from": "homebridge-sharkiq",
+    "to": "@homebridge-plugins/homebridge-sharkiq",
+    "switch": "1.3.2"
+  },
+  {
     "from": "homebridge-tado-platform",
     "to": "@homebridge-plugins/homebridge-tado",
     "switch": "6.0.14"

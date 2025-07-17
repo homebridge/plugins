@@ -17,6 +17,7 @@
   "@homebridge-plugins/homebridge-rainbird": "icons/homebridge-rainbird.png",
   "@homebridge-plugins/homebridge-resideo": "icons/homebridge-resideo.png",
   "@homebridge-plugins/homebridge-roomba": "icons/homebridge-roomba.png",
+  "@homebridge-plugins/homebridge-sharkiq": "icons/homebridge-sharkiq.png",
   "@homebridge-plugins/homebridge-smarthq": "icons/homebridge-smarthq.png",
   "@homebridge-plugins/homebridge-tado": "icons/homebridge-tado.png",
   "@homebridge-plugins/homebridge-wemo": "icons/homebridge-wemo.png",
