@@ -1219,6 +1219,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-bondbridge": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-boschcontrolpanel_bgseries": {
     "name": null,
     "hidden": false,
