@@ -2815,6 +2815,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-jci-hitachi-platform": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-jewish-calendar": {
     "name": null,
     "hidden": false,
