@@ -1039,6 +1039,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-awattar": {
+    "name": "Homebridge aWATTar",
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": false,
+    "verifiedPlus": false
+  },
   "homebridge-away-mode": {
     "name": null,
     "hidden": false,

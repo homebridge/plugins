@@ -2,6 +2,7 @@
   "@homebridge-plugins/homebridge-ewelink": "Homebridge eWeLink",
   "@homebridge-plugins/homebridge-noip": "Homebridge No-IP",
   "@pst-on-npm/homebridge-enocean": "Homebridge EnOcean",
+  "homebridge-awattar": "Homebridge aWATTar",
   "homebridge-blaq": "Homebridge blaQ",
   "homebridge-gsh": "Homebridge Google Smart Home",
   "homebridge-lacrosseview": "Homebridge La Crosse View",
