@@ -1087,18 +1087,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-better-roku": {
-    "name": null,
-    "hidden": false,
-    "icon": "icons/homebridge-better-roku.png",
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-blaq": {
     "name": "Homebridge blaQ",
     "hidden": false,
@@ -1148,6 +1136,18 @@
     "verifiedPlus": false
   },
   "homebridge-blinds-cmd": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-blink-for-home": {
     "name": null,
     "hidden": false,
     "icon": null,
