@@ -1099,6 +1099,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-blaq": {
+    "name": "Homebridge blaQ",
+    "hidden": false,
+    "icon": "icons/homebridge-blaq.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-blauberg-vento": {
     "name": null,
     "hidden": false,
