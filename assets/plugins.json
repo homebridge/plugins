@@ -698,7 +698,7 @@
   "homebridge-air": {
     "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-air.png",
+    "icon": null,
     "maintained": true,
     "newScope": {
       "from": "homebridge-air",
@@ -706,7 +706,7 @@
       "switch": "1.0.0"
     },
     "scoped": false,
-    "author": "donavanbecker",
+    "author": null,
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -978,7 +978,7 @@
   "homebridge-august": {
     "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-august.png",
+    "icon": null,
     "maintained": true,
     "newScope": {
       "from": "homebridge-august",
@@ -986,7 +986,7 @@
       "switch": "3.0.0"
     },
     "scoped": false,
-    "author": "donavanbecker",
+    "author": null,
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -2314,7 +2314,7 @@
       "switch": "4.2.1"
     },
     "scoped": false,
-    "author": "derek-miller",
+    "author": null,
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -4722,7 +4722,7 @@
   "homebridge-sharkiq": {
     "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-sharkiq.png",
+    "icon": null,
     "maintained": true,
     "newScope": {
       "from": "homebridge-sharkiq",
@@ -4730,9 +4730,9 @@
       "switch": "1.3.2"
     },
     "scoped": false,
-    "author": "Bubba8291",
+    "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-shelly": {
@@ -4865,18 +4865,6 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-smarthq": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": "donavanbecker",
-    "changelog": null,
-    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-smartthings-ik": {
@@ -5698,7 +5686,7 @@
       "switch": "2.3.0"
     },
     "scoped": false,
-    "author": "derek-miller",
+    "author": null,
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -5834,7 +5822,7 @@
       "switch": "3.2.0"
     },
     "scoped": false,
-    "author": "derek-miller",
+    "author": null,
     "changelog": null,
     "verified": true,
     "verifiedPlus": false

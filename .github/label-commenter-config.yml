@@ -21,7 +21,9 @@ labels:
 
           Your plugin is now also eligible to display a *:heart: Donate* button on its tile in the Homebridge UI. See https://github.com/homebridge/homebridge/wiki/Donation-Links for instructions.
 
-          If for any reason in the future you can no longer maintain your plugin, please consider transferring it to our [Homebridge Plugins](https://github.com/homebridge-plugins) organization. We can take ownership until another willing developer comes along.
+          Interested in getting a `@homebridge-plugins/` scope for your plugin? See our [Homebridge Scoped Plugins](https://github.com/homebridge/plugins/wiki/Scoped-Plugins) program.
+
+          If for any reason in the future you can no longer maintain your plugin, please consider transferring it to our [Homebridge Plugins](https://github.com/homebridge-plugins) organization.
 
           Don't forget to join the official [Homebridge Discord server](https://discord.gg/A7nCjbz), where plugin developers can get tips and advice from other developers and the Homebridge project team in the #plugin-development channel!
 

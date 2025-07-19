@@ -21,12 +21,5 @@
   "@homebridge-plugins/homebridge-wattbox": "derek-miller",
   "@homebridge-plugins/homebridge-wemo": "bwp91",
   "@homebridge-pluginshomebridge-sharkiq": "Bubba8291",
-  "homebridge-air": "donavanbecker",
-  "homebridge-august": "donavanbecker",
-  "homebridge-genie-aladdin-connect": "derek-miller",
-  "homebridge-gsh": "NorthernMan54",
-  "homebridge-sharkiq": "Bubba8291",
-  "homebridge-smarthq": "donavanbecker",
-  "homebridge-unifi-smartpower": "derek-miller",
-  "homebridge-wattbox": "derek-miller"
+  "homebridge-gsh": "NorthernMan54"
 }
