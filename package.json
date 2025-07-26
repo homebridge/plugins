@@ -36,7 +36,7 @@
     "typescript": "^5.8.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.19.0",
+    "@antfu/eslint-config": "^5.0.0",
     "@fastify/pre-commit": "^2.2.0",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^24.1.0",
