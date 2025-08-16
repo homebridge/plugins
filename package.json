@@ -31,15 +31,15 @@
     "@octokit/core": "^7.0.3",
     "axios": "^1.11.0",
     "form-data": "^4.0.4",
-    "fs-extra": "^11.3.0",
+    "fs-extra": "^11.3.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^5.0.0",
+    "@antfu/eslint-config": "^5.2.1",
     "@fastify/pre-commit": "^2.2.0",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^24.1.0",
+    "@types/node": "^24.3.0",
     "eslint-plugin-format": "^1.0.1"
   },
   "pre-commit": [
