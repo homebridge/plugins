@@ -10,4 +10,4 @@ COPY workspace /workspace
 
 RUN npm install
 
-CMD npx tsx index.ts
+CMD ["npx", "tsx", "index.ts"]

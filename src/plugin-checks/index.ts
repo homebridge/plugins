@@ -13,11 +13,30 @@ import fs from 'fs-extra'
 
 const __dirname = import.meta.dirname
 
+interface CheckResults {
+  passed: string[]
+  failed: string[]
+  version: string
+  detailedFailures?: Array<{
+    message: string
+    config?: any
+    scenario?: string
+    isRuntimeFailure?: boolean
+  }>
+}
+
 class PluginChecks {
+  private static readonly DOCKER_IMAGE_NAME = 'check'
+  private static readonly LABELS = {
+    PENDING: 'pending',
+    AWAITING_CHANGES: 'awaiting-changes',
+  } as const
+
   private pluginName: string
   private passed: string[] = []
   private failed: string[] = []
   private version: string = ''
+  private detailedFailures: CheckResults['detailedFailures'] = []
 
   async run() {
     try {
@@ -25,14 +44,10 @@ class PluginChecks {
       console.log('**************************')
       console.log(`Running checks for plugin: ${pluginName}.`)
       console.log('**************************')
-      if (pluginName) {
-        this.pluginName = pluginName
-        await this.runTests()
-      } else {
-        throw new Error('Could not determine plugin name.')
-      }
+      this.pluginName = pluginName
+      await this.runTests()
     } catch (e) {
-      this.failed.push(e.message)
+      this.failed.push(this.handleError(e))
     }
 
     // Construct the comment
@@ -41,8 +56,45 @@ class PluginChecks {
 
     if (this.failed.length) {
       comment += '🔴 The following checks failed:\n\n'
-      comment += this.failed.map(e => `- ${e}`).join('\n')
-      comment += '\n\n---\n\n'
+
+      // Group failures: runtime failures first (with details), then other failures
+      const runtimeFailures = this.detailedFailures?.filter(f => f.isRuntimeFailure) || []
+      const otherFailures = this.failed.filter(failure =>
+        !this.detailedFailures?.some(df => df.message === failure && df.isRuntimeFailure),
+      )
+
+      // Show runtime failures with detailed explanations
+      if (runtimeFailures.length > 0) {
+        comment += '**Runtime Configuration Issues:**\n\n'
+
+        for (const failure of runtimeFailures) {
+          comment += `- **${failure.scenario}**: Plugin crashes when started with the following configuration:\n\n`
+          comment += '```json\n'
+          comment += JSON.stringify(failure.config, null, 2)
+          comment += '\n```\n\n'
+          comment += '**Error:**\n```\n'
+          // Extract just the error part after " - "
+          const errorPart = failure.message.split(' - ').slice(1).join(' - ')
+          comment += errorPart
+          comment += '\n```\n\n'
+          comment += '⚠️ **This needs to be fixed so that the plugin does not crash when started with this configuration.** The plugin should either:\n'
+          comment += '- Handle missing required configuration gracefully with proper error messages\n'
+          comment += '- Provide sensible defaults for missing values\n'
+          comment += '- Validate configuration during startup and log helpful warnings\n\n'
+        }
+
+        if (otherFailures.length > 0) {
+          comment += '**Other Issues:**\n\n'
+          comment += otherFailures.map(e => `- ${e}`).join('\n')
+          comment += '\n\n'
+        }
+      } else {
+        // No runtime failures, show regular failure list
+        comment += this.failed.map(e => `- ${e}`).join('\n')
+        comment += '\n\n'
+      }
+
+      comment += '---\n\n'
     }
 
     if (this.passed.length) {
@@ -64,17 +116,19 @@ class PluginChecks {
     }
 
     await this.addComment(allPassed, comment)
-
-    setTimeout(() => {
-      process.exit(0)
-    }, 100)
   }
 
   async addComment(successful: boolean, comment: string) {
     const octokit = getOctokit(getInput('token'))
 
     const repository = process.env.GITHUB_REPOSITORY
-    const repo = repository.split('/')
+    if (!repository) {
+      throw new Error('GITHUB_REPOSITORY environment variable not set')
+    }
+    const [owner, repo] = repository.split('/')
+    if (!owner || !repo) {
+      throw new Error('Invalid GITHUB_REPOSITORY format')
+    }
     debug(`repository: ${repository}`)
 
     const issueNumber = getInput('issue-number')
@@ -83,8 +137,8 @@ class PluginChecks {
     // Otherwise this will be running from a scheduled action to spot-check already-verified plugins
     if (issueNumber) {
       const restParams = {
-        owner: repo[0],
-        repo: repo[1],
+        owner,
+        repo,
         issue_number: Number.parseInt(issueNumber, 10),
       }
 
@@ -94,44 +148,8 @@ class PluginChecks {
         body: comment,
       })
 
-      // Get the labels for the issue
-      const labels = await octokit.rest.issues.listLabelsOnIssue({
-        ...restParams,
-      })
-
-      if (successful) {
-        // Add the `pending` label to the issue if it doesn't already have it
-        if (!labels.data.find(label => label.name === 'pending')) {
-          await octokit.rest.issues.addLabels({
-            ...restParams,
-            labels: ['pending'],
-          })
-        }
-
-        // Remove `awaiting-changes` label if it exists
-        if (labels.data.find(label => label.name === 'awaiting-changes')) {
-          await octokit.rest.issues.removeLabel({
-            ...restParams,
-            name: 'awaiting-changes',
-          })
-        }
-      } else {
-        // Add the `awaiting-changes` label to the issue if it doesn't already have it
-        if (!labels.data.find(label => label.name === 'awaiting-changes')) {
-          await octokit.rest.issues.addLabels({
-            ...restParams,
-            labels: ['awaiting-changes'],
-          })
-        }
-
-        // Remove `pending` label if it exists
-        if (labels.data.find(label => label.name === 'pending')) {
-          await octokit.rest.issues.removeLabel({
-            ...restParams,
-            name: 'pending',
-          })
-        }
-      }
+      // Update labels based on success/failure
+      await this.updateLabels(octokit, restParams, successful)
     } else {
       if (successful) {
         console.log('****************************')
@@ -149,12 +167,12 @@ class PluginChecks {
   async runTests() {
     // create container
     try {
-      execSync('docker build -t check .', {
+      execSync(`docker build -t ${PluginChecks.DOCKER_IMAGE_NAME} .`, {
         cwd: __dirname,
         stdio: 'inherit',
       })
     } catch (e) {
-      this.failed.push(`Failed to create container as ${e.message}`)
+      this.failed.push(`Failed to create container as ${this.handleError(e)}`)
       return
     }
 
@@ -165,21 +183,77 @@ class PluginChecks {
 
     // run tests
     try {
-      execSync(`docker run --rm -e HOMEBRIDGE_PLUGIN_NAME=${this.pluginName} -v ${resultsPath}:/results check`, {
+      const dockerArgs = [
+        'run',
+        '--rm',
+        '-e',
+        `HOMEBRIDGE_PLUGIN_NAME=${this.pluginName}`,
+        '-v',
+        `${resultsPath}:/results`,
+        PluginChecks.DOCKER_IMAGE_NAME,
+      ]
+
+      execSync(`docker ${dockerArgs.join(' ')}`, {
         cwd: __dirname,
         stdio: 'inherit',
       })
     } catch (e) {
-      console.error(`Failed to test plugin as ${e.message}`)
+      console.error(`Failed to test plugin as ${this.handleError(e)}`)
     }
 
     if (await fs.pathExists(checksJsonFile)) {
-      const checksJson = await fs.readJson(checksJsonFile) as { passed: string[], failed: string[], version: string }
-      this.passed.push(...checksJson.passed)
-      this.failed.push(...checksJson.failed)
-      this.version = checksJson.version
+      const checksJson = await fs.readJson(checksJsonFile)
+      if (this.isValidCheckResults(checksJson)) {
+        this.passed.push(...checksJson.passed)
+        this.failed.push(...checksJson.failed)
+        this.version = checksJson.version
+        this.detailedFailures = checksJson.detailedFailures || []
+      } else {
+        this.failed.push('Invalid JSON results format')
+      }
     } else {
       this.failed.push('JSON results file not found')
+    }
+  }
+
+  private handleError(e: unknown): string {
+    if (e instanceof Error) {
+      return e.message
+    }
+    return String(e)
+  }
+
+  private isValidCheckResults(obj: any): obj is CheckResults {
+    return obj
+      && Array.isArray(obj.passed)
+      && Array.isArray(obj.failed)
+      && typeof obj.version === 'string'
+      && (obj.detailedFailures === undefined || Array.isArray(obj.detailedFailures))
+  }
+
+  private async updateLabels(
+    octokit: any,
+    restParams: any,
+    successful: boolean,
+  ): Promise<void> {
+    const labels = await octokit.rest.issues.listLabelsOnIssue(restParams)
+    const existingLabels = new Set(labels.data.map((l: any) => l.name))
+
+    const labelsToAdd = successful ? [PluginChecks.LABELS.PENDING] : [PluginChecks.LABELS.AWAITING_CHANGES]
+    const labelsToRemove = successful ? [PluginChecks.LABELS.AWAITING_CHANGES] : [PluginChecks.LABELS.PENDING]
+
+    // Add labels that don't exist
+    for (const label of labelsToAdd) {
+      if (!existingLabels.has(label)) {
+        await octokit.rest.issues.addLabels({ ...restParams, labels: [label] })
+      }
+    }
+
+    // Remove labels that exist
+    for (const label of labelsToRemove) {
+      if (existingLabels.has(label)) {
+        await octokit.rest.issues.removeLabel({ ...restParams, name: label })
+      }
     }
   }
 }
