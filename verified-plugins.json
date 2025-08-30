@@ -277,6 +277,7 @@
   "homebridge-mihomegateway",
   "homebridge-milighthub-platform",
   "homebridge-miot",
+  "homebridge-mitsubishi-wfrac",
   "homebridge-mobilelink",
   "homebridge-moodo",
   "homebridge-moonraker",
