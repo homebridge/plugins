@@ -1867,6 +1867,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-dreambox": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-dreamscreen-rm": {
     "name": null,
     "hidden": false,
