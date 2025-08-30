@@ -2731,6 +2731,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-http-lock": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-http-lock.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-http-sensors-switches": {
     "name": null,
     "hidden": false,

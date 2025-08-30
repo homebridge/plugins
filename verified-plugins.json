@@ -214,6 +214,7 @@
   "homebridge-http-garage-doors",
   "homebridge-http-json-thermometer",
   "homebridge-http-leak-sensor",
+  "homebridge-http-lock",
   "homebridge-http-sensors-switches",
   "homebridge-hubitat-tonesto7",
   "homebridge-hubspace",
