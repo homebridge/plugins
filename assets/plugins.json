@@ -4851,6 +4851,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-sense-energy-monitor": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-sense-energy-monitor.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-sensibo-ac": {
     "name": null,
     "hidden": false,
