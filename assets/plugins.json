@@ -2575,6 +2575,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-grumptech-timetriggers": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-gsh": {
     "name": "Homebridge Google Smart Home",
     "hidden": false,
