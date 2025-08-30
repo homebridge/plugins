@@ -135,6 +135,7 @@
   "homebridge-davis",
   "homebridge-deconz",
   "homebridge-deebotecovacs",
+  "homebridge-delay-countdown-switch",
   "homebridge-delay-switch",
   "homebridge-denon-heos",
   "homebridge-denon-tv",

@@ -1747,6 +1747,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-delay-countdown-switch": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-delay-countdown-switch.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-delay-switch": {
     "name": null,
     "hidden": false,
