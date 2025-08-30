@@ -154,6 +154,7 @@
   "homebridge-dyson-bp01",
   "homebridge-dyson-pure-cool",
   "homebridge-easee",
+  "homebridge-easy-mqtt",
   "homebridge-ecobee-status",
   "homebridge-ecoforest-thermostat",
   "homebridge-econet-rheem",
