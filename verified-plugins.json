@@ -288,7 +288,6 @@
   "homebridge-mqtt-ceiling-fan-remote",
   "homebridge-mqtt-tasmota",
   "homebridge-mqttsmokesensor",
-  "homebridge-mqttthing",
   "homebridge-multiple-switch",
   "homebridge-multiswitcheroo",
   "homebridge-music",
