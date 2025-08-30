@@ -351,6 +351,7 @@
   "homebridge-printer",
   "homebridge-programmable-http-switch",
   "homebridge-prosegur",
+  "homebridge-prusa-connect-camera",
   "homebridge-prusa-link",
   "homebridge-purpleair",
   "homebridge-purpleair-sensor",
