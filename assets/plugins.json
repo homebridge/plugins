@@ -4999,6 +4999,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-smartthings-oauth": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-smartthings-oauth.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-smtp-motion": {
     "name": null,
     "hidden": false,

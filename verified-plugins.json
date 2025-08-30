@@ -389,6 +389,7 @@
   "homebridge-smart-irrigation",
   "homebridge-smarthomeng",
   "homebridge-smartthings-ik",
+  "homebridge-smartthings-oauth",
   "homebridge-smtp-motion",
   "homebridge-snowsense",
   "homebridge-solaxcloud-api",
