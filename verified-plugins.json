@@ -151,6 +151,7 @@
   "homebridge-dyson-bp01",
   "homebridge-dyson-pure-cool",
   "homebridge-easee",
+  "homebridge-ecobee-status",
   "homebridge-ecoforest-thermostat",
   "homebridge-econet-rheem",
   "homebridge-ecowitt-weather-sensors",
