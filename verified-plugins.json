@@ -391,6 +391,7 @@
   "homebridge-sleepme",
   "homebridge-sma-home-manager",
   "homebridge-smart-irrigation",
+  "homebridge-smart-occupancy",
   "homebridge-smarthomeng",
   "homebridge-smartthings-ik",
   "homebridge-smartthings-oauth",
