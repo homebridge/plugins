@@ -4367,18 +4367,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-plex-webhooks": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-plugin-govee": {
     "name": null,
     "hidden": false,
