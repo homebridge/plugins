@@ -45,6 +45,7 @@
   "@ubreu/homebridge-helios-kwl",
   "@ubreu/homebridge-ibricks",
   "@vandubois/homebridge-virtual-switch",
+  "@viguza/homebridge-ezviz",
   "@xenuiswatching/homebridge-hubspace",
   "homebridge-3em-energy-meter",
   "homebridge-433-arduino",
