@@ -11,6 +11,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@350d/homebridge-http-lock": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-http-lock.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@balansse/homebridge-vivint": {
     "name": null,
     "hidden": false,
@@ -2783,18 +2795,6 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
-  "homebridge-http-lock": {
-    "name": null,
-    "hidden": false,
-    "icon": "icons/homebridge-http-lock.png",
     "maintained": false,
     "newScope": false,
     "scoped": false,

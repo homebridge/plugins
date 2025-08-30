@@ -1,5 +1,6 @@
 {
   "@0x5e/homebridge-tuya-platform": "icons/homebridge-tuya-platform.png",
+  "@350d/homebridge-http-lock": "icons/homebridge-http-lock.png",
   "@chazepps/homebridge-hejhome": "icons/homebridge-hejhome.png",
   "@elshaer/homebridge-hdl-buspro-enhanced": "icons/homebridge-hdl-buspro-enhanced.png",
   "@homebridge-plugins/homebridge-air": "icons/homebridge-air.png",
@@ -65,7 +66,6 @@
   "homebridge-homeconnect": "icons/homebridge-homeconnect.png",
   "homebridge-homekit-control": "icons/homebridge-homekit-control.png",
   "homebridge-http-garage-doors": "icons/homebridge-http-garage-doors.png",
-  "homebridge-http-lock": "icons/homebridge-http-lock.png",
   "homebridge-http-sensors-switches": "icons/homebridge-http-sensors-switches.png",
   "homebridge-hue": "icons/homebridge-hue.png",
   "homebridge-hunter-hydrawise": "icons/homebridge-hunter-hydrawise.png",
