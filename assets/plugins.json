@@ -2647,6 +2647,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-home-depot-hubspace": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-home-depot-hubspace.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-homeconnect": {
     "name": null,
     "hidden": false,
