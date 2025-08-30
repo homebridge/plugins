@@ -6079,6 +6079,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-weather-noaa": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-weather-noaa.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-weather-plus": {
     "name": null,
     "hidden": false,

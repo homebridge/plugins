@@ -473,6 +473,7 @@
   "homebridge-washingmachine-pow",
   "homebridge-wattbox",
   "homebridge-wattbox-ip",
+  "homebridge-weather-noaa",
   "homebridge-weather-plus",
   "homebridge-weatherflow-tempest",
   "homebridge-webos-tv",
