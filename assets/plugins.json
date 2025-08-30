@@ -2827,6 +2827,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-hyundai-ht": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-i6-bigassfans": {
     "name": null,
     "hidden": false,
