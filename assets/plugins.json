@@ -3631,18 +3631,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-mqtt": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-mqtt-ceiling-fan-remote": {
     "name": null,
     "hidden": false,

@@ -285,7 +285,6 @@
   "homebridge-mobilelink",
   "homebridge-moodo",
   "homebridge-moonraker",
-  "homebridge-mqtt",
   "homebridge-mqtt-ceiling-fan-remote",
   "homebridge-mqtt-tasmota",
   "homebridge-mqttsmokesensor",
