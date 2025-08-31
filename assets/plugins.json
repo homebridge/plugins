@@ -407,6 +407,18 @@
     "verified": false,
     "verifiedPlus": false
   },
+  "@jackietreeh0rn/homebridge-smartrent": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@jdes/homebridge-tost-corp-somfy-rts-web": {
     "name": null,
     "hidden": false,

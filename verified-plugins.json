@@ -32,6 +32,7 @@
   "@homebridge-plugins/homebridge-unifi-network",
   "@homebridge-plugins/homebridge-wattbox",
   "@homebridge-plugins/homebridge-wemo",
+  "@jackietreeh0rn/homebridge-smartrent",
   "@jdes/homebridge-tost-corp-somfy-rts-web",
   "@milo526/homebridge-tuya-web",
   "@o-lukas/homebridge-smartthings-tv",
