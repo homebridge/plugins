@@ -283,11 +283,17 @@ class CheckHomebridgePlugin {
       if (bugsUrl.startsWith('https://')) {
         this.passed.push('Package JSON: `bugs.url` exists and seems a valid URL')
 
-        // Extract GitHub info
+        // Extract GitHub info from URL format: https://github.com/author/repo/... or https://www.github.com/author/repo/...
         const parts = bugsUrl.split('/')
-        parts.pop()
-        this.gitHubRepo = parts.pop() || ''
-        this.gitHubAuthor = parts.pop() || ''
+        // parts[0] = 'https:', parts[1] = '', parts[2] = 'github.com' or 'www.github.com'
+        // parts[3] = author, parts[4] = repo
+        if (parts.length >= 5 && (parts[2] === 'github.com' || parts[2] === 'www.github.com')) {
+          this.gitHubAuthor = parts[3] || ''
+          this.gitHubRepo = parts[4] || ''
+        } else {
+          this.gitHubAuthor = ''
+          this.gitHubRepo = ''
+        }
         this.packageVersion = packageJSON.version || ''
       } else {
         this.failed.push('Package JSON: `bugs.url` exists but does not start with `https://`')

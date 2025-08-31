@@ -65,22 +65,23 @@ class PluginChecks {
 
       // Show runtime failures with detailed explanations
       if (runtimeFailures.length > 0) {
-        comment += '**Runtime Configuration Issues:**\n\n'
+        comment += '**Runtime Issues:**\n\n'
 
         for (const failure of runtimeFailures) {
-          comment += `- **${failure.scenario}**: Plugin crashes when started with the following configuration:\n\n`
-          comment += '```json\n'
-          comment += JSON.stringify(failure.config, null, 2)
-          comment += '\n```\n\n'
-          comment += '**Error:**\n```\n'
+          comment += '- ⚠️ Plugin crashes when started with the following configuration:\n\n'
+          comment += '    ```json\n'
+          const jsonLines = JSON.stringify(failure.config, null, 2).split('\n')
+          comment += jsonLines.map(line => `    ${line}`).join('\n')
+          comment += '\n    ```\n\n'
+          comment += '    **Error:**\n    ```\n'
           // Extract just the error part after " - "
           const errorPart = failure.message.split(' - ').slice(1).join(' - ')
-          comment += errorPart
-          comment += '\n```\n\n'
-          comment += '⚠️ **This needs to be fixed so that the plugin does not crash when started with this configuration.** The plugin should either:\n'
-          comment += '- Handle missing required configuration gracefully with proper error messages\n'
-          comment += '- Provide sensible defaults for missing values\n'
-          comment += '- Validate configuration during startup and log helpful warnings\n\n'
+          comment += `    ${errorPart}`
+          comment += '\n    ```\n\n'
+          comment += '    This needs to be fixed so that the plugin does not send Homebridge into a crash-restart loop. The plugin could:\n'
+          comment += '      - Handle missing required configuration gracefully with proper error messages\n'
+          comment += '      - Provide sensible defaults for missing values\n'
+          comment += '      - Validate configuration during startup and log helpful warnings\n\n'
         }
 
         if (otherFailures.length > 0) {
