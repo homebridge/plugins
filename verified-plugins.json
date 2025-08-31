@@ -311,6 +311,7 @@
   "homebridge-notifyevents",
   "homebridge-nukiio",
   "homebridge-nuvo",
+  "homebridge-obis-powermeter",
   "homebridge-octoprint-motion",
   "homebridge-omnik",
   "homebridge-omnilink-platform",

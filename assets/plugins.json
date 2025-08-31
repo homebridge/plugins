@@ -3959,6 +3959,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-obis-powermeter": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-obis-powermeter.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-octoprint-motion": {
     "name": null,
     "hidden": false,
