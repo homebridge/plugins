@@ -410,6 +410,7 @@
   "homebridge-somfy-tahoma-screen",
   "homebridge-somneo",
   "homebridge-sonos",
+  "homebridge-sonos-control",
   "homebridge-sonos-multiroom",
   "homebridge-sonos-starter-track",
   "homebridge-sony-audio",

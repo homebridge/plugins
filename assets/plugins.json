@@ -5251,6 +5251,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-sonos-control": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-sonos-multiroom": {
     "name": null,
     "hidden": false,
