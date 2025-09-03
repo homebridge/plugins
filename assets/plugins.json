@@ -2002,7 +2002,7 @@
   "homebridge-easy-mqtt": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-easy-mqtt.png",
     "maintained": false,
     "newScope": false,
     "scoped": false,
