@@ -8,16 +8,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Check if comment starts with /check
+        id: check-command
+        run: |
+          FIRST_LINE=$(echo "${{ github.event.comment.body }}" | head -n 1 | tr -d ' \t\r')
+          if [[ "$FIRST_LINE" == "/check" ]]; then
+            echo "is_check_command=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_check_command=false" >> $GITHUB_OUTPUT
+          fi
       - uses: actions-ecosystem/action-add-labels@v1
-        if: ${{ startsWith(github.event.comment.body, '/check') && contains(github.event.issue.labels.*.name, 'request-verification') }}
+        if: ${{ steps.check-command.outputs.is_check_command == 'true' && contains(github.event.issue.labels.*.name, 'request-verification') }}
         with:
           labels: pending
   review_remove_labels:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Check if comment starts with /check
+        id: check-command
+        run: |
+          FIRST_LINE=$(echo "${{ github.event.comment.body }}" | head -n 1 | tr -d ' \t\r')
+          if [[ "$FIRST_LINE" == "/check" ]]; then
+            echo "is_check_command=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_check_command=false" >> $GITHUB_OUTPUT
+          fi
       - uses: actions-ecosystem/action-remove-labels@v1
-        if: ${{ startsWith(github.event.comment.body, '/check') && contains(github.event.issue.labels.*.name, 'request-verification') }}
+        if: ${{ steps.check-command.outputs.is_check_command == 'true' && contains(github.event.issue.labels.*.name, 'request-verification') }}
         with:
           github_token: ${{ secrets.github_token }}
           labels: |

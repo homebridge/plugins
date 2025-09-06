@@ -15,14 +15,43 @@ on:
 jobs:
   check-plugin:
     runs-on: ubuntu-latest
-    if: (github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'request-verification')) ||
-      (github.event_name == 'issue_comment' && github.event.comment.body == '/check' && contains(github.event.issue.labels.*.name, 'request-verification')) ||
-      (github.event_name == 'workflow_dispatch' && inputs.plugin)
     steps:
       - uses: actions/checkout@v4
+      - name: Check if should run
+        id: should-run
+        run: |
+          if [[ "${{ github.event_name }}" == "issues" ]] && [[ "${{ contains(github.event.issue.labels.*.name, 'request-verification') }}" == "true" ]]; then
+            echo "run=true" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]] && [[ -n "${{ inputs.plugin }}" ]]; then
+            echo "run=true" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.event_name }}" == "issue_comment" ]]; then
+            FIRST_LINE=$(echo "${{ github.event.comment.body }}" | head -n 1 | tr -d ' \t\r')
+            if [[ "$FIRST_LINE" == "/check" ]] && [[ "${{ contains(github.event.issue.labels.*.name, 'request-verification') }}" == "true" ]]; then
+              echo "run=true" >> $GITHUB_OUTPUT
+              echo "comment_id=${{ github.event.comment.id }}" >> $GITHUB_OUTPUT
+            else
+              echo "run=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "run=false" >> $GITHUB_OUTPUT
+          fi
+      - name: React with eyes emoji
+        if: steps.should-run.outputs.run == 'true' && github.event_name == 'issue_comment'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            await github.rest.reactions.createForIssueComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: ${{ github.event.comment.id }},
+              content: 'eyes'
+            });
       - name: Install Dependencies & Build
+        if: steps.should-run.outputs.run == 'true'
         run: npm install && npm run plugin-checks:build
       - name: Extract Plugin Name
+        if: steps.should-run.outputs.run == 'true'
         id: extract
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
@@ -34,6 +63,7 @@ jobs:
           fi
           echo "PLUGIN_NAME=$PLUGIN_NAME" >> $GITHUB_ENV
       - name: Check Plugin
+        if: steps.should-run.outputs.run == 'true'
         uses: ./src/plugin-checks
         with:
           plugin: ${{ env.PLUGIN_NAME }}

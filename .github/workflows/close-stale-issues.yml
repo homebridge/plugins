@@ -1,0 +1,40 @@
+name: Close Stale Issues
+
+on:
+  schedule:
+    # Run daily at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  close-stale:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+      - name: Close stale issues with awaiting-changes label
+        uses: actions/stale@v9
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          only-labels: awaiting-changes
+          stale-issue-message: This issue has been automatically closed due to inactivity while awaiting changes.
+          close-issue-message: Closing due to inactivity. Feel free to reopen if you have made the requested changes.
+          days-before-stale: 14
+          days-before-close: 7
+          stale-issue-label: stale
+          exempt-issue-labels: 'pinned,security'
+          operations-per-run: 100
+
+      - name: Close stale issues with awaiting-user-reply label
+        uses: actions/stale@v9
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          only-labels: awaiting-user-reply
+          stale-issue-message: This issue has been automatically marked as stale because it has been awaiting a user reply for an extended period.
+          close-issue-message: Closing due to lack of response. Feel free to reopen if you would like to continue the discussion.
+          days-before-stale: 14
+          days-before-close: 7
+          stale-issue-label: stale
+          exempt-issue-labels: 'pinned,security'
+          operations-per-run: 100

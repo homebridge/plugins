@@ -1,0 +1,87 @@
+name: Manage Issue Labels on User Reply
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  update-labels:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    # Only run if comment is on an issue (not PR) and by the issue author
+    if: |
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.login == github.event.issue.user.login
+
+    steps:
+      - name: Check for relevant labels
+        id: check-label
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.issue;
+            const labels = await github.rest.issues.listLabelsOnIssue({
+              owner: issue.owner,
+              repo: issue.repo,
+              issue_number: issue.number
+            });
+
+            const hasAwaitingReply = labels.data.some(label =>
+              label.name === 'awaiting-user-reply'
+            );
+            
+            const hasStale = labels.data.some(label =>
+              label.name === 'stale'
+            );
+
+            return hasAwaitingReply || hasStale;
+
+      - name: Update labels
+        if: steps.check-label.outputs.result == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.issue;
+
+            // Remove awaiting-user-reply label
+            try {
+              await github.rest.issues.removeLabel({
+                owner: issue.owner,
+                repo: issue.repo,
+                issue_number: issue.number,
+                name: 'awaiting-user-reply'
+              });
+              console.log('Removed awaiting-user-reply label');
+            } catch (error) {
+              console.log('Label awaiting-user-reply not found or already removed');
+            }
+
+            // Remove stale label if present (in case issue was marked stale)
+            try {
+              await github.rest.issues.removeLabel({
+                owner: issue.owner,
+                repo: issue.repo,
+                issue_number: issue.number,
+                name: 'stale'
+              });
+              console.log('Removed stale label');
+            } catch (error) {
+              console.log('Label stale not found or already removed');
+            }
+
+            // Add pending label
+            try {
+              await github.rest.issues.addLabels({
+                owner: issue.owner,
+                repo: issue.repo,
+                issue_number: issue.number,
+                labels: ['pending']
+              });
+              console.log('Added pending label');
+            } catch (error) {
+              console.error('Error adding pending label:', error);
+            }

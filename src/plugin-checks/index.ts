@@ -30,6 +30,7 @@ class PluginChecks {
   private static readonly LABELS = {
     PENDING: 'pending',
     AWAITING_CHANGES: 'awaiting-changes',
+    AWAITING_FINAL_REVIEW: 'awaiting-final-review',
   } as const
 
   private pluginName: string
@@ -114,6 +115,14 @@ class PluginChecks {
 
     if (this.version) {
       comment += `\n\nThese checks were run against v${this.version} of the plugin.`
+    }
+
+    // Add workflow run link if available
+    const runId = process.env.GITHUB_RUN_ID
+    const serverUrl = process.env.GITHUB_SERVER_URL || 'https://github.com'
+    const repository = process.env.GITHUB_REPOSITORY
+    if (runId && repository) {
+      comment += `\n\n[Workflow →](${serverUrl}/${repository}/actions/runs/${runId})`
     }
 
     await this.addComment(allPassed, comment)
@@ -240,8 +249,10 @@ class PluginChecks {
     const labels = await octokit.rest.issues.listLabelsOnIssue(restParams)
     const existingLabels = new Set(labels.data.map((l: any) => l.name))
 
-    const labelsToAdd = successful ? [PluginChecks.LABELS.PENDING] : [PluginChecks.LABELS.AWAITING_CHANGES]
-    const labelsToRemove = successful ? [PluginChecks.LABELS.AWAITING_CHANGES] : [PluginChecks.LABELS.PENDING]
+    const labelsToAdd = successful ? [PluginChecks.LABELS.AWAITING_FINAL_REVIEW] : [PluginChecks.LABELS.AWAITING_CHANGES]
+    const labelsToRemove = successful 
+      ? [PluginChecks.LABELS.AWAITING_CHANGES, PluginChecks.LABELS.PENDING] 
+      : [PluginChecks.LABELS.PENDING, PluginChecks.LABELS.AWAITING_FINAL_REVIEW]
 
     // Add labels that don't exist
     for (const label of labelsToAdd) {
