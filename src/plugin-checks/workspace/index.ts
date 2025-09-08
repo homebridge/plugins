@@ -3,7 +3,7 @@
  */
 
 /* eslint-disable no-console */
-import type { Buffer } from 'node:buffer'
+import { Buffer } from 'node:buffer'
 import type { ChildProcess } from 'node:child_process'
 
 import { spawn } from 'node:child_process'
@@ -148,6 +148,7 @@ class CheckHomebridgePlugin {
   private detailedFailures: DetailedFailure[] = []
   private readonly packageName: string
   private packageVersion = ''
+  private npmLatestVersion = ''
   private testPath = ''
   private gitHubRepo = ''
   private gitHubAuthor = ''
@@ -172,6 +173,11 @@ class CheckHomebridgePlugin {
 
     await this.saveResults()
 
+    // Display results if in debug mode
+    if (process.env.DEBUG) {
+      this.displayResults()
+    }
+
     // Display HTTP requests summary
     this.displayHttpRequestSummary()
 
@@ -184,6 +190,7 @@ class CheckHomebridgePlugin {
       { name: 'Installed Plugin', method: () => this.install() },
       { name: 'Tested Package JSON', method: () => this.testPackageJson() },
       { name: 'Tested NPM Package', method: () => this.testNpmPackage() },
+      { name: 'Tested GitHub Version Sync', method: () => this.testGitHubVersionSync() },
       { name: 'Tested Config Schema', method: () => this.testConfigSchema() },
       { name: 'Tested Dependencies', method: () => this.testDependencies() },
     ]
@@ -518,6 +525,50 @@ class CheckHomebridgePlugin {
     }
   }
 
+  private async validateGitHubPackageJsonVersion(): Promise<void> {
+    try {
+      const packageJsonUrl = `${CheckHomebridgePlugin.CONSTANTS.URLS.GITHUB_API}/repos/${this.gitHubAuthor}/${this.gitHubRepo}/contents/package.json`
+      const { body } = await request(packageJsonUrl, {
+        headers: {
+          'User-Agent': CheckHomebridgePlugin.CONSTANTS.HEADERS.USER_AGENT,
+          'Accept': CheckHomebridgePlugin.CONSTANTS.HEADERS.GITHUB_ACCEPT,
+        },
+      })
+      const packageJsonData = await body.json() as any
+
+      if (packageJsonData.message && packageJsonData.message.includes('Not Found')) {
+        this.failed.push('GitHub Repo: package.json file not found')
+        return
+      }
+
+      // Decode the base64 content
+      const packageJsonContent = Buffer.from(packageJsonData.content, 'base64').toString()
+      const gitHubPackageJson = JSON.parse(packageJsonContent) as PackageJSON
+
+      if (!gitHubPackageJson.version) {
+        this.failed.push('GitHub Repo: package.json does not contain a version property')
+        return
+      }
+
+      // Get NPM latest version from our already fetched data
+      const npmVersion = this.npmLatestVersion
+      const githubVersion = gitHubPackageJson.version
+
+      if (!npmVersion) {
+        this.failed.push('GitHub Repo: NPM version not available for comparison')
+        return
+      }
+
+      if (npmVersion === githubVersion) {
+        this.passed.push(`GitHub Repo: version in package.json (v${githubVersion}) matches NPM version (v${npmVersion})`)
+      } else {
+        this.failed.push(`GitHub Repo: version mismatch - NPM has v${npmVersion} but GitHub package.json has v${githubVersion}`)
+      }
+    } catch (e) {
+      this.failed.push(`GitHub Repo: could not check package.json version as ${this.handleError(e)}`)
+    }
+  }
+
   private async testNpmPackage(): Promise<void> {
     try {
       const npmUrl = `${CheckHomebridgePlugin.CONSTANTS.URLS.NPM_REGISTRY}/${encodeURIComponent(this.packageName).replace(/%40/g, '@')}`
@@ -529,6 +580,7 @@ class CheckHomebridgePlugin {
 
       const bodyJson = await body.json() as NPMPackageInfo
       const latestVersion = bodyJson['dist-tags'].latest
+      this.npmLatestVersion = latestVersion
       const deprecatedMessage = bodyJson.versions[latestVersion]?.deprecated
 
       if (deprecatedMessage) {
@@ -539,6 +591,16 @@ class CheckHomebridgePlugin {
     } catch (e) {
       this.failed.push(`NPM Package: could not request information as ${this.handleError(e)}`)
     }
+  }
+
+  private async testGitHubVersionSync(): Promise<void> {
+    // Only run this test if we have GitHub repo information
+    if (!this.gitHubRepo || !this.gitHubAuthor) {
+      console.log('Skipped Testing GitHub Version Sync')
+      return
+    }
+
+    await this.validateGitHubPackageJsonVersion()
   }
 
   private async testConfigSchema(): Promise<void> {
@@ -554,10 +616,150 @@ class CheckHomebridgePlugin {
       this.configSchema = configSchema // Store for runtime testing
       this.passed.push('Config Schema JSON: exists and is valid JSON')
 
+      // Validate that it's a proper JSON Schema
+      this.validateJsonSchema(configSchema)
+
       this.validateConfigSchema(configSchema)
     } catch (e) {
       this.failed.push('Config Schema JSON: does not contain valid JSON')
     }
+  }
+
+  private validateJsonSchema(configSchema: any): void {
+    // Use require to load AJV since it has complex exports
+    const Ajv = require('ajv')
+
+    // Initialize AJV with draft-07 support (commonly used for config.schema.json)
+    const ajv = new Ajv({ strict: false, allErrors: true })
+
+    // Check if it has a schema property which should be a valid JSON Schema
+    if (!configSchema.schema || typeof configSchema.schema !== 'object') {
+      this.failed.push('Config Schema JSON: missing or invalid `schema` property')
+      return
+    }
+
+    // Basic JSON Schema validation - check for common schema properties
+    const schema = configSchema.schema
+
+    // Check for common mistake: using 'required' as a boolean property on fields
+    const hasRequiredBooleanError = this.checkForRequiredBooleanMistake(schema)
+
+    // Validate it's a valid JSON Schema by compiling it
+    try {
+      ajv.compile(schema)
+      this.passed.push('Config Schema JSON: contains valid JSON Schema')
+    } catch (e) {
+      const error = e instanceof Error ? e.message : String(e)
+
+      // Check if this is the common 'required must be array' error pattern
+      if (error.includes('required must be array') && hasRequiredBooleanError) {
+        this.failed.push(
+          'Config Schema JSON: schema is invalid - `required` should not be a boolean property on individual fields. '
+          + 'In JSON Schema, `required` must be an array at the object level listing required property names. '
+          + 'Remove `"required": true/false` from individual properties and use `"required": ["property1", "property2"]` at the object level instead.',
+        )
+        return
+      }
+
+      // Check for 'items must be array' or 'items must match' errors which often mean invalid properties on array schemas
+      if (error.includes('items must be array') || error.includes('items must match a schema')) {
+        this.failed.push(
+          'Config Schema JSON: schema is invalid - array schemas have invalid properties. '
+          + 'Arrays in JSON Schema should only have `type`, `items`, `minItems`, `maxItems`, etc. '
+          + 'Remove invalid properties like `"required": true/false` from array definitions. '
+          + 'The `items` property should define the schema for array elements, not be set to a boolean.',
+        )
+        return
+      }
+
+      // Split AJV validation errors by comma for better formatting
+      const errorParts = error.split(', ').map(part => part.trim()).filter(part => part)
+
+      // Filter out repetitive 'required must be array' errors if there are many
+      const requiredErrors = errorParts.filter(part => part.includes('required must be array'))
+      const otherErrors = errorParts.filter(part => !part.includes('required must be array'))
+
+      if (requiredErrors.length > 3) {
+        // Consolidate repetitive required errors
+        const consolidatedErrors = [
+          ...otherErrors,
+          `${requiredErrors.length} instances of: required must be array (should not use 'required' as a boolean property on fields)`,
+        ]
+
+        if (consolidatedErrors.length > 1) {
+          this.failed.push(`Config Schema JSON: schema is invalid:\n  - ${consolidatedErrors.join('\n  - ')}`)
+        } else {
+          this.failed.push(`Config Schema JSON: ${consolidatedErrors[0]}`)
+        }
+      } else if (errorParts.length > 1) {
+        // Format as a main error with sub-bullets for each validation issue
+        this.failed.push(`Config Schema JSON: schema is invalid:\n  - ${errorParts.join('\n  - ')}`)
+      } else {
+        // Single error, keep it simple
+        this.failed.push(`Config Schema JSON: ${error}`)
+      }
+    }
+
+    // Check for common JSON Schema properties that should be present
+    if (schema.type && typeof schema.type === 'string') {
+      this.passed.push('Config Schema JSON: schema has valid `type` property')
+    } else if (!schema.oneOf && !schema.anyOf && !schema.allOf) {
+      // Only require 'type' if it's not using combinators
+      this.failed.push('Config Schema JSON: schema missing `type` property')
+    }
+
+    // Validate properties if it's an object schema
+    if (schema.type === 'object' && schema.properties && typeof schema.properties === 'object') {
+      this.passed.push('Config Schema JSON: schema has valid `properties` for object type')
+    } else if (schema.type === 'object' && !schema.properties) {
+      this.failed.push('Config Schema JSON: object schema missing `properties`')
+    }
+  }
+
+  private checkForRequiredBooleanMistake(schema: any, path = ''): boolean {
+    if (!schema || typeof schema !== 'object') {
+      return false
+    }
+
+    // Check if this level has a 'required' property that's a boolean
+    if ('required' in schema && typeof schema.required === 'boolean') {
+      return true
+    }
+
+    // Recursively check properties
+    if (schema.properties && typeof schema.properties === 'object') {
+      for (const [key, value] of Object.entries(schema.properties)) {
+        if (this.checkForRequiredBooleanMistake(value, `${path}.properties.${key}`)) {
+          return true
+        }
+      }
+    }
+
+    // Check items for arrays
+    if (schema.items) {
+      if (Array.isArray(schema.items)) {
+        for (let i = 0; i < schema.items.length; i++) {
+          if (this.checkForRequiredBooleanMistake(schema.items[i], `${path}.items[${i}]`)) {
+            return true
+          }
+        }
+      } else if (this.checkForRequiredBooleanMistake(schema.items, `${path}.items`)) {
+        return true
+      }
+    }
+
+    // Check combinators
+    for (const combinator of ['oneOf', 'anyOf', 'allOf']) {
+      if (schema[combinator] && Array.isArray(schema[combinator])) {
+        for (let i = 0; i < schema[combinator].length; i++) {
+          if (this.checkForRequiredBooleanMistake(schema[combinator][i], `${path}.${combinator}[${i}]`)) {
+            return true
+          }
+        }
+      }
+    }
+
+    return false
   }
 
   private validateConfigSchema(configSchema: ConfigSchema): void {
@@ -603,7 +805,35 @@ class CheckHomebridgePlugin {
       detailedFailures: this.detailedFailures,
     }
 
-    await fs.writeJson(CheckHomebridgePlugin.CONSTANTS.RESULTS_PATH, results)
+    try {
+      await fs.writeJson(CheckHomebridgePlugin.CONSTANTS.RESULTS_PATH, results)
+    } catch (e) {
+      // If we can't write to the results path, output to console in debug mode
+      if (process.env.DEBUG) {
+        console.log('Could not write results file, showing results in console:')
+        console.log(JSON.stringify(results, null, 2))
+      }
+    }
+  }
+
+  private displayResults(): void {
+    console.log(`\n${'='.repeat(60)}`)
+
+    if (this.failed.length > 0) {
+      console.log('\n🔴 The following checks failed:\n')
+      for (const failure of this.failed) {
+        console.log(`- ${failure}`)
+      }
+    }
+
+    if (this.passed.length > 0) {
+      console.log('\n✅ The following checks passed:\n')
+      for (const pass of this.passed) {
+        console.log(`- ${pass}`)
+      }
+    }
+
+    console.log(`\n${'='.repeat(60)}`)
   }
 
   private async testRuntimeBehavior(): Promise<void> {

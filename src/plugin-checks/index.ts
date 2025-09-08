@@ -250,8 +250,8 @@ class PluginChecks {
     const existingLabels = new Set(labels.data.map((l: any) => l.name))
 
     const labelsToAdd = successful ? [PluginChecks.LABELS.AWAITING_FINAL_REVIEW] : [PluginChecks.LABELS.AWAITING_CHANGES]
-    const labelsToRemove = successful 
-      ? [PluginChecks.LABELS.AWAITING_CHANGES, PluginChecks.LABELS.PENDING] 
+    const labelsToRemove = successful
+      ? [PluginChecks.LABELS.AWAITING_CHANGES, PluginChecks.LABELS.PENDING]
       : [PluginChecks.LABELS.PENDING, PluginChecks.LABELS.AWAITING_FINAL_REVIEW]
 
     // Add labels that don't exist

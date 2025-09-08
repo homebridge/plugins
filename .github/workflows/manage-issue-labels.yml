@@ -32,7 +32,7 @@ jobs:
             const hasAwaitingReply = labels.data.some(label =>
               label.name === 'awaiting-user-reply'
             );
-            
+
             const hasStale = labels.data.some(label =>
               label.name === 'stale'
             );
