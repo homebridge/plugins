@@ -3,9 +3,9 @@
  */
 
 /* eslint-disable no-console */
-import { Buffer } from 'node:buffer'
 import type { ChildProcess } from 'node:child_process'
 
+import { Buffer } from 'node:buffer'
 import { spawn } from 'node:child_process'
 import { createRequire } from 'node:module'
 import { join, resolve } from 'node:path'

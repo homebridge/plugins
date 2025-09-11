@@ -1795,6 +1795,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-delonghi-comfort": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-denon-heos": {
     "name": null,
     "hidden": false,
