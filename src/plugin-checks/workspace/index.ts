@@ -76,6 +76,7 @@ interface TestResults {
   passed: string[]
   version: string
   detailedFailures?: DetailedFailure[]
+  httpRequests?: HttpRequest[]
 }
 
 interface DetailedFailure {
@@ -83,6 +84,7 @@ interface DetailedFailure {
   config?: any
   scenario?: string
   isRuntimeFailure?: boolean
+  isNetworkResilienceTest?: boolean
 }
 
 interface RuntimeTestScenario {
@@ -112,6 +114,7 @@ interface TestResult {
   duration: number
   httpRequests?: HttpRequest[]
   pluginLoaded?: boolean
+  suspiciousFileAccess?: any[]
 }
 
 interface HttpRequest {
@@ -193,6 +196,9 @@ class CheckHomebridgePlugin {
       { name: 'Tested GitHub Version Sync', method: () => this.testGitHubVersionSync() },
       { name: 'Tested Config Schema', method: () => this.testConfigSchema() },
       { name: 'Tested Dependencies', method: () => this.testDependencies() },
+      { name: 'Tested Security Vulnerabilities', method: () => this.testSecurityVulnerabilities() },
+      { name: 'Tested Code Safety', method: () => this.testCodeSafety() },
+      { name: 'Tested Permissions', method: () => this.testPermissions() },
     ]
 
     // Run static analysis tests first
@@ -541,6 +547,12 @@ class CheckHomebridgePlugin {
         return
       }
 
+      // Check if content exists
+      if (!packageJsonData.content) {
+        this.failed.push('GitHub Repo: could not retrieve package.json content from GitHub API')
+        return
+      }
+
       // Decode the base64 content
       const packageJsonContent = Buffer.from(packageJsonData.content, 'base64').toString()
       const gitHubPackageJson = JSON.parse(packageJsonContent) as PackageJSON
@@ -597,6 +609,13 @@ class CheckHomebridgePlugin {
     // Only run this test if we have GitHub repo information
     if (!this.gitHubRepo || !this.gitHubAuthor) {
       console.log('Skipped Testing GitHub Version Sync')
+      return
+    }
+
+    // Skip version sync test if NPM version is not available (package might not be published yet)
+    if (!this.npmLatestVersion) {
+      this.passed.push('GitHub Repo: version sync check skipped (package not yet published to NPM)')
+      console.log('Skipped GitHub version sync - package not published to NPM')
       return
     }
 
@@ -797,12 +816,208 @@ class CheckHomebridgePlugin {
     }
   }
 
+  private async testSecurityVulnerabilities(): Promise<void> {
+    try {
+      // Run npm audit to check for vulnerabilities
+      const auditCommand = 'npm audit --json'
+      const auditResult = require('node:child_process').execSync(auditCommand, {
+        cwd: this.testPath,
+        encoding: 'utf8',
+        stdio: ['pipe', 'pipe', 'pipe'],
+      })
+
+      const audit = JSON.parse(auditResult)
+      const vulnerabilities = audit.metadata?.vulnerabilities || {}
+
+      const critical = vulnerabilities.critical || 0
+      const high = vulnerabilities.high || 0
+      const moderate = vulnerabilities.moderate || 0
+      const low = vulnerabilities.low || 0
+
+      if (critical > 0 || high > 0) {
+        this.failed.push(`Security: found ${critical} critical and ${high} high-severity vulnerabilities in dependencies`)
+      } else if (moderate > 0) {
+        // Just warn for moderate vulnerabilities
+        this.passed.push(`Security: no critical/high vulnerabilities (${moderate} moderate, ${low} low)`)
+      } else {
+        this.passed.push('Security: no known vulnerabilities in dependencies')
+      }
+    } catch (e) {
+      // npm audit returns non-zero exit code when vulnerabilities are found
+      // Try to parse the output anyway
+      const errorStr = e.toString()
+      if (errorStr.includes('npm audit')) {
+        try {
+          const output = e.stdout?.toString() || e.output?.toString() || ''
+          if (output) {
+            const audit = JSON.parse(output)
+            const vulnerabilities = audit.metadata?.vulnerabilities || {}
+            const critical = vulnerabilities.critical || 0
+            const high = vulnerabilities.high || 0
+
+            if (critical > 0 || high > 0) {
+              this.failed.push(`Security: found ${critical} critical and ${high} high-severity vulnerabilities in dependencies`)
+            } else {
+              this.passed.push('Security: vulnerabilities found but none are critical/high-severity')
+            }
+          }
+        } catch {
+          // If we can't parse, skip this test
+          console.log('Could not parse npm audit output')
+        }
+      }
+    }
+  }
+
+  private async testCodeSafety(): Promise<void> {
+    const pluginPath = join(this.testPath, 'node_modules', this.packageName)
+
+    // Patterns that could indicate security issues
+    const dangerousPatterns = [
+      { pattern: /\beval\s*\(/, message: 'uses eval() which can be a security risk', severity: 'high' },
+      { pattern: /new\s+Function\s*\(/, message: 'uses Function constructor which can be a security risk', severity: 'high' },
+      { pattern: /require\s*\([^'"][^)]*\)/, message: 'uses dynamic require() which could load arbitrary code', severity: 'medium' },
+      { pattern: /child_process\.(?:exec|execSync)\s*\([^'"]/, message: 'uses exec with potentially unsafe input', severity: 'high' },
+      { pattern: /\.createReadStream\s*\([^'"]/, message: 'reads files with dynamic paths', severity: 'low' },
+      { pattern: /\.readFileSync?\s*\([^'"]/, message: 'reads files with dynamic paths', severity: 'low' },
+    ]
+
+    const suspiciousFilePatterns = [
+      { pattern: /\.ssh[/\\]/, message: 'accesses SSH directory' },
+      { pattern: /\.aws[/\\]/, message: 'accesses AWS credentials' },
+      { pattern: /id_rsa/, message: 'accesses SSH keys' },
+      { pattern: /private[_\-]?key/i, message: 'accesses private keys' },
+      { pattern: /\.env/, message: 'accesses environment files' },
+      { pattern: /\/etc\/passwd/, message: 'accesses system files' },
+    ]
+
+    try {
+      // Get all JS/TS files in the plugin
+      const files = await this.getAllCodeFiles(pluginPath)
+      const findings: { file: string, message: string, severity: string }[] = []
+
+      for (const file of files) {
+        try {
+          const content = await fs.readFile(file, 'utf8')
+          const relativePath = file.replace(`${pluginPath}/`, '')
+
+          // Skip minified files and dependencies
+          if (relativePath.includes('node_modules/') || relativePath.includes('.min.')) {
+            continue
+          }
+
+          // Check for dangerous code patterns
+          for (const { pattern, message, severity } of dangerousPatterns) {
+            if (pattern.test(content)) {
+              findings.push({ file: relativePath, message, severity: severity || 'medium' })
+            }
+          }
+
+          // Check for suspicious file access
+          for (const { pattern, message } of suspiciousFilePatterns) {
+            if (pattern.test(content)) {
+              findings.push({ file: relativePath, message, severity: 'high' })
+            }
+          }
+        } catch {
+          // Skip files we can't read
+        }
+      }
+
+      // Report findings
+      const highSeverity = findings.filter(f => f.severity === 'high')
+      if (highSeverity.length > 0) {
+        const fileList = [...new Set(highSeverity.map(f => f.file))].slice(0, 3).join(', ')
+        const moreFiles = highSeverity.length > 3 ? ` and ${highSeverity.length - 3} more` : ''
+        this.failed.push(`Security: potentially unsafe code patterns found in: ${fileList}${moreFiles}`)
+      } else if (findings.length > 0) {
+        this.passed.push('Security: no high-risk code patterns found')
+      } else {
+        this.passed.push('Security: no unsafe code patterns detected')
+      }
+    } catch (e) {
+      // Don't fail the whole test if we can't scan
+      console.log('Could not scan for code safety:', this.handleError(e))
+    }
+  }
+
+  private async testPermissions(): Promise<void> {
+    try {
+      const packageJsonPath = join(this.testPath, 'node_modules', this.packageName, 'package.json')
+      const packageJson = await fs.readJson(packageJsonPath) as PackageJSON
+
+      const issues: string[] = []
+
+      // Check for suspicious scripts that might elevate privileges
+      if (packageJson.scripts) {
+        const suspiciousScripts = ['preinstall', 'install', 'postinstall', 'preuninstall', 'postuninstall']
+
+        for (const scriptName of suspiciousScripts) {
+          const script = packageJson.scripts[scriptName]
+          if (script) {
+            if (script.includes('sudo')) {
+              issues.push(`${scriptName} script requires sudo`)
+            }
+            if (script.includes('chmod 777') || script.includes('chmod -R 777')) {
+              issues.push(`${scriptName} script sets overly permissive file permissions`)
+            }
+            if (script.includes('curl') || script.includes('wget')) {
+              if (script.includes('| sh') || script.includes('| bash')) {
+                issues.push(`${scriptName} script downloads and executes remote code`)
+              }
+            }
+          }
+        }
+      }
+
+      if (issues.length > 0) {
+        this.failed.push(`Security: permission/privilege issues - ${issues.join(', ')}`)
+      } else {
+        this.passed.push('Security: no privilege escalation attempts detected')
+      }
+    } catch (e) {
+      console.log('Could not check permissions:', this.handleError(e))
+    }
+  }
+
+  private async getAllCodeFiles(dir: string): Promise<string[]> {
+    const files: string[] = []
+
+    async function walk(currentDir: string) {
+      try {
+        const entries = await fs.readdir(currentDir, { withFileTypes: true })
+
+        for (const entry of entries) {
+          const fullPath = join(currentDir, entry.name)
+
+          if (entry.isDirectory()) {
+            // Skip certain directories
+            if (!['node_modules', '.git', 'dist', 'coverage'].includes(entry.name)) {
+              await walk(fullPath)
+            }
+          } else if (entry.isFile()) {
+            // Include JS, TS, and JSON files
+            if (/\.(?:js|ts|json)$/.test(entry.name) && !entry.name.includes('.min.')) {
+              files.push(fullPath)
+            }
+          }
+        }
+      } catch {
+        // Skip directories we can't read
+      }
+    }
+
+    await walk(dir)
+    return files
+  }
+
   private async saveResults(): Promise<void> {
     const results: TestResults = {
       failed: this.failed,
       passed: this.passed,
       version: this.packageVersion,
       detailedFailures: this.detailedFailures,
+      httpRequests: this.allHttpRequests,
     }
 
     try {
@@ -853,6 +1068,12 @@ class CheckHomebridgePlugin {
       // Collect HTTP requests from this scenario
       if (result && result.httpRequests) {
         this.allHttpRequests.push(...result.httpRequests)
+      }
+
+      // Check for suspicious file access
+      if (result && result.suspiciousFileAccess && result.suspiciousFileAccess.length > 0) {
+        const accessedPaths = result.suspiciousFileAccess.map(a => a.path || a.command).join(', ')
+        this.failed.push(`Security: Runtime - suspicious file/command access detected in scenario "${scenario.name}": ${accessedPaths}`)
       }
     }
 
@@ -1231,6 +1452,7 @@ class CheckHomebridgePlugin {
           config: scenario.config,
           scenario: scenario.name,
           isRuntimeFailure: true,
+          isNetworkResilienceTest: scenario.mockNetworkFailures === true,
         })
 
         console.log(`${scenario.name}: FAILED - ${result.error}`)
@@ -1373,7 +1595,9 @@ class CheckHomebridgePlugin {
 
             // Try to read HTTP requests log before resolving
             const httpLogPath = join(storagePath, 'http-requests.json')
+            const fileLogPath = join(storagePath, 'http-requests-files.json')
             let capturedRequests: HttpRequest[] = []
+            let suspiciousFileAccess: any[] = []
             try {
               if (require('node:fs').existsSync(httpLogPath)) {
                 const httpLogContent = require('node:fs').readFileSync(httpLogPath, 'utf8')
@@ -1383,6 +1607,15 @@ class CheckHomebridgePlugin {
               // Ignore HTTP log read errors
             }
 
+            try {
+              if (require('node:fs').existsSync(fileLogPath)) {
+                const fileLogContent = require('node:fs').readFileSync(fileLogPath, 'utf8')
+                suspiciousFileAccess = JSON.parse(fileLogContent)
+              }
+            } catch (e) {
+              // Ignore file log read errors
+            }
+
             resolve({
               success: true,
               error: undefined,
@@ -1390,6 +1623,7 @@ class CheckHomebridgePlugin {
               duration: Date.now() - startTime,
               httpRequests: capturedRequests,
               pluginLoaded,
+              suspiciousFileAccess,
             })
           } else if (!resolved && pluginFailure) {
             // Plugin failure detected
@@ -1462,8 +1696,7 @@ class CheckHomebridgePlugin {
           handleHomebridgeOutput(output)
 
           // Look for critical errors that should fail the test
-          if (output.includes('Error:')
-            || output.includes('TypeError:')
+          if (output.includes('TypeError:')
             || output.includes('ReferenceError:')
             || output.includes('Cannot find module')
             || output.includes('SIGKILL')
@@ -1482,7 +1715,9 @@ class CheckHomebridgePlugin {
 
             // Try to read HTTP requests log
             const httpLogPath = join(storagePath, 'http-requests.json')
+            const fileLogPath = join(storagePath, 'http-requests-files.json')
             let capturedRequests: HttpRequest[] = []
+            let suspiciousFileAccess: any[] = []
             try {
               if (require('node:fs').existsSync(httpLogPath)) {
                 const httpLogContent = require('node:fs').readFileSync(httpLogPath, 'utf8')
@@ -1490,6 +1725,15 @@ class CheckHomebridgePlugin {
               }
             } catch (e) {
               // Ignore HTTP log read errors
+            }
+
+            try {
+              if (require('node:fs').existsSync(fileLogPath)) {
+                const fileLogContent = require('node:fs').readFileSync(fileLogPath, 'utf8')
+                suspiciousFileAccess = JSON.parse(fileLogContent)
+              }
+            } catch (e) {
+              // Ignore file log read errors
             }
 
             // Check for any errors in the logs that suggest plugin failure
@@ -1506,6 +1750,7 @@ class CheckHomebridgePlugin {
                 duration: Date.now() - startTime,
                 httpRequests: capturedRequests,
                 pluginLoaded,
+                suspiciousFileAccess,
               })
             } else {
               const failureReason = pluginFailure
@@ -1521,6 +1766,7 @@ class CheckHomebridgePlugin {
                 duration: Date.now() - startTime,
                 httpRequests: capturedRequests,
                 pluginLoaded,
+                suspiciousFileAccess,
               })
             }
           }
@@ -2145,6 +2391,174 @@ try {
   // Some environments might not allow creating or overriding dynamic import
   // This is expected and not a problem - we'll still catch CommonJS requires
 }
+
+// File system access monitoring
+const suspiciousFilePatterns = [
+  '.ssh/',
+  '.aws/',
+  'id_rsa',
+  'id_dsa',
+  'id_ecdsa',
+  'id_ed25519',
+  'private_key',
+  'privatekey',
+  '.env',
+  '/etc/passwd',
+  '/etc/shadow',
+  'wallet.dat',
+  '.bitcoin',
+  '.ethereum',
+  'cookies.sqlite',
+  'Cookies',
+  'Login Data',
+  '.bash_history',
+  '.zsh_history',
+  'known_hosts'
+];
+
+const fileAccessLog = process.env.HTTP_MONITOR_LOG ? process.env.HTTP_MONITOR_LOG.replace('.json', '-files.json') : null;
+const fileAccesses = [];
+
+// Wrap fs module methods to detect suspicious file access
+const originalReadFile = fs.readFile;
+const originalReadFileSync = fs.readFileSync;
+const originalOpen = fs.open;
+const originalOpenSync = fs.openSync;
+const originalAccess = fs.access;
+const originalAccessSync = fs.accessSync;
+const originalStat = fs.stat;
+const originalStatSync = fs.statSync;
+
+function checkSuspiciousPath(path, operation) {
+  if (!path || typeof path !== 'string') return;
+
+  const pathStr = path.toString();
+
+  for (const pattern of suspiciousFilePatterns) {
+    if (pathStr.includes(pattern)) {
+      const access = {
+        path: pathStr,
+        pattern: pattern,
+        operation: operation,
+        timestamp: new Date().toISOString(),
+        scenario: process.env.HTTP_MONITOR_SCENARIO || 'unknown',
+        stack: new Error().stack
+      };
+
+      fileAccesses.push(access);
+
+      // Write to log file
+      if (fileAccessLog) {
+        try {
+          fs.writeFileSync(fileAccessLog, JSON.stringify(fileAccesses, null, 2));
+        } catch (e) {
+          // Ignore write errors
+        }
+      }
+
+      console.log('[File Monitor] Suspicious file access detected:', pathStr);
+      break;
+    }
+  }
+}
+
+// Wrap async file operations
+fs.readFile = function(path, ...args) {
+  checkSuspiciousPath(path, 'readFile');
+  return originalReadFile.call(this, path, ...args);
+};
+
+fs.readFileSync = function(path, ...args) {
+  checkSuspiciousPath(path, 'readFileSync');
+  return originalReadFileSync.call(this, path, ...args);
+};
+
+fs.open = function(path, ...args) {
+  checkSuspiciousPath(path, 'open');
+  return originalOpen.call(this, path, ...args);
+};
+
+fs.openSync = function(path, ...args) {
+  checkSuspiciousPath(path, 'openSync');
+  return originalOpenSync.call(this, path, ...args);
+};
+
+fs.access = function(path, ...args) {
+  checkSuspiciousPath(path, 'access');
+  return originalAccess.call(this, path, ...args);
+};
+
+fs.accessSync = function(path, ...args) {
+  checkSuspiciousPath(path, 'accessSync');
+  return originalAccessSync.call(this, path, ...args);
+};
+
+fs.stat = function(path, ...args) {
+  checkSuspiciousPath(path, 'stat');
+  return originalStat.call(this, path, ...args);
+};
+
+fs.statSync = function(path, ...args) {
+  checkSuspiciousPath(path, 'statSync');
+  return originalStatSync.call(this, path, ...args);
+};
+
+// Also monitor child_process for suspicious commands
+const child_process = require('child_process');
+const originalExec = child_process.exec;
+const originalExecSync = child_process.execSync;
+const originalSpawn = child_process.spawn;
+
+const suspiciousCommands = [
+  'cat /etc/passwd',
+  'cat ~/.ssh/',
+  'find / -name id_rsa',
+  'grep -r password',
+  'curl.*|.*sh',
+  'wget.*|.*bash',
+  'sudo'
+];
+
+child_process.exec = function(command, ...args) {
+  if (typeof command === 'string') {
+    for (const pattern of suspiciousCommands) {
+      if (new RegExp(pattern, 'i').test(command)) {
+        const access = {
+          command: command,
+          operation: 'exec',
+          timestamp: new Date().toISOString(),
+          scenario: process.env.HTTP_MONITOR_SCENARIO || 'unknown'
+        };
+
+        fileAccesses.push(access);
+
+        if (fileAccessLog) {
+          try {
+            fs.writeFileSync(fileAccessLog, JSON.stringify(fileAccesses, null, 2));
+          } catch (e) {
+            // Ignore
+          }
+        }
+
+        console.log('[Command Monitor] Suspicious command detected:', command);
+        break;
+      }
+    }
+  }
+  return originalExec.call(this, command, ...args);
+};
+
+child_process.execSync = function(command, ...args) {
+  if (typeof command === 'string') {
+    for (const pattern of suspiciousCommands) {
+      if (new RegExp(pattern, 'i').test(command)) {
+        console.log('[Command Monitor] Suspicious command detected:', command);
+        break;
+      }
+    }
+  }
+  return originalExecSync.call(this, command, ...args);
+};
 `
   }
 

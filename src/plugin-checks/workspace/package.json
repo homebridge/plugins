@@ -9,10 +9,10 @@
   "main": "index.js",
   "dependencies": {
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^24.3.1",
+    "@types/node": "^24.5.0",
     "@types/semver": "^7.7.1",
     "ajv": "^8.17.1",
-    "fs-extra": "^11.3.1",
+    "fs-extra": "^11.3.2",
     "homebridge-lacrosseview": "^2.1.4",
     "semver": "^7.7.2",
     "tsx": "^4.20.5",

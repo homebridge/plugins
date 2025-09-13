@@ -22,6 +22,13 @@ interface CheckResults {
     config?: any
     scenario?: string
     isRuntimeFailure?: boolean
+    isNetworkResilienceTest?: boolean
+  }>
+  httpRequests?: Array<{
+    url: string
+    method: string
+    timestamp: string
+    scenario: string
   }>
 }
 
@@ -38,6 +45,7 @@ class PluginChecks {
   private failed: string[] = []
   private version: string = ''
   private detailedFailures: CheckResults['detailedFailures'] = []
+  private httpRequests: CheckResults['httpRequests'] = []
 
   async run() {
     try {
@@ -56,7 +64,7 @@ class PluginChecks {
     let allPassed: boolean = true
 
     if (this.failed.length) {
-      comment += '🔴 The following checks failed:\n\n'
+      comment += '### 🔴 Failed Checks\n\n'
 
       // Group failures: runtime failures first (with details), then other failures
       const runtimeFailures = this.detailedFailures?.filter(f => f.isRuntimeFailure) || []
@@ -69,20 +77,47 @@ class PluginChecks {
         comment += '**Runtime Issues:**\n\n'
 
         for (const failure of runtimeFailures) {
-          comment += '- ⚠️ Plugin crashes when started with the following configuration:\n\n'
-          comment += '    ```json\n'
-          const jsonLines = JSON.stringify(failure.config, null, 2).split('\n')
-          comment += jsonLines.map(line => `    ${line}`).join('\n')
-          comment += '\n    ```\n\n'
-          comment += '    **Error:**\n    ```\n'
-          // Extract just the error part after " - "
-          const errorPart = failure.message.split(' - ').slice(1).join(' - ')
-          comment += `    ${errorPart}`
-          comment += '\n    ```\n\n'
-          comment += '    This needs to be fixed so that the plugin does not send Homebridge into a crash-restart loop. The plugin could:\n'
-          comment += '      - Handle missing required configuration gracefully with proper error messages\n'
-          comment += '      - Provide sensible defaults for missing values\n'
-          comment += '      - Validate configuration during startup and log helpful warnings\n\n'
+          if (failure.isNetworkResilienceTest) {
+            // Special handling for network resilience test failures
+            comment += '- ⚠️ Plugin crashes when network requests fail:\n\n'
+            comment += '    **Test scenario:** Network resilience test with simulated HTTP failures\n\n'
+            comment += '    **Configuration used:**\n'
+            comment += '    ```json\n'
+            const jsonLines = JSON.stringify(failure.config, null, 2).split('\n')
+            comment += jsonLines.map(line => `    ${line}`).join('\n')
+            comment += '\n    ```\n\n'
+            comment += '    **Error:**\n    ```\n'
+            // Extract just the error part after " - "
+            const errorPart = failure.message.split(' - ').slice(1).join(' - ')
+            // Ensure all lines are properly indented for markdown
+            const indentedError = errorPart.split('\n').map(line => `    ${line}`).join('\n')
+            comment += indentedError
+            comment += '\n    ```\n\n'
+            comment += '    This test simulates network failures to verify the plugin handles HTTP errors gracefully. The plugin should:\n'
+            comment += '     - Implement proper error handling for all HTTP requests\n'
+            comment += '     - Use try-catch blocks or .catch() handlers for promises\n'
+            comment += '     - Provide fallback behavior when external services are unavailable\n'
+            comment += '     - Log errors appropriately without crashing Homebridge\n'
+            comment += '     - Consider implementing retry logic with exponential backoff\n\n'
+          } else {
+            // Standard configuration issue handling
+            comment += '- ⚠️ Plugin crashes when started with the following configuration:\n\n'
+            comment += '    ```json\n'
+            const jsonLines = JSON.stringify(failure.config, null, 2).split('\n')
+            comment += jsonLines.map(line => `    ${line}`).join('\n')
+            comment += '\n    ```\n\n'
+            comment += '    **Error:**\n    ```\n'
+            // Extract just the error part after " - "
+            const errorPart = failure.message.split(' - ').slice(1).join(' - ')
+            // Ensure all lines are properly indented for markdown
+            const indentedError = errorPart.split('\n').map(line => `    ${line}`).join('\n')
+            comment += indentedError
+            comment += '\n    ```\n\n'
+            comment += '    This needs to be fixed so that the plugin does not send Homebridge into a crash-restart loop. The plugin could:\n'
+            comment += '    - Handle missing required configuration gracefully with proper error messages\n'
+            comment += '    - Provide sensible defaults for missing values\n'
+            comment += '    - Validate configuration during startup and log helpful warnings\n\n'
+          }
         }
 
         if (otherFailures.length > 0) {
@@ -95,26 +130,19 @@ class PluginChecks {
         comment += this.failed.map(e => `- ${e}`).join('\n')
         comment += '\n\n'
       }
-
-      comment += '---\n\n'
     }
 
     if (this.passed.length) {
-      comment += '🟢 The following checks passed:\n\n'
+      comment += '### 🟢 Passed Checks\n\n'
       comment += this.passed.map(e => `- ${e}`).join('\n')
-      comment += '\n\n---\n\n'
+      comment += '\n\n'
     }
 
-    if (this.passed.length && !this.failed.length) {
-      comment += '🎉 All checks passed successfully, nice work! Your plugin and/or icon will now be manually reviewed by the Homebridge team.'
-    } else {
-      allPassed = false
-      comment += '⚠️ Please action these failures and then comment `/check` to run the checks again. Let us know if you need any help.\n\n'
-      comment += 'If updating your `package.json` and `config.schema.json` files, don\'t forget to publish a new version to NPM.'
-    }
-
+    comment += '### ℹ️ Check Details\n\n'
     if (this.version) {
-      comment += `\n\nThese checks were run against v${this.version} of the plugin.`
+      comment += `- These checks were run against \`v${this.version}\` of the plugin.\n`
+    } else {
+      comment += '- The version of the plugin tested could not be determined.\n'
     }
 
     // Add workflow run link if available
@@ -122,7 +150,27 @@ class PluginChecks {
     const serverUrl = process.env.GITHUB_SERVER_URL || 'https://github.com'
     const repository = process.env.GITHUB_REPOSITORY
     if (runId && repository) {
-      comment += `\n\n[Workflow →](${serverUrl}/${repository}/actions/runs/${runId})`
+      comment += `- Link to the run workflow: [visit →](${serverUrl}/${repository}/actions/runs/${runId}).\n`
+    } else {
+      comment += '- Link to the run workflow could not be determined.\n'
+    }
+
+    // Add HTTP requests summary if available
+    const httpSummary = this.formatHttpRequestsSummary()
+    if (httpSummary) {
+      comment += httpSummary
+    }
+
+    comment += '\n\n### 📋 Next Steps\n\n'
+
+    if (this.passed.length && !this.failed.length) {
+      comment += 'All checks passed successfully, nice work! Your plugin and/or icon will now be manually reviewed by the Homebridge team.'
+    } else {
+      allPassed = false
+      comment += '- Please action these failures and then comment `/check` to run the checks again.\n'
+      comment += '- If updating your `package.json` and `config.schema.json` files, don\'t forget to publish a new version to NPM.\n'
+      comment += '- Remember this is an automatic script: if you think something has been marked as a failure in error, let us know with a reply.\n'
+      comment += '- Feel free to ask any questions you have by replying to this issue.'
     }
 
     await this.addComment(allPassed, comment)
@@ -218,6 +266,7 @@ class PluginChecks {
         this.failed.push(...checksJson.failed)
         this.version = checksJson.version
         this.detailedFailures = checksJson.detailedFailures || []
+        this.httpRequests = checksJson.httpRequests || []
       } else {
         this.failed.push('Invalid JSON results format')
       }
@@ -239,6 +288,52 @@ class PluginChecks {
       && Array.isArray(obj.failed)
       && typeof obj.version === 'string'
       && (obj.detailedFailures === undefined || Array.isArray(obj.detailedFailures))
+      && (obj.httpRequests === undefined || Array.isArray(obj.httpRequests))
+  }
+
+  private formatHttpRequestsSummary(): string {
+    if (!this.httpRequests || this.httpRequests.length === 0) {
+      return ''
+    }
+
+    // Group requests by URL
+    const requestsByUrl = new Map<string, { methods: Set<string>, scenarios: Set<string>, count: number }>()
+
+    for (const request of this.httpRequests) {
+      const url = request.url
+      // Normalize URL - remove any query parameters for grouping
+      const urlWithoutQuery = url.split('?')[0]
+
+      if (!requestsByUrl.has(urlWithoutQuery)) {
+        requestsByUrl.set(urlWithoutQuery, {
+          methods: new Set(),
+          scenarios: new Set(),
+          count: 0,
+        })
+      }
+
+      const entry = requestsByUrl.get(urlWithoutQuery)!
+      entry.methods.add(request.method)
+      entry.scenarios.add(request.scenario)
+      entry.count++
+    }
+
+    // Format the output
+    let summary = '- External HTTP requests detected:\n'
+
+    // Sort URLs for consistent output
+    const sortedUrls = Array.from(requestsByUrl.keys()).sort()
+
+    for (const url of sortedUrls) {
+      const entry = requestsByUrl.get(url)!
+      const methods = Array.from(entry.methods).sort().join(', ')
+      const scenarios = Array.from(entry.scenarios).sort().join(', ')
+
+      summary += `  - 📡 \`${url}\`\n`
+      summary += `     Methods: \`${methods}\` | Count: \`${entry.count}\` | Scenarios: ${scenarios}\n`
+    }
+
+    return summary
   }
 
   private async updateLabels(
