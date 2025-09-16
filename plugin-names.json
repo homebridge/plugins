@@ -7,5 +7,6 @@
   "homebridge-gsh": "Homebridge Google Smart Home",
   "homebridge-lacrosseview": "Homebridge La Crosse View",
   "homebridge-lgwebos-tv": "LG webOS TV",
+  "homebridge-nextdns": "Homebridge NextDNS",
   "homebridge-pentair-intellicenter-ai": "Homebridge Pentair IntelliCenter AI"
 }

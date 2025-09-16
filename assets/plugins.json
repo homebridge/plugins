@@ -3895,6 +3895,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-nextdns": {
+    "name": "Homebridge NextDNS",
+    "hidden": false,
+    "icon": "icons/homebridge-nextdns.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-ngbs-icon-thermostat": {
     "name": null,
     "hidden": false,
