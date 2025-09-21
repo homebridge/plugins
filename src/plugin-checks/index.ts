@@ -16,6 +16,7 @@ const __dirname = import.meta.dirname
 interface CheckResults {
   passed: string[]
   failed: string[]
+  manualReview?: string[]
   version: string
   detailedFailures?: Array<{
     message: string
@@ -43,6 +44,7 @@ class PluginChecks {
   private pluginName: string
   private passed: string[] = []
   private failed: string[] = []
+  private manualReview: string[] = []
   private version: string = ''
   private detailedFailures: CheckResults['detailedFailures'] = []
   private httpRequests: CheckResults['httpRequests'] = []
@@ -135,6 +137,13 @@ class PluginChecks {
     if (this.passed.length) {
       comment += '### 🟢 Passed Checks\n\n'
       comment += this.passed.map(e => `- ${e}`).join('\n')
+      comment += '\n\n'
+    }
+
+    if (this.manualReview.length) {
+      comment += '### 🔍 For Manual Review\n\n'
+      comment += 'The following items were detected and require manual review. We understand that these items may be false positives.\n\n'
+      comment += this.manualReview.map(e => `- ${e}`).join('\n')
       comment += '\n\n'
     }
 
@@ -264,6 +273,7 @@ class PluginChecks {
       if (this.isValidCheckResults(checksJson)) {
         this.passed.push(...checksJson.passed)
         this.failed.push(...checksJson.failed)
+        this.manualReview.push(...(checksJson.manualReview || []))
         this.version = checksJson.version
         this.detailedFailures = checksJson.detailedFailures || []
         this.httpRequests = checksJson.httpRequests || []

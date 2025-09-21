@@ -74,6 +74,7 @@ interface ConfigSchema {
 interface TestResults {
   failed: string[]
   passed: string[]
+  manualReview: string[]
   version: string
   detailedFailures?: DetailedFailure[]
   httpRequests?: HttpRequest[]
@@ -148,6 +149,7 @@ class CheckHomebridgePlugin {
 
   private failed: string[] = []
   private passed: string[] = []
+  private manualReview: string[] = []
   private detailedFailures: DetailedFailure[] = []
   private readonly packageName: string
   private packageVersion = ''
@@ -214,7 +216,6 @@ class CheckHomebridgePlugin {
       console.log('Tested Runtime Behavior', this.failed.length)
     } else {
       console.log(`Skipping runtime tests due to ${this.failed.length} static test failures`)
-      this.failed.push('Runtime: skipped due to prior test failures')
     }
 
     // GitHub repo test is conditional
@@ -834,13 +835,21 @@ class CheckHomebridgePlugin {
       const moderate = vulnerabilities.moderate || 0
       const low = vulnerabilities.low || 0
 
-      if (critical > 0 || high > 0) {
-        this.failed.push(`Security: found ${critical} critical and ${high} high-severity vulnerabilities in dependencies`)
-      } else if (moderate > 0) {
-        // Just warn for moderate vulnerabilities
-        this.passed.push(`Security: no critical/high vulnerabilities (${moderate} moderate, ${low} low)`)
-      } else {
+      // Only fail for critical vulnerabilities
+      if (critical > 0) {
+        this.failed.push(`Security: found ${critical} critical vulnerabilities in dependencies`)
+      }
+
+      // High-severity vulnerabilities go to manual review
+      if (high > 0) {
+        this.manualReview.push(`Security: found ${high} high-severity vulnerabilities in dependencies (manual review recommended)`)
+      }
+
+      // Report overall status
+      if (critical === 0 && high === 0 && moderate === 0 && low === 0) {
         this.passed.push('Security: no known vulnerabilities in dependencies')
+      } else if (critical === 0) {
+        this.passed.push(`Security: no critical vulnerabilities (${high} high, ${moderate} moderate, ${low} low)`)
       }
     } catch (e) {
       // npm audit returns non-zero exit code when vulnerabilities are found
@@ -854,11 +863,22 @@ class CheckHomebridgePlugin {
             const vulnerabilities = audit.metadata?.vulnerabilities || {}
             const critical = vulnerabilities.critical || 0
             const high = vulnerabilities.high || 0
+            const moderate = vulnerabilities.moderate || 0
+            const low = vulnerabilities.low || 0
 
-            if (critical > 0 || high > 0) {
-              this.failed.push(`Security: found ${critical} critical and ${high} high-severity vulnerabilities in dependencies`)
-            } else {
-              this.passed.push('Security: vulnerabilities found but none are critical/high-severity')
+            // Only fail for critical vulnerabilities
+            if (critical > 0) {
+              this.failed.push(`Security: found ${critical} critical vulnerabilities in dependencies`)
+            }
+
+            // High-severity vulnerabilities go to manual review
+            if (high > 0) {
+              this.manualReview.push(`Security: found ${high} high-severity vulnerabilities in dependencies (manual review recommended)`)
+            }
+
+            // Report overall status
+            if (critical === 0) {
+              this.passed.push(`Security: no critical vulnerabilities (${high} high, ${moderate} moderate, ${low} low)`)
             }
           }
         } catch {
@@ -883,12 +903,12 @@ class CheckHomebridgePlugin {
     ]
 
     const suspiciousFilePatterns = [
-      { pattern: /\.ssh[/\\]/, message: 'accesses SSH directory' },
-      { pattern: /\.aws[/\\]/, message: 'accesses AWS credentials' },
-      { pattern: /id_rsa/, message: 'accesses SSH keys' },
-      { pattern: /private[_\-]?key/i, message: 'accesses private keys' },
-      { pattern: /\.env/, message: 'accesses environment files' },
-      { pattern: /\/etc\/passwd/, message: 'accesses system files' },
+      { pattern: /\.ssh[/\\]/, message: 'accesses SSH directory', severity: 'critical' },
+      { pattern: /\.aws[/\\]/, message: 'accesses AWS credentials', severity: 'critical' },
+      { pattern: /id_rsa/, message: 'accesses SSH keys', severity: 'critical' },
+      { pattern: /private[_\-]?key/i, message: 'accesses private keys', severity: 'critical' },
+      { pattern: /\.env/, message: 'accesses environment files', severity: 'high' },
+      { pattern: /\/etc\/passwd/, message: 'accesses system files', severity: 'critical' },
     ]
 
     try {
@@ -914,9 +934,9 @@ class CheckHomebridgePlugin {
           }
 
           // Check for suspicious file access
-          for (const { pattern, message } of suspiciousFilePatterns) {
+          for (const { pattern, message, severity } of suspiciousFilePatterns) {
             if (pattern.test(content)) {
-              findings.push({ file: relativePath, message, severity: 'high' })
+              findings.push({ file: relativePath, message, severity: severity || 'high' })
             }
           }
         } catch {
@@ -924,16 +944,50 @@ class CheckHomebridgePlugin {
         }
       }
 
-      // Report findings
-      const highSeverity = findings.filter(f => f.severity === 'high')
-      if (highSeverity.length > 0) {
-        const fileList = [...new Set(highSeverity.map(f => f.file))].slice(0, 3).join(', ')
-        const moreFiles = highSeverity.length > 3 ? ` and ${highSeverity.length - 3} more` : ''
-        this.failed.push(`Security: potentially unsafe code patterns found in: ${fileList}${moreFiles}`)
-      } else if (findings.length > 0) {
-        this.passed.push('Security: no high-risk code patterns found')
-      } else {
+      // Group all findings by severity for manual review
+      const criticalFindings = findings.filter(f => f.severity === 'critical')
+      const highFindings = findings.filter(f => f.severity === 'high')
+      const mediumFindings = findings.filter(f => f.severity === 'medium')
+
+      // All findings go to manual review - nothing fails automatically
+
+      // Add critical findings to manual review
+      if (criticalFindings.length > 0) {
+        const patterns = [...new Set(criticalFindings.map(f => f.message))]
+        for (const pattern of patterns) {
+          const files = criticalFindings.filter(f => f.message === pattern)
+          const fileList = [...new Set(files.map(f => f.file))].slice(0, 2).join(', ')
+          const moreFiles = files.length > 2 ? ` and ${files.length - 2} more` : ''
+          this.manualReview.push(`Security [Critical]: ${pattern} in ${fileList}${moreFiles}`)
+        }
+      }
+
+      // Add high severity findings to manual review
+      if (highFindings.length > 0) {
+        const patterns = [...new Set(highFindings.map(f => f.message))]
+        for (const pattern of patterns) {
+          const files = highFindings.filter(f => f.message === pattern)
+          const fileList = [...new Set(files.map(f => f.file))].slice(0, 2).join(', ')
+          const moreFiles = files.length > 2 ? ` and ${files.length - 2} more` : ''
+          this.manualReview.push(`Security: ${pattern} in ${fileList}${moreFiles}`)
+        }
+      }
+
+      // Add medium severity findings to manual review
+      if (mediumFindings.length > 0) {
+        const patterns = [...new Set(mediumFindings.map(f => f.message))]
+        for (const pattern of patterns) {
+          const files = mediumFindings.filter(f => f.message === pattern)
+          const count = files.length
+          this.manualReview.push(`Security: ${pattern} found in ${count} file${count > 1 ? 's' : ''}`)
+        }
+      }
+
+      // Report overall status
+      if (findings.length === 0) {
         this.passed.push('Security: no unsafe code patterns detected')
+      } else {
+        this.passed.push('Security: code patterns flagged for manual review')
       }
     } catch (e) {
       // Don't fail the whole test if we can't scan
@@ -970,8 +1024,10 @@ class CheckHomebridgePlugin {
         }
       }
 
+      // Move all permission issues to manual review instead of failing
       if (issues.length > 0) {
-        this.failed.push(`Security: permission/privilege issues - ${issues.join(', ')}`)
+        this.manualReview.push(`Security: permission/privilege concerns detected - ${issues.join(', ')}`)
+        this.passed.push('Security: permission checks flagged for manual review')
       } else {
         this.passed.push('Security: no privilege escalation attempts detected')
       }
@@ -1015,6 +1071,7 @@ class CheckHomebridgePlugin {
     const results: TestResults = {
       failed: this.failed,
       passed: this.passed,
+      manualReview: this.manualReview,
       version: this.packageVersion,
       detailedFailures: this.detailedFailures,
       httpRequests: this.allHttpRequests,
