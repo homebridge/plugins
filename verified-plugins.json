@@ -352,6 +352,7 @@
   "homebridge-playstation",
   "homebridge-playstation-game-title",
   "homebridge-plugin-govee",
+  "homebridge-plugin-klares4",
   "homebridge-porsche-taycan",
   "homebridge-presence-switch-msgraph",
   "homebridge-presence-switch-slack",

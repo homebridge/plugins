@@ -4451,6 +4451,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-plugin-klares4": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-plugin-update-check": {
     "name": null,
     "hidden": false,
