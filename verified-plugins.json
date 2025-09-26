@@ -381,6 +381,7 @@
   "homebridge-rpi",
   "homebridge-rpi-rf-switch",
   "homebridge-samsung-tizen",
+  "homebridge-samsung-windfree-ac",
   "homebridge-samsungtv-2014",
   "homebridge-samsungtvht",
   "homebridge-saphi-tv",
