@@ -29,6 +29,7 @@
   "@homebridge-plugins/homebridge-sharkiq",
   "@homebridge-plugins/homebridge-smarthq",
   "@homebridge-plugins/homebridge-tado",
+  "@homebridge-plugins/homebridge-tuya",
   "@homebridge-plugins/homebridge-unifi-network",
   "@homebridge-plugins/homebridge-wattbox",
   "@homebridge-plugins/homebridge-wemo",

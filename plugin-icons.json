@@ -21,6 +21,7 @@
   "@homebridge-plugins/homebridge-sharkiq": "icons/homebridge-sharkiq.png",
   "@homebridge-plugins/homebridge-smarthq": "icons/homebridge-smarthq.png",
   "@homebridge-plugins/homebridge-tado": "icons/homebridge-tado.png",
+  "@homebridge-plugins/homebridge-tuya": "icons/homebridge-tuya.png",
   "@homebridge-plugins/homebridge-wemo": "icons/homebridge-wemo.png",
   "@petro-kushchak/homebridge-homepod-radio": "icons/homebridge-homepod-radio.png",
   "@pietrolubini/homebridge-ecoflow": "icons/homebridge-ecoflow.png",

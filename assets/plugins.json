@@ -359,6 +359,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-tuya": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-tuya.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": "tassy-h",
+    "author": "tassy-h",
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-unifi-network": {
     "name": null,
     "hidden": false,
@@ -549,6 +561,22 @@
     "author": null,
     "changelog": null,
     "verified": true,
+    "verifiedPlus": false
+  },
+  "@tassy-h/homebridge-tuya-platform": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": {
+      "from": "@tassy-h/homebridge-tuya-platform",
+      "to": "@homebridge-plugins/homebridge-tuya",
+      "switch": "2.0.2-beta.3"
+    },
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": false,
     "verifiedPlus": false
   },
   "@ubreu/homebridge-helios-kwl": {

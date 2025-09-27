@@ -18,6 +18,7 @@
   "@homebridge-plugins/homebridge-sharkiq": "Bubba8291",
   "@homebridge-plugins/homebridge-smarthq": "donavanbecker",
   "@homebridge-plugins/homebridge-tado": "smart7324",
+  "@homebridge-plugins/homebridge-tuya": "tassy-h",
   "@homebridge-plugins/homebridge-unifi-network": "derek-miller",
   "@homebridge-plugins/homebridge-wattbox": "derek-miller",
   "@homebridge-plugins/homebridge-wemo": "bwp91"

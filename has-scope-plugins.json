@@ -1,5 +1,10 @@
 [
   {
+    "from": "@tassy-h/homebridge-tuya-platform",
+    "to": "@homebridge-plugins/homebridge-tuya",
+    "switch": "2.0.2-beta.3"
+  },
+  {
     "from": "homebridge-air",
     "to": "@homebridge-plugins/homebridge-air",
     "switch": "1.0.0"
