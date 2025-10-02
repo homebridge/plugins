@@ -23,6 +23,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@350d/homebridge-seam": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-seam.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@balansse/homebridge-vivint": {
     "name": null,
     "hidden": false,

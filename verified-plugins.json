@@ -1,6 +1,7 @@
 [
   "@0x5e/homebridge-tuya-platform",
   "@350d/homebridge-http-lock",
+  "@350d/homebridge-seam",
   "@balansse/homebridge-vivint",
   "@busse/homebridge-pluggit",
   "@chazepps/homebridge-hejhome",
