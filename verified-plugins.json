@@ -3,6 +3,7 @@
   "@350d/homebridge-http-lock",
   "@350d/homebridge-seam",
   "@balansse/homebridge-vivint",
+  "@boozilla/homebridge-shome",
   "@busse/homebridge-pluggit",
   "@chazepps/homebridge-hejhome",
   "@danielgindi/homebridge-bcp-charger",

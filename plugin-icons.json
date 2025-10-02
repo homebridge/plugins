@@ -2,6 +2,7 @@
   "@0x5e/homebridge-tuya-platform": "icons/homebridge-tuya-platform.png",
   "@350d/homebridge-http-lock": "icons/homebridge-http-lock.png",
   "@350d/homebridge-seam": "icons/homebridge-seam.png",
+  "@boozilla/homebridge-shome": "icons/homebridge-shome.png",
   "@chazepps/homebridge-hejhome": "icons/homebridge-hejhome.png",
   "@elshaer/homebridge-hdl-buspro-enhanced": "icons/homebridge-hdl-buspro-enhanced.png",
   "@homebridge-plugins/homebridge-air": "icons/homebridge-air.png",

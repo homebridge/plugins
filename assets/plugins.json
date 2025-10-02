@@ -47,6 +47,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@boozilla/homebridge-shome": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-shome.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@busse/homebridge-pluggit": {
     "name": null,
     "hidden": false,
