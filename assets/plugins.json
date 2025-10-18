@@ -263,6 +263,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-matter": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": "bwp91",
+    "author": "bwp91",
+    "changelog": null,
+    "verified": false,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-meater": {
     "name": null,
     "hidden": false,
