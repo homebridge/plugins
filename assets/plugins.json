@@ -266,13 +266,13 @@
   "@homebridge-plugins/homebridge-matter": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-matter.png",
     "maintained": true,
     "newScope": false,
     "scoped": "bwp91",
     "author": "bwp91",
     "changelog": null,
-    "verified": false,
+    "verified": true,
     "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-meater": {
