@@ -119,6 +119,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@george.talusan/homebridge-eufy-robovac": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@hansfriedrich/homebridge-feller-wiser": {
     "name": null,
     "hidden": false,
