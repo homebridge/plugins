@@ -371,6 +371,7 @@ class CheckHomebridgePlugin {
 
       const latest20 = versionList.find(x => x.version.startsWith('v20'))?.version
       const latest22 = versionList.find(x => x.version.startsWith('v22'))?.version
+      const latest24 = versionList.find(x => x.version.startsWith('v24'))?.version
 
       if (latest20 && satisfies(latest20, nodeVersion)) {
         this.passed.push('Package JSON: `engines.node` property is compatible with Node 20')
@@ -382,6 +383,12 @@ class CheckHomebridgePlugin {
         this.passed.push('Package JSON: `engines.node` property is compatible with Node 22')
       } else {
         this.failed.push('Package JSON: `engines.node` property is not compatible with Node 22')
+      }
+
+      if (latest24 && satisfies(latest24, nodeVersion)) {
+        this.passed.push('Package JSON: `engines.node` property is compatible with Node 24')
+      } else {
+        this.failed.push('Package JSON: `engines.node` property is not compatible with Node 24')
       }
     } catch (e) {
       this.failed.push(`Package JSON: failed to check Node compatibility as ${this.handleError(e)}`)

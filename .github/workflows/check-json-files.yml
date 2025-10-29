@@ -10,7 +10,7 @@ jobs:
   check-json:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: cat verified-plugins.json | jq type
       - run: cat verified-plus-plugins.json | jq type
       - run: cat hidden-plugins.json | jq type

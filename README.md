@@ -47,7 +47,7 @@ The Homebridge project team will check that your plugin meets the following crit
   - The plugin must be published to NPM and the source code available on a GitHub repository, with issues enabled.
   - A GitHub release should be created for every new version of your plugin, with release notes.
 - **Environment**
-  - The plugin must run on all [supported LTS versions of Node.js](https://github.com/homebridge/homebridge/wiki/How-To-Update-Node.js), at the time of writing this is Node `v20` and `v22`.
+  - The plugin must run on all [supported LTS versions of Node.js](https://github.com/homebridge/homebridge/wiki/How-To-Update-Node.js), at the time of writing this is Node `v20`, `v22` and `v24`.
   - The plugin must successfully install and not start unless it is configured.
   - The plugin must not execute post-install scripts that modify the users' system in any way.
   - The plugin must not require the user to run Homebridge in a TTY or with non-standard startup parameters, even for initial configuration.

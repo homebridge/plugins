@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Check for relevant labels
         id: check-label
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -41,7 +41,7 @@ jobs:
 
       - name: Update labels
         if: steps.check-label.outputs.result == 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |

@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Close stale issues with awaiting-changes label
-        uses: actions/stale@v9
+        uses: actions/stale@v10
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           only-labels: awaiting-changes
@@ -27,7 +27,7 @@ jobs:
           operations-per-run: 100
 
       - name: Close stale issues with awaiting-user-reply label
-        uses: actions/stale@v9
+        uses: actions/stale@v10
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           only-labels: awaiting-user-reply
