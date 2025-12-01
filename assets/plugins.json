@@ -2783,6 +2783,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-heurespleines-heurescreuses": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-heurespleines-heurescreuses.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-hikconnect": {
     "name": null,
     "hidden": false,
