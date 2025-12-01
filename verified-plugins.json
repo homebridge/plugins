@@ -130,6 +130,7 @@
   "homebridge-coviva-hager",
   "homebridge-cron-scheduler",
   "homebridge-cuby",
+  "homebridge-cync-app",
   "homebridge-daelim-smarthome",
   "homebridge-dafang-mqtt-republish",
   "homebridge-dahua-alarm",

@@ -1711,6 +1711,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-cync-app": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-cync-app.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-daelim-smarthome": {
     "name": null,
     "hidden": false,
