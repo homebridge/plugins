@@ -823,7 +823,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": true,
+    "maintained": false,
     "newScope": {
       "from": "homebridge-air",
       "to": "@homebridge-plugins/homebridge-air",
@@ -832,7 +832,7 @@
     "scoped": false,
     "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-air-q": {

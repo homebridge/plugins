@@ -23,7 +23,6 @@
   "@homebridge-plugins/homebridge-unifi-network",
   "@homebridge-plugins/homebridge-wattbox",
   "@homebridge-plugins/homebridge-wemo",
-  "homebridge-air",
   "homebridge-arlo",
   "homebridge-august",
   "homebridge-blinkcameras",
