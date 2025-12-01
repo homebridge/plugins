@@ -6579,18 +6579,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-wyze-robovac": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-wyze-smart-home": {
     "name": null,
     "hidden": false,
