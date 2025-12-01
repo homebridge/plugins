@@ -24,7 +24,6 @@
   "@homebridge-plugins/homebridge-wattbox",
   "@homebridge-plugins/homebridge-wemo",
   "homebridge-arlo",
-  "homebridge-august",
   "homebridge-blinkcameras",
   "homebridge-cloudflared-tunnel",
   "homebridge-flume",

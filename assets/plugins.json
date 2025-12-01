@@ -1127,7 +1127,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": true,
+    "maintained": false,
     "newScope": {
       "from": "homebridge-august",
       "to": "@homebridge-plugins/homebridge-august",
@@ -1136,7 +1136,7 @@
     "scoped": false,
     "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-automower": {
