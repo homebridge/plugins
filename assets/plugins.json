@@ -1163,6 +1163,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-aux-cloud": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-awair2": {
     "name": null,
     "hidden": false,

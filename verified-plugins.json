@@ -92,6 +92,7 @@
   "homebridge-august",
   "homebridge-automower",
   "homebridge-automower-platform",
+  "homebridge-aux-cloud",
   "homebridge-awair2",
   "homebridge-away-mode",
   "homebridge-aws-iot",
