@@ -15,7 +15,7 @@
     "fs-extra": "^11.3.2",
     "homebridge-lacrosseview": "^2.1.4",
     "semver": "^7.7.3",
-    "tsx": "^4.20.6",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "undici": "^7.16.0"
   }

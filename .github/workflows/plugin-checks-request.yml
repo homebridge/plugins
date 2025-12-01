@@ -47,6 +47,23 @@ jobs:
               comment_id: ${{ github.event.comment.id }},
               content: 'eyes'
             });
+      - name: Remove awaiting-final-review label
+        if: steps.should-run.outputs.run == 'true' && github.event_name == 'issue_comment'
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            try {
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                name: 'awaiting-final-review'
+              });
+              console.log('Removed awaiting-final-review label');
+            } catch (error) {
+              console.log('Label awaiting-final-review not found or already removed');
+            }
       - name: Install Dependencies & Build
         if: steps.should-run.outputs.run == 'true'
         run: npm install && npm run plugin-checks:build

@@ -14,3 +14,20 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           config_file: .github/label-commenter-config.yml
+      - name: Remove awaiting-final-review label when verified
+        if: github.event.label.name == 'verified'
+        uses: actions/github-script@v8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            try {
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                name: 'awaiting-final-review'
+              });
+              console.log('Removed awaiting-final-review label');
+            } catch (error) {
+              console.log('Label awaiting-final-review not found or already removed');
+            }
