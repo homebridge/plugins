@@ -375,6 +375,7 @@
   "homebridge-prusa-link",
   "homebridge-purpleair",
   "homebridge-purpleair-sensor",
+  "homebridge-pushover-notification",
   "homebridge-qolsys",
   "homebridge-ra2-select",
   "homebridge-rachio-irrigation",
