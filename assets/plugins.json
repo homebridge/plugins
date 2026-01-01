@@ -1087,6 +1087,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-arctic-spas": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-arctic-spas.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-argo": {
     "name": null,
     "hidden": false,
