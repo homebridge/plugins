@@ -367,6 +367,7 @@
   "homebridge-plugin-govee",
   "homebridge-plugin-klares4",
   "homebridge-porsche-taycan",
+  "homebridge-powershades",
   "homebridge-presence-switch-msgraph",
   "homebridge-presence-switch-slack",
   "homebridge-printer",

@@ -10,6 +10,7 @@
   "homebridge-nextdns": "Homebridge NextDNS",
   "homebridge-otodo-vav": "Homebridge Otodo VAV",
   "homebridge-pentair-intellicenter-ai": "Homebridge Pentair IntelliCenter AI",
+  "homebridge-powershades": "Homebridge PowerShades",
   "homebridge-sensorpush": "Homebridge SensorPush",
   "homebridge-tesmart": "Homebridge TESmart"
 }
