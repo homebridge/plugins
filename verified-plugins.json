@@ -126,6 +126,7 @@
   "homebridge-comelit-sb-platform",
   "homebridge-comelit-vedo-platform",
   "homebridge-config-ui-x",
+  "homebridge-connectlife-aircon",
   "homebridge-cool-automation",
   "homebridge-coviva-hager",
   "homebridge-cron-scheduler",
