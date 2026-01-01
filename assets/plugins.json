@@ -4323,6 +4323,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-otodo-vav": {
+    "name": "Homebridge Otodo VAV",
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-overda-uranus": {
     "name": null,
     "hidden": false,
