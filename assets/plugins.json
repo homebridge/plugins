@@ -1663,6 +1663,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-connectlife-ac": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-connectlife-aircon": {
     "name": null,
     "hidden": false,
