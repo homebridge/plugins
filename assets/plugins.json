@@ -5203,6 +5203,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-sensorpush": {
+    "name": "Homebridge SensorPush",
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-sepsadsecurity": {
     "name": null,
     "hidden": false,
