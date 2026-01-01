@@ -3359,6 +3359,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-la-marzocco": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-lacrosseview": {
     "name": "Homebridge La Crosse View",
     "hidden": false,
