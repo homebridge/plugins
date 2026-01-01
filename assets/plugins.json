@@ -4883,6 +4883,18 @@
     "verified": false,
     "verifiedPlus": false
   },
+  "homebridge-rainsoft-remind": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-rainsoft-remind.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-ratgdo": {
     "name": null,
     "hidden": false,
