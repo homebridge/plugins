@@ -3143,6 +3143,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-inteo-somfy-blinds": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-intercom": {
     "name": null,
     "hidden": false,
