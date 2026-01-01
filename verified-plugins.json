@@ -487,6 +487,7 @@
   "homebridge-unifi-poe-control",
   "homebridge-unifi-protect",
   "homebridge-unifi-protect-camera-motion",
+  "homebridge-unifi-protect-webhook",
   "homebridge-unifi-smartpower",
   "homebridge-ups",
   "homebridge-velux",

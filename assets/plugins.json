@@ -6267,6 +6267,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-unifi-protect-webhook": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-unifi-smartpower": {
     "name": null,
     "hidden": false,
