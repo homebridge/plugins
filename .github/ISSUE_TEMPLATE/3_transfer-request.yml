@@ -42,11 +42,13 @@ body:
       value: |
         If you select yes to the following question, then:
         - We will not list the plugin as unmaintained
-        - We will reject requests to take ownership of the plugin from other developers
+        - We will not give other developers maintainer access to the plugin
 
         If you select no to the following question, then:
         - We will list the plugin as unmaintained
-        - We may accept requests to take ownership of the plugin from other developers
+        - We may accept requests from other developers to become maintainers of the plugin
+
+        Either way, the plugin will not be transferred out of the Homebridge Plugins organization.
   - type: dropdown
     attributes:
       label: Do you plan to continue maintaining the plugin?
