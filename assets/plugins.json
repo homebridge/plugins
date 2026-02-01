@@ -6147,7 +6147,7 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-tesy-heater-v2": {
+  "homebridge-tesy-heater-mqtt": {
     "name": null,
     "hidden": false,
     "icon": null,

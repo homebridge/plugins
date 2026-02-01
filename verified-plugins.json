@@ -480,7 +480,7 @@
   "homebridge-tempstick",
   "homebridge-tesmart",
   "homebridge-tessie",
-  "homebridge-tesy-heater-v2",
+  "homebridge-tesy-heater-mqtt",
   "homebridge-texecom-connect",
   "homebridge-texecom-full",
   "homebridge-thermobit",
