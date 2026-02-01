@@ -6351,18 +6351,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-unifi-occupancy": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-unifi-poe-control": {
     "name": null,
     "hidden": false,
