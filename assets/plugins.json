@@ -3443,18 +3443,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-leviton": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-levoit-air-purifier": {
     "name": null,
     "hidden": false,
@@ -4023,6 +4011,18 @@
     "name": null,
     "hidden": false,
     "icon": "icons/homebridge-my-wallbox.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-myleviton": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-myleviton.png",
     "maintained": false,
     "newScope": false,
     "scoped": false,
