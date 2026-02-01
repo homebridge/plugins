@@ -343,6 +343,7 @@
   "homebridge-openrgb",
   "homebridge-opensprinkler-api",
   "homebridge-openwebif-tv",
+  "homebridge-openwrt-control",
   "homebridge-oppo-udp",
   "homebridge-orbit-irrigation",
   "homebridge-otgw",
