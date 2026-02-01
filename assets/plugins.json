@@ -3923,6 +3923,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-moonside": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-moonside.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-mqtt-ceiling-fan-remote": {
     "name": null,
     "hidden": false,
