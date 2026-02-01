@@ -5215,6 +5215,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-sanremo-cube-coffeemachine": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-sanremo-cube-coffeemachine.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-saphi-tv": {
     "name": null,
     "hidden": false,
