@@ -4599,6 +4599,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-philips-dline-sicp": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-philips-dline-sicp.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-philipsair-platform": {
     "name": null,
     "hidden": false,
