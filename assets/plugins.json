@@ -2267,10 +2267,10 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-electra-smart": {
+  "homebridge-electra-smart-v2": {
     "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-electra-smart.png",
+    "icon": "icons/homebridge-electra-smart-v2.png",
     "maintained": false,
     "newScope": false,
     "scoped": false,
