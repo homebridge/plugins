@@ -425,6 +425,7 @@
   "homebridge-sensorpush",
   "homebridge-sepsadsecurity",
   "homebridge-shelly",
+  "homebridge-shelly-3em",
   "homebridge-shelly-ng",
   "homebridge-shortcuts-buttons",
   "homebridge-sht3x",
