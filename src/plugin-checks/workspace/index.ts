@@ -1942,7 +1942,8 @@ function captureRequest(module, originalRequest) {
           },
           setTimeout: function() { return this; },
           setHeader: function() { return this; },
-          destroy: function() { return this; }
+          destroy: function() { return this; },
+          abort: function() { return this; }
         };
         return mockRequest;
       }

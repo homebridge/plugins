@@ -2,6 +2,7 @@ import antfu from '@antfu/eslint-config'
 
 export default antfu({
   rules: {
+    'antfu/consistent-list-newline': 'off',
     'curly': ['error'],
     'jsdoc/check-alignment': 'error',
     'jsdoc/check-line-alignment': 'error',
