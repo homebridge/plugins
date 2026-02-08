@@ -3443,6 +3443,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-lennox-icomfort-cloud": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-leridian-dynamics": {
     "name": null,
     "hidden": false,
