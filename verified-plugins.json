@@ -39,6 +39,7 @@
   "@homebridge-plugins/homebridge-wemo",
   "@jackietreeh0rn/homebridge-smartrent",
   "@jay-d-tyler/homebridge-somfy-protect",
+  "@jay-d-tyler/homebridge-somfy-protect-automate",
   "@jdes/homebridge-tost-corp-somfy-rts-web",
   "@milo526/homebridge-tuya-web",
   "@o-lukas/homebridge-smartthings-tv",
