@@ -4,8 +4,6 @@ export default antfu({
   rules: {
     'antfu/consistent-list-newline': 'off',
     'curly': ['error'],
-    'jsdoc/check-alignment': 'error',
-    'jsdoc/check-line-alignment': 'error',
     'new-cap': 'off',
     'no-undef': 'error',
     'perfectionist/sort-exports': 'error',
