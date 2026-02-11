@@ -623,6 +623,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@smarterhomeapp/homebridge-vantage": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-vantage.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@string-bean/homebridge-drayton-wiser": {
     "name": null,
     "hidden": false,

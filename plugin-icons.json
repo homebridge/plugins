@@ -28,6 +28,7 @@
   "@homebridge-plugins/homebridge-wemo": "icons/homebridge-wemo.png",
   "@petro-kushchak/homebridge-homepod-radio": "icons/homebridge-homepod-radio.png",
   "@pietrolubini/homebridge-ecoflow": "icons/homebridge-ecoflow.png",
+  "@smarterhomeapp/homebridge-vantage": "icons/homebridge-vantage.png",
   "@switchbot/homebridge-switchbot": "icons/homebridge-switchbot.png",
   "@vandubois/homebridge-virtual-switch": "icons/homebridge-virtual-switch.png",
   "homebridge-actron-neo": "icons/homebridge-actron-neo.png",

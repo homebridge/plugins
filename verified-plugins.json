@@ -50,6 +50,7 @@
   "@pst-on-npm/homebridge-enocean",
   "@puchupala/homebridge-nature-remo-multi-toggle-light",
   "@rsauget/homebridge-flexom",
+  "@smarterhomeapp/homebridge-vantage",
   "@string-bean/homebridge-drayton-wiser",
   "@switchbot/homebridge-switchbot",
   "@ubreu/homebridge-helios-kwl",
