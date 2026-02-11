@@ -2963,6 +2963,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-homepod-mini-music-sensor": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-homepod-mini-music-sensor.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-homewizard-energy-socket": {
     "name": null,
     "hidden": false,
