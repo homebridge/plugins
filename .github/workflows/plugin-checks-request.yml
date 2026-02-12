@@ -16,7 +16,7 @@ jobs:
   check-plugin:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Check if should run
         id: should-run
         run: |

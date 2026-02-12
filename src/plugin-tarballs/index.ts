@@ -19,6 +19,22 @@ export interface Plugin {
   packaged: boolean
 }
 
+interface Release {
+  id: number
+  tag_name: string
+  upload_url: string
+  assets: {
+    id: number
+    name: string
+    label: string
+    created_at: string
+    updated_at: string
+    browser_download_url: string
+    download_count: number
+    size: number
+  }[]
+}
+
 class PluginTarballs {
   private octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN,
@@ -26,8 +42,18 @@ class PluginTarballs {
 
   private githubProjectOwner = 'homebridge'
   private githubProjectRepo = 'plugins'
-  private targetReleaseUnscoped = 'v1.0.0'
-  private targetReleaseScoped = 'v1.0.0-1'
+
+  // New primary releases
+  private targetNewScoped = 'v2.0.0'
+  private targetNewUnscopedAM = 'v2.0.0-1'
+  private targetNewUnscopedNZ = 'v2.0.0-2'
+
+  // Old releases (backward compat)
+  private targetOldUnscoped = 'v1.0.0'
+  private targetOldScoped = 'v1.0.0-1'
+
+  private newReleases: Release[] // [scoped, unscoped-am, unscoped-nz]
+  private oldReleases: Release[] // [unscoped, scoped]
 
   private workDir = path.join(__dirname, 'work')
 
@@ -36,38 +62,6 @@ class PluginTarballs {
 
   private pluginsSuccessfullyUpdated: Plugin[] = []
   private pluginsNotProcessed: { plugin: Plugin, error: string }[] = []
-
-  private releaseUnscoped: {
-    id: number
-    tag_name: string
-    upload_url: string
-    assets: {
-      id: number
-      name: string
-      label: string
-      created_at: string
-      updated_at: string
-      browser_download_url: string
-      download_count: number
-      size: number
-    }[]
-  }
-
-  private releaseScoped: {
-    id: number
-    tag_name: string
-    upload_url: string
-    assets: {
-      id: number
-      name: string
-      label: string
-      created_at: string
-      updated_at: string
-      browser_download_url: string
-      download_count: number
-      size: number
-    }[]
-  }
 
   private releaseStats: {
     [key: string]: {
@@ -115,15 +109,41 @@ class PluginTarballs {
     console.log(`\x1B[33m${message}\x1B[0m`)
   }
 
+  /**
+   * Get the new release for a plugin based on its name
+   */
+  private getNewReleaseForPlugin(pluginName: string): Release {
+    if (pluginName.startsWith('@')) {
+      return this.newReleases[0] // v2.0.0
+    }
+    const ch = pluginName.startsWith('homebridge-')
+      ? pluginName.charAt(11)
+      : pluginName.charAt(0)
+    return ch < 'n'
+      ? this.newReleases[1] // v2.0.0-1
+      : this.newReleases[2] // v2.0.0-2
+  }
+
+  /**
+   * Get the old release for a plugin based on its name (for backward compat)
+   */
+  private getOldReleaseForPlugin(pluginName: string): Release | undefined {
+    if (pluginName.startsWith('@')) {
+      return this.oldReleases[1] // v1.0.0-1
+    }
+    return this.oldReleases[0] // v1.0.0
+  }
+
   public async run(): Promise<void> {
     try {
-      await this.getGitHubReleases(this.targetReleaseUnscoped, this.targetReleaseScoped)
+      await this.getGitHubReleases()
       await this.getVerifiedPluginsList()
       await this.removeUnverifiedAssets()
       await this.removeAssetsForOlderReleases()
       await this.getLatestVersions()
       await this.bundlePlugins()
       await this.uploadAssets()
+      await this.uploadAssetsToOldReleases()
       await this.removeOldAssets()
       await this.updateRelease()
       await this.generateDownloadStats()
@@ -141,7 +161,7 @@ class PluginTarballs {
     this.pluginList = response.data.filter(x => !this.pluginFilter.includes(x))
     const verifiedPluginsCount = this.pluginList.length
 
-    // add additional plugins, checking to make sure we are not adding duplicates
+    // Add additional plugins, checking to make sure we are not adding duplicates
     this.additionalPlugins.forEach((plugin) => {
       if (!this.pluginList.includes(plugin)) {
         this.pluginList.push(plugin)
@@ -158,7 +178,7 @@ class PluginTarballs {
     const verifiedPluginsSet = new Set(this.pluginList)
     let assetsRemoved = 0
 
-    for (const release of [this.releaseUnscoped, this.releaseScoped]) {
+    for (const release of [...this.newReleases, ...this.oldReleases]) {
       console.log(`Removing any unverified assets from the ${release.assets.length} total assets in the ${release.tag_name} release...`)
 
       for (const asset of release.assets) {
@@ -184,7 +204,7 @@ class PluginTarballs {
   }
 
   /**
-   * Get the 'latest' version for the plugins
+   * Get the 'latest' version for the plugins — check against NEW releases only
    */
   private async getLatestVersions(): Promise<void> {
     for (const pluginName of this.pluginList) {
@@ -198,10 +218,9 @@ class PluginTarballs {
           packaged: false,
         }
 
-        const isScoped = pluginName.startsWith('@')
-        const release = isScoped ? this.releaseScoped : this.releaseUnscoped
+        const release = this.getNewReleaseForPlugin(pluginName)
 
-        // check if an update is required
+        // Check if an update is required
         if (
           release.assets.find(x => x.name === this.pluginAssetName(plugin, 'tar.gz'))
           && release.assets.find(x => x.name === this.pluginAssetName(plugin, 'sha256'))
@@ -221,8 +240,13 @@ class PluginTarballs {
    * Remove assets for older releases, keeping only the most recent version
    */
   private async removeAssetsForOlderReleases(): Promise<void> {
-    for (const release of [this.releaseUnscoped, this.releaseScoped]) {
-      const pluginAssetsMap: { [pluginName: string]: { version: string, assets: typeof this.release.assets }[] } = {}
+    for (const release of [...this.newReleases, ...this.oldReleases]) {
+      const pluginAssetsMap: {
+        [pluginName: string]: {
+          version: string
+          assets: Release['assets']
+        }[]
+      } = {}
 
       // Group assets by plugin name and version
       for (const asset of release.assets) {
@@ -271,44 +295,69 @@ class PluginTarballs {
 
   /**
    * Get the GitHub releases for the project
-   * @param {string} tagUnscoped
-   * @param {string} tagScoped
    */
-  private async getGitHubReleases(tagUnscoped: string, tagScoped: string): Promise<void> {
+  private async getGitHubReleases(): Promise<void> {
     const response = await this.octokit.request('GET /repos/{owner}/{repo}/releases', {
       owner: this.githubProjectOwner,
       repo: this.githubProjectRepo,
     })
 
-    this.releaseUnscoped = response.data.find(x => x.tag_name === tagUnscoped)
-    this.releaseScoped = response.data.find(x => x.tag_name === tagScoped)
-    if (!this.releaseUnscoped || !this.releaseScoped) {
-      throw new Error(`Release with tag "${tagUnscoped}" or "${tagScoped}" does not exist`)
+    const findRelease = (tag: string): Release => {
+      const release = response.data.find(x => x.tag_name === tag)
+      if (!release) {
+        throw new Error(`Release with tag "${tag}" does not exist`)
+      }
+      return release
     }
+
+    this.newReleases = [
+      findRelease(this.targetNewScoped),
+      findRelease(this.targetNewUnscopedAM),
+      findRelease(this.targetNewUnscopedNZ),
+    ]
+
+    this.oldReleases = [
+      findRelease(this.targetOldUnscoped),
+      findRelease(this.targetOldScoped),
+    ]
+  }
+
+  private releaseNameMap: Record<string, string> = {
+    [this.targetNewScoped]: 'Plugin Tarballs (Scoped)',
+    [this.targetNewUnscopedAM]: 'Plugin Tarballs (Unscoped; A-M)',
+    [this.targetNewUnscopedNZ]: 'Plugin Tarballs (Unscoped; N-Z)',
+    [this.targetOldUnscoped]: 'Plugin Tarballs (Legacy Unscoped)',
+    [this.targetOldScoped]: 'Plugin Tarballs (Legacy Scoped)',
   }
 
   /**
    * Update the GitHub Release
    */
   private async updateRelease(): Promise<void> {
-    for (const release of [this.releaseUnscoped, this.releaseScoped]) {
-      if (this.pluginsSuccessfullyUpdated.length > 0 || this.pluginsNotProcessed.length > 0) {
-        try {
-          await this.octokit.request('PATCH /repos/{owner}/{repo}/releases/{release_id}', {
-            owner: this.githubProjectOwner,
-            repo: this.githubProjectRepo,
-            release_id: release.id,
-            name: `Plugin Tarballs (${new Date().toISOString().split('T')[0]})`,
-            body: 'Recently updated plugins:\n\n'
-              + `${this.pluginsSuccessfullyUpdated.map(x => `- ${x.name}@${x.version}`).join('\n')}\n`
-              + '---\n'
-              + 'Plugins not processed:\n\n'
-              + `${this.pluginsNotProcessed.map(x => `- ${x.plugin.name} - ${x.error}`).join('\n')}`,
-          })
-          console.log('Updated release.')
-        } catch (e) {
-          console.error('Could not update release title', e.message)
+    for (const release of [...this.newReleases, ...this.oldReleases]) {
+      try {
+        const dateStr = new Date().toISOString().split('T')[0]
+        const label = this.releaseNameMap[release.tag_name] || 'Plugin Tarballs'
+
+        let body = 'All plugins are up to date.'
+        if (this.pluginsSuccessfullyUpdated.length > 0 || this.pluginsNotProcessed.length > 0) {
+          body = 'Recently updated plugins:\n\n'
+            + `${this.pluginsSuccessfullyUpdated.map(x => `- ${x.name}@${x.version}`).join('\n')}\n`
+            + '---\n'
+            + 'Plugins not processed:\n\n'
+            + `${this.pluginsNotProcessed.map(x => `- ${x.plugin.name} - ${x.error}`).join('\n')}`
         }
+
+        await this.octokit.request('PATCH /repos/{owner}/{repo}/releases/{release_id}', {
+          owner: this.githubProjectOwner,
+          repo: this.githubProjectRepo,
+          release_id: release.id,
+          name: `${label} ${dateStr}`,
+          body,
+        })
+        console.log(`Updated release ${release.tag_name}.`)
+      } catch (e) {
+        console.error(`Could not update release ${release.tag_name}`, e.message)
       }
     }
   }
@@ -317,7 +366,9 @@ class PluginTarballs {
    * Generate a file to keep track of the total number of downloads
    */
   private async generateDownloadStats(): Promise<void> {
-    for (const release of [this.releaseUnscoped, this.releaseScoped]) {
+    for (const release of [...this.newReleases, ...this.oldReleases]) {
+      this.releaseStats = {}
+
       const pluginBundleAssets = release.assets.filter(x => x.name.endsWith('.tar.gz'))
       const releaseStatsAsset = release.assets.find(x => x.name === 'download-statistics.json')
 
@@ -330,7 +381,7 @@ class PluginTarballs {
         const assetPlugin = asset.label.substring(0, asset.label.lastIndexOf('@'))
         const assetVersion = asset.label.substring(asset.label.lastIndexOf('@') + 1, asset.label.length).split('.tar.gz')[0]
 
-        // initialise the plugin if we have not seen it before
+        // Initialize the plugin if we have not seen it before
         if (!this.releaseStats[assetPlugin]) {
           this.releaseStats[assetPlugin] = {
             downloadCount: 0,
@@ -338,26 +389,26 @@ class PluginTarballs {
           }
         }
 
-        // set / update the stats for the current version being processed
+        // Set / update the stats for the current version being processed
         this.releaseStats[assetPlugin].versions[assetVersion] = {
           downloadCount: asset.download_count,
           size: asset.size,
           created: asset.created_at,
         }
 
-        // update the total download count
+        // Update the total download count
         this.releaseStats[assetPlugin].downloadCount = 0
         for (const version of Object.values(this.releaseStats[assetPlugin].versions)) {
           this.releaseStats[assetPlugin].downloadCount += version.downloadCount
         }
       }
 
-      // remove the old download-statistics.json
+      // Remove the old download-statistics.json
       if (releaseStatsAsset) {
         await this.deleteAsset(releaseStatsAsset)
       }
 
-      // upload the new download-statistics.json
+      // Upload the new download-statistics.json
       await this.octokit.request('POST /repos/{owner}/{repo}/releases/{release_id}/assets', {
         owner: this.githubProjectOwner,
         repo: this.githubProjectRepo,
@@ -371,7 +422,7 @@ class PluginTarballs {
         data: JSON.stringify(this.releaseStats),
       })
 
-      console.log('Updated download-statistics.json...')
+      console.log(`Updated download-statistics.json for ${release.tag_name}...`)
     }
   }
 
@@ -387,14 +438,14 @@ class PluginTarballs {
         if (!await fs.pathExists(path.join(this.workDir, this.pluginAssetName(plugin, 'tar.gz'))) || !await fs.pathExists(path.join(this.workDir, this.pluginAssetName(plugin, 'sha256')))) {
           console.log('Target:', targetDir)
 
-          // refresh target directory
+          // Refresh target directory
           await fs.remove(targetDir)
           await fs.mkdirp(targetDir)
 
-          // create temp package.json
+          // Create temp package.json
           await fs.writeJson(path.join(targetDir, 'package.json'), { private: true })
 
-          // install plugin
+          // Install plugin
           await execAsync(`npm install ${plugin.name}@${plugin.version} --omit=dev`, {
             cwd: targetDir,
             env: Object.assign({
@@ -409,21 +460,21 @@ class PluginTarballs {
             }, process.env),
           })
 
-          // remove temp package.json and node_modules/.package-lock.json
+          // Remove temp package.json and node_modules/.package-lock.json
           await fs.remove(path.join(targetDir, 'package.json'))
           await fs.remove(path.join(targetDir, 'node_modules', '.package-lock.json'))
 
-          // package plugin
+          // Package plugin
           await execAsync(`tar -C ${targetDir}/node_modules --owner=0 --group=0 --format=posix -czf ${this.pluginAssetName(plugin, 'tar.gz')} .`, {
             cwd: this.workDir,
           })
 
-          // shasum 256 the package
+          // Shasum 256 the package
           await execAsync(`shasum -a 256 ${this.pluginAssetName(plugin, 'tar.gz')} > ${this.pluginAssetName(plugin, 'sha256')}`, {
             cwd: this.workDir,
           })
 
-          // remove target directory
+          // Remove target directory
           await fs.remove(targetDir)
         }
         plugin.packaged = true
@@ -437,7 +488,7 @@ class PluginTarballs {
   }
 
   /**
-   * Upload assets to GitHub release
+   * Upload assets to the new GitHub releases
    */
   private async uploadAssets(): Promise<void> {
     for (const plugin of this.pluginMap) {
@@ -445,8 +496,7 @@ class PluginTarballs {
         const assetName = this.pluginAssetName(plugin, assetType)
         const assetPath = path.join(this.workDir, assetName)
 
-        const isScoped = plugin.name.startsWith('@')
-        const release = isScoped ? this.releaseScoped : this.releaseUnscoped
+        const release = this.getNewReleaseForPlugin(plugin.name)
 
         const existingAsset = release.assets.find(x => x.name === assetName)
         if (existingAsset) {
@@ -469,14 +519,14 @@ class PluginTarballs {
             data: fileBuffer,
           })
 
-          console.log(`Uploaded ${assetName}`)
+          console.log(`Uploaded ${assetName} to ${release.tag_name}`)
 
-          // note the plugin update as successful
+          // Note the plugin update as successful
           if (assetType === 'tar.gz') {
             this.pluginsSuccessfullyUpdated.push(plugin)
           }
 
-          // handle rate limit of GitHub API - 1000 requests per hour in GitHub Actions.
+          // Handle rate limit of GitHub API - 1000 requests per hour in GitHub Actions.
           if (response?.headers?.['x-ratelimit-remaining'] === '0') {
             console.log('GitHub API Rate Limit Exhausted. Remaining plugins will be processed next run.')
             process.exit(0)
@@ -489,21 +539,77 @@ class PluginTarballs {
   }
 
   /**
+   * Best-effort upload of assets to old releases for backward compatibility.
+   * Only updates plugins that already have assets on the old release (can't add new ones — old releases are at the limit).
+   */
+  private async uploadAssetsToOldReleases(): Promise<void> {
+    for (const plugin of this.pluginsSuccessfullyUpdated) {
+      const oldRelease = this.getOldReleaseForPlugin(plugin.name)
+      if (!oldRelease) {
+        continue
+      }
+
+      // Check if the plugin already has assets on the old release
+      const existingTarGz = oldRelease.assets.find(x =>
+        x.label.substring(0, x.label.lastIndexOf('@')) === plugin.name && x.name.endsWith('.tar.gz'),
+      )
+      if (!existingTarGz) {
+        console.log(`Skipping old release upload for ${plugin.name} — not present on ${oldRelease.tag_name}`)
+        continue
+      }
+
+      try {
+        for (const assetType of ['tar.gz', 'sha256']) {
+          const assetName = this.pluginAssetName(plugin, assetType)
+          const assetPath = path.join(this.workDir, assetName)
+
+          // Delete old version assets
+          const oldAssets = oldRelease.assets.filter(x =>
+            x.label.substring(0, x.label.lastIndexOf('@')) === plugin.name && x.name.endsWith(assetType),
+          )
+          for (const oldAsset of oldAssets) {
+            await this.deleteAsset(oldAsset)
+          }
+
+          // Upload new version asset
+          const fileBuffer = await fs.readFile(assetPath)
+          await this.octokit.request('POST /repos/{owner}/{repo}/releases/{release_id}/assets', {
+            owner: this.githubProjectOwner,
+            repo: this.githubProjectRepo,
+            url: oldRelease.upload_url,
+            release_id: oldRelease.id,
+            name: assetName,
+            label: `${plugin.name}@${plugin.version}.${assetType}`,
+            headers: {
+              'content-type': 'application/octet-stream',
+            },
+            data: fileBuffer,
+          })
+
+          console.log(`Uploaded ${assetName} to old release ${oldRelease.tag_name}`)
+        }
+      } catch (e) {
+        console.log(`Best-effort upload to old release failed for ${plugin.name}: ${e.message}`)
+      }
+    }
+  }
+
+  /**
    * Delete previous versions of the assets
    */
   private async removeOldAssets(): Promise<void> {
-    for (const release of [this.releaseUnscoped, this.releaseScoped]) {
+    for (const release of [...this.newReleases, ...this.oldReleases]) {
       for (const plugin of this.pluginMap) {
         for (const assetType of ['tar.gz', 'sha256']) {
           const assetsToRemove = release
             .assets
             .filter((x) => {
-              // find old assets (this will not include the assets we just uploaded!)
+              // Find old assets (this will not include the assets we just uploaded!)
               return x.label.substring(0, x.label.lastIndexOf('@')) === plugin.name && x.name.endsWith(assetType)
             })
             .sort((a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime()) // sort by oldest to newest
 
-          // remove the previously newest asset (last item in array), preventing it from being deleted
+          // Remove the previously newest asset (last item in array), preventing it from being deleted
           assetsToRemove.pop()
 
           for (const asset of assetsToRemove) {
@@ -538,7 +644,7 @@ class PluginTarballs {
   }
 }
 
-// bootstrap and run
+// Bootstrap and run
 (async () => {
   const main = new PluginTarballs()
   await main.run()

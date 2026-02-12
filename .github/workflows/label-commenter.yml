@@ -7,7 +7,7 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Label Commenter
         if: ${{ contains(github.event.issue.labels.*.name, 'request-verification') }}
         uses: peaceiris/actions-label-commenter@v1
