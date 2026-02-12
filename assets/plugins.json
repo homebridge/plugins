@@ -611,6 +611,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@qandnotu/homebridge-pura": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-pura.png",
+    "maintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@rsauget/homebridge-flexom": {
     "name": null,
     "hidden": false,
