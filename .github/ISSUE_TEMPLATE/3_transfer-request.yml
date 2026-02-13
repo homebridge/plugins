@@ -58,6 +58,15 @@ body:
       default: 0
     validations:
       required: true
+  - type: dropdown
+    attributes:
+      label: Are you requesting a `@homebridge-plugins/` scope for this plugin?
+      options:
+        - Yes
+        - No
+      default: 0
+    validations:
+      required: true
   - type: markdown
     attributes:
       value: '## More Information'

@@ -2494,10 +2494,16 @@ const originalAccessSync = fs.accessSync;
 const originalStat = fs.stat;
 const originalStatSync = fs.statSync;
 
+const ignoredFilePaths = [
+  'node_modules/@dabh/diagnostics/adapters/process.env.js',
+];
+
 function checkSuspiciousPath(path, operation) {
   if (!path || typeof path !== 'string') return;
 
   const pathStr = path.toString();
+
+  if (ignoredFilePaths.some(ignored => pathStr.includes(ignored))) return;
 
   for (const pattern of suspiciousFilePatterns) {
     if (pathStr.includes(pattern)) {
