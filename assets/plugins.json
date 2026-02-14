@@ -335,6 +335,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-pura": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-pura.png",
+    "maintained": true,
+    "newScope": false,
+    "scoped": "QandnotU",
+    "author": "QandnotU",
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-rainbird": {
     "name": null,
     "hidden": false,
@@ -616,7 +628,11 @@
     "hidden": false,
     "icon": "icons/homebridge-pura.png",
     "maintained": false,
-    "newScope": false,
+    "newScope": {
+      "from": "@qandnotu/homebridge-pura",
+      "to": "@homebridge-plugins/homebridge-pura",
+      "switch": "1.4.7"
+    },
     "scoped": false,
     "author": null,
     "changelog": null,

@@ -27,6 +27,7 @@
   "@homebridge-plugins/homebridge-meross",
   "@homebridge-plugins/homebridge-noip",
   "@homebridge-plugins/homebridge-plugin-update-check",
+  "@homebridge-plugins/homebridge-pura",
   "@homebridge-plugins/homebridge-rainbird",
   "@homebridge-plugins/homebridge-resideo",
   "@homebridge-plugins/homebridge-roomba",

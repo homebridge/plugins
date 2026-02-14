@@ -1,5 +1,10 @@
 [
   {
+    "from": "@qandnotu/homebridge-pura",
+    "to": "@homebridge-plugins/homebridge-pura",
+    "switch": "1.4.7"
+  },
+  {
     "from": "@tassy-h/homebridge-tuya-platform",
     "to": "@homebridge-plugins/homebridge-tuya",
     "switch": "2.0.2-beta.3"
