@@ -383,6 +383,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-roomba2": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": false,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-sharkiq": {
     "name": null,
     "hidden": false,
@@ -567,7 +579,7 @@
     "name": null,
     "hidden": false,
     "icon": "icons/homebridge-homepod-radio.png",
-    "maintained": false,
+    "maintained": true,
     "newScope": false,
     "scoped": false,
     "author": null,
@@ -585,6 +597,18 @@
     "author": null,
     "changelog": null,
     "verified": true,
+    "verifiedPlus": false
+  },
+  "@poblouin/homebridge-spotify-speaker": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": false,
     "verifiedPlus": false
   },
   "@prs.io/homebridge-smartthings-webhook": {
@@ -859,6 +883,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-advanced-http-temperature-humidity": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": false,
+    "verifiedPlus": false
+  },
   "homebridge-advanced-timer": {
     "name": null,
     "hidden": false,
@@ -899,7 +935,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
+    "maintained": true,
     "newScope": {
       "from": "homebridge-air",
       "to": "@homebridge-plugins/homebridge-air",
@@ -1215,7 +1251,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
+    "maintained": true,
     "newScope": {
       "from": "homebridge-august",
       "to": "@homebridge-plugins/homebridge-august",
@@ -1947,7 +1983,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
+    "maintained": true,
     "newScope": false,
     "scoped": false,
     "author": null,
@@ -1971,7 +2007,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
+    "maintained": true,
     "newScope": {
       "from": "homebridge-deebot",
       "to": "@homebridge-plugins/homebridge-ecovacs",
@@ -2515,7 +2551,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
+    "maintained": true,
     "newScope": {
       "from": "homebridge-ewelink",
       "to": "@homebridge-plugins/homebridge-ewelink",
@@ -2775,7 +2811,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
+    "maintained": true,
     "newScope": {
       "from": "homebridge-govee",
       "to": "@homebridge-plugins/homebridge-govee",
@@ -3067,12 +3103,24 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
+    "maintained": true,
     "newScope": false,
     "scoped": false,
     "author": null,
     "changelog": null,
     "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-http-fanv2": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-http-garage-doors": {
@@ -3085,6 +3133,18 @@
     "author": null,
     "changelog": null,
     "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-http-humidity-sensor": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-http-json-thermometer": {
@@ -3111,6 +3171,42 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-http-lightbulb": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": false,
+    "verifiedPlus": false
+  },
+  "homebridge-http-notification-server": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": false,
+    "verifiedPlus": false
+  },
+  "homebridge-http-outlet": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": false,
+    "verifiedPlus": false
+  },
   "homebridge-http-sensors-switches": {
     "name": null,
     "hidden": false,
@@ -3121,6 +3217,30 @@
     "author": null,
     "changelog": null,
     "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-http-switch": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": false,
+    "verifiedPlus": false
+  },
+  "homebridge-http-temperature-sensor": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-hubitat-tonesto7": {
@@ -3751,7 +3871,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
+    "maintained": true,
     "newScope": {
       "from": "homebridge-lutron-caseta-leap",
       "to": "@homebridge-plugins/homebridge-lutron-caseta-leap",
@@ -4171,7 +4291,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
+    "maintained": true,
     "newScope": false,
     "scoped": false,
     "author": null,
@@ -4195,7 +4315,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
+    "maintained": true,
     "newScope": false,
     "scoped": false,
     "author": null,
@@ -4213,6 +4333,18 @@
     "author": null,
     "changelog": null,
     "verified": true,
+    "verifiedPlus": false
+  },
+  "homebridge-nefit-easy": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "maintained": true,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-neptun-smart": {
@@ -4487,7 +4619,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
+    "maintained": true,
     "newScope": false,
     "scoped": false,
     "author": null,
@@ -4715,7 +4847,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
+    "maintained": true,
     "newScope": false,
     "scoped": false,
     "author": null,
@@ -4727,7 +4859,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
+    "maintained": true,
     "newScope": false,
     "scoped": false,
     "author": null,
@@ -4907,7 +5039,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
+    "maintained": true,
     "newScope": {
       "from": "homebridge-plugin-update-check",
       "to": "@homebridge-plugins/homebridge-plugin-update-check",
@@ -5291,7 +5423,7 @@
     "name": null,
     "hidden": false,
     "icon": null,
-    "maintained": false,
+    "maintained": true,
     "newScope": {
       "from": "homebridge-roomba2",
       "to": "@homebridge-plugins/homebridge-roomba",
