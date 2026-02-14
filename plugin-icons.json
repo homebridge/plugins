@@ -145,5 +145,6 @@
   "homebridge-ws": "icons/homebridge-ws.png",
   "homebridge-yamaha-receiver": "icons/homebridge-yamaha-receiver.png",
   "homebridge-zidoo-androidtv": "icons/homebridge-zidoo-androidtv.png",
-  "homebridge-zp": "icons/homebridge-zp.png"
+  "homebridge-zp": "icons/homebridge-zp.png",
+  "homebridge-zwave-usb": "icons/homebridge-zwave-usb.png"
 }

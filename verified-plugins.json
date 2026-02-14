@@ -557,5 +557,6 @@
   "homebridge-z2m",
   "homebridge-zidoo-androidtv",
   "homebridge-zigbee-nt",
-  "homebridge-zp"
+  "homebridge-zp",
+  "homebridge-zwave-usb"
 ]
