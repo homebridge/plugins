@@ -402,7 +402,7 @@
     "maintained": true,
     "newScope": false,
     "scoped": "Bubba8291",
-    "author": null,
+    "author": "Bubba8291",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -477,18 +477,6 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false
-  },
-  "@homebridge-pluginshomebridge-sharkiq": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "maintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": "Bubba8291",
-    "changelog": null,
-    "verified": false,
     "verifiedPlus": false
   },
   "@jackietreeh0rn/homebridge-smartrent": {
