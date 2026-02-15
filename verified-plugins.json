@@ -143,6 +143,7 @@
   "homebridge-dafang-mqtt-republish",
   "homebridge-dahua-alarm",
   "homebridge-dahua-alerts",
+  "homebridge-dahua-ultimate",
   "homebridge-daikin-cloud",
   "homebridge-daikin-local",
   "homebridge-daikin-local-platform",
