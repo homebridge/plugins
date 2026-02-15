@@ -12,15 +12,6 @@ const hidden = JSON.parse(fs.readFileSync('hidden-plugins.json', 'utf8'))
 const hiddenSorted = hidden.sort()
 fs.writeFileSync('hidden-plugins.json', `${JSON.stringify(hiddenSorted, null, 2)}\n`)
 
-const scoped = JSON.parse(fs.readFileSync('scoped-plugins.json', 'utf8'))
-const scopedSortedKeys = Object.keys(scoped).sort()
-const scopedSorted = scopedSortedKeys.reduce((obj, key) => {
-  obj[key] = scoped[key]
-  return obj
-}, {})
-
-fs.writeFileSync('scoped-plugins.json', `${JSON.stringify(scopedSorted, null, 2)}\n`)
-
 const authors = JSON.parse(fs.readFileSync('plugin-authors.json', 'utf8'))
 const authorsSortedKeys = Object.keys(authors).sort()
 const authorsSorted = authorsSortedKeys.reduce((obj, key) => {
@@ -83,7 +74,6 @@ const fullJson = verifiedSorted
   .concat(hiddenSorted)
   .concat(maintainedPlugins)
   .concat(hasScopeKeys)
-  .concat(scopedSortedKeys)
   .concat(authorsSortedKeys)
   .concat(namesSortedKeys)
   .concat(changelogsSortedKeys)
@@ -95,7 +85,7 @@ const fullJson = verifiedSorted
       icon: (verified.includes(key) || verifiedPlus.includes(key)) && fs.existsSync(`./${icons[key]}`) ? icons[key] : null,
       maintained: maintained.includes(key),
       newScope: hasScopeKeys.includes(key) ? hasScope.find(plugin => plugin.from === key) : false,
-      scoped: scopedSortedKeys.includes(key) ? scopedSorted[key] : false,
+      scoped: (key.startsWith('@homebridge-plugins/') && authorsSortedKeys.includes(key)) ? authorsSorted[key] : null ? scopedSorted[key] : false,
       author: authorsSortedKeys.includes(key) ? authorsSorted[key] : null,
       changelog: changelogsSortedKeys.includes(key) ? changelogsSorted[key] : null,
       verified: verified.includes(key),
@@ -167,7 +157,7 @@ const fullArray = Object.values(fullJson)
 
 console.log('\n----------- STATS -----------')
 console.log(`- Hidden Total: ${fullArray.filter(plugin => plugin.hidden).length}`)
-console.log(`- Maintained Total: ${fullArray.filter(plugin => plugin.maintained).length}`)
+console.log(`- maintained Total: ${fullArray.filter(plugin => plugin.maintained).length}`)
 console.log(`- Scoped Total: ${fullArray.filter(plugin => plugin.scoped).length}`)
 console.log(`- Has New Scope Total: ${fullArray.filter(plugin => plugin.newScope).length}`)
 console.log(`- Verified With Icon: ${fullArray.filter(plugin => plugin.verified && plugin.icon).length}`)
