@@ -1,0 +1,17 @@
+[
+  "@homebridge-plugins/homebridge-ecovacs",
+  "@homebridge-plugins/homebridge-ewelink",
+  "@homebridge-plugins/homebridge-govee",
+  "@homebridge-plugins/homebridge-meross",
+  "@homebridge-plugins/homebridge-wemo",
+  "homebridge-arlo",
+  "homebridge-blinkcameras",
+  "homebridge-davis",
+  "homebridge-mylink",
+  "homebridge-mysmartblinds-bridge",
+  "homebridge-nefit-easy",
+  "homebridge-opensprinkler-api",
+  "homebridge-petsafe-smart-feed",
+  "homebridge-thermobit",
+  "homebridge-tp-link-powerline"
+]

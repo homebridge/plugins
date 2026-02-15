@@ -44,9 +44,9 @@ const hasScopeSorted = hasScope.sort((a, b) => a.from.localeCompare(b.from))
 const hasScopeKeys = hasScopeSorted.map(plugin => plugin.from)
 fs.writeFileSync('has-scope-plugins.json', `${JSON.stringify(hasScopeSorted, null, 2)}\n`)
 
-const maintained = JSON.parse(fs.readFileSync('maintained-plugins.json', 'utf8'))
-const maintainedPlugins = maintained.sort()
-fs.writeFileSync('maintained-plugins.json', `${JSON.stringify(maintainedPlugins, null, 2)}\n`)
+const unmaintained = JSON.parse(fs.readFileSync('unmaintained-plugins.json', 'utf8'))
+const unmaintainedPlugins = unmaintained.sort()
+fs.writeFileSync('unmaintained-plugins.json', `${JSON.stringify(unmaintainedPlugins, null, 2)}\n`)
 
 const icons = JSON.parse(fs.readFileSync('plugin-icons.json', 'utf8'))
 
@@ -72,7 +72,7 @@ fs.writeFileSync('plugin-icons.json', `${JSON.stringify(Object.keys(icons)
 const fullJson = verifiedSorted
   .concat(verifiedPlusSorted)
   .concat(hiddenSorted)
-  .concat(maintainedPlugins)
+  .concat(unmaintainedPlugins)
   .concat(hasScopeKeys)
   .concat(authorsSortedKeys)
   .concat(namesSortedKeys)
@@ -83,7 +83,7 @@ const fullJson = verifiedSorted
       name: namesSortedKeys.includes(key) ? namesSorted[key] : null,
       hidden: hidden.includes(key),
       icon: (verified.includes(key) || verifiedPlus.includes(key)) && fs.existsSync(`./${icons[key]}`) ? icons[key] : null,
-      maintained: maintained.includes(key),
+      unmaintained: unmaintained.includes(key),
       newScope: hasScopeKeys.includes(key) ? hasScope.find(plugin => plugin.from === key) : false,
       scoped: (key.startsWith('@homebridge-plugins/') && authorsSortedKeys.includes(key)) ? authorsSorted[key] : null ? scopedSorted[key] : false,
       author: authorsSortedKeys.includes(key) ? authorsSorted[key] : null,
@@ -117,7 +117,7 @@ const shortenedKeys = {
   name: 'n',
   hidden: 'h',
   icon: 'i',
-  maintained: 'm',
+  unmaintained: 'u',
   newScope: 's',
   author: 'a',
   changelog: 'c',
@@ -157,7 +157,7 @@ const fullArray = Object.values(fullJson)
 
 console.log('\n----------- STATS -----------')
 console.log(`- Hidden Total: ${fullArray.filter(plugin => plugin.hidden).length}`)
-console.log(`- maintained Total: ${fullArray.filter(plugin => plugin.maintained).length}`)
+console.log(`- Unmaintained Total: ${fullArray.filter(plugin => plugin.unmaintained).length}`)
 console.log(`- Scoped Total: ${fullArray.filter(plugin => plugin.scoped).length}`)
 console.log(`- Has New Scope Total: ${fullArray.filter(plugin => plugin.newScope).length}`)
 console.log(`- Verified With Icon: ${fullArray.filter(plugin => plugin.verified && plugin.icon).length}`)
