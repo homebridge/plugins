@@ -85,7 +85,7 @@ const fullJson = verifiedSorted
       icon: (verified.includes(key) || verifiedPlus.includes(key)) && fs.existsSync(`./${icons[key]}`) ? icons[key] : null,
       unmaintained: unmaintained.includes(key),
       newScope: hasScopeKeys.includes(key) ? hasScope.find(plugin => plugin.from === key) : false,
-      scoped: (key.startsWith('@homebridge-plugins/') && authorsSortedKeys.includes(key)) ? authorsSorted[key] : null ? scopedSorted[key] : false,
+      scoped: (key.startsWith('@homebridge-plugins/') && authorsSortedKeys.includes(key)) ? authorsSorted[key] : false,
       author: authorsSortedKeys.includes(key) ? authorsSorted[key] : null,
       changelog: changelogsSortedKeys.includes(key) ? changelogsSorted[key] : null,
       verified: verified.includes(key),
