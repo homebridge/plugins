@@ -35,6 +35,11 @@
     "switch": "7.0.0"
   },
   {
+    "from": "homebridge-eufy-security",
+    "to": "@homebridge-plugins/homebridge-eufy-security",
+    "switch": "4.4.2"
+  },
+  {
     "from": "homebridge-ewelink",
     "to": "@homebridge-plugins/homebridge-ewelink",
     "switch": "12.3.3"

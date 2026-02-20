@@ -19,6 +19,7 @@
   "@homebridge-plugins/homebridge-camera-ffmpeg",
   "@homebridge-plugins/homebridge-cloudflared-tunnel",
   "@homebridge-plugins/homebridge-ecovacs",
+  "@homebridge-plugins/homebridge-eufy-security",
   "@homebridge-plugins/homebridge-ewelink",
   "@homebridge-plugins/homebridge-govee",
   "@homebridge-plugins/homebridge-lutron-caseta-leap",

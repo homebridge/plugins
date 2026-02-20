@@ -239,6 +239,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-eufy-security": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-eufy-security.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": "lenoxys",
+    "author": "lenoxys",
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-ewelink": {
     "name": "Homebridge eWeLink",
     "hidden": false,
@@ -2492,7 +2504,11 @@
     "hidden": false,
     "icon": "icons/homebridge-eufy-security.png",
     "unmaintained": false,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-eufy-security",
+      "to": "@homebridge-plugins/homebridge-eufy-security",
+      "switch": "4.4.2"
+    },
     "scoped": false,
     "author": null,
     "changelog": null,
