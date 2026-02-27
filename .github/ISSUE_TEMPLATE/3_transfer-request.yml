@@ -62,8 +62,8 @@ body:
     attributes:
       label: Are you requesting a `@homebridge-plugins/` scope for this plugin?
       options:
-        - Yes
-        - No
+        - Yes - I am requesting a @homebridge-plugins/ scope for this plugin
+        - No - I am not requesting a @homebridge-plugins/ scope for this plugin
       default: 0
     validations:
       required: true

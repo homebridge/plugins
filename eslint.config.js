@@ -41,4 +41,12 @@ export default antfu({
   formatters: {
     markdown: true,
   },
+}, {
+  files: ['**/*.md'],
+  rules: {
+    'perfectionist/sort-exports': 'off',
+    'perfectionist/sort-imports': 'off',
+    'perfectionist/sort-named-exports': 'off',
+    'perfectionist/sort-named-imports': 'off',
+  },
 })
