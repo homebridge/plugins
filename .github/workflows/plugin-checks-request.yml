@@ -19,13 +19,16 @@ jobs:
       - uses: actions/checkout@v6
       - name: Check if should run
         id: should-run
+        env:
+          COMMENT_BODY: ${{ github.event.comment.body }}
+          PLUGIN_INPUT: ${{ inputs.plugin }}
         run: |
           if [[ "${{ github.event_name }}" == "issues" ]] && [[ "${{ contains(github.event.issue.labels.*.name, 'request-verification') }}" == "true" ]]; then
             echo "run=true" >> $GITHUB_OUTPUT
-          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]] && [[ -n "${{ inputs.plugin }}" ]]; then
+          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]] && [[ -n "$PLUGIN_INPUT" ]]; then
             echo "run=true" >> $GITHUB_OUTPUT
           elif [[ "${{ github.event_name }}" == "issue_comment" ]]; then
-            FIRST_LINE=$(echo "${{ github.event.comment.body }}" | head -n 1 | tr -d ' \t\r')
+            FIRST_LINE=$(echo "$COMMENT_BODY" | head -n 1 | tr -d ' \t\r')
             if [[ "$FIRST_LINE" == "/check" ]] && [[ "${{ contains(github.event.issue.labels.*.name, 'request-verification') }}" == "true" ]]; then
               echo "run=true" >> $GITHUB_OUTPUT
               echo "comment_id=${{ github.event.comment.id }}" >> $GITHUB_OUTPUT
@@ -72,9 +75,10 @@ jobs:
         id: extract
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
+          PLUGIN_INPUT: ${{ inputs.plugin }}
         run: |
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            PLUGIN_NAME=${{ github.event.inputs.plugin }}
+            PLUGIN_NAME="$PLUGIN_INPUT"
           else
             PLUGIN_NAME=$(echo "$ISSUE_BODY" | awk 'NR==3' | tr -d ' ')
           fi
