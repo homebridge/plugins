@@ -6831,6 +6831,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-viessmann-vicare": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-viessmann-vicare.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-virtual-accessories": {
     "name": null,
     "hidden": false,
