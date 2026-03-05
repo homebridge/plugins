@@ -5719,6 +5719,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-simpler-wled": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-simpler-wled.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-simplisafe3": {
     "name": null,
     "hidden": false,
