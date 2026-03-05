@@ -39,6 +39,7 @@
   "@homebridge-plugins/homebridge-unifi-network",
   "@homebridge-plugins/homebridge-wattbox",
   "@homebridge-plugins/homebridge-wemo",
+  "@jackietreeh0rn/homebridge-blink-security",
   "@jackietreeh0rn/homebridge-smartrent",
   "@jay-d-tyler/homebridge-somfy-protect",
   "@jay-d-tyler/homebridge-somfy-protect-automate",

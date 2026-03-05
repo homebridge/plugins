@@ -479,6 +479,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@jackietreeh0rn/homebridge-blink-security": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@jackietreeh0rn/homebridge-smartrent": {
     "name": null,
     "hidden": false,
