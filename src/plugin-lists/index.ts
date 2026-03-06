@@ -4,6 +4,10 @@ import process from 'node:process'
 import { Octokit } from '@octokit/core'
 import axios from 'axios'
 
+const RE_GITHUB_REPO = /github\.com\/([^/]+)\/([^/]+)/
+const RE_GIT_SUFFIX = /\.git$/
+const RE_GIT_URL_PREFIX = /^git(?::\/\/)?|\.git$/g
+
 export interface Plugin {
   name: string
   valid: boolean
@@ -66,19 +70,19 @@ class PluginLists {
 
       // Try if the url is set
       if (url?.includes('github.com')) {
-        const match = url.match(/github\.com\/([^/]+)\/([^/]+)/)
+        const match = url.match(RE_GITHUB_REPO)
         if (match) {
           author = match[1]
           repo = match[2]
         }
       } else if (homepage?.includes('github.com')) {
-        const match = homepage.match(/github\.com\/([^/]+)\/([^/]+)/)
+        const match = homepage.match(RE_GITHUB_REPO)
         if (match) {
           author = match[1]
           repo = match[2]
         }
       } else if (bugs?.includes('github.com')) {
-        const match = bugs.match(/github\.com\/([^/]+)\/([^/]+)/)
+        const match = bugs.match(RE_GITHUB_REPO)
         if (match) {
           author = match[1]
           repo = match[2]
@@ -96,9 +100,9 @@ class PluginLists {
     try {
       const response = await axios.get(`https://registry.npmjs.org/${packageName}`)
       this.pluginNpmResponses[packageName] = {
-        url: response.data.repository?.url?.replace(/^git(?::\/\/)?|\.git$/g, '').replaceAll('+', ''),
-        homepage: response.data.homepage?.replace(/\.git$/, '').replace('#readme').replace('#README'),
-        bugs: response.data.repository?.bugs?.url?.replace(/\.git$/, '').replace('/issues'),
+        url: response.data.repository?.url?.replace(RE_GIT_URL_PREFIX, '').replaceAll('+', ''),
+        homepage: response.data.homepage?.replace(RE_GIT_SUFFIX, '').replace('#readme', '').replace('#README', ''),
+        bugs: response.data.bugs?.url?.replace(RE_GIT_SUFFIX, '').replace('/issues', ''),
       }
 
       const latestVersion = response.data['dist-tags'].latest as string

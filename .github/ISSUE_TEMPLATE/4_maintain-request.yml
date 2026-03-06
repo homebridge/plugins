@@ -11,7 +11,7 @@ body:
     attributes:
       value: |
         - The GitHub repository will remain in the Homebridge Plugins organization.
-        - You will be granted admin access to the GitHub repository, and maintainer access to the NPM package.
+        - You will be granted maintainer role on the GitHub repository, and NPM publishing via GitHub Actions.
   - type: input
     id: plugin-name
     attributes:

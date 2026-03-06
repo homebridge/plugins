@@ -12,7 +12,7 @@ body:
       value: |
         - You must be the developer of the plugin to request the transfer.
         - You must be willing to transfer the NPM package to the Homebridge organization.
-        - You will be granted admin access to the GitHub repository, and write access to the NPM package.
+        - You will be granted maintainer role on the GitHub repository, and NPM publishing via GitHub Actions.
         - Your plugin will be published under the Homebridge Plugins organization on NPM (@homebridge-plugins/homebridge-xyz).
   - type: input
     id: plugin-name

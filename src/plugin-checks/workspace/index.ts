@@ -21,6 +21,22 @@ const _importDynamic = new Function('modulePath', 'return import(modulePath)')
 const __dirname = import.meta.dirname
 const require = createRequire(import.meta.url)
 
+const RE_ENCODED_AT = /%40/g
+const RE_EVAL = /\beval\s*\(/
+const RE_FUNCTION_CTOR = /new\s+Function\s*\(/
+const RE_DYNAMIC_REQUIRE = /require\s*\([^'"][^)]*\)/
+const RE_EXEC_UNSAFE = /child_process\.(?:exec|execSync)\s*\([^'"]/
+const RE_READ_STREAM_DYNAMIC = /\.createReadStream\s*\([^'"]/
+const RE_READ_FILE_DYNAMIC = /\.readFileSync?\s*\([^'"]/
+const RE_SSH_DIR = /\.ssh[/\\]/
+const RE_AWS_DIR = /\.aws[/\\]/
+const RE_ID_RSA = /id_rsa/
+const RE_PRIVATE_KEY = /private[_\-]?key/i
+const RE_DOT_ENV = /\.env/
+const RE_ETC_PASSWD = /\/etc\/passwd/
+const RE_SOURCE_FILE = /\.(?:js|ts|json)$/
+const RE_EXIT_CODE = /Code: (\d+)/
+
 interface PackageJSON {
   name?: string
   version?: string
@@ -591,7 +607,7 @@ class CheckHomebridgePlugin {
 
   private async testNpmPackage(): Promise<void> {
     try {
-      const npmUrl = `${CheckHomebridgePlugin.CONSTANTS.URLS.NPM_REGISTRY}/${encodeURIComponent(this.packageName).replace(/%40/g, '@')}`
+      const npmUrl = `${CheckHomebridgePlugin.CONSTANTS.URLS.NPM_REGISTRY}/${encodeURIComponent(this.packageName).replace(RE_ENCODED_AT, '@')}`
       const { body } = await request(npmUrl, {
         headers: {
           accept: CheckHomebridgePlugin.CONSTANTS.HEADERS.NPM_ACCEPT,
@@ -688,8 +704,18 @@ class CheckHomebridgePlugin {
         return
       }
 
-      // Check for 'items must be array' or 'items must match' errors which often mean invalid properties on array schemas
-      if (error.includes('items must be array') || error.includes('items must match a schema')) {
+      // Check for duplicate enum values (causes cascading AJV errors on items/anyOf)
+      if (error.includes('should NOT have duplicate items')) {
+        this.failed.push(
+          'Config Schema JSON: schema is invalid - an `enum` array contains duplicate values. '
+          + 'Each value in an `enum` must be unique. Remove the duplicate entries.',
+        )
+        return
+      }
+
+      // Check for 'items should/must be array' or 'items should/must match' errors which often mean invalid properties on array schemas
+      if (error.includes('items must be array') || error.includes('items should be array')
+        || error.includes('items must match a schema') || error.includes('items should match some schema')) {
         this.failed.push(
           'Config Schema JSON: schema is invalid - array schemas have invalid properties. '
           + 'Arrays in JSON Schema should only have `type`, `items`, `minItems`, `maxItems`, etc. '
@@ -901,21 +927,21 @@ class CheckHomebridgePlugin {
 
     // Patterns that could indicate security issues
     const dangerousPatterns = [
-      { pattern: /\beval\s*\(/, message: 'uses eval() which can be a security risk', severity: 'high' },
-      { pattern: /new\s+Function\s*\(/, message: 'uses Function constructor which can be a security risk', severity: 'high' },
-      { pattern: /require\s*\([^'"][^)]*\)/, message: 'uses dynamic require() which could load arbitrary code', severity: 'medium' },
-      { pattern: /child_process\.(?:exec|execSync)\s*\([^'"]/, message: 'uses exec with potentially unsafe input', severity: 'high' },
-      { pattern: /\.createReadStream\s*\([^'"]/, message: 'reads files with dynamic paths', severity: 'low' },
-      { pattern: /\.readFileSync?\s*\([^'"]/, message: 'reads files with dynamic paths', severity: 'low' },
+      { pattern: RE_EVAL, message: 'uses eval() which can be a security risk', severity: 'high' },
+      { pattern: RE_FUNCTION_CTOR, message: 'uses Function constructor which can be a security risk', severity: 'high' },
+      { pattern: RE_DYNAMIC_REQUIRE, message: 'uses dynamic require() which could load arbitrary code', severity: 'medium' },
+      { pattern: RE_EXEC_UNSAFE, message: 'uses exec with potentially unsafe input', severity: 'high' },
+      { pattern: RE_READ_STREAM_DYNAMIC, message: 'reads files with dynamic paths', severity: 'low' },
+      { pattern: RE_READ_FILE_DYNAMIC, message: 'reads files with dynamic paths', severity: 'low' },
     ]
 
     const suspiciousFilePatterns = [
-      { pattern: /\.ssh[/\\]/, message: 'accesses SSH directory', severity: 'critical' },
-      { pattern: /\.aws[/\\]/, message: 'accesses AWS credentials', severity: 'critical' },
-      { pattern: /id_rsa/, message: 'accesses SSH keys', severity: 'critical' },
-      { pattern: /private[_\-]?key/i, message: 'accesses private keys', severity: 'critical' },
-      { pattern: /\.env/, message: 'accesses environment files', severity: 'high' },
-      { pattern: /\/etc\/passwd/, message: 'accesses system files', severity: 'critical' },
+      { pattern: RE_SSH_DIR, message: 'accesses SSH directory', severity: 'critical' },
+      { pattern: RE_AWS_DIR, message: 'accesses AWS credentials', severity: 'critical' },
+      { pattern: RE_ID_RSA, message: 'accesses SSH keys', severity: 'critical' },
+      { pattern: RE_PRIVATE_KEY, message: 'accesses private keys', severity: 'critical' },
+      { pattern: RE_DOT_ENV, message: 'accesses environment files', severity: 'high' },
+      { pattern: RE_ETC_PASSWD, message: 'accesses system files', severity: 'critical' },
     ]
 
     try {
@@ -1060,7 +1086,7 @@ class CheckHomebridgePlugin {
             }
           } else if (entry.isFile()) {
             // Include JS, TS, and JSON files
-            if (/\.(?:js|ts|json)$/.test(entry.name) && !entry.name.includes('.min.')) {
+            if (RE_SOURCE_FILE.test(entry.name) && !entry.name.includes('.min.')) {
               files.push(fullPath)
             }
           }
@@ -1738,7 +1764,7 @@ class CheckHomebridgePlugin {
 
           // Detect Homebridge process ending (indicates a crash when followed by restart)
           if (output.includes('[HB Supervisor] Homebridge process ended')) {
-            const codeMatch = output.match(/Code: (\d+)/)
+            const codeMatch = output.match(RE_EXIT_CODE)
             if (codeMatch && codeMatch[1] !== '0' && codeMatch[1] !== '143') {
               pluginFailure = true
               errorMessage = `Homebridge crashed with exit code ${codeMatch[1]}`
@@ -2658,8 +2684,8 @@ child_process.execSync = function(command, ...args) {
     Object.entries(urlCounts)
       .sort(([a], [b]) => a.localeCompare(b))
       .forEach(([url, info]) => {
-        const methods = Array.from(info.methods).join(', ')
-        const scenarios = Array.from(info.scenarios).join(', ')
+        const methods = [...info.methods].join(', ')
+        const scenarios = [...info.scenarios].join(', ')
         console.log(`📡 ${url}`)
         console.log(`   Methods: ${methods} | Count: ${info.count} | Scenarios: ${scenarios}`)
       })

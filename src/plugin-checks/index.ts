@@ -332,12 +332,12 @@ class PluginChecks {
     let summary = '- External HTTP requests detected:\n'
 
     // Sort URLs for consistent output
-    const sortedUrls = Array.from(requestsByUrl.keys()).sort()
+    const sortedUrls = [...requestsByUrl.keys()].toSorted()
 
     for (const url of sortedUrls) {
       const entry = requestsByUrl.get(url)!
-      const methods = Array.from(entry.methods).sort().join(', ')
-      const scenarios = Array.from(entry.scenarios).sort().join(', ')
+      const methods = [...entry.methods].toSorted().join(', ')
+      const scenarios = [...entry.scenarios].toSorted().join(', ')
 
       summary += `  - 📡 \`${url}\`\n`
       summary += `     Methods: \`${methods}\` | Count: \`${entry.count}\` | Scenarios: ${scenarios}\n`

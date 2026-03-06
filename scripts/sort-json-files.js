@@ -69,14 +69,16 @@ fs.writeFileSync('plugin-icons.json', `${JSON.stringify(Object.keys(icons)
     return obj
   }, {}), null, 2)}\n`)
 
-const fullJson = verifiedSorted
-  .concat(verifiedPlusSorted)
-  .concat(hiddenSorted)
-  .concat(unmaintainedPlugins)
-  .concat(hasScopeKeys)
-  .concat(authorsSortedKeys)
-  .concat(namesSortedKeys)
-  .concat(changelogsSortedKeys)
+const fullJson = [
+  ...verifiedSorted,
+  ...verifiedPlusSorted,
+  ...hiddenSorted,
+  ...unmaintainedPlugins,
+  ...hasScopeKeys,
+  ...authorsSortedKeys,
+  ...namesSortedKeys,
+  ...changelogsSortedKeys,
+]
   .sort()
   .reduce((obj, key) => {
     obj[key] = {

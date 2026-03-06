@@ -222,8 +222,8 @@ class PluginTarballs {
 
         // Check if an update is required
         if (
-          release.assets.find(x => x.name === this.pluginAssetName(plugin, 'tar.gz'))
-          && release.assets.find(x => x.name === this.pluginAssetName(plugin, 'sha256'))
+          release.assets.some(x => x.name === this.pluginAssetName(plugin, 'tar.gz'))
+          && release.assets.some(x => x.name === this.pluginAssetName(plugin, 'sha256'))
         ) {
           console.log(`${plugin.name} v${plugin.version} is up to date.`)
         } else {
@@ -373,7 +373,7 @@ class PluginTarballs {
       const releaseStatsAsset = release.assets.find(x => x.name === 'download-statistics.json')
 
       if (releaseStatsAsset) {
-        const response = await axios.get(`${releaseStatsAsset.browser_download_url}?date=${new Date().getTime()}`)
+        const response = await axios.get(`${releaseStatsAsset.browser_download_url}?date=${Date.now()}`)
         this.releaseStats = response.data
       }
 
@@ -448,7 +448,8 @@ class PluginTarballs {
           // Install plugin
           await execAsync(`npm install ${plugin.name}@${plugin.version} --omit=dev`, {
             cwd: targetDir,
-            env: Object.assign({
+            env: {
+              ...process.env,
               npm_config_audit: 'false',
               npm_config_fund: 'false',
               npm_config_update_notifier: 'false',
@@ -457,7 +458,7 @@ class PluginTarballs {
               npm_config_ignore_scripts: 'true',
               npm_config_package_lock: 'false',
               npm_config_loglevel: 'error',
-            }, process.env),
+            },
           })
 
           // Remove temp package.json and node_modules/.package-lock.json
