@@ -6503,18 +6503,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-tiko": {
-    "name": null,
-    "hidden": false,
-    "icon": "icons/homebridge-tiko.png",
-    "unmaintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-tivo-control": {
     "name": null,
     "hidden": false,
