@@ -10,6 +10,7 @@
   "@homebridge-plugins/homebridge-august": "icons/homebridge-august.png",
   "@homebridge-plugins/homebridge-camera-ffmpeg": "icons/homebridge-camera-ffmpeg.png",
   "@homebridge-plugins/homebridge-cloudflared-tunnel": "icons/homebridge-cloudflared-tunnel.png",
+  "@homebridge-plugins/homebridge-ecoplugs": "icons/homebridge-ecoplugs.png",
   "@homebridge-plugins/homebridge-ecovacs": "icons/homebridge-ecovacs.png",
   "@homebridge-plugins/homebridge-eufy-security": "icons/homebridge-eufy-security.png",
   "@homebridge-plugins/homebridge-ewelink": "icons/homebridge-ewelink.png",

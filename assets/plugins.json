@@ -227,6 +227,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-ecoplugs": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-ecoplugs.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": "IWCaldwell",
+    "author": "IWCaldwell",
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-ecovacs": {
     "name": null,
     "hidden": false,
