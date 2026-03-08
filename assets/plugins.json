@@ -1347,6 +1347,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-bambu-lab": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-bed-control": {
     "name": null,
     "hidden": false,
