@@ -287,6 +287,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-homepod-radio": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-homepod-radio.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": "petro-kushchak",
+    "author": "petro-kushchak",
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-lutron-caseta-leap": {
     "name": null,
     "hidden": false,
@@ -590,13 +602,17 @@
   "@petro-kushchak/homebridge-homepod-radio": {
     "name": null,
     "hidden": false,
-    "icon": "icons/homebridge-homepod-radio.png",
+    "icon": null,
     "unmaintained": false,
-    "newScope": false,
+    "newScope": {
+      "from": "@petro-kushchak/homebridge-homepod-radio",
+      "to": "@homebridge-plugins/homebridge-homepod-radio",
+      "switch": "3.2.6"
+    },
     "scoped": false,
     "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "@pietrolubini/homebridge-ecoflow": {

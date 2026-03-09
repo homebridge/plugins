@@ -1,5 +1,10 @@
 [
   {
+    "from": "@petro-kushchak/homebridge-homepod-radio",
+    "to": "@homebridge-plugins/homebridge-homepod-radio",
+    "switch": "3.2.6"
+  },
+  {
     "from": "@qandnotu/homebridge-pura",
     "to": "@homebridge-plugins/homebridge-pura",
     "switch": "1.4.7"
