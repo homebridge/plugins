@@ -1350,7 +1350,7 @@
   "homebridge-bambu-lab": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-bambu-lab.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
