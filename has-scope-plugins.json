@@ -1,5 +1,10 @@
 [
   {
+    "from": "@homebridge-plugins/homebridge-unifi-network",
+    "to": "@homebridge-plugins/homebridge-unifi-smartpower",
+    "switch": "2.3.1"
+  },
+  {
     "from": "@petro-kushchak/homebridge-homepod-radio",
     "to": "@homebridge-plugins/homebridge-homepod-radio",
     "switch": "3.2.6"
@@ -108,11 +113,6 @@
     "from": "homebridge-tado-platform",
     "to": "@homebridge-plugins/homebridge-tado",
     "switch": "6.0.14"
-  },
-  {
-    "from": "homebridge-unifi-smartpower",
-    "to": "@homebridge-plugins/homebridge-unifi-network",
-    "switch": "2.3.0"
   },
   {
     "from": "homebridge-wattbox",

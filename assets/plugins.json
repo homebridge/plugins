@@ -472,6 +472,22 @@
     "hidden": false,
     "icon": null,
     "unmaintained": false,
+    "newScope": {
+      "from": "@homebridge-plugins/homebridge-unifi-network",
+      "to": "@homebridge-plugins/homebridge-unifi-smartpower",
+      "switch": "2.3.1"
+    },
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": false,
+    "verifiedPlus": false
+  },
+  "@homebridge-plugins/homebridge-unifi-smartpower": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
     "newScope": false,
     "scoped": "derek-miller",
     "author": "derek-miller",
@@ -6776,11 +6792,7 @@
     "hidden": false,
     "icon": null,
     "unmaintained": false,
-    "newScope": {
-      "from": "homebridge-unifi-smartpower",
-      "to": "@homebridge-plugins/homebridge-unifi-network",
-      "switch": "2.3.0"
-    },
+    "newScope": false,
     "scoped": false,
     "author": null,
     "changelog": null,
