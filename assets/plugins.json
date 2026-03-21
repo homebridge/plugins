@@ -771,6 +771,18 @@
     "verified": false,
     "verifiedPlus": false
   },
+  "@toharush/homebridge-redalert": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@ubreu/homebridge-helios-kwl": {
     "name": null,
     "hidden": false,
