@@ -68,6 +68,7 @@
   "homebridge-3em-energy-meter",
   "homebridge-433-arduino",
   "homebridge-abode-lights",
+  "homebridge-ac-freedom",
   "homebridge-actron-neo",
   "homebridge-actron-que",
   "homebridge-adb",
