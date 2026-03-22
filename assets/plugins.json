@@ -774,7 +774,7 @@
   "@toharush/homebridge-redalert": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-redalert.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
