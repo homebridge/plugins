@@ -223,6 +223,7 @@
   "homebridge-gogogate2",
   "homebridge-google-nest-sdm",
   "homebridge-gpio-doorbell",
+  "homebridge-gpio-electric-rim-lock",
   "homebridge-gpio-rgb-ledstrip",
   "homebridge-gpio-rgbw-ledstrip",
   "homebridge-gree-ac",

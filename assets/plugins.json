@@ -2907,6 +2907,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-gpio-electric-rim-lock": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-gpio-rgb-ledstrip": {
     "name": null,
     "hidden": false,
