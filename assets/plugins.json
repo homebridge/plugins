@@ -2910,7 +2910,7 @@
   "homebridge-gpio-electric-rim-lock": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-gpio-electric-rim-lock.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
