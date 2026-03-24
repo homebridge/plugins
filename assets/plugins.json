@@ -95,6 +95,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@dppeak/homebridge-sleepiq": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@dr_chai/homebridge-airthings": {
     "name": null,
     "hidden": false,
