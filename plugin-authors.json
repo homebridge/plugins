@@ -8,6 +8,7 @@
   "@homebridge-plugins/homebridge-ecovacs": "bwp91",
   "@homebridge-plugins/homebridge-eufy-security": "lenoxys",
   "@homebridge-plugins/homebridge-ewelink": "bwp91",
+  "@homebridge-plugins/homebridge-firstalert": "donavanbecker",
   "@homebridge-plugins/homebridge-govee": "bwp91",
   "@homebridge-plugins/homebridge-homepod-radio": "petro-kushchak",
   "@homebridge-plugins/homebridge-lutron-caseta-leap": "thenewwazoo",

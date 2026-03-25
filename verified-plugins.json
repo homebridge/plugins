@@ -23,6 +23,7 @@
   "@homebridge-plugins/homebridge-ecovacs",
   "@homebridge-plugins/homebridge-eufy-security",
   "@homebridge-plugins/homebridge-ewelink",
+  "@homebridge-plugins/homebridge-firstalert",
   "@homebridge-plugins/homebridge-govee",
   "@homebridge-plugins/homebridge-homepod-radio",
   "@homebridge-plugins/homebridge-lutron-caseta-leap",

@@ -287,6 +287,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-firstalert": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-firstalert.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": "donavanbecker",
+    "author": "donavanbecker",
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-govee": {
     "name": null,
     "hidden": false,
@@ -412,7 +424,11 @@
     "hidden": false,
     "icon": "icons/homebridge-resideo.png",
     "unmaintained": false,
-    "newScope": false,
+    "newScope": {
+      "from": "@homebridge-plugins/homebridge-resideo",
+      "to": "@homebridge-plugins/homebridge-firstalert",
+      "switch": "3.0.0"
+    },
     "scoped": "donavanbecker",
     "author": "donavanbecker",
     "changelog": null,
@@ -5386,7 +5402,7 @@
     "unmaintained": false,
     "newScope": {
       "from": "homebridge-resideo",
-      "to": "@homebridge-plugins/homebridge-resideo",
+      "to": "@homebridge-plugins/homebridge-firstalert",
       "switch": "3.0.0"
     },
     "scoped": false,
