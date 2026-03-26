@@ -4,6 +4,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "module": "NodeNext",
+    "types": ["node"],
     "declaration": true,
     "removeComments": true,
     "sourceMap": true,

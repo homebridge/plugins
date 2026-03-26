@@ -3,7 +3,7 @@
  */
 
 /* eslint-disable no-console */
-import { execSync } from 'node:child_process'
+import { execFileSync } from 'node:child_process'
 import { resolve } from 'node:path'
 import process from 'node:process'
 
@@ -41,7 +41,7 @@ class PluginChecks {
     AWAITING_FINAL_REVIEW: 'awaiting-final-review',
   } as const
 
-  private pluginName: string
+  private pluginName!: string
   private passed: string[] = []
   private failed: string[] = []
   private manualReview: string[] = []
@@ -234,7 +234,7 @@ class PluginChecks {
   async runTests() {
     // create container
     try {
-      execSync(`docker build -t ${PluginChecks.DOCKER_IMAGE_NAME} .`, {
+      execFileSync('docker', ['build', '-t', PluginChecks.DOCKER_IMAGE_NAME, '.'], {
         cwd: __dirname,
         stdio: 'inherit',
       })
@@ -260,7 +260,7 @@ class PluginChecks {
         PluginChecks.DOCKER_IMAGE_NAME,
       ]
 
-      execSync(`docker ${dockerArgs.join(' ')}`, {
+      execFileSync('docker', dockerArgs, {
         cwd: __dirname,
         stdio: 'inherit',
       })

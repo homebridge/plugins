@@ -4,13 +4,16 @@ on:
   schedule:
     - cron: '0 0,12 * * *'
 
+permissions:
+  contents: read
+
 jobs:
   check-plugin:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - name: Install Dependencies & Build
-        run: npm install && npm run plugin-checks:build
+        run: npm install && npm install --prefix src/plugin-checks/workspace && npm run plugin-checks:build
       - name: Randomly Select Plugin
         id: get-verified-plugin
         run: |

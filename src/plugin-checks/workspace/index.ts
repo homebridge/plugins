@@ -887,10 +887,11 @@ class CheckHomebridgePlugin {
     } catch (e) {
       // npm audit returns non-zero exit code when vulnerabilities are found
       // Try to parse the output anyway
-      const errorStr = e.toString()
+      const errorStr = String(e)
       if (errorStr.includes('npm audit')) {
         try {
-          const output = e.stdout?.toString() || e.output?.toString() || ''
+          const execError = e as { stdout?: Buffer, output?: Buffer }
+          const output = execError.stdout?.toString() || execError.output?.toString() || ''
           if (output) {
             const audit = JSON.parse(output)
             const vulnerabilities = audit.metadata?.vulnerabilities || {}

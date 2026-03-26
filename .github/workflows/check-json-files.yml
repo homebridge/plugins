@@ -6,6 +6,9 @@ on:
   pull_request:
     branches:
       - latest
+permissions:
+  contents: read
+
 jobs:
   check-json:
     runs-on: ubuntu-latest

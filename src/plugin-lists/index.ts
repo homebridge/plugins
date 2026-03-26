@@ -46,8 +46,8 @@ class PluginLists {
       await this.checkGitHubArchived()
       await this.logResults()
     } catch (e) {
-      this.logRed(`Error: ${e.message}`)
-      this.logRed(e)
+      this.logRed(`Error: ${(e as Error).message}`)
+      this.logRed(String(e))
       process.exit(1)
     }
   }
@@ -65,33 +65,33 @@ class PluginLists {
   private async getGitHubRepoFromNpm(packageName: string): Promise<{ author: string | null, repo: string | null }> {
     try {
       const { url, homepage, bugs } = this.pluginNpmResponses[packageName]
-      let author: string = null
-      let repo: string = null
+      let author: string | null = null
+      let repo: string | null = null
 
       // Try if the url is set
-      if (url?.includes('github.com')) {
-        const match = url.match(RE_GITHUB_REPO)
-        if (match) {
-          author = match[1]
-          repo = match[2]
+      for (const candidate of [url, homepage, bugs]) {
+        if (!candidate) {
+          continue
         }
-      } else if (homepage?.includes('github.com')) {
-        const match = homepage.match(RE_GITHUB_REPO)
-        if (match) {
-          author = match[1]
-          repo = match[2]
-        }
-      } else if (bugs?.includes('github.com')) {
-        const match = bugs.match(RE_GITHUB_REPO)
-        if (match) {
-          author = match[1]
-          repo = match[2]
+        try {
+          const parsed = new URL(candidate)
+          if (parsed.hostname !== 'github.com' && !parsed.hostname.endsWith('.github.com')) {
+            continue
+          }
+          const match = candidate.match(RE_GITHUB_REPO)
+          if (match) {
+            author = match[1]
+            repo = match[2]
+            break
+          }
+        } catch {
+          continue
         }
       }
 
       return { author, repo }
     } catch (error) {
-      this.logRed(`* Error fetching package.json for ${packageName}: ${error.message}.`)
+      this.logRed(`* Error fetching package.json for ${packageName}: ${(error as Error).message}.`)
       return { author: null, repo: null }
     }
   }
@@ -110,7 +110,7 @@ class PluginLists {
 
       return !!deprecatedMessage
     } catch (error) {
-      this.logRed(`* ${packageName} could not be checked as ${error.message}.`)
+      this.logRed(`* ${packageName} could not be checked as ${(error as Error).message}.`)
       return false
     }
   }
@@ -131,11 +131,11 @@ class PluginLists {
 
       return response.data.archived || false
     } catch (error) {
-      if (error.status === 404) {
+      if ((error as { status?: number }).status === 404) {
         this.pluginsGitHubMissing.push(packageName)
         this.logRed(`* ${packageName} appears to be missing on GitHub.`)
       } else {
-        this.logRed(`* ${packageName} could not be checked ${error.message}.`)
+        this.logRed(`* ${packageName} could not be checked ${(error as Error).message}.`)
       }
       return false
     }

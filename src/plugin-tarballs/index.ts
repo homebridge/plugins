@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { exec } from 'node:child_process'
+import { execFile } from 'node:child_process'
 import path from 'node:path'
 import process from 'node:process'
 import util from 'node:util'
@@ -10,7 +10,7 @@ import fs from 'fs-extra'
 
 const __dirname = import.meta.dirname
 
-const execAsync = util.promisify(exec)
+const execFileAsync = util.promisify(execFile)
 
 export interface Plugin {
   name: string
@@ -26,7 +26,7 @@ interface Release {
   assets: {
     id: number
     name: string
-    label: string
+    label: string | null
     created_at: string
     updated_at: string
     browser_download_url: string
@@ -52,8 +52,8 @@ class PluginTarballs {
   private targetOldUnscoped = 'v1.0.0'
   private targetOldScoped = 'v1.0.0-1'
 
-  private newReleases: Release[] // [scoped, unscoped-am, unscoped-nz]
-  private oldReleases: Release[] // [unscoped, scoped]
+  private newReleases!: Release[] // [scoped, unscoped-am, unscoped-nz]
+  private oldReleases!: Release[] // [unscoped, scoped]
 
   private workDir = path.join(__dirname, 'work')
 
@@ -148,7 +148,7 @@ class PluginTarballs {
       await this.updateRelease()
       await this.generateDownloadStats()
     } catch (e) {
-      console.error('Error', e.message, e)
+      console.error('Error', (e as Error).message, e)
       process.exit(1)
     }
   }
@@ -188,7 +188,7 @@ class PluginTarballs {
         }
 
         // Extract plugin name from asset label
-        const assetPlugin = asset.label.substring(0, asset.label.lastIndexOf('@'))
+        const assetPlugin = (asset.label ?? '').substring(0, (asset.label ?? '').lastIndexOf('@'))
 
         // Check if the plugin is not in the verified list
         if (!verifiedPluginsSet.has(assetPlugin)) {
@@ -230,8 +230,8 @@ class PluginTarballs {
           this.pluginMap.push(plugin)
         }
       } catch (e) {
-        console.log(`ERROR: ${pluginName}`, e.message)
-        this.pluginsNotProcessed.push({ plugin: { name: pluginName, valid: false, version: null, packaged: false }, error: e.message })
+        console.log(`ERROR: ${pluginName}`, (e as Error).message)
+        this.pluginsNotProcessed.push({ plugin: { name: pluginName, valid: false, version: null, packaged: false }, error: (e as Error).message })
       }
     }
   }
@@ -250,9 +250,9 @@ class PluginTarballs {
 
       // Group assets by plugin name and version
       for (const asset of release.assets) {
-        const pluginName = asset.label.substring(0, asset.label.lastIndexOf('@'))
-        const version = asset.label
-          .substring(asset.label.lastIndexOf('@') + 1, asset.label.length)
+        const pluginName = (asset.label ?? '').substring(0, (asset.label ?? '').lastIndexOf('@'))
+        const version = (asset.label ?? '')
+          .substring((asset.label ?? '').lastIndexOf('@') + 1, (asset.label ?? '').length)
           .replace('.tar.gz', '')
           .replace('.sha256', '')
 
@@ -357,7 +357,7 @@ class PluginTarballs {
         })
         console.log(`Updated release ${release.tag_name}.`)
       } catch (e) {
-        console.error(`Could not update release ${release.tag_name}`, e.message)
+        console.error(`Could not update release ${release.tag_name}`, (e as Error).message)
       }
     }
   }
@@ -378,8 +378,8 @@ class PluginTarballs {
       }
 
       for (const asset of pluginBundleAssets) {
-        const assetPlugin = asset.label.substring(0, asset.label.lastIndexOf('@'))
-        const assetVersion = asset.label.substring(asset.label.lastIndexOf('@') + 1, asset.label.length).split('.tar.gz')[0]
+        const assetPlugin = (asset.label ?? '').substring(0, (asset.label ?? '').lastIndexOf('@'))
+        const assetVersion = (asset.label ?? '').substring((asset.label ?? '').lastIndexOf('@') + 1, (asset.label ?? '').length).split('.tar.gz')[0]
 
         // Initialize the plugin if we have not seen it before
         if (!this.releaseStats[assetPlugin]) {
@@ -446,7 +446,7 @@ class PluginTarballs {
           await fs.writeJson(path.join(targetDir, 'package.json'), { private: true })
 
           // Install plugin
-          await execAsync(`npm install ${plugin.name}@${plugin.version} --omit=dev`, {
+          await execFileAsync('npm', ['install', `${plugin.name}@${plugin.version}`, '--omit=dev'], {
             cwd: targetDir,
             env: {
               ...process.env,
@@ -466,21 +466,22 @@ class PluginTarballs {
           await fs.remove(path.join(targetDir, 'node_modules', '.package-lock.json'))
 
           // Package plugin
-          await execAsync(`tar -C ${targetDir}/node_modules --owner=0 --group=0 --format=posix -czf ${this.pluginAssetName(plugin, 'tar.gz')} .`, {
+          await execFileAsync('tar', ['-C', `${targetDir}/node_modules`, '--owner=0', '--group=0', '--format=posix', '-czf', this.pluginAssetName(plugin, 'tar.gz'), '.'], {
             cwd: this.workDir,
           })
 
           // Shasum 256 the package
-          await execAsync(`shasum -a 256 ${this.pluginAssetName(plugin, 'tar.gz')} > ${this.pluginAssetName(plugin, 'sha256')}`, {
+          const { stdout: shasum } = await execFileAsync('shasum', ['-a', '256', this.pluginAssetName(plugin, 'tar.gz')], {
             cwd: this.workDir,
           })
+          await fs.writeFile(path.join(this.workDir, this.pluginAssetName(plugin, 'sha256')), shasum)
 
           // Remove target directory
           await fs.remove(targetDir)
         }
         plugin.packaged = true
       } catch (e) {
-        console.log(`Failed to pack ${plugin.name}`, e.message)
+        console.log(`Failed to pack ${plugin.name}`, (e as Error).message)
         await fs.remove(targetDir)
         await fs.remove(path.join(this.workDir, this.pluginAssetName(plugin, 'tar.gz')))
         await fs.remove(path.join(this.workDir, this.pluginAssetName(plugin, 'sha256')))
@@ -533,7 +534,7 @@ class PluginTarballs {
             process.exit(0)
           }
         } catch (e) {
-          console.error('Failed to upload asset:', assetName, e.message)
+          console.error('Failed to upload asset:', assetName, (e as Error).message)
         }
       }
     }
@@ -552,7 +553,7 @@ class PluginTarballs {
 
       // Check if the plugin already has assets on the old release
       const existingTarGz = oldRelease.assets.find(x =>
-        x.label.substring(0, x.label.lastIndexOf('@')) === plugin.name && x.name.endsWith('.tar.gz'),
+        (x.label ?? '').substring(0, (x.label ?? '').lastIndexOf('@')) === plugin.name && x.name.endsWith('.tar.gz'),
       )
       if (!existingTarGz) {
         console.log(`Skipping old release upload for ${plugin.name} — not present on ${oldRelease.tag_name}`)
@@ -566,7 +567,7 @@ class PluginTarballs {
 
           // Delete old version assets
           const oldAssets = oldRelease.assets.filter(x =>
-            x.label.substring(0, x.label.lastIndexOf('@')) === plugin.name && x.name.endsWith(assetType),
+            (x.label ?? '').substring(0, (x.label ?? '').lastIndexOf('@')) === plugin.name && x.name.endsWith(assetType),
           )
           for (const oldAsset of oldAssets) {
             await this.deleteAsset(oldAsset)
@@ -590,7 +591,7 @@ class PluginTarballs {
           console.log(`Uploaded ${assetName} to old release ${oldRelease.tag_name}`)
         }
       } catch (e) {
-        console.log(`Best-effort upload to old release failed for ${plugin.name}: ${e.message}`)
+        console.log(`Best-effort upload to old release failed for ${plugin.name}: ${(e as Error).message}`)
       }
     }
   }
@@ -606,7 +607,7 @@ class PluginTarballs {
             .assets
             .filter((x) => {
               // Find old assets (this will not include the assets we just uploaded!)
-              return x.label.substring(0, x.label.lastIndexOf('@')) === plugin.name && x.name.endsWith(assetType)
+              return (x.label ?? '').substring(0, (x.label ?? '').lastIndexOf('@')) === plugin.name && x.name.endsWith(assetType)
             })
             .sort((a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime()) // sort by oldest to newest
 
@@ -636,7 +637,7 @@ class PluginTarballs {
       })
       console.log(`Purged ${asset.name}...`)
     } catch (e) {
-      console.error('Failed to delete asset:', asset.name, e.message)
+      console.error('Failed to delete asset:', asset.name, (e as Error).message)
     }
   }
 

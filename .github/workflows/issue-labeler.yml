@@ -3,6 +3,9 @@ on:
   issue_comment:
     types:
       - created
+permissions:
+  issues: write
+
 jobs:
   review_add_label:
     runs-on: ubuntu-latest
@@ -19,9 +22,10 @@ jobs:
           else
             echo "is_check_command=false" >> $GITHUB_OUTPUT
           fi
-      - uses: actions-ecosystem/action-add-labels@v1
+      - uses: actions-ecosystem/action-add-labels@18f1af5e3544586314bbe15c0273249c770b2daf # v1
         if: ${{ steps.check-command.outputs.is_check_command == 'true' && contains(github.event.issue.labels.*.name, 'request-verification') }}
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: pending
   review_remove_labels:
     runs-on: ubuntu-latest
@@ -38,7 +42,7 @@ jobs:
           else
             echo "is_check_command=false" >> $GITHUB_OUTPUT
           fi
-      - uses: actions-ecosystem/action-remove-labels@v1
+      - uses: actions-ecosystem/action-remove-labels@2ce5d41b4b6aa8503e285553f75ed56e0a40bae0 # v1
         if: ${{ steps.check-command.outputs.is_check_command == 'true' && contains(github.event.issue.labels.*.name, 'request-verification') }}
         with:
           github_token: ${{ secrets.github_token }}

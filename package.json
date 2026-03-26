@@ -33,7 +33,7 @@
     "form-data": "^4.0.5",
     "fs-extra": "^11.3.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^7.7.3",

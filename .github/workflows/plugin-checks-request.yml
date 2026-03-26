@@ -12,6 +12,10 @@ on:
   issue_comment:
     types:
       - created
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   check-plugin:
     runs-on: ubuntu-latest
@@ -22,16 +26,19 @@ jobs:
         env:
           COMMENT_BODY: ${{ github.event.comment.body }}
           PLUGIN_INPUT: ${{ inputs.plugin }}
+          EVENT_NAME: ${{ github.event_name }}
+          HAS_VERIFICATION_LABEL: ${{ contains(github.event.issue.labels.*.name, 'request-verification') }}
+          COMMENT_ID: ${{ github.event.comment.id }}
         run: |
-          if [[ "${{ github.event_name }}" == "issues" ]] && [[ "${{ contains(github.event.issue.labels.*.name, 'request-verification') }}" == "true" ]]; then
+          if [[ "$EVENT_NAME" == "issues" ]] && [[ "$HAS_VERIFICATION_LABEL" == "true" ]]; then
             echo "run=true" >> $GITHUB_OUTPUT
-          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]] && [[ -n "$PLUGIN_INPUT" ]]; then
+          elif [[ "$EVENT_NAME" == "workflow_dispatch" ]] && [[ -n "$PLUGIN_INPUT" ]]; then
             echo "run=true" >> $GITHUB_OUTPUT
-          elif [[ "${{ github.event_name }}" == "issue_comment" ]]; then
+          elif [[ "$EVENT_NAME" == "issue_comment" ]]; then
             FIRST_LINE=$(echo "$COMMENT_BODY" | head -n 1 | tr -d ' \t\r')
-            if [[ "$FIRST_LINE" == "/check" ]] && [[ "${{ contains(github.event.issue.labels.*.name, 'request-verification') }}" == "true" ]]; then
+            if [[ "$FIRST_LINE" == "/check" ]] && [[ "$HAS_VERIFICATION_LABEL" == "true" ]]; then
               echo "run=true" >> $GITHUB_OUTPUT
-              echo "comment_id=${{ github.event.comment.id }}" >> $GITHUB_OUTPUT
+              echo "comment_id=$COMMENT_ID" >> $GITHUB_OUTPUT
             else
               echo "run=false" >> $GITHUB_OUTPUT
             fi
@@ -69,22 +76,24 @@ jobs:
             }
       - name: Install Dependencies & Build
         if: steps.should-run.outputs.run == 'true'
-        run: npm install && npm run plugin-checks:build
+        run: npm install && npm install --prefix src/plugin-checks/workspace && npm run plugin-checks:build
       - name: Extract Plugin Name
         if: steps.should-run.outputs.run == 'true'
         id: extract
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
           PLUGIN_INPUT: ${{ inputs.plugin }}
+          EVENT_NAME: ${{ github.event_name }}
         run: |
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
             PLUGIN_NAME="$PLUGIN_INPUT"
           else
             PLUGIN_NAME=$(echo "$ISSUE_BODY" | awk 'NR==3' | tr -d ' ')
           fi
-          echo "PLUGIN_NAME=$PLUGIN_NAME" >> $GITHUB_ENV
+          PLUGIN_NAME=$(echo "$PLUGIN_NAME" | tr -d '\n\r')
+          echo "plugin_name=$PLUGIN_NAME" >> $GITHUB_OUTPUT
       - name: Check Plugin
         if: steps.should-run.outputs.run == 'true'
         uses: ./src/plugin-checks
         with:
-          plugin: ${{ env.PLUGIN_NAME }}
+          plugin: ${{ steps.extract.outputs.plugin_name }}
