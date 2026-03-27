@@ -5154,7 +5154,7 @@
   "homebridge-prayer-times": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-prayer-times.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
