@@ -4387,6 +4387,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-neakasa": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-neakasa.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-nefit-easy": {
     "name": null,
     "hidden": false,
