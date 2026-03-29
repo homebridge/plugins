@@ -101,6 +101,7 @@
   "homebridge-aqara-ir-controller",
   "homebridge-aqicn",
   "homebridge-arctic-spas",
+  "homebridge-arduino-esp-platform",
   "homebridge-argo",
   "homebridge-atomberg-fan",
   "homebridge-automower",
