@@ -6091,6 +6091,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-somfy-tahoma": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-somfy-tahoma-screen": {
     "name": null,
     "hidden": false,
