@@ -6295,6 +6295,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-stormaudio-isp": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-stormaudio-isp.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-subaru-enhanced": {
     "name": null,
     "hidden": false,
