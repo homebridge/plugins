@@ -6791,6 +6791,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-tuya-matter": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-tuya-matter.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-tuya-platform": {
     "name": null,
     "hidden": false,

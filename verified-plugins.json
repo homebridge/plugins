@@ -528,6 +528,7 @@
   "homebridge-ttlock",
   "homebridge-tuya",
   "homebridge-tuya-ir",
+  "homebridge-tuya-matter",
   "homebridge-tuya-platform",
   "homebridge-tuya-platform-talrhvfork",
   "homebridge-twinkly-plus",
