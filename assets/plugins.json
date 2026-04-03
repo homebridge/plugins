@@ -2235,6 +2235,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-dibby-wemo": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-digitalstrom-plugin": {
     "name": null,
     "hidden": false,
