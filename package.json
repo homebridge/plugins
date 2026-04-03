@@ -36,10 +36,10 @@
     "typescript": "^6.0.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^7.7.3",
+    "@antfu/eslint-config": "^8.0.0",
     "@fastify/pre-commit": "^2.2.1",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^25.5.0",
+    "@types/node": "^25.5.2",
     "eslint-plugin-format": "^2.0.1"
   },
   "pre-commit": [
