@@ -244,6 +244,7 @@
   "homebridge-hilo",
   "homebridge-home-depot-hubspace",
   "homebridge-homeassistant-garagedoor",
+  "homebridge-homeassistant-things",
   "homebridge-homeconnect",
   "homebridge-homekit-control",
   "homebridge-homepod-mini-music-sensor",
