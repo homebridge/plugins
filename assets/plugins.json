@@ -2003,6 +2003,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-dahua-camera-ultimate": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-dahua-ultimate": {
     "name": null,
     "hidden": false,
