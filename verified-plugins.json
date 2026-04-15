@@ -104,6 +104,7 @@
   "homebridge-arduino-esp-platform",
   "homebridge-argo",
   "homebridge-atomberg-fan",
+  "homebridge-atomberg-fan-v2",
   "homebridge-automower",
   "homebridge-automower-platform",
   "homebridge-aux-cloud",
