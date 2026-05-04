@@ -11,7 +11,7 @@
   "@homebridge-plugins/homebridge-firstalert": "donavanbecker",
   "@homebridge-plugins/homebridge-govee": "bwp91",
   "@homebridge-plugins/homebridge-homepod-radio": "petro-kushchak",
-  "@homebridge-plugins/homebridge-lutron-caseta-leap": "thenewwazoo",
+  "@homebridge-plugins/homebridge-lutron": "thenewwazoo",
   "@homebridge-plugins/homebridge-matter": "bwp91",
   "@homebridge-plugins/homebridge-meater": "donavanbecker",
   "@homebridge-plugins/homebridge-meross": "bwp91",

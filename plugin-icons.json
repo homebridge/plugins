@@ -17,7 +17,7 @@
   "@homebridge-plugins/homebridge-firstalert": "icons/homebridge-firstalert.png",
   "@homebridge-plugins/homebridge-govee": "icons/homebridge-govee.png",
   "@homebridge-plugins/homebridge-homepod-radio": "icons/homebridge-homepod-radio.png",
-  "@homebridge-plugins/homebridge-lutron-caseta-leap": "icons/homebridge-lutron-caseta-leap.png",
+  "@homebridge-plugins/homebridge-lutron": "icons/homebridge-lutron.png",
   "@homebridge-plugins/homebridge-matter": "icons/homebridge-matter.png",
   "@homebridge-plugins/homebridge-meater": "icons/homebridge-meater.png",
   "@homebridge-plugins/homebridge-meross": "icons/homebridge-meross.png",
