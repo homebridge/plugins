@@ -404,11 +404,15 @@
     "hidden": false,
     "icon": null,
     "unmaintained": false,
-    "newScope": false,
-    "scoped": "sunookitsune",
-    "author": "sunookitsune",
+    "newScope": {
+      "from": "@homebridge-plugins/homebridge-plugin-update-check",
+      "to": "@homebridge-plugins/homebridge-updater",
+      "switch": "3.0.7"
+    },
+    "scoped": false,
+    "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-pura": {
@@ -535,6 +539,18 @@
     "newScope": false,
     "scoped": "derek-miller",
     "author": "derek-miller",
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
+  "@homebridge-plugins/homebridge-updater": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": "sunookitsune",
+    "author": "sunookitsune",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false

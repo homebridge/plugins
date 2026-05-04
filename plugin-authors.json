@@ -16,7 +16,6 @@
   "@homebridge-plugins/homebridge-meater": "donavanbecker",
   "@homebridge-plugins/homebridge-meross": "bwp91",
   "@homebridge-plugins/homebridge-noip": "donavanbecker",
-  "@homebridge-plugins/homebridge-plugin-update-check": "sunookitsune",
   "@homebridge-plugins/homebridge-pura": "QandnotU",
   "@homebridge-plugins/homebridge-rainbird": "donavanbecker",
   "@homebridge-plugins/homebridge-resideo": "donavanbecker",
@@ -26,6 +25,7 @@
   "@homebridge-plugins/homebridge-tado": "smart7324",
   "@homebridge-plugins/homebridge-tuya": "tassy-h",
   "@homebridge-plugins/homebridge-unifi-smartpower": "derek-miller",
+  "@homebridge-plugins/homebridge-updater": "sunookitsune",
   "@homebridge-plugins/homebridge-wattbox": "derek-miller",
   "@homebridge-plugins/homebridge-wemo": "bwp91",
   "homebridge-gsh": "NorthernMan54"
