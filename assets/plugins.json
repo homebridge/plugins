@@ -6450,7 +6450,7 @@
   "homebridge-swidget-fans": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-swidget-fans.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
