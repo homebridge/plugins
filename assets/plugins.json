@@ -2818,7 +2818,7 @@
   "homebridge-flobymoen": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-flobymoen.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
