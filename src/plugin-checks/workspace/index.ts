@@ -2605,8 +2605,8 @@ const suspiciousCommands = [
   'cat ~/.ssh/',
   'find / -name id_rsa',
   'grep -r password',
-  'curl.*|.*sh',
-  'wget.*|.*bash',
+  'curl.*\\\\|.*sh',
+  'wget.*\\\\|.*bash',
   'sudo'
 ];
 
