@@ -5831,6 +5831,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-satel-integra": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-scentair": {
     "name": null,
     "hidden": false,
