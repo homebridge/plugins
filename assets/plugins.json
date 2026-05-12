@@ -4659,6 +4659,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-nhc-1": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-nhc-1.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-node-alarm-dot-com": {
     "name": null,
     "hidden": false,
