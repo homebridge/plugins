@@ -672,7 +672,7 @@
     "scoped": false,
     "author": null,
     "changelog": null,
-    "verified": false,
+    "verified": true,
     "verifiedPlus": false
   },
   "@o-lukas/homebridge-smartthings-tv": {

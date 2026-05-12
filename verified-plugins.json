@@ -50,6 +50,7 @@
   "@jdes/homebridge-tost-corp-somfy-rts-web",
   "@mikezucker/homebridge-kohler-generator",
   "@milo526/homebridge-tuya-web",
+  "@ncovercash/homebridge-wled-presets",
   "@o-lukas/homebridge-smartthings-tv",
   "@ohmantics/homebridge-airmega",
   "@pietrolubini/homebridge-ecoflow",
