@@ -663,6 +663,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@ncovercash/homebridge-wled-presets": {
+    "name": "Homebridge WLED Presets",
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": false,
+    "verifiedPlus": false
+  },
   "@o-lukas/homebridge-smartthings-tv": {
     "name": null,
     "hidden": false,

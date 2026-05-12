@@ -1,6 +1,7 @@
 {
   "@homebridge-plugins/homebridge-ewelink": "Homebridge eWeLink",
   "@homebridge-plugins/homebridge-noip": "Homebridge No-IP",
+  "@ncovercash/homebridge-wled-presets": "Homebridge WLED Presets",
   "@pst-on-npm/homebridge-enocean": "Homebridge EnOcean",
   "homebridge-awattar": "Homebridge aWATTar",
   "homebridge-blaq": "Homebridge blaQ",
