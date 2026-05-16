@@ -3351,6 +3351,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-homiris": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-hsd": {
     "name": null,
     "hidden": false,
