@@ -9,13 +9,13 @@
   "main": "index.js",
   "dependencies": {
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^25.7.0",
+    "@types/node": "^25.8.0",
     "@types/semver": "^7.7.1",
     "ajv": "^8.20.0",
     "fs-extra": "^11.3.5",
     "semver": "^7.8.0",
-    "tsx": "^4.21.0",
+    "tsx": "^4.22.0",
     "typescript": "^6.0.3",
-    "undici": "^8.2.0"
+    "undici": "^8.3.0"
   }
 }

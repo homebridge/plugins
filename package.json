@@ -29,7 +29,7 @@
     "@actions/core": "^3.0.1",
     "@actions/github": "^9.1.1",
     "@octokit/core": "^7.0.6",
-    "axios": "^1.16.0",
+    "axios": "^1.16.1",
     "form-data": "^4.0.5",
     "fs-extra": "^11.3.5",
     "ts-node": "^10.9.2",
@@ -39,7 +39,7 @@
     "@antfu/eslint-config": "^9.0.0",
     "@fastify/pre-commit": "^2.2.1",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^25.7.0",
+    "@types/node": "^25.8.0",
     "eslint-plugin-format": "^2.0.1"
   },
   "pre-commit": [
