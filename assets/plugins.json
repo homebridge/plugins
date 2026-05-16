@@ -6967,6 +6967,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-tryfi": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-tryfi.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-tsvesync": {
     "name": null,
     "hidden": false,
