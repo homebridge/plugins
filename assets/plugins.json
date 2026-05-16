@@ -3915,6 +3915,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-letpot": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-letpot.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-level-sense": {
     "name": null,
     "hidden": false,
