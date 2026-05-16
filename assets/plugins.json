@@ -2899,18 +2899,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-foxess": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "unmaintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-freeathome-local-api": {
     "name": null,
     "hidden": false,
