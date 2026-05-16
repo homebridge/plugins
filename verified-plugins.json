@@ -157,6 +157,7 @@
   "homebridge-dahua-alarm",
   "homebridge-dahua-alerts",
   "homebridge-dahua-camera-ultimate",
+  "homebridge-dahua-gate-release",
   "homebridge-dahua-ultimate",
   "homebridge-daikin-cloud",
   "homebridge-daikin-local",

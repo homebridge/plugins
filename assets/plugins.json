@@ -2095,6 +2095,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-dahua-gate-release": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-dahua-gate-release.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-dahua-ultimate": {
     "name": null,
     "hidden": false,
