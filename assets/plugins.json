@@ -3023,6 +3023,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-godox-tl": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-gogogate2": {
     "name": null,
     "hidden": false,
