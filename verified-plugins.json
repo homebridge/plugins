@@ -490,6 +490,7 @@
   "homebridge-solaxcloud-api",
   "homebridge-solis5g-battery",
   "homebridge-somfy-hotwired",
+  "homebridge-somfy-rfxcom",
   "homebridge-somfy-tahoma",
   "homebridge-somfy-tahoma-screen",
   "homebridge-somneo",
