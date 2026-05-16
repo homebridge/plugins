@@ -6459,6 +6459,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-ssh-platform": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-stagekit": {
     "name": null,
     "hidden": false,

@@ -500,6 +500,7 @@
   "homebridge-spanet",
   "homebridge-spotify-speaker",
   "homebridge-spruce-irrigation",
+  "homebridge-ssh-platform",
   "homebridge-stagekit",
   "homebridge-stagg-ekg-plus",
   "homebridge-star-projector",
