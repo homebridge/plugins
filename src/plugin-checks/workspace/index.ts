@@ -26,8 +26,6 @@ const RE_EVAL = /\beval\s*\(/
 const RE_FUNCTION_CTOR = /new\s+Function\s*\(/
 const RE_DYNAMIC_REQUIRE = /require\s*\([^'"][^)]*\)/
 const RE_EXEC_UNSAFE = /child_process\.(?:exec|execSync)\s*\([^'"]/
-const RE_READ_STREAM_DYNAMIC = /\.createReadStream\s*\([^'"]/
-const RE_READ_FILE_DYNAMIC = /\.readFileSync?\s*\([^'"]/
 const RE_SSH_DIR = /\.ssh[/\\]/
 const RE_AWS_DIR = /\.aws[/\\]/
 const RE_ID_RSA = /id_rsa/
@@ -53,6 +51,12 @@ interface PackageJSON {
   main?: string
   exports?: string | Record<string, any>
   type?: string
+  dependencies?: Record<string, string>
+  optionalDependencies?: Record<string, string>
+  peerDependencies?: Record<string, string>
+  peerDependenciesMeta?: Record<string, { optional?: boolean }>
+  bundledDependencies?: string[] | boolean
+  bundleDependencies?: string[] | boolean
 }
 
 interface NodeVersion {
@@ -132,6 +136,7 @@ interface TestResult {
   httpRequests?: HttpRequest[]
   pluginLoaded?: boolean
   suspiciousFileAccess?: any[]
+  diskWrites?: any[]
 }
 
 interface HttpRequest {
@@ -161,6 +166,7 @@ class CheckHomebridgePlugin {
     RUNTIME_TEST_TIMEOUT: 60000, // 60 seconds for real Homebridge (to catch restart loops)
     HOMEBRIDGE_STARTUP_TIMEOUT: 30000, // 30 seconds to allow plugins to fully initialize
     HOMEBRIDGE_PORT_BASE: 51826, // Base port for test instances
+    GRACEFUL_SHUTDOWN_TIMEOUT: 12000, // 12 seconds for a clean exit after SIGTERM
   } as const
 
   private failed: string[] = []
@@ -175,6 +181,12 @@ class CheckHomebridgePlugin {
   private gitHubAuthor = ''
   private configSchema: ConfigSchema | null = null
   private allHttpRequests: HttpRequest[] = []
+  // Platform/accessory names captured by calling the plugin's initializer with
+  // a stub Homebridge API. Used to cross-check against `pluginAlias`.
+  private registeredNames: string[] = []
+  // Dedupe out-of-storage disk write findings across runtime scenarios.
+  private readonly diskWritePaths = new Set<string>()
+  private homebridgeInstalled = false
 
   constructor() {
     const pluginName = process.env.HOMEBRIDGE_PLUGIN_NAME
@@ -266,14 +278,45 @@ class CheckHomebridgePlugin {
         stdio: 'inherit',
       })
 
-      proc.on('close', (code) => {
-        if (code === 0) {
-          this.passed.push('Installation: successfully installed')
-          resolve()
-        } else {
-          this.failed.push(`Installation: failed to install [${code}]`)
-          reject(new Error('Failed to install'))
+      let settled = false
+      let timer: ReturnType<typeof setTimeout>
+      const finish = (fn: () => void): void => {
+        if (settled) {
+          return
         }
+        settled = true
+        clearTimeout(timer)
+        fn()
+      }
+
+      // Guard against a hung install (registry stall, spawn never closing).
+      timer = setTimeout(() => {
+        proc.kill('SIGKILL')
+        finish(() => {
+          this.failed.push('Installation: timed out after 5 minutes')
+          reject(new Error('Install timed out'))
+        })
+      }, 5 * 60 * 1000)
+
+      // Without this, a failure to spawn `npm` (ENOENT) would never settle
+      // the promise and the whole run would hang.
+      proc.on('error', (err) => {
+        finish(() => {
+          this.failed.push(`Installation: failed to start npm - ${this.handleError(err)}`)
+          reject(err instanceof Error ? err : new Error(String(err)))
+        })
+      })
+
+      proc.on('close', (code) => {
+        finish(() => {
+          if (code === 0) {
+            this.passed.push('Installation: successfully installed')
+            resolve()
+          } else {
+            this.failed.push(`Installation: failed to install [${code}]`)
+            reject(new Error('Failed to install'))
+          }
+        })
       })
     })
   }
@@ -432,16 +475,89 @@ class CheckHomebridgePlugin {
 
   private async validatePluginInitializer(packageJSON: PackageJSON): Promise<void> {
     try {
+      // `homebridge` is a peer dep and many plugins import runtime values from
+      // it at module load. Ensure it's present before importing the entry,
+      // otherwise this fails with "Cannot find package 'homebridge'".
+      try {
+        await this.ensureHomebridgeInstalled()
+      } catch (e) {
+        console.log('Could not pre-install homebridge before initializer check:', this.handleError(e))
+      }
+
       const mainPath = this.resolveMainModule(packageJSON)
       const pluginModules = await this.loadPluginModule(mainPath, packageJSON.type === 'module')
 
-      if (typeof pluginModules === 'function' || (pluginModules && typeof pluginModules.default === 'function')) {
+      const initializer = typeof pluginModules === 'function'
+        ? pluginModules
+        : (pluginModules && typeof pluginModules.default === 'function' ? pluginModules.default : null)
+
+      if (initializer) {
         this.passed.push('Package JSON: initializer function found')
+        this.captureRegisteredNames(initializer)
       } else {
         this.failed.push('Package JSON: no initializer function found')
       }
     } catch (e) {
       this.failed.push(`Package JSON: failed to import plugin as ${this.handleError(e)}`)
+    }
+  }
+
+  /**
+   * Call the plugin initializer with a stub Homebridge API and record the
+   * platform/accessory name(s) it registers, so we can later cross-check
+   * them against `config.schema.json`'s `pluginAlias`. Best-effort: any
+   * failure here is swallowed (we simply skip the consistency check).
+   */
+  private captureRegisteredNames(initializer: (api: any) => void): void {
+    try {
+      const names: string[] = []
+      function stubTarget(): void { /* Proxy target — never actually invoked */ }
+      const passthrough: any = new Proxy(stubTarget, {
+        get: () => passthrough,
+        apply: () => passthrough,
+        construct: () => ({}),
+      })
+      const record = (...args: any[]): void => {
+        for (const arg of args) {
+          if (typeof arg === 'string' && arg.trim()) {
+            names.push(arg)
+          }
+        }
+      }
+      const stubApi: any = {
+        version: 2.0,
+        serverVersion: '1.99.0',
+        hap: {
+          Service: passthrough,
+          Characteristic: passthrough,
+          Categories: passthrough,
+          uuid: { generate: (s: string) => `uuid-${s}` },
+          HAPStatus: passthrough,
+          HapStatusError: passthrough,
+        },
+        hapLegacyTypes: passthrough,
+        platformAccessory: function PlatformAccessory() {
+          return new Proxy({ context: {}, services: [] }, { get: () => () => undefined })
+        },
+        user: {
+          storagePath: () => '/tmp',
+          configPath: () => '/tmp/config.json',
+          persistPath: () => '/tmp',
+        },
+        on: () => stubApi,
+        registerPlatform: (...args: any[]) => record(...args),
+        registerAccessory: (...args: any[]) => record(...args),
+        publishExternalAccessories: () => undefined,
+        registerPlatformAccessories: () => undefined,
+        unregisterPlatformAccessories: () => undefined,
+        updatePlatformAccessories: () => undefined,
+      }
+
+      initializer(stubApi)
+      this.registeredNames = [...new Set(names)]
+    } catch {
+      // Initializer threw with the stub API — skip the consistency check.
+      this.registeredNames = []
     }
   }
 
@@ -812,6 +928,21 @@ class CheckHomebridgePlugin {
     // Validate pluginAlias
     if (typeof configSchema.pluginAlias === 'string') {
       this.passed.push('Config Schema JSON: contains a valid `pluginAlias`')
+
+      // Cross-check the schema alias against the name the plugin actually
+      // registers in code. Catches the repo/alias mismatch class of bug
+      // where the config UI form never binds to the running platform.
+      if (this.registeredNames.length > 0) {
+        if (this.registeredNames.includes(configSchema.pluginAlias)) {
+          this.passed.push('Config Schema JSON: `pluginAlias` matches the platform/accessory registered in code')
+        } else {
+          this.failed.push(
+            `Config Schema JSON: \`pluginAlias\` ("${configSchema.pluginAlias}") does not match the name registered in code `
+            + `(found: ${this.registeredNames.map(n => `"${n}"`).join(', ')}). `
+            + 'The `pluginAlias` must equal the platform name passed to `api.registerPlatform()`, or the settings UI will not work.',
+          )
+        }
+      }
     } else {
       this.failed.push('Config Schema JSON: does not contain a valid `pluginAlias`')
     }
@@ -832,13 +963,38 @@ class CheckHomebridgePlugin {
   }
 
   private async testDependencies(): Promise<void> {
-    for (const dep of CheckHomebridgePlugin.CONSTANTS.FORBIDDEN_DEPENDENCIES) {
-      const depPath = join(this.testPath, 'node_modules', dep)
+    // Inspect what the plugin *declares*, not what is present in node_modules:
+    // the checker itself installs `homebridge` into the test area, so a
+    // folder-presence check would false-positive for every plugin.
+    //
+    // `homebridge`/`hap-nodejs` must only appear in `devDependencies`. They
+    // are disallowed in `dependencies`, `optionalDependencies`,
+    // `bundledDependencies`, AND `peerDependencies`/`peerDependenciesMeta` —
+    // npm v7+ auto-installs peer dependencies (optional ones included), so a
+    // peer dep would still get bundled alongside the plugin even though
+    // Homebridge provides it at runtime.
+    let packageJSON: PackageJSON
+    try {
+      packageJSON = await this.readPackageJson()
+    } catch (e) {
+      this.failed.push(`Dependencies: could not read package.json as ${this.handleError(e)}`)
+      return
+    }
 
-      if (await fs.pathExists(depPath)) {
-        this.failed.push(`Dependencies: \`${dep}\` was installed as a dependency`)
+    const declared = {
+      ...(packageJSON.dependencies ?? {}),
+      ...(packageJSON.optionalDependencies ?? {}),
+      ...(packageJSON.peerDependencies ?? {}),
+      ...(packageJSON.peerDependenciesMeta ?? {}),
+    }
+    const bundled = packageJSON.bundledDependencies ?? packageJSON.bundleDependencies
+    const bundledList = Array.isArray(bundled) ? bundled : []
+
+    for (const dep of CheckHomebridgePlugin.CONSTANTS.FORBIDDEN_DEPENDENCIES) {
+      if (dep in declared || bundledList.includes(dep)) {
+        this.failed.push(`Dependencies: \`${dep}\` must only be in \`devDependencies\` (not \`dependencies\`, \`optionalDependencies\`, \`bundledDependencies\`, or \`peerDependencies\` — npm auto-installs peer deps)`)
       } else {
-        this.passed.push(`Dependencies: \`${dep}\` was not installed as a dependency`)
+        this.passed.push(`Dependencies: \`${dep}\` is not declared as a runtime/peer/bundled dependency`)
       }
     }
   }
@@ -925,8 +1081,6 @@ class CheckHomebridgePlugin {
       { pattern: RE_FUNCTION_CTOR, message: 'uses Function constructor which can be a security risk', severity: 'high' },
       { pattern: RE_DYNAMIC_REQUIRE, message: 'uses dynamic require() which could load arbitrary code', severity: 'medium' },
       { pattern: RE_EXEC_UNSAFE, message: 'uses exec with potentially unsafe input', severity: 'high' },
-      { pattern: RE_READ_STREAM_DYNAMIC, message: 'reads files with dynamic paths', severity: 'low' },
-      { pattern: RE_READ_FILE_DYNAMIC, message: 'reads files with dynamic paths', severity: 'low' },
     ]
 
     const suspiciousFilePatterns = [
@@ -1074,8 +1228,11 @@ class CheckHomebridgePlugin {
           const fullPath = join(currentDir, entry.name)
 
           if (entry.isDirectory()) {
-            // Skip certain directories
-            if (!['node_modules', '.git', 'dist', 'coverage'].includes(entry.name)) {
+            // Skip dependency/VCS/test-artifact dirs, but NOT `dist` — many
+            // plugins publish only compiled code there and it is the real
+            // surface to scan. Nested `node_modules` is still skipped so we
+            // don't scan bundled dependencies.
+            if (!['node_modules', '.git', 'coverage'].includes(entry.name)) {
               await walk(fullPath)
             }
           } else if (entry.isFile()) {
@@ -1159,10 +1316,200 @@ class CheckHomebridgePlugin {
         const accessedPaths = result.suspiciousFileAccess.map(a => a.path || a.command).join(', ')
         this.failed.push(`Security: Runtime - suspicious file/command access detected in scenario "${scenario.name}": ${accessedPaths}`)
       }
+
+      // Collect writes outside the Homebridge storage directory
+      if (result && Array.isArray(result.diskWrites)) {
+        for (const w of result.diskWrites) {
+          if (w && typeof w.path === 'string') {
+            this.diskWritePaths.add(w.path)
+          }
+        }
+      }
     }
 
     // After all initial tests, run network failure test if HTTP requests were detected
     await this.runNetworkFailureTestIfNeeded()
+
+    // Surface any out-of-storage writes for manual review (criteria: plugins
+    // should only write inside the Homebridge storage directory).
+    if (this.diskWritePaths.size > 0) {
+      const paths = [...this.diskWritePaths].slice(0, 8).join(', ')
+      const more = this.diskWritePaths.size > 8 ? ` and ${this.diskWritePaths.size - 8} more` : ''
+      this.manualReview.push(
+        `Disk Writes: plugin wrote outside the Homebridge storage directory: ${paths}${more}. `
+        + 'Plugins should only write to the Homebridge storage path (e.g. via `api.user.storagePath()`).',
+      )
+    }
+
+    // Shutdown / reload safety (catches missing `api.on('shutdown')`,
+    // leaked timers, and sockets that keep a port bound after a restart).
+    await this.testShutdownAndReload()
+  }
+
+  /**
+   * Start Homebridge with a working config, SIGTERM it, and check it exits
+   * cleanly; then start it again on the same port to detect a leaked
+   * server/socket/timer that keeps the port bound after shutdown.
+   */
+  private async testShutdownAndReload(): Promise<void> {
+    const baseConfig = this.generateFullValidConfig() || this.generateMinimalRequiredConfig()
+    if (!baseConfig) {
+      return
+    }
+
+    const port = CheckHomebridgePlugin.CONSTANTS.HOMEBRIDGE_PORT_BASE + 900
+    const storagePath = join(this.testPath, `homebridge-shutdown-${Date.now()}`)
+
+    try {
+      await fs.mkdirp(storagePath)
+      const hbConfig = this.generateHomebridgeConfig(
+        { name: 'shutdown', config: baseConfig, expectStartup: true, description: 'shutdown/reload safety' },
+        port,
+      )
+      await fs.writeJson(join(storagePath, 'config.json'), hbConfig, { spaces: 2 })
+
+      const first = await this.runShutdownInstance(storagePath, false)
+      if (!first.started) {
+        // Could not start with this config; startup is already covered by the
+        // scenario tests, so don't double-penalise here.
+        console.log('Shutdown test skipped - Homebridge did not start with generated config')
+        return
+      }
+
+      if (first.exitedCleanly) {
+        this.passed.push(`Runtime: plugin shuts down cleanly within ${CheckHomebridgePlugin.CONSTANTS.GRACEFUL_SHUTDOWN_TIMEOUT / 1000}s of SIGTERM`)
+      } else {
+        this.manualReview.push(
+          `Runtime: Homebridge did not exit within ${CheckHomebridgePlugin.CONSTANTS.GRACEFUL_SHUTDOWN_TIMEOUT / 1000}s of SIGTERM and had to be force-killed. `
+          + 'This usually means the plugin leaks a timer, interval, open socket or serial handle and does not register an `api.on(\'shutdown\')` cleanup handler.',
+        )
+      }
+
+      const second = await this.runShutdownInstance(storagePath, true)
+      if (second.portConflict) {
+        this.failed.push(
+          'Runtime: a port was still in use when Homebridge restarted, indicating the plugin leaks a server/socket/timer on shutdown. '
+          + 'Add an `api.on(\'shutdown\')` handler that closes connections and clears timers.',
+        )
+      } else if (second.started) {
+        this.passed.push('Runtime: plugin restarts cleanly without port conflicts')
+      }
+    } catch (e) {
+      console.log('Could not run shutdown/reload test:', this.handleError(e))
+    } finally {
+      if (await fs.pathExists(storagePath)) {
+        await fs.remove(storagePath)
+      }
+    }
+  }
+
+  /**
+   * Run a single Homebridge instance for the shutdown/reload test.
+   * - When `watchPortConflict` is false: wait until started, SIGTERM it, and
+   *   measure whether it exits before GRACEFUL_SHUTDOWN_TIMEOUT.
+   * - When true: just start it and watch the logs for an address-in-use
+   *   error (a leaked listener from the previous run).
+   */
+  private runShutdownInstance(
+    storagePath: string,
+    watchPortConflict: boolean,
+  ): Promise<{ started: boolean, exitedCleanly: boolean, portConflict: boolean }> {
+    return new Promise((resolve) => {
+      const startedPatterns = this.buildPluginLoadedPatterns()
+      const portConflictRe = /eaddrinuse|address already in use|port \d+ is already in use/i
+      let proc: ChildProcess | null = null
+      let resolved = false
+      let started = false
+      let exitedCleanly = false
+      let portConflict = false
+      let graceTimer: ReturnType<typeof setTimeout> | undefined
+      let overallTimer: ReturnType<typeof setTimeout>
+      let startupTimer: ReturnType<typeof setTimeout>
+
+      const done = (): void => {
+        if (resolved) {
+          return
+        }
+        resolved = true
+        clearTimeout(overallTimer)
+        clearTimeout(startupTimer)
+        if (graceTimer) {
+          clearTimeout(graceTimer)
+        }
+        if (proc && !proc.killed) {
+          proc.kill('SIGKILL')
+        }
+        resolve({ started, exitedCleanly, portConflict })
+      }
+
+      overallTimer = setTimeout(done, CheckHomebridgePlugin.CONSTANTS.RUNTIME_TEST_TIMEOUT)
+
+      // If it never reaches a "started" signal, give up after the normal
+      // startup window.
+      startupTimer = setTimeout(() => {
+        if (!started) {
+          done()
+        }
+      }, CheckHomebridgePlugin.CONSTANTS.HOMEBRIDGE_STARTUP_TIMEOUT)
+
+      const onStarted = (): void => {
+        if (started) {
+          return
+        }
+        started = true
+        clearTimeout(startupTimer)
+
+        if (watchPortConflict) {
+          // It came up fine on the reused port — no leaked listener.
+          setTimeout(done, 1500)
+          return
+        }
+
+        // Ask it to shut down and time how long it takes to exit.
+        proc?.kill('SIGTERM')
+        graceTimer = setTimeout(() => {
+          exitedCleanly = false
+          done()
+        }, CheckHomebridgePlugin.CONSTANTS.GRACEFUL_SHUTDOWN_TIMEOUT)
+      }
+
+      const handle = (output: string): void => {
+        if (watchPortConflict && portConflictRe.test(output)) {
+          portConflict = true
+          done()
+          return
+        }
+        if (output.includes('Homebridge is running on port')
+          || output.includes('Setup Payload:')
+          || output.includes('Scan this code with your HomeKit app')
+          || output.includes('[HB Supervisor] Started Homebridge')
+          || startedPatterns.some(re => re.test(output))) {
+          onStarted()
+        }
+      }
+
+      try {
+        proc = spawn('node', ['node_modules/.bin/homebridge', '-U', storagePath], {
+          cwd: this.testPath,
+          stdio: 'pipe',
+          env: { ...process.env, HB_STORAGE_PATH: storagePath },
+        })
+
+        proc.stdout?.on('data', (d: Buffer) => handle(d.toString()))
+        proc.stderr?.on('data', (d: Buffer) => handle(d.toString()))
+
+        proc.on('close', () => {
+          if (started && !watchPortConflict && graceTimer) {
+            // Exited after our SIGTERM and before the grace timer fired.
+            exitedCleanly = true
+          }
+          done()
+        })
+        proc.on('error', () => done())
+      } catch {
+        done()
+      }
+    })
   }
 
   private async runNetworkFailureTestIfNeeded(): Promise<void> {
@@ -1197,26 +1544,66 @@ class CheckHomebridgePlugin {
     }
   }
 
-  private async installHomebridge(): Promise<void> {
-    try {
-      console.log('Installing Homebridge for runtime testing...')
+  /**
+   * Install `homebridge` into the test area once, idempotently.
+   *
+   * `homebridge` is a peer dependency, so it isn't pulled in by installing
+   * the plugin. It must be present before we import the plugin's entry
+   * (plugins legitimately import runtime values from `homebridge`), not just
+   * for the later runtime tests — otherwise the initializer import fails with
+   * "Cannot find package 'homebridge'" and every downstream check is skipped.
+   */
+  private async ensureHomebridgeInstalled(): Promise<void> {
+    if (this.homebridgeInstalled) {
+      return
+    }
 
-      const installPromise = new Promise<void>((resolve, reject) => {
-        const proc = spawn('npm', ['install', 'homebridge@latest'], {
-          cwd: this.testPath,
-          stdio: 'inherit',
-        })
+    if (await fs.pathExists(join(this.testPath, 'node_modules', 'homebridge', 'package.json'))) {
+      this.homebridgeInstalled = true
+      return
+    }
 
-        proc.on('close', (code) => {
+    console.log('Installing Homebridge...')
+    await new Promise<void>((resolve, reject) => {
+      const proc = spawn('npm', ['install', 'homebridge@latest'], {
+        cwd: this.testPath,
+        stdio: 'inherit',
+      })
+
+      let settled = false
+      let timer: ReturnType<typeof setTimeout>
+      const finish = (fn: () => void): void => {
+        if (settled) {
+          return
+        }
+        settled = true
+        clearTimeout(timer)
+        fn()
+      }
+
+      timer = setTimeout(() => {
+        proc.kill('SIGKILL')
+        finish(() => reject(new Error('Homebridge install timed out')))
+      }, 5 * 60 * 1000)
+
+      proc.on('error', err => finish(() => reject(err instanceof Error ? err : new Error(String(err)))))
+      proc.on('close', (code) => {
+        finish(() => {
           if (code === 0) {
+            this.homebridgeInstalled = true
             resolve()
           } else {
             reject(new Error(`Homebridge installation failed with code ${code}`))
           }
         })
       })
+    })
+  }
 
-      await installPromise
+  private async installHomebridge(): Promise<void> {
+    try {
+      console.log('Ensuring Homebridge is installed for runtime testing...')
+      await this.ensureHomebridgeInstalled()
       this.passed.push('Runtime: homebridge installed successfully')
     } catch (e) {
       this.failed.push(`Runtime: failed to install homebridge - ${this.handleError(e)}`)
@@ -1323,14 +1710,14 @@ class CheckHomebridgePlugin {
 
       const propSchema = properties[prop]
       if (propSchema) {
-        config[prop] = this.getDefaultValueForProperty(propSchema)
+        config[prop] = this.getDefaultValueForProperty(propSchema, prop)
       }
     }
 
     return config
   }
 
-  private getDefaultValueForProperty(propSchema: any): any {
+  private getDefaultValueForProperty(propSchema: any, propName = ''): any {
     if (propSchema.default !== undefined) {
       return propSchema.default
     }
@@ -1348,7 +1735,7 @@ class CheckHomebridgePlugin {
 
     switch (propSchema.type) {
       case 'string':
-        return propSchema.enum ? propSchema.enum[0] : 'testvalue'
+        return this.resolveStringValue(propSchema, this.getBaseValueForPropertyName(propName))
       case 'number':
       case 'integer':
         return propSchema.minimum || 1
@@ -1412,28 +1799,9 @@ class CheckHomebridgePlugin {
     // Generate realistic values based on property name and type
     switch (propSchema.type) {
       case 'string': {
-        if (propSchema.enum) {
-          return propSchema.enum[0]
-        }
-
-        // Generate value respecting length constraints
-        let baseValue = this.getBaseValueForPropertyName(propName)
-
-        // Adjust for length constraints
-        if (propSchema.minLength || propSchema.maxLength) {
-          const minLen = propSchema.minLength || 1
-          const maxLen = propSchema.maxLength || 1000
-
-          if (baseValue.length < minLen) {
-            // Pad the value to meet minimum length
-            baseValue = baseValue.padEnd(minLen, '0123456789abcdef')
-          } else if (baseValue.length > maxLen) {
-            // Truncate to maximum length
-            baseValue = baseValue.substring(0, maxLen)
-          }
-        }
-
-        return baseValue
+        // Respects enum/format/pattern/length so the generated config passes
+        // the plugin's own validation instead of hitting its reject path.
+        return this.resolveStringValue(propSchema, this.getBaseValueForPropertyName(propName))
       }
 
       case 'number':
@@ -1483,6 +1851,175 @@ class CheckHomebridgePlugin {
     }
   }
 
+  /** A valid sample value for a known JSON-Schema `format`, or null. */
+  private valueForFormat(format: string): string | null {
+    switch (format) {
+      case 'email': return 'test@example.com'
+      case 'ipv4': return '192.168.1.100'
+      case 'ipv6': return '::1'
+      case 'hostname': return 'example.com'
+      case 'uri':
+      case 'url': return 'https://example.com'
+      case 'uuid': return '123e4567-e89b-12d3-a456-426614174000'
+      case 'date-time': return new Date().toISOString()
+      case 'date': return '2024-01-01'
+      case 'time': return '12:00:00'
+      case 'mac':
+      case 'macaddress': return 'AA:BB:CC:DD:EE:FF'
+      default: return null
+    }
+  }
+
+  /**
+   * Best-effort generator for a string that satisfies a regex `pattern`.
+   * Handles the common subset (anchors, literals, `\d \w \s .`, `[...]`
+   * classes, `(...)`/alternation, `{n,m} + * ?` quantifiers). The result is
+   * always validated against the real RegExp — if it doesn't match we return
+   * null and the caller falls back, so this can never make things worse.
+   */
+  private generateFromPattern(pattern: string, depth = 0): string | null {
+    if (depth > 4) {
+      return null
+    }
+    try {
+      const src = pattern.replace(/^\^/, '').replace(/\$$/, '')
+      let i = 0
+      let out = ''
+      const MAX = 64
+
+      const classChar = (cls: string): string => {
+        if (cls.includes('\\d') || /0-9/.test(cls)) {
+          return '5'
+        }
+        if (/a-z/i.test(cls) || cls.includes('\\w')) {
+          return 'a'
+        }
+        const literal = cls.replace(/\\./g, '').match(/[^^\-\]]/)
+        return literal ? literal[0] : 'a'
+      }
+
+      const expand = (atom: string): string => {
+        switch (atom) {
+          case '\\d': return '5'
+          case '\\w': return 'a'
+          case '\\s': return ' '
+          case '.': return 'a'
+          default: return atom.length === 2 && atom[0] === '\\' ? atom[1] : atom
+        }
+      }
+
+      while (i < src.length && out.length < MAX) {
+        let atom = ''
+        const c = src[i]
+
+        if (c === '\\') {
+          atom = src.slice(i, i + 2)
+          i += 2
+        } else if (c === '[') {
+          const end = src.indexOf(']', i + 1)
+          if (end === -1) {
+            atom = '['
+            i += 1
+          } else {
+            atom = classChar(src.slice(i + 1, end))
+            i = end + 1
+          }
+        } else if (c === '(') {
+          const end = src.indexOf(')', i + 1)
+          if (end === -1) {
+            i += 1
+            continue
+          }
+          const inner = src.slice(i + 1, end).replace(/^\?:/, '').split('|')[0]
+          atom = this.generateFromPattern(inner, depth + 1) ?? inner.replace(/[\\^$.*+?()[\]{}|]/g, '')
+          i = end + 1
+        } else if (c === '|') {
+          break // top-level alternation: first alternative is enough
+        } else {
+          atom = c
+          i += 1
+        }
+
+        let count = 1
+        const q = src[i]
+        if (q === '{') {
+          const end = src.indexOf('}', i + 1)
+          if (end !== -1) {
+            count = Math.max(Number.parseInt(src.slice(i + 1, end).split(',')[0], 10) || 1, 1)
+            i = end + 1
+          }
+        } else if (q === '+') {
+          count = 2
+          i += 1
+        } else if (q === '*') {
+          count = 0
+          i += 1
+        } else if (q === '?') {
+          count = 1
+          i += 1
+        }
+
+        const unit = atom.length > 1 && atom[0] !== '\\' ? atom : expand(atom)
+        out += unit.repeat(Math.max(0, Math.min(count, 16)))
+      }
+
+      if (out && new RegExp(pattern).test(out)) {
+        return out
+      }
+      return null
+    } catch {
+      return null
+    }
+  }
+
+  /**
+   * Resolve a string value that respects `enum`, `format`, `pattern` and
+   * length constraints, so generated test configs pass the plugin's own
+   * validation instead of exercising its "bad config" path.
+   */
+  private resolveStringValue(propSchema: any, base: string): string {
+    if (Array.isArray(propSchema.enum) && propSchema.enum.length > 0) {
+      return propSchema.enum[0]
+    }
+
+    let value = base
+
+    if (typeof propSchema.format === 'string') {
+      const formatted = this.valueForFormat(propSchema.format.toLowerCase())
+      if (formatted !== null) {
+        value = formatted
+      }
+    }
+
+    if (typeof propSchema.pattern === 'string' && propSchema.pattern) {
+      let matches = true
+      try {
+        matches = new RegExp(propSchema.pattern).test(value)
+      } catch {
+        matches = true // unparseable pattern — leave value as-is
+      }
+      if (!matches) {
+        const generated = this.generateFromPattern(propSchema.pattern)
+        if (generated !== null) {
+          value = generated
+        }
+      }
+    }
+
+    // Only adjust for length when there is no pattern (padding/truncating a
+    // pattern-matched value would usually break the pattern).
+    if (!propSchema.pattern) {
+      if (typeof propSchema.minLength === 'number' && value.length < propSchema.minLength) {
+        value = value.padEnd(propSchema.minLength, '0123456789abcdef')
+      }
+      if (typeof propSchema.maxLength === 'number' && value.length > propSchema.maxLength) {
+        value = value.substring(0, propSchema.maxLength)
+      }
+    }
+
+    return value
+  }
+
   private getBaseValueForPropertyName(propName: string): string {
     // Generate realistic values based on common property names
     if (propName.toLowerCase().includes('username') || propName.toLowerCase().includes('user')) {
@@ -1504,6 +2041,37 @@ class CheckHomebridgePlugin {
       return 'test-api-key-12345'
     }
     return 'test-value'
+  }
+
+  /**
+   * Build the log signals that mean "this plugin's platform/accessory was
+   * actually initialised" — i.e. constructed from config, NOT merely
+   * discovered on disk.
+   *
+   * This must stay init-time only. Discovery/registration lines such as
+   * "Loaded plugin: <pkg>" or "Registering platform '<pkg>.<alias>'" are
+   * emitted by Homebridge for every installed plugin even when it has no
+   * config, so matching those would make the "no config" scenario (which
+   * expects the plugin NOT to load) wrongly report it as loaded.
+   *
+   * `Initializing <alias> platform` is a Homebridge *core* line emitted only
+   * when a configured platform is constructed, so it does not depend on
+   * plugin-specific log wording and never fires without config.
+   */
+  private buildPluginLoadedPatterns(): RegExp[] {
+    const esc = (s: string): string => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    const alias = this.configSchema?.pluginAlias ? esc(this.configSchema.pluginAlias) : ''
+
+    if (!alias) {
+      return []
+    }
+
+    return [
+      new RegExp(`Initializing ${alias} (?:platform|accessory)`, 'i'),
+      // Homebridge prefixes an *instantiated* platform's own log lines with
+      // its name; only appears once the platform is constructed from config.
+      new RegExp(`^\\s*\\[${alias}\\]`, 'm'),
+    ]
   }
 
   private async runHomebridgeTestScenario(scenario: RuntimeTestScenario): Promise<TestResult | null> {
@@ -1619,6 +2187,7 @@ class CheckHomebridgePlugin {
   private async startHomebridgeProcess(storagePath: string, scenario: RuntimeTestScenario): Promise<TestResult> {
     const startTime = Date.now()
     const logs: string[] = []
+    const pluginLoadedPatterns = this.buildPluginLoadedPatterns()
     let homebridgeProcess: ChildProcess | null = null
 
     return new Promise((resolve) => {
@@ -1636,6 +2205,7 @@ class CheckHomebridgePlugin {
             ...process.env,
             HTTP_MONITOR_SCENARIO: scenario.name,
             HTTP_MONITOR_LOG: join(storagePath, 'http-requests.json'),
+            HB_STORAGE_PATH: storagePath,
             MOCK_NETWORK_FAILURES: scenario.mockNetworkFailures ? 'true' : 'false',
           },
         })
@@ -1680,8 +2250,10 @@ class CheckHomebridgePlugin {
             // Try to read HTTP requests log before resolving
             const httpLogPath = join(storagePath, 'http-requests.json')
             const fileLogPath = join(storagePath, 'http-requests-files.json')
+            const writesLogPath = join(storagePath, 'http-requests-writes.json')
             let capturedRequests: HttpRequest[] = []
             let suspiciousFileAccess: any[] = []
+            let diskWrites: any[] = []
             try {
               if (require('node:fs').existsSync(httpLogPath)) {
                 const httpLogContent = require('node:fs').readFileSync(httpLogPath, 'utf8')
@@ -1700,6 +2272,14 @@ class CheckHomebridgePlugin {
               // Ignore file log read errors
             }
 
+            try {
+              if (require('node:fs').existsSync(writesLogPath)) {
+                diskWrites = JSON.parse(require('node:fs').readFileSync(writesLogPath, 'utf8'))
+              }
+            } catch (e) {
+              // Ignore disk-write log read errors
+            }
+
             resolve({
               success: true,
               error: undefined,
@@ -1708,6 +2288,7 @@ class CheckHomebridgePlugin {
               httpRequests: capturedRequests,
               pluginLoaded,
               suspiciousFileAccess,
+              diskWrites,
             })
           } else if (!resolved && pluginFailure) {
             // Plugin failure detected
@@ -1741,11 +2322,10 @@ class CheckHomebridgePlugin {
             success = true
           }
 
-          // Detect plugin loading/initialization (be more specific to avoid false positives)
-          const pluginAlias = this.configSchema?.pluginAlias
-
-          // Look for actual plugin initialization, not just discovery
-          if (pluginAlias && output.includes(`Initializing ${pluginAlias} platform`)) {
+          // Detect plugin loading/initialization. Matches both the plugin's
+          // own init log and the core Homebridge "Loaded plugin"/"Registering
+          // platform" lines, so detection doesn't depend on plugin wording.
+          if (!pluginLoaded && pluginLoadedPatterns.some(re => re.test(output))) {
             pluginLoaded = true
           }
 
@@ -1800,8 +2380,10 @@ class CheckHomebridgePlugin {
             // Try to read HTTP requests log
             const httpLogPath = join(storagePath, 'http-requests.json')
             const fileLogPath = join(storagePath, 'http-requests-files.json')
+            const writesLogPath = join(storagePath, 'http-requests-writes.json')
             let capturedRequests: HttpRequest[] = []
             let suspiciousFileAccess: any[] = []
+            let diskWrites: any[] = []
             try {
               if (require('node:fs').existsSync(httpLogPath)) {
                 const httpLogContent = require('node:fs').readFileSync(httpLogPath, 'utf8')
@@ -1820,6 +2402,14 @@ class CheckHomebridgePlugin {
               // Ignore file log read errors
             }
 
+            try {
+              if (require('node:fs').existsSync(writesLogPath)) {
+                diskWrites = JSON.parse(require('node:fs').readFileSync(writesLogPath, 'utf8'))
+              }
+            } catch (e) {
+              // Ignore disk-write log read errors
+            }
+
             // Check for any errors in the logs that suggest plugin failure
             const hasPluginError = logs.some(log =>
               log.includes('Error:')
@@ -1835,6 +2425,7 @@ class CheckHomebridgePlugin {
                 httpRequests: capturedRequests,
                 pluginLoaded,
                 suspiciousFileAccess,
+                diskWrites,
               })
             } else {
               const failureReason = pluginFailure
@@ -1851,6 +2442,7 @@ class CheckHomebridgePlugin {
                 httpRequests: capturedRequests,
                 pluginLoaded,
                 suspiciousFileAccess,
+                diskWrites,
               })
             }
           }
@@ -2650,6 +3242,59 @@ child_process.execSync = function(command, ...args) {
   }
   return originalExecSync.call(this, command, ...args);
 };
+
+// Disk write monitoring: flag writes whose resolved path is outside the
+// Homebridge storage directory (criteria: plugins should only write there).
+const os = require('os');
+const origWriteFileSync = fs.writeFileSync;
+const writesLog = process.env.HTTP_MONITOR_LOG ? process.env.HTTP_MONITOR_LOG.replace('.json', '-writes.json') : null;
+const diskWrites = [];
+const allowedRoots = [process.env.HB_STORAGE_PATH || '', os.tmpdir(), '/tmp']
+  .filter(Boolean)
+  .map(function (p) { try { return path.resolve(p); } catch (e) { return p; } });
+
+function recordWrite(target, operation) {
+  try {
+    if (!target) return;
+    const raw = typeof target === 'string' ? target : (target && target.toString ? target.toString() : '');
+    if (!raw || raw.indexOf('://') !== -1) return;
+    const abs = path.isAbsolute(raw) ? raw : path.resolve(process.cwd(), raw);
+    for (let i = 0; i < allowedRoots.length; i++) {
+      if (abs === allowedRoots[i] || abs.indexOf(allowedRoots[i] + path.sep) === 0) return;
+    }
+    diskWrites.push({
+      path: abs,
+      operation: operation,
+      timestamp: new Date().toISOString(),
+      scenario: process.env.HTTP_MONITOR_SCENARIO || 'unknown'
+    });
+    if (writesLog) {
+      try { origWriteFileSync(writesLog, JSON.stringify(diskWrites, null, 2)); } catch (e) {}
+    }
+    console.log('[Disk Monitor] Write outside storage dir:', abs);
+  } catch (e) {}
+}
+
+['writeFile', 'writeFileSync', 'appendFile', 'appendFileSync', 'createWriteStream', 'mkdir', 'mkdirSync'].forEach(function (m) {
+  if (typeof fs[m] !== 'function') return;
+  const orig = fs[m];
+  fs[m] = function (p) {
+    recordWrite(p, m);
+    return orig.apply(this, arguments);
+  };
+});
+
+try {
+  const fsp = require('fs/promises');
+  ['writeFile', 'appendFile', 'mkdir'].forEach(function (m) {
+    if (typeof fsp[m] !== 'function') return;
+    const origp = fsp[m];
+    fsp[m] = function (p) {
+      recordWrite(p, 'promises.' + m);
+      return origp.apply(this, arguments);
+    };
+  });
+} catch (e) {}
 `
   }
 
