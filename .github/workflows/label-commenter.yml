@@ -19,7 +19,7 @@ jobs:
           config_file: .github/label-commenter-config.yml
       - name: Remove awaiting-final-review label when verified
         if: github.event.label.name == 'verified'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |

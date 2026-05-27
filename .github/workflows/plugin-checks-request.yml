@@ -47,7 +47,7 @@ jobs:
           fi
       - name: React with eyes emoji
         if: steps.should-run.outputs.run == 'true' && github.event_name == 'issue_comment'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -59,7 +59,7 @@ jobs:
             });
       - name: Remove awaiting-final-review label
         if: steps.should-run.outputs.run == 'true' && github.event_name == 'issue_comment'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
