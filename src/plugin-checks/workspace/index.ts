@@ -2215,21 +2215,38 @@ class CheckHomebridgePlugin {
         let errorMessage = ''
         let pluginLoaded = false
 
+        // Stop the child and run `finalize` only once it has fully exited.
+        // Homebridge writes files during its SIGTERM teardown (e.g.
+        // accessories/cachedAccessories via the bridge service), and the
+        // monitor script flushes its logs at exit — resolving before the
+        // process is gone lets the test-area cleanup race those writes
+        // (ENOTEMPTY from fs.remove) and read incomplete monitor logs.
+        const stopAndThen = (finalize: () => void): void => {
+          const proc = homebridgeProcess
+          if (!proc || proc.exitCode !== null || proc.signalCode !== null) {
+            finalize()
+            return
+          }
+          const killTimer = setTimeout(() => proc.kill('SIGKILL'), 10000)
+          proc.once('close', () => {
+            clearTimeout(killTimer)
+            finalize()
+          })
+          proc.kill('SIGTERM')
+        }
+
         // Timeout for the entire test
         const testTimeout = setTimeout(() => {
           if (!resolved) {
             resolved = true
-            if (homebridgeProcess) {
-              homebridgeProcess.kill('SIGTERM')
-            }
-            resolve({
+            stopAndThen(() => resolve({
               success: false,
               error: 'Test timed out',
               logs,
               duration: Date.now() - startTime,
               httpRequests: [],
               pluginLoaded,
-            })
+            }))
           }
         }, CheckHomebridgePlugin.CONSTANTS.RUNTIME_TEST_TIMEOUT)
 
@@ -2243,68 +2260,64 @@ class CheckHomebridgePlugin {
             // Homebridge started successfully without plugin failures
             resolved = true
             clearTimeout(testTimeout)
-            if (homebridgeProcess) {
-              homebridgeProcess.kill('SIGTERM')
-            }
-
-            // Try to read HTTP requests log before resolving
-            const httpLogPath = join(storagePath, 'http-requests.json')
-            const fileLogPath = join(storagePath, 'http-requests-files.json')
-            const writesLogPath = join(storagePath, 'http-requests-writes.json')
-            let capturedRequests: HttpRequest[] = []
-            let suspiciousFileAccess: any[] = []
-            let diskWrites: any[] = []
-            try {
-              if (require('node:fs').existsSync(httpLogPath)) {
-                const httpLogContent = require('node:fs').readFileSync(httpLogPath, 'utf8')
-                capturedRequests = JSON.parse(httpLogContent)
+            stopAndThen(() => {
+              // Read the monitor logs only after the child has exited, so
+              // the exit-time flush is included and the files are complete
+              const httpLogPath = join(storagePath, 'http-requests.json')
+              const fileLogPath = join(storagePath, 'http-requests-files.json')
+              const writesLogPath = join(storagePath, 'http-requests-writes.json')
+              let capturedRequests: HttpRequest[] = []
+              let suspiciousFileAccess: any[] = []
+              let diskWrites: any[] = []
+              try {
+                if (require('node:fs').existsSync(httpLogPath)) {
+                  const httpLogContent = require('node:fs').readFileSync(httpLogPath, 'utf8')
+                  capturedRequests = JSON.parse(httpLogContent)
+                }
+              } catch (e) {
+                // Ignore HTTP log read errors
               }
-            } catch (e) {
-              // Ignore HTTP log read errors
-            }
 
-            try {
-              if (require('node:fs').existsSync(fileLogPath)) {
-                const fileLogContent = require('node:fs').readFileSync(fileLogPath, 'utf8')
-                suspiciousFileAccess = JSON.parse(fileLogContent)
+              try {
+                if (require('node:fs').existsSync(fileLogPath)) {
+                  const fileLogContent = require('node:fs').readFileSync(fileLogPath, 'utf8')
+                  suspiciousFileAccess = JSON.parse(fileLogContent)
+                }
+              } catch (e) {
+                // Ignore file log read errors
               }
-            } catch (e) {
-              // Ignore file log read errors
-            }
 
-            try {
-              if (require('node:fs').existsSync(writesLogPath)) {
-                diskWrites = JSON.parse(require('node:fs').readFileSync(writesLogPath, 'utf8'))
+              try {
+                if (require('node:fs').existsSync(writesLogPath)) {
+                  diskWrites = JSON.parse(require('node:fs').readFileSync(writesLogPath, 'utf8'))
+                }
+              } catch (e) {
+                // Ignore disk-write log read errors
               }
-            } catch (e) {
-              // Ignore disk-write log read errors
-            }
 
-            resolve({
-              success: true,
-              error: undefined,
-              logs,
-              duration: Date.now() - startTime,
-              httpRequests: capturedRequests,
-              pluginLoaded,
-              suspiciousFileAccess,
-              diskWrites,
+              resolve({
+                success: true,
+                error: undefined,
+                logs,
+                duration: Date.now() - startTime,
+                httpRequests: capturedRequests,
+                pluginLoaded,
+                suspiciousFileAccess,
+                diskWrites,
+              })
             })
           } else if (!resolved && pluginFailure) {
             // Plugin failure detected
             resolved = true
             clearTimeout(testTimeout)
-            if (homebridgeProcess) {
-              homebridgeProcess.kill('SIGTERM')
-            }
-            resolve({
+            stopAndThen(() => resolve({
               success: false,
               error: errorMessage || 'Plugin failure detected',
               logs,
               duration: Date.now() - startTime,
               httpRequests: [],
               pluginLoaded,
-            })
+            }))
           }
         }, CheckHomebridgePlugin.CONSTANTS.HOMEBRIDGE_STARTUP_TIMEOUT)
 
