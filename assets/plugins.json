@@ -1631,6 +1631,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-bocco-notification": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-bold": {
     "name": null,
     "hidden": false,
