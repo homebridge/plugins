@@ -10,11 +10,8 @@ inputs:
   issue-number:
     description: The issue number to comment on.
     default: ${{ github.event.issue.number }}
-outputs:
-  comment-body:
-    description: The id of the created comment
 runs:
-  using: node20
+  using: node24
   main: index.js
 branding:
   icon: message-square
