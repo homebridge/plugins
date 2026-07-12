@@ -1,60 +1,61 @@
 import fs from 'node:fs'
 
-const verified = JSON.parse(fs.readFileSync('verified-plugins.json', 'utf8'))
-const verifiedSorted = verified.sort()
-fs.writeFileSync('verified-plugins.json', `${JSON.stringify(verifiedSorted, null, 2)}\n`)
+/**
+ * Sort a JSON file containing an array of strings, write it back, and return the sorted array.
+ */
+function sortArrayFile(file) {
+  const data = JSON.parse(fs.readFileSync(file, 'utf8'))
+  const sorted = data.sort()
+  fs.writeFileSync(file, `${JSON.stringify(sorted, null, 2)}\n`)
+  return sorted
+}
 
-const verifiedPlus = JSON.parse(fs.readFileSync('verified-plus-plugins.json', 'utf8'))
-const verifiedPlusSorted = verifiedPlus.sort()
-fs.writeFileSync('verified-plus-plugins.json', `${JSON.stringify(verifiedPlusSorted, null, 2)}\n`)
+/**
+ * Return a copy of an object with its keys sorted alphabetically.
+ */
+function sortObjectKeys(obj) {
+  return Object.keys(obj)
+    .sort()
+    .reduce((acc, key) => {
+      acc[key] = obj[key]
+      return acc
+    }, {})
+}
 
-const hidden = JSON.parse(fs.readFileSync('hidden-plugins.json', 'utf8'))
-const hiddenSorted = hidden.sort()
-fs.writeFileSync('hidden-plugins.json', `${JSON.stringify(hiddenSorted, null, 2)}\n`)
+/**
+ * Sort a JSON file containing an object by its keys, write it back, and return the sorted object.
+ */
+function sortObjectFile(file) {
+  const data = JSON.parse(fs.readFileSync(file, 'utf8'))
+  const sorted = sortObjectKeys(data)
+  fs.writeFileSync(file, `${JSON.stringify(sorted, null, 2)}\n`)
+  return sorted
+}
 
-const authors = JSON.parse(fs.readFileSync('plugin-authors.json', 'utf8'))
-const authorsSortedKeys = Object.keys(authors).sort()
-const authorsSorted = authorsSortedKeys.reduce((obj, key) => {
-  obj[key] = authors[key]
-  return obj
-}, {})
+const verified = sortArrayFile('verified-plugins.json')
+const verifiedPlus = sortArrayFile('verified-plus-plugins.json')
+const hidden = sortArrayFile('hidden-plugins.json')
+const unmaintained = sortArrayFile('unmaintained-plugins.json')
 
-fs.writeFileSync('plugin-authors.json', `${JSON.stringify(authorsSorted, null, 2)}\n`)
-
-const names = JSON.parse(fs.readFileSync('plugin-names.json', 'utf8'))
-const namesSortedKeys = Object.keys(names).sort()
-const namesSorted = namesSortedKeys.reduce((obj, key) => {
-  obj[key] = names[key]
-  return obj
-}, {})
-
-fs.writeFileSync('plugin-names.json', `${JSON.stringify(namesSorted, null, 2)}\n`)
-
-const changelogs = JSON.parse(fs.readFileSync('plugin-changelogs.json', 'utf8'))
-const changelogsSortedKeys = Object.keys(changelogs).sort()
-const changelogsSorted = changelogsSortedKeys.reduce((obj, key) => {
-  obj[key] = changelogs[key]
-  return obj
-}, {})
-
-fs.writeFileSync('plugin-changelogs.json', `${JSON.stringify(changelogsSorted, null, 2)}\n`)
+const authorsSorted = sortObjectFile('plugin-authors.json')
+const namesSorted = sortObjectFile('plugin-names.json')
+const changelogsSorted = sortObjectFile('plugin-changelogs.json')
 
 const hasScope = JSON.parse(fs.readFileSync('has-scope-plugins.json', 'utf8'))
 const hasScopeSorted = hasScope.sort((a, b) => a.from.localeCompare(b.from))
 const hasScopeKeys = hasScopeSorted.map(plugin => plugin.from)
 fs.writeFileSync('has-scope-plugins.json', `${JSON.stringify(hasScopeSorted, null, 2)}\n`)
 
-const unmaintained = JSON.parse(fs.readFileSync('unmaintained-plugins.json', 'utf8'))
-const unmaintainedPlugins = unmaintained.sort()
-fs.writeFileSync('unmaintained-plugins.json', `${JSON.stringify(unmaintainedPlugins, null, 2)}\n`)
-
+// A plugin's icon is only shown when the plugin is verified (or verified-plus),
+// so drop icon entries for plugins on neither list, and entries whose icon
+// file is missing from the repo.
 const icons = JSON.parse(fs.readFileSync('plugin-icons.json', 'utf8'))
 
 fs.writeFileSync('plugin-icons.json', `${JSON.stringify(Object.keys(icons)
   .filter((key) => {
     const iconFile = icons[key]
-    if (!verified.includes(key)) {
-      console.log(` - Ignoring icon for ${key} because it is not in the verified list`)
+    if (!verified.includes(key) && !verifiedPlus.includes(key)) {
+      console.log(` - Ignoring icon for ${key} because it is not in the verified or verified-plus lists`)
       return false
     }
     if (!fs.existsSync(`./${iconFile}`)) {
@@ -69,11 +70,15 @@ fs.writeFileSync('plugin-icons.json', `${JSON.stringify(Object.keys(icons)
     return obj
   }, {}), null, 2)}\n`)
 
+const authorsSortedKeys = Object.keys(authorsSorted)
+const namesSortedKeys = Object.keys(namesSorted)
+const changelogsSortedKeys = Object.keys(changelogsSorted)
+
 const fullJson = [
-  ...verifiedSorted,
-  ...verifiedPlusSorted,
-  ...hiddenSorted,
-  ...unmaintainedPlugins,
+  ...verified,
+  ...verifiedPlus,
+  ...hidden,
+  ...unmaintained,
   ...hasScopeKeys,
   ...authorsSortedKeys,
   ...namesSortedKeys,
@@ -86,7 +91,7 @@ const fullJson = [
       hidden: hidden.includes(key),
       icon: (verified.includes(key) || verifiedPlus.includes(key)) && fs.existsSync(`./${icons[key]}`) ? icons[key] : null,
       unmaintained: unmaintained.includes(key),
-      newScope: hasScopeKeys.includes(key) ? hasScope.find(plugin => plugin.from === key) : false,
+      newScope: hasScopeKeys.includes(key) ? hasScopeSorted.find(plugin => plugin.from === key) : false,
       scoped: (key.startsWith('@homebridge-plugins/') && authorsSortedKeys.includes(key)) ? authorsSorted[key] : false,
       author: authorsSortedKeys.includes(key) ? authorsSorted[key] : null,
       changelog: changelogsSortedKeys.includes(key) ? changelogsSorted[key] : null,
@@ -96,6 +101,8 @@ const fullJson = [
     return obj
   }, {})
 
+const iconToShortName = icon => icon.replace('icons/', '').replace('.png', '')
+
 const filteredJson = Object.keys(fullJson).reduce((obj, key) => {
   obj[key] = Object.entries(fullJson[key]).reduce((props, [propKey, propValue]) => {
     if (['author', 'name', 'changelog'].includes(propKey)) {
@@ -104,9 +111,7 @@ const filteredJson = Object.keys(fullJson).reduce((obj, key) => {
     if (propValue === true) {
       props[propKey] = 1
     } else if (typeof propValue === 'string') {
-      props[propKey] = propValue
-        .replace('icons/', '')
-        .replace('.png', '')
+      props[propKey] = propKey === 'icon' ? iconToShortName(propValue) : propValue
     } else if (propValue && typeof propValue === 'object') {
       props[propKey] = propValue
     }
@@ -136,13 +141,7 @@ const filteredJsonV2 = Object.keys(fullJson).reduce((obj, key) => {
     if (propValue === true) {
       props[shortKey] = 1
     } else if (typeof propValue === 'string') {
-      if (propKey === 'icon') {
-        props[shortKey] = propValue
-          .replace('icons/', '')
-          .replace('.png', '')
-      } else {
-        props[shortKey] = propValue
-      }
+      props[shortKey] = propKey === 'icon' ? iconToShortName(propValue) : propValue
     } else if (propValue && typeof propValue === 'object') {
       props[shortKey] = propValue
     }
