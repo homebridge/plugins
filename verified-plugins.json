@@ -327,6 +327,7 @@
   "homebridge-magichome-dynamic-platform",
   "homebridge-melcloud-control",
   "homebridge-meraki-control",
+  "homebridge-meraki-mt-sensor-ng",
   "homebridge-mercedesme",
   "homebridge-mertik-fireplace",
   "homebridge-messenger",
