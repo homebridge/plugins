@@ -2488,11 +2488,44 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
+const EventEmitter = require('events');
+
 const originalHttpRequest = http.request;
 const originalHttpsRequest = https.request;
+const originalHttpGet = http.get;
+const originalHttpsGet = https.get;
 const requests = [];
 const logFile = process.env.HTTP_MONITOR_LOG;
 const mockNetworkFailures = process.env.MOCK_NETWORK_FAILURES === 'true';
+
+// A stand-in ClientRequest that fails with a network error. Built on
+// EventEmitter so clients can use on/once/removeListener/etc. The error is
+// emitted on a timer rather than from end(), so it also fires for
+// http.get(), which calls end() internally on the real request. If the
+// caller has no 'error' listener the emit throws, matching how an
+// unhandled request error behaves in real Node.
+function createMockFailingRequest(url, options) {
+  const req = new EventEmitter();
+  const chain = function() { return req; };
+  req.write = function() { return true; };
+  req.end = chain;
+  req.setTimeout = chain;
+  req.setHeader = chain;
+  req.getHeader = function() { return undefined; };
+  req.removeHeader = chain;
+  req.setNoDelay = chain;
+  req.setSocketKeepAlive = chain;
+  req.flushHeaders = chain;
+  req.destroy = chain;
+  req.abort = chain;
+  setTimeout(function() {
+    const error = new Error('ENOTFOUND: Mock network failure - ' + url);
+    error.code = 'ENOTFOUND';
+    error.hostname = options.hostname || options.host;
+    req.emit('error', error);
+  }, 100);
+  return req;
+}
 
 function captureRequest(module, originalRequest) {
   return function(...args) {
@@ -2537,33 +2570,7 @@ function captureRequest(module, originalRequest) {
       // Mock network failures if enabled
       if (mockNetworkFailures) {
         console.log('[HTTP Monitor] Mocking network failure for:', url);
-        const mockRequest = {
-          on: function(event, callback) {
-            if (event === 'error') {
-              // Store error callback for later use
-              this._errorCallback = callback;
-            }
-            return this;
-          },
-          write: function() { return this; },
-          end: function() {
-            // Simulate network failure after a short delay
-            setTimeout(() => {
-              const error = new Error('ENOTFOUND: Mock network failure - ' + url);
-              error.code = 'ENOTFOUND';
-              error.hostname = options.hostname || options.host;
-              if (this._errorCallback) {
-                this._errorCallback(error);
-              }
-            }, 100);
-            return this;
-          },
-          setTimeout: function() { return this; },
-          setHeader: function() { return this; },
-          destroy: function() { return this; },
-          abort: function() { return this; }
-        };
-        return mockRequest;
+        return createMockFailingRequest(url, options);
       }
     }
 
@@ -2571,9 +2578,13 @@ function captureRequest(module, originalRequest) {
   };
 }
 
-// Override both HTTP and HTTPS request methods
+// Override the HTTP and HTTPS request methods. http.get/https.get call the
+// module-internal request function, so overriding .request alone does not
+// intercept them - they must be wrapped separately.
 http.request = captureRequest('http', originalHttpRequest);
 https.request = captureRequest('https', originalHttpsRequest);
+http.get = captureRequest('http', originalHttpGet);
+https.get = captureRequest('https', originalHttpsGet);
 
 // Also capture using fetch if available (Node 18+)
 if (typeof globalThis.fetch === 'function') {
@@ -2994,86 +3005,9 @@ function wrapGot(got) {
   return wrappedGot;
 }
 
-// Intercept ES module imports - check if _importDynamic is available
-if (typeof globalThis._importDynamic === 'function') {
-  const originalImportDynamic = globalThis._importDynamic;
-  globalThis._importDynamic = async function(modulePath) {
-    const module = await originalImportDynamic(modulePath);
-    
-    // Check if this is a known HTTP library
-    if (modulePath === 'axios') {
-      console.log('[HTTP Monitor] Intercepting ES module: axios');
-      if (module.default) {
-        module.default = wrapAxios(module.default);
-      }
-      return module;
-    }
-    
-    if (modulePath === 'undici') {
-      console.log('[HTTP Monitor] Intercepting ES module: undici');
-      if (module.default) {
-        module.default = wrapUndici(module.default);
-      }
-      if (module.request) {
-        const wrapped = wrapUndici(module);
-        return wrapped;
-      }
-      return module;
-    }
-    
-    if (modulePath === 'got') {
-      console.log('[HTTP Monitor] Intercepting ES module: got');
-      if (module.default) {
-        module.default = wrapGot(module.default);
-      }
-      return module;
-    }
-    
-    if (modulePath === 'node-fetch' || modulePath === 'isomorphic-fetch') {
-      console.log('[HTTP Monitor] Intercepting ES module: ' + modulePath);
-      if (module.default) {
-        module.default = wrapFetch(module.default);
-      }
-      return module;
-    }
-    
-    return module;
-  };
-}
-
-// Also intercept import() calls directly if possible
-try {
-  const originalDynamicImport = eval('(m) => import(m)');
-  if (typeof originalDynamicImport === 'function') {
-    const interceptedImport = async function(specifier) {
-      const module = await originalDynamicImport(specifier);
-      
-      // Apply the same wrapping logic
-      if (specifier.includes('axios')) {
-        console.log('[HTTP Monitor] Intercepting dynamic import: axios');
-        if (module.default) module.default = wrapAxios(module.default);
-      } else if (specifier.includes('undici')) {
-        console.log('[HTTP Monitor] Intercepting dynamic import: undici');
-        if (module.default) module.default = wrapUndici(module.default);
-        if (module.request) return wrapUndici(module);
-      } else if (specifier.includes('got')) {
-        console.log('[HTTP Monitor] Intercepting dynamic import: got');
-        if (module.default) module.default = wrapGot(module.default);
-      } else if (specifier.includes('node-fetch') || specifier.includes('isomorphic-fetch')) {
-        console.log('[HTTP Monitor] Intercepting dynamic import: ' + specifier);
-        if (module.default) module.default = wrapFetch(module.default);
-      }
-      
-      return module;
-    };
-    
-    // Replace global import
-    globalThis.import = interceptedImport;
-  }
-} catch (e) {
-  // Some environments might not allow creating or overriding dynamic import
-  // This is expected and not a problem - we'll still catch CommonJS requires
-}
+// Note: native ES module import() calls cannot be intercepted from a
+// preloaded (-r) CommonJS script. ESM plugins are still monitored via the
+// http/https core hooks above, which all HTTP libraries use underneath.
 
 // File system access monitoring
 const suspiciousFilePatterns = [
