@@ -4419,6 +4419,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-monster-smart-lighting": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-monster-smart-lighting.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-moodo": {
     "name": null,
     "hidden": false,
