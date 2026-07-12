@@ -2151,13 +2151,13 @@ class CheckHomebridgePlugin {
       const result = await this.startHomebridgeProcess(storagePath, scenario)
 
       // Cleanup
-      await fs.remove(storagePath)
+      await this.removeTestArea(storagePath)
 
       return result
     } catch (e) {
       // Cleanup on error
       if (await fs.pathExists(storagePath)) {
-        await fs.remove(storagePath)
+        await this.removeTestArea(storagePath)
       }
 
       return {
@@ -2166,6 +2166,27 @@ class CheckHomebridgePlugin {
         logs: [],
         duration: 0,
         pluginLoaded: false,
+      }
+    }
+  }
+
+  /**
+   * Remove a runtime-test storage directory. A child that outlived the
+   * give-up timer in `stopAndThen` can still be writing here during its
+   * teardown, so removal is retried, and a directory that still can't be
+   * removed is only worth a warning — it must not replace the test result.
+   */
+  private async removeTestArea(storagePath: string): Promise<void> {
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        await fs.remove(storagePath)
+        return
+      } catch (e) {
+        if (attempt === 3) {
+          console.log(`Warning: could not remove test area ${storagePath} - ${this.handleError(e)}`)
+          return
+        }
+        await new Promise(resolve => setTimeout(resolve, 2000))
       }
     }
   }
@@ -2236,8 +2257,14 @@ class CheckHomebridgePlugin {
         // test area is removed; the give-up timer bounds pathological cases.
         const stopAndThen = (finalize: () => void): void => {
           const proc = homebridgeProcess
-          if (!proc || proc.exitCode !== null || proc.signalCode !== null) {
+          if (!proc) {
             finalize()
+            return
+          }
+          if (proc.exitCode !== null || proc.signalCode !== null) {
+            // Already exited, but buffered stdio may not have drained yet —
+            // give it the same grace period as the normal path below
+            setTimeout(finalize, 1000)
             return
           }
           let finished = false
