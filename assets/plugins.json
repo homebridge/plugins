@@ -3291,6 +3291,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-hive-thermostat": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-hive-thermostat.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-home-depot-hubspace": {
     "name": null,
     "hidden": false,
