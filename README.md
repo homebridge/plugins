@@ -31,8 +31,8 @@ The **Verified By Homebridge** program allows plugin developers to get their plu
 - Have your plugin reviewed by the Homebridge team.
 - Increase the visibility of your plugin.
 - Increase the level of trust end users place in your plugin.
-- The **Verified** shield icon will turn green next to your plugin in the [Homebridge UI](https://github.com/oznu/homebridge-config-ui-x).
-- The [**Donate**](https://github.com/oznu/homebridge-config-ui-x/wiki/Developers:-Donation-Links) heart icon will turn pink and enable on your plugin tile in the Homebridge UI.
+- The **Verified** shield icon will turn green next to your plugin in the [Homebridge UI](https://github.com/homebridge/homebridge-config-ui-x).
+- The [**Donate**](https://github.com/homebridge/homebridge-config-ui-x/wiki/Developers:-Donation-Links) heart icon will turn pink and enable on your plugin tile in the Homebridge UI.
 - Your plugin is bumped to the top of the search results in the Homebridge UI.
 - You can optionally upload an icon for your plugin which will be displayed in the Homebridge UI.
 
@@ -42,14 +42,14 @@ The Homebridge project team will check that your plugin meets the following crit
 
 - **General**
   - The plugin must be of type [dynamic platform](https://developers.homebridge.io/#/#dynamic-platform-template).
-  - The plugin must not offer the same nor less functionality than that of any existing **verified** plugin.
+  - The plugin must offer functionality that is not already provided by an existing **verified** plugin.
 - **Repo**
   - The plugin must be published to NPM and the source code available on a GitHub repository, with issues enabled.
   - A GitHub release should be created for every new version of your plugin, with release notes.
 - **Environment**
   - The plugin must run on all [supported LTS versions of Node.js](https://github.com/homebridge/homebridge/wiki/How-To-Update-Node.js), at the time of writing this is Node `v22` and `v24`.
   - The plugin must successfully install and not start unless it is configured.
-  - The plugin must not execute post-install scripts that modify the users' system in any way.
+  - The plugin must not execute post-install scripts that modify the user's system in any way.
   - The plugin must not require the user to run Homebridge in a TTY or with non-standard startup parameters, even for initial configuration.
 - **Codebase**
   - The plugin must implement the [Homebridge Plugin Settings GUI](https://developers.homebridge.io/#/config-schema).
@@ -69,7 +69,7 @@ If you need assistance meeting the verification requirements, please reach out o
 
 ### Post Verification
 
-Once your plugin has been verified you will remain in full control of the GitHub repository and npm package. Your plugin will appear on the 'Verified By Homebridge' plugin list and the '**Verified**' badge will appear next to your plugin when the next update to the [Homebridge UI](https://github.com/oznu/homebridge-config-ui-x) is published.
+Once your plugin has been verified you will remain in full control of the GitHub repository and npm package. Your plugin will appear on the 'Verified By Homebridge' plugin list and the '**Verified**' badge will appear next to your plugin when the next update to the [Homebridge UI](https://github.com/homebridge/homebridge-config-ui-x) is published.
 
 You may optionally add one of the **Verified By Homebridge** badges to your plugin's README:
 
@@ -91,7 +91,7 @@ You may optionally add one of the **Verified By Homebridge** badges to your plug
 [![verified-by-homebridge](https://img.shields.io/badge/homebridge-verified-blueviolet?color=%23491F59&style=for-the-badge&logoColor=%23FFFFFF&logo=homebridge)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
 ```
 
-If you decide you no longer wish to maintain your plugin, please reach out to the Homebridge team on the [Homebridge Discord](https://discord.gg/6GUFCb). We can assist in finding a new owner, or take over the repository until a new maintainer can be found.
+If you decide you no longer wish to maintain your plugin, please reach out to the Homebridge team on the [Homebridge Discord](https://discord.gg/A7nCjbz). We can assist in finding a new owner, or take over the repository until a new maintainer can be found.
 
 ### Un-verification
 
@@ -100,7 +100,7 @@ Your plugin may be subject to another review or be removed from the verification
 - We notice an increased amount of issues arising from your plugin, which results in a suboptimal experience for the user, for example, a Homebridge crash loop.
 - Your plugin has been unmaintained for some time, and a fork or new plugin offering improved functionality is created.
 
-We will generally do our best to contact existing developers of plugins before removing verification status. However, we may **immediately** remove verification status in the following (but not limited to) the following scenarios:
+We will generally do our best to contact existing developers of plugins before removing verification status. However, we may **immediately** remove verification status in (but not limited to) the following scenarios:
 
 - We notice any sort of user analysis tracking in a verified plugin
 - A new plugin requests verification which replaces the functionality of any existing plugin, and we notice that the existing plugin has not been maintained for an extended period of time (and we deem it likely that any contact attempt with the developer would be unsuccessful).
@@ -132,7 +132,7 @@ When using `npm` to install a plugin, it has to individually fetch the metadata,
 
 This project pre-bundles verified plugins, making them available to download, with all their dependencies, in a single tarball. Additionally, a SHA256 sum of the tarball is available so the integrity of the bundle can be verified after being downloaded to the user's system.
 
-A plugin installed via a bundle from this repo can be downloaded and installed in seconds, compared the minutes it might take for some plugins on the same hardware.
+A plugin installed via a bundle from this repo can be downloaded and installed in seconds, compared to the minutes it might take for some plugins on the same hardware.
 
 ### How The Bundle Generation Process Works
 
@@ -141,7 +141,7 @@ Every 24 hours, a job is executed using GitHub Actions to check for updates made
 Plugins that require updates are then:
 
 1. Installed using `npm` in a clean work directory, post install scripts are disabled;
-2. then a `.tar.gz` bundle is created for the plugin, including all it's dependencies;
+2. then a `.tar.gz` bundle is created for the plugin, including all its dependencies;
 3. then a `.sha256` checksum file is generated for the bundle;
 4. finally the resulting tarball and checksum file are uploaded to [this repo](https://github.com/homebridge/plugins/releases/tag/v1.0.0).
 
@@ -166,7 +166,7 @@ When a user requests a plugin to be installed or updated via the Homebridge UI t
 7. Create a backup of the existing plugin installation (if already installed)
 8. Extract the tarball
 9. Run `npm rebuild` in the plugin's root directory to have any post install scripts executed locally
-10. Update the local `package.json` with the plugin and it's version
+10. Update the local `package.json` with the plugin and its version
 
 If the extraction, or `npm rebuild` steps fail, the old version of the plugin will be restored.
 
@@ -180,7 +180,7 @@ As such download stats are available via the [download-statistics.json](https://
 
 The `download-statistics.json` file is updated every 24 hours.
 
-If you are accessing the file programmatically, you will need add a `nonce` query string to the URL to prevent it being redirected to an older (deleted) version of the file. E.g. `/download-statistics.json?nonce=1657193776`.
+If you are accessing the file programmatically, you will need to add a `nonce` query string to the URL to prevent it being redirected to an older (deleted) version of the file. E.g. `/download-statistics.json?nonce=1657193776`.
 
 ### FAQ
 
