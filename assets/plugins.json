@@ -1023,6 +1023,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-aeg-robot-matter": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-agile-octopus-rates": {
     "name": null,
     "hidden": false,
