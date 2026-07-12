@@ -294,6 +294,7 @@
   "homebridge-juicebox",
   "homebridge-kasa-hub",
   "homebridge-kasa-python",
+  "homebridge-kdk-plugin",
   "homebridge-keylights",
   "homebridge-kiwigrid",
   "homebridge-klereo-connect",
