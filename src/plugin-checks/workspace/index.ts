@@ -325,6 +325,10 @@ class CheckHomebridgePlugin {
     try {
       const packageJSON = await this.readPackageJson()
 
+      // Capture the version up front so the results can always report which
+      // version was tested, even when other package.json checks fail
+      this.packageVersion = packageJSON.version || ''
+
       this.validateHomepage(packageJSON)
       this.validateBugsUrl(packageJSON)
       this.validateKeywords(packageJSON)
@@ -367,7 +371,6 @@ class CheckHomebridgePlugin {
           this.gitHubAuthor = ''
           this.gitHubRepo = ''
         }
-        this.packageVersion = packageJSON.version || ''
       } else {
         this.failed.push('Package JSON: `bugs.url` exists but does not start with `https://`')
       }
@@ -417,6 +420,7 @@ class CheckHomebridgePlugin {
 
   private async validateNodeVersion(nodeVersion?: string): Promise<void> {
     if (!nodeVersion) {
+      this.failed.push('Package JSON: `engines.node` property missing')
       return
     }
 
@@ -562,33 +566,35 @@ class CheckHomebridgePlugin {
   }
 
   private resolveMainModule(packageJSON: PackageJSON): string {
-    let main = ''
+    const main = this.resolveExportsEntry(packageJSON.exports) || packageJSON.main || './index.js'
+    return join(this.testPath, 'node_modules', this.packageName, main)
+  }
 
-    // Handle exports field
-    if (packageJSON.exports) {
-      if (typeof packageJSON.exports === 'string') {
-        main = packageJSON.exports
-      } else {
-        const exports = packageJSON.exports.import
-          || packageJSON.exports.require
-          || packageJSON.exports.node
-          || packageJSON.exports.default
-          || packageJSON.exports['.']
-
-        if (typeof exports !== 'string') {
-          main = exports?.import || exports?.require || exports?.node || exports?.default
-        } else {
-          main = exports
+  /**
+   * Best-effort resolution of a package `exports` value to a file path.
+   * Prefers the '.' entry (as Node does), then the standard condition keys.
+   * Recurses because conditions can be nested, e.g.
+   * `{ ".": { "import": { "types": "...", "default": "./dist/index.js" } } }`.
+   */
+  private resolveExportsEntry(entry: PackageJSON['exports']): string | null {
+    if (!entry) {
+      return null
+    }
+    if (typeof entry === 'string') {
+      return entry
+    }
+    if (typeof entry !== 'object') {
+      return null
+    }
+    for (const key of ['.', 'import', 'require', 'node', 'default']) {
+      if (key in entry) {
+        const resolved = this.resolveExportsEntry(entry[key])
+        if (resolved) {
+          return resolved
         }
       }
     }
-
-    // Fallback to main field or default
-    if (!main) {
-      main = packageJSON.main || './index.js'
-    }
-
-    return join(this.testPath, 'node_modules', this.packageName, main)
+    return null
   }
 
   private async loadPluginModule(mainPath: string, isESM?: boolean): Promise<any> {
@@ -878,7 +884,7 @@ class CheckHomebridgePlugin {
     }
   }
 
-  private checkForRequiredBooleanMistake(schema: any, path = ''): boolean {
+  private checkForRequiredBooleanMistake(schema: any): boolean {
     if (!schema || typeof schema !== 'object') {
       return false
     }
@@ -890,8 +896,8 @@ class CheckHomebridgePlugin {
 
     // Recursively check properties
     if (schema.properties && typeof schema.properties === 'object') {
-      for (const [key, value] of Object.entries(schema.properties)) {
-        if (this.checkForRequiredBooleanMistake(value, `${path}.properties.${key}`)) {
+      for (const value of Object.values(schema.properties)) {
+        if (this.checkForRequiredBooleanMistake(value)) {
           return true
         }
       }
@@ -900,12 +906,12 @@ class CheckHomebridgePlugin {
     // Check items for arrays
     if (schema.items) {
       if (Array.isArray(schema.items)) {
-        for (let i = 0; i < schema.items.length; i++) {
-          if (this.checkForRequiredBooleanMistake(schema.items[i], `${path}.items[${i}]`)) {
+        for (const item of schema.items) {
+          if (this.checkForRequiredBooleanMistake(item)) {
             return true
           }
         }
-      } else if (this.checkForRequiredBooleanMistake(schema.items, `${path}.items`)) {
+      } else if (this.checkForRequiredBooleanMistake(schema.items)) {
         return true
       }
     }
@@ -913,8 +919,8 @@ class CheckHomebridgePlugin {
     // Check combinators
     for (const combinator of ['oneOf', 'anyOf', 'allOf']) {
       if (schema[combinator] && Array.isArray(schema[combinator])) {
-        for (let i = 0; i < schema[combinator].length; i++) {
-          if (this.checkForRequiredBooleanMistake(schema[combinator][i], `${path}.${combinator}[${i}]`)) {
+        for (const branch of schema[combinator]) {
+          if (this.checkForRequiredBooleanMistake(branch)) {
             return true
           }
         }
