@@ -10,9 +10,6 @@
     "sourceMap": true,
     "esModuleInterop": true
   },
-  "ts-node": {
-    "esm": true
-  },
   "include": ["index.ts"],
   "exclude": ["workspace", "node_modules", "results", "test-area"]
 }

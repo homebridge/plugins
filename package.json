@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "private": true,
   "description": "Information and resources for Homebridge plugins.",
-  "author": "",
-  "license": "ISC",
+  "author": "Homebridge",
+  "license": "GPL-3.0-or-later",
   "homepage": "https://github.com/homebridge/plugins#readme",
   "repository": {
     "type": "git",
@@ -30,17 +30,15 @@
     "@actions/github": "^9.1.1",
     "@octokit/core": "^7.0.6",
     "axios": "^1.18.1",
-    "form-data": "^4.0.6",
-    "fs-extra": "^11.3.6",
-    "ts-node": "^10.9.2",
-    "typescript": "^6.0.3"
+    "fs-extra": "^11.3.6"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.1.0",
     "@fastify/pre-commit": "^2.2.1",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^26.1.1",
-    "eslint-plugin-format": "^2.0.1"
+    "eslint-plugin-format": "^2.0.1",
+    "typescript": "^6.0.3"
   },
   "allowScripts": {
     "@fastify/pre-commit@2.2.1": true

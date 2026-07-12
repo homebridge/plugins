@@ -3,9 +3,9 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "",
-  "author": "",
-  "license": "ISC",
+  "description": "Runs the Homebridge plugin checks inside the Docker container.",
+  "author": "Homebridge",
+  "license": "GPL-3.0-or-later",
   "main": "index.js",
   "dependencies": {
     "@types/fs-extra": "^11.0.4",
