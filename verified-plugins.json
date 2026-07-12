@@ -535,6 +535,7 @@
   "homebridge-tempstick",
   "homebridge-tesmart",
   "homebridge-tessie",
+  "homebridge-tesvor-matter",
   "homebridge-tesy-heater-mqtt",
   "homebridge-texecom-connect",
   "homebridge-texecom-full",

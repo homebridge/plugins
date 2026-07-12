@@ -6895,6 +6895,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-tesvor-matter": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-tesy-heater-mqtt": {
     "name": null,
     "hidden": false,
