@@ -499,6 +499,7 @@
   "homebridge-sonos-control",
   "homebridge-sonos-multiroom",
   "homebridge-sonos-starter-track",
+  "homebridge-sony-adcp",
   "homebridge-sony-audio",
   "homebridge-sp108e-platform",
   "homebridge-spanet",
