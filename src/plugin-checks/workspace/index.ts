@@ -2215,23 +2215,40 @@ class CheckHomebridgePlugin {
         let errorMessage = ''
         let pluginLoaded = false
 
-        // Stop the child and run `finalize` only once it has fully exited.
+        // Stop the child and run `finalize` only once it has exited.
         // Homebridge writes files during its SIGTERM teardown (e.g.
         // accessories/cachedAccessories via the bridge service), and the
         // monitor script flushes its logs at exit — resolving before the
         // process is gone lets the test-area cleanup race those writes
         // (ENOTEMPTY from fs.remove) and read incomplete monitor logs.
+        //
+        // Waits on 'exit' rather than 'close': 'close' needs the stdio pipes
+        // to drain, and a grandchild that inherited them (e.g. a camera
+        // plugin's ffmpeg) keeps the pipes open past SIGKILL, which would
+        // hang the run. The short delay after 'exit' lets buffered stdio and
+        // the monitor's exit-time flush land before logs are read and the
+        // test area is removed; the give-up timer bounds pathological cases.
         const stopAndThen = (finalize: () => void): void => {
           const proc = homebridgeProcess
           if (!proc || proc.exitCode !== null || proc.signalCode !== null) {
             finalize()
             return
           }
-          const killTimer = setTimeout(() => proc.kill('SIGKILL'), 10000)
-          proc.once('close', () => {
+          let finished = false
+          let killTimer: ReturnType<typeof setTimeout>
+          let giveUpTimer: ReturnType<typeof setTimeout>
+          const finish = (): void => {
+            if (finished) {
+              return
+            }
+            finished = true
             clearTimeout(killTimer)
-            finalize()
-          })
+            clearTimeout(giveUpTimer)
+            setTimeout(finalize, 1000)
+          }
+          killTimer = setTimeout(() => proc.kill('SIGKILL'), 10000)
+          giveUpTimer = setTimeout(finish, 15000)
+          proc.once('exit', finish)
           proc.kill('SIGTERM')
         }
 
@@ -2310,9 +2327,13 @@ class CheckHomebridgePlugin {
             // Plugin failure detected
             resolved = true
             clearTimeout(testTimeout)
+            // Capture the failure now: the shutdown we're about to trigger
+            // logs lines containing 'SIGTERM', which the output handlers
+            // store into errorMessage, overwriting the real error.
+            const failureError = errorMessage || 'Plugin failure detected'
             stopAndThen(() => resolve({
               success: false,
-              error: errorMessage || 'Plugin failure detected',
+              error: failureError,
               logs,
               duration: Date.now() - startTime,
               httpRequests: [],
