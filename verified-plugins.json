@@ -397,6 +397,7 @@
   "homebridge-panasonic-ac-platform",
   "homebridge-panasonic-miraie-ac-platform",
   "homebridge-pc-volume",
+  "homebridge-pentair-cloud",
   "homebridge-pentair-intellicenter-ai",
   "homebridge-pentair-screenlogic",
   "homebridge-petkit-pet-feeder",
