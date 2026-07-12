@@ -6615,6 +6615,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-stream-sensors": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-sunsa": {
     "name": null,
     "hidden": false,
