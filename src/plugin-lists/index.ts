@@ -6,7 +6,8 @@ import axios from 'axios'
 
 const RE_GITHUB_REPO = /github\.com\/([^/]+)\/([^/]+)/
 const RE_GIT_SUFFIX = /\.git$/
-const RE_GIT_URL_PREFIX = /^git(?::\/\/)?|\.git$/g
+const RE_GIT_PLUS_PREFIX = /^git\+/
+const RE_GIT_PROTOCOL = /^git:\/\//
 
 export interface Plugin {
   name: string
@@ -64,7 +65,12 @@ class PluginLists {
 
   private async getGitHubRepoFromNpm(packageName: string): Promise<{ author: string | null, repo: string | null }> {
     try {
-      const { url, homepage, bugs } = this.pluginNpmResponses[packageName]
+      const npmData = this.pluginNpmResponses[packageName]
+      if (!npmData) {
+        return { author: null, repo: null }
+      }
+
+      const { url, homepage, bugs } = npmData
       let author: string | null = null
       let repo: string | null = null
 
@@ -91,7 +97,7 @@ class PluginLists {
 
       return { author, repo }
     } catch (error) {
-      this.logRed(`* Error fetching package.json for ${packageName}: ${(error as Error).message}.`)
+      this.logRed(`* Error determining the GitHub repo for ${packageName}: ${(error as Error).message}.`)
       return { author: null, repo: null }
     }
   }
@@ -100,7 +106,9 @@ class PluginLists {
     try {
       const response = await axios.get(`https://registry.npmjs.org/${packageName}`)
       this.pluginNpmResponses[packageName] = {
-        url: response.data.repository?.url?.replace(RE_GIT_URL_PREFIX, '').replaceAll('+', ''),
+        // Normalise e.g. 'git+https://github.com/x/y.git' or 'git://github.com/x/y.git'
+        // to a parseable https URL
+        url: response.data.repository?.url?.replace(RE_GIT_PLUS_PREFIX, '').replace(RE_GIT_PROTOCOL, 'https://').replace(RE_GIT_SUFFIX, ''),
         homepage: response.data.homepage?.replace(RE_GIT_SUFFIX, '').replace('#readme', '').replace('#README', ''),
         bugs: response.data.bugs?.url?.replace(RE_GIT_SUFFIX, '').replace('/issues', ''),
       }
