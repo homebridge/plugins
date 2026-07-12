@@ -7135,6 +7135,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-trane-nexia": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-tryfi": {
     "name": null,
     "hidden": false,
