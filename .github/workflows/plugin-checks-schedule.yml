@@ -11,7 +11,7 @@ jobs:
   check-plugin:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Install Dependencies & Build
         run: npm install && npm install --prefix src/plugin-checks/workspace && npm run plugin-checks:build
       - name: Randomly Select Plugin

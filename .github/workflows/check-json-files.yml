@@ -13,7 +13,7 @@ jobs:
   check-json:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - run: cat verified-plugins.json | jq type
       - run: cat verified-plus-plugins.json | jq type
       - run: cat hidden-plugins.json | jq type
