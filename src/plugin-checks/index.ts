@@ -65,14 +65,6 @@ class PluginChecks {
     let comment: string = ''
     let allPassed: boolean = true
 
-    // Temporary heads-up: the check script was recently updated, so it may
-    // occasionally report a false positive. Remove this note once the new
-    // checks have been validated against a wide range of plugins.
-    comment += '> [!NOTE]\n'
-    comment += '> The verification check script has recently been updated. '
-    comment += 'If you believe any result below is incorrect (a false positive), '
-    comment += 'please reply to this issue and let us know — it helps us tune the new checks.\n\n'
-
     if (this.failed.length) {
       comment += '### 🔴 Failed Checks\n\n'
 
