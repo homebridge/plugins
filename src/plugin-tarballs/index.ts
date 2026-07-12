@@ -278,8 +278,9 @@ class PluginTarballs {
           return dateB - dateA
         })
 
-        // Keep only the most recent version's assets
-        versionGroups.shift() // Remove the newest version group
+        // Keep the two most recent versions' assets (the README documents
+        // that the two most recent versions of a plugin are retained)
+        versionGroups.splice(0, 2)
 
         // Delete assets for older versions
         for (const group of versionGroups) {
@@ -494,6 +495,9 @@ class PluginTarballs {
    */
   private async uploadAssets(): Promise<void> {
     for (const plugin of this.pluginMap) {
+      let allAssetsUploaded = true
+      let rateLimitExhausted = false
+
       for (const assetType of ['tar.gz', 'sha256']) {
         const assetName = this.pluginAssetName(plugin, assetType)
         const assetPath = path.join(this.workDir, assetName)
@@ -523,19 +527,25 @@ class PluginTarballs {
 
           console.log(`Uploaded ${assetName} to ${release.tag_name}`)
 
-          // Note the plugin update as successful
-          if (assetType === 'tar.gz') {
-            this.pluginsSuccessfullyUpdated.push(plugin)
-          }
-
           // Handle rate limit of GitHub API - 1000 requests per hour in GitHub Actions.
           if (response?.headers?.['x-ratelimit-remaining'] === '0') {
-            console.log('GitHub API Rate Limit Exhausted. Remaining plugins will be processed next run.')
-            process.exit(0)
+            rateLimitExhausted = true
           }
         } catch (e) {
+          allAssetsUploaded = false
           console.error('Failed to upload asset:', assetName, (e as Error).message)
         }
+      }
+
+      // Only note the plugin update as successful once both the tarball and
+      // its checksum have been uploaded
+      if (allAssetsUploaded) {
+        this.pluginsSuccessfullyUpdated.push(plugin)
+      }
+
+      if (rateLimitExhausted) {
+        console.log('GitHub API Rate Limit Exhausted. Remaining plugins will be processed next run.')
+        process.exit(0)
       }
     }
   }
