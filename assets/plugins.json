@@ -7575,6 +7575,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-x-sense-v2": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-xbox-tv": {
     "name": null,
     "hidden": false,
