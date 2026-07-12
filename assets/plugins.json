@@ -7731,6 +7731,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-xiaomi-roborock-matter": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-xiaomi-roborock-matter.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-xiaomi-roborock-vacuum": {
     "name": null,
     "hidden": false,
