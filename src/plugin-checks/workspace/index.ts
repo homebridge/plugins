@@ -607,15 +607,36 @@ class CheckHomebridgePlugin {
     }
   }
 
+  private gitHubApiHeaders(): Record<string, string> {
+    const headers: Record<string, string> = {
+      'User-Agent': CheckHomebridgePlugin.CONSTANTS.HEADERS.USER_AGENT,
+      'Accept': CheckHomebridgePlugin.CONSTANTS.HEADERS.GITHUB_ACCEPT,
+    }
+    if (process.env.GITHUB_TOKEN) {
+      headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`
+    }
+    return headers
+  }
+
+  private describeGitHubApiError(statusCode: number): string {
+    return statusCode === 403 || statusCode === 429
+      ? `GitHub API returned HTTP ${statusCode} (rate limited or forbidden) - this is not a problem with the plugin, please run the checks again later`
+      : `GitHub API returned HTTP ${statusCode}`
+  }
+
   private async testGitHubRepo(): Promise<void> {
     try {
       const repoUrl = `${CheckHomebridgePlugin.CONSTANTS.URLS.GITHUB_API}/repos/${this.gitHubAuthor}/${this.gitHubRepo}`
-      const { body } = await request(repoUrl, {
-        headers: {
-          'User-Agent': CheckHomebridgePlugin.CONSTANTS.HEADERS.USER_AGENT,
-          'Accept': CheckHomebridgePlugin.CONSTANTS.HEADERS.GITHUB_ACCEPT,
-        },
+      const { statusCode, body } = await request(repoUrl, {
+        headers: this.gitHubApiHeaders(),
       })
+
+      if (statusCode !== 200) {
+        await body.text()
+        this.failed.push(`GitHub Repo: could not request information as ${this.describeGitHubApiError(statusCode)}`)
+        return
+      }
+
       const repoData = await body.json() as GitHubRepo
 
       this.validateRepoStatus(repoData)
@@ -652,12 +673,16 @@ class CheckHomebridgePlugin {
   private async validateRepoReleases(): Promise<void> {
     try {
       const releasesUrl = `${CheckHomebridgePlugin.CONSTANTS.URLS.GITHUB_API}/repos/${this.gitHubAuthor}/${this.gitHubRepo}/releases`
-      const { body } = await request(releasesUrl, {
-        headers: {
-          'User-Agent': CheckHomebridgePlugin.CONSTANTS.HEADERS.USER_AGENT,
-          'Accept': CheckHomebridgePlugin.CONSTANTS.HEADERS.GITHUB_ACCEPT,
-        },
+      const { statusCode, body } = await request(releasesUrl, {
+        headers: this.gitHubApiHeaders(),
       })
+
+      if (statusCode !== 200) {
+        await body.text()
+        this.failed.push(`GitHub Repo: could not check releases as ${this.describeGitHubApiError(statusCode)}`)
+        return
+      }
+
       const releaseData = await body.json() as any[]
 
       if (releaseData.length > 0) {
@@ -673,18 +698,23 @@ class CheckHomebridgePlugin {
   private async validateGitHubPackageJsonVersion(): Promise<void> {
     try {
       const packageJsonUrl = `${CheckHomebridgePlugin.CONSTANTS.URLS.GITHUB_API}/repos/${this.gitHubAuthor}/${this.gitHubRepo}/contents/package.json`
-      const { body } = await request(packageJsonUrl, {
-        headers: {
-          'User-Agent': CheckHomebridgePlugin.CONSTANTS.HEADERS.USER_AGENT,
-          'Accept': CheckHomebridgePlugin.CONSTANTS.HEADERS.GITHUB_ACCEPT,
-        },
+      const { statusCode, body } = await request(packageJsonUrl, {
+        headers: this.gitHubApiHeaders(),
       })
-      const packageJsonData = await body.json() as any
 
-      if (packageJsonData.message && packageJsonData.message.includes('Not Found')) {
+      if (statusCode === 404) {
+        await body.text()
         this.failed.push('GitHub Repo: package.json file not found')
         return
       }
+
+      if (statusCode !== 200) {
+        await body.text()
+        this.failed.push(`GitHub Repo: could not retrieve package.json content as ${this.describeGitHubApiError(statusCode)}`)
+        return
+      }
+
+      const packageJsonData = await body.json() as any
 
       // Check if content exists
       if (!packageJsonData.content) {

@@ -255,6 +255,8 @@ class PluginChecks {
         '--rm',
         '-e',
         `HOMEBRIDGE_PLUGIN_NAME=${this.pluginName}`,
+        '-e',
+        `GITHUB_TOKEN=${getInput('token')}`,
         '-v',
         `${resultsPath}:/results`,
         PluginChecks.DOCKER_IMAGE_NAME,
