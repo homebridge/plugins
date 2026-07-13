@@ -1037,8 +1037,10 @@ class CheckHomebridgePlugin {
 
   private async testSecurityVulnerabilities(): Promise<void> {
     try {
-      // Run npm audit to check for vulnerabilities
-      const auditCommand = 'npm audit --json'
+      // Run npm audit to check for vulnerabilities. Optional dependencies are excluded:
+      // vulnerabilities in optional-dep build toolchains (e.g. usocket -> node-gyp -> request)
+      // are not reachable at runtime and were producing false-positive failures.
+      const auditCommand = 'npm audit --omit=optional --json'
       const auditResult = require('node:child_process').execSync(auditCommand, {
         cwd: this.testPath,
         encoding: 'utf8',
