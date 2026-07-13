@@ -228,6 +228,7 @@
   "homebridge-flume",
   "homebridge-fordpass",
   "homebridge-foscam-controls",
+  "homebridge-fp2",
   "homebridge-freeathome-local-api",
   "homebridge-frigidaire-dehumidifier",
   "homebridge-fritz-platform",
