@@ -4095,6 +4095,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-lg-thinqconnect-ac": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-lgwebos-tv": {
     "name": "LG webOS TV",
     "hidden": false,
