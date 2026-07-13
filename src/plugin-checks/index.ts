@@ -176,7 +176,7 @@ class PluginChecks {
       comment += 'All checks passed successfully, nice work! Your plugin and/or icon will now be manually reviewed by the Homebridge team.'
     } else {
       allPassed = false
-      comment += '- Please action these failures and then comment `/check` to run the checks again.\n'
+      comment += '- **Once you have fixed these failures, comment `/check` on this issue to run the checks again — your request will not move forward until the checks are re-run.**\n'
       comment += '- If updating your `package.json` and `config.schema.json` files, don\'t forget to publish a new version to NPM.\n'
       comment += '- Remember this is an automatic script: if you think something has been marked as a failure in error, let us know with a reply.\n'
       comment += '- Feel free to ask any questions you have by replying to this issue.'
