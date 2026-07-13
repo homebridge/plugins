@@ -1111,6 +1111,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-airmega-iocare": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-airmega-iocare.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-airport-express-connected": {
     "name": null,
     "hidden": false,
