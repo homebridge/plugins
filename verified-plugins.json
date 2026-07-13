@@ -436,6 +436,7 @@
   "homebridge-platform-maxcube",
   "homebridge-platform-orbit",
   "homebridge-playstation",
+  "homebridge-playstation-title-game",
   "homebridge-plex-metadata",
   "homebridge-plugin-govee",
   "homebridge-plugin-homewhiz",
