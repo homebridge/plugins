@@ -27,6 +27,7 @@ class PluginLists {
   private pluginsArchived: string[] = []
   private pluginsDeprecated: string[] = []
   private pluginsGitHubMissing: string[] = []
+  private pluginsNpmUnpublished: string[] = []
 
   private logRed(message: string) {
     console.log(`\x1B[31m${message}\x1B[0m`)
@@ -113,8 +114,14 @@ class PluginLists {
         bugs: response.data.bugs?.url?.replace(RE_GIT_SUFFIX, '').replace('/issues', ''),
       }
 
-      const latestVersion = response.data['dist-tags'].latest as string
-      const deprecatedMessage = response.data.versions[latestVersion].deprecated as string
+      // An unpublished package has no dist-tags (and no versions) in its registry document
+      const latestVersion = response.data['dist-tags']?.latest as string | undefined
+      if (!latestVersion) {
+        this.pluginsNpmUnpublished.push(packageName)
+        this.logRed(`* ${packageName} appears to have been unpublished from npm.`)
+        return false
+      }
+      const deprecatedMessage = response.data.versions?.[latestVersion]?.deprecated as string | undefined
 
       return !!deprecatedMessage
     } catch (error) {
@@ -199,12 +206,21 @@ class PluginLists {
     } else {
       this.logGreen('   * No missing plugins found.')
     }
+    console.log(' ')
+
+    console.log('* NPM Unpublished Plugins:')
+    if (this.pluginsNpmUnpublished.length > 0) {
+      this.pluginsNpmUnpublished.forEach(plugin => this.logYellow(`   * ${plugin}`))
+    } else {
+      this.logGreen('   * No unpublished plugins found.')
+    }
 
     console.log(' ')
     console.log('Counts')
     console.log(`* NPM Deprecated plugins: ${this.pluginsDeprecated.length}.`)
     console.log(`* GitHub Archived plugins: ${this.pluginsArchived.length}.`)
     console.log(`* GitHub Missing plugins: ${this.pluginsGitHubMissing.length}.`)
+    console.log(`* NPM Unpublished plugins: ${this.pluginsNpmUnpublished.length}.`)
     console.log(`* Total verified plugins: ${this.pluginList.length}.`)
   }
 }
