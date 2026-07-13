@@ -328,6 +328,7 @@
   "homebridge-logo-platform",
   "homebridge-loxone-control",
   "homebridge-loxone-proxy",
+  "homebridge-luftdaten",
   "homebridge-luxtronik2",
   "homebridge-magic-occupancy",
   "homebridge-magichome-dynamic-platform",
