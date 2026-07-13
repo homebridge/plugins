@@ -5935,6 +5935,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-rivian": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-rivian.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-robonect": {
     "name": null,
     "hidden": false,
