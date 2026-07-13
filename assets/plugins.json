@@ -7875,6 +7875,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-xbloom": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-xbloom.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-xbox-tv": {
     "name": null,
     "hidden": false,
