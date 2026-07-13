@@ -1715,6 +1715,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-bosch-nefit-easy": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-bosch-nefit-easy.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-boschcontrolpanel_bgseries": {
     "name": null,
     "hidden": false,
