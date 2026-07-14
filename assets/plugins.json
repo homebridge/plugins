@@ -3258,7 +3258,7 @@
   "homebridge-grohe-sense": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-grohe-sense.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
