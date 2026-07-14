@@ -4382,7 +4382,7 @@
   "homebridge-meraki-mt-sensor-ng": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-meraki-mt-sensor-ng.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
