@@ -50,6 +50,7 @@
   "@milo526/homebridge-tuya-web",
   "@ncovercash/homebridge-wled-presets",
   "@o-lukas/homebridge-smartthings-tv",
+  "@oblongmedulla/homebridge-pawport",
   "@pietrolubini/homebridge-ecoflow",
   "@prs.io/homebridge-smartthings-webhook",
   "@pst-on-npm/homebridge-enocean",
