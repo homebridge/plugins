@@ -11,13 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Check if comment starts with /check
+      - name: Check if comment requests a check
         id: check-command
         env:
           COMMENT_BODY: ${{ github.event.comment.body }}
+          COMMENT_AUTHOR_TYPE: ${{ github.event.comment.user.type }}
         run: |
-          FIRST_LINE=$(echo "$COMMENT_BODY" | head -n 1 | tr -d ' \t\r')
-          if [[ "$FIRST_LINE" == "/check" ]]; then
+          # Must stay in step with the same test in plugin-checks-request.yml, so the
+          # labels always reflect whether the checks actually ran.
+          if [[ "$COMMENT_AUTHOR_TYPE" != "Bot" ]] && grep -qE '^[[:space:]]*/check[[:space:]]*$' <<< "$COMMENT_BODY"; then
             echo "is_check_command=true" >> $GITHUB_OUTPUT
           else
             echo "is_check_command=false" >> $GITHUB_OUTPUT
@@ -31,13 +33,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Check if comment starts with /check
+      - name: Check if comment requests a check
         id: check-command
         env:
           COMMENT_BODY: ${{ github.event.comment.body }}
+          COMMENT_AUTHOR_TYPE: ${{ github.event.comment.user.type }}
         run: |
-          FIRST_LINE=$(echo "$COMMENT_BODY" | head -n 1 | tr -d ' \t\r')
-          if [[ "$FIRST_LINE" == "/check" ]]; then
+          # Must stay in step with the same test in plugin-checks-request.yml, so the
+          # labels always reflect whether the checks actually ran.
+          if [[ "$COMMENT_AUTHOR_TYPE" != "Bot" ]] && grep -qE '^[[:space:]]*/check[[:space:]]*$' <<< "$COMMENT_BODY"; then
             echo "is_check_command=true" >> $GITHUB_OUTPUT
           else
             echo "is_check_command=false" >> $GITHUB_OUTPUT

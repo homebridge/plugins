@@ -29,22 +29,44 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           HAS_VERIFICATION_LABEL: ${{ contains(github.event.issue.labels.*.name, 'request-verification') }}
           COMMENT_ID: ${{ github.event.comment.id }}
+          COMMENT_AUTHOR_TYPE: ${{ github.event.comment.user.type }}
         run: |
           if [[ "$EVENT_NAME" == "issues" ]] && [[ "$HAS_VERIFICATION_LABEL" == "true" ]]; then
             echo "run=true" >> $GITHUB_OUTPUT
           elif [[ "$EVENT_NAME" == "workflow_dispatch" ]] && [[ -n "$PLUGIN_INPUT" ]]; then
             echo "run=true" >> $GITHUB_OUTPUT
-          elif [[ "$EVENT_NAME" == "issue_comment" ]]; then
-            FIRST_LINE=$(echo "$COMMENT_BODY" | head -n 1 | tr -d ' \t\r')
-            if [[ "$FIRST_LINE" == "/check" ]] && [[ "$HAS_VERIFICATION_LABEL" == "true" ]]; then
+          elif [[ "$EVENT_NAME" == "issue_comment" ]] && [[ "$COMMENT_AUTHOR_TYPE" != "Bot" ]]; then
+            # A /check request is any line whose only content is /check, wherever it
+            # appears in the comment. Authors often write an explanation first and put
+            # /check at the end; requiring it on line 1 silently ignored those.
+            # Quoted (`> /check`) and inline (`comment `/check` here`) mentions do not match.
+            if grep -qE '^[[:space:]]*/check[[:space:]]*$' <<< "$COMMENT_BODY" && [[ "$HAS_VERIFICATION_LABEL" == "true" ]]; then
               echo "run=true" >> $GITHUB_OUTPUT
               echo "comment_id=$COMMENT_ID" >> $GITHUB_OUTPUT
             else
               echo "run=false" >> $GITHUB_OUTPUT
+              # Mentioned /check but never on a line of its own: tell them, rather than
+              # leaving them waiting for a run that will never start.
+              if grep -qF '/check' <<< "$COMMENT_BODY" && [[ "$HAS_VERIFICATION_LABEL" == "true" ]]; then
+                echo "near_miss=true" >> $GITHUB_OUTPUT
+              fi
             fi
           else
             echo "run=false" >> $GITHUB_OUTPUT
           fi
+      - name: Explain a near-miss /check
+        if: steps.should-run.outputs.near_miss == 'true'
+        uses: actions/github-script@v9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: 'It looks like you wanted to re-run the checks, but the checks have **not** been started.\n\nTo run them, please add a new comment with `/check` on a line by itself (it can be the only thing in the comment). It will not be picked up when it is part of a longer line.'
+            });
+
       - name: React with eyes emoji
         if: steps.should-run.outputs.run == 'true' && github.event_name == 'issue_comment'
         uses: actions/github-script@v9
