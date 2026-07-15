@@ -6030,7 +6030,7 @@
   "homebridge-roborock-matter": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-roborock-matter.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
