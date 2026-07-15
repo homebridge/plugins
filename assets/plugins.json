@@ -6027,6 +6027,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-roborock-matter": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-rocket-smart-home-ui": {
     "name": null,
     "hidden": true,
