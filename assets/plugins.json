@@ -185,8 +185,8 @@
     "icon": "icons/homebridge-air.png",
     "unmaintained": false,
     "newScope": false,
-    "scoped": "donavanbecker",
-    "author": "donavanbecker",
+    "scoped": "bwp91",
+    "author": "bwp91",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -209,8 +209,8 @@
     "icon": "icons/homebridge-august.png",
     "unmaintained": false,
     "newScope": false,
-    "scoped": "donavanbecker",
-    "author": "donavanbecker",
+    "scoped": "bwp91",
+    "author": "bwp91",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -233,8 +233,8 @@
     "icon": "icons/homebridge-cloudflared-tunnel.png",
     "unmaintained": false,
     "newScope": false,
-    "scoped": "donavanbecker",
-    "author": "donavanbecker",
+    "scoped": "bwp91",
+    "author": "bwp91",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -293,8 +293,8 @@
     "icon": "icons/homebridge-firstalert.png",
     "unmaintained": false,
     "newScope": false,
-    "scoped": "donavanbecker",
-    "author": "donavanbecker",
+    "scoped": false,
+    "author": null,
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -369,8 +369,8 @@
     "icon": "icons/homebridge-meater.png",
     "unmaintained": false,
     "newScope": false,
-    "scoped": "donavanbecker",
-    "author": "donavanbecker",
+    "scoped": "bwp91",
+    "author": "bwp91",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -393,8 +393,8 @@
     "icon": "icons/homebridge-noip.png",
     "unmaintained": false,
     "newScope": false,
-    "scoped": "donavanbecker",
-    "author": "donavanbecker",
+    "scoped": "bwp91",
+    "author": "bwp91",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -433,8 +433,8 @@
     "icon": "icons/homebridge-rainbird.png",
     "unmaintained": false,
     "newScope": false,
-    "scoped": "donavanbecker",
-    "author": "donavanbecker",
+    "scoped": "bwp91",
+    "author": "bwp91",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -449,8 +449,8 @@
       "to": "@homebridge-plugins/homebridge-firstalert",
       "switch": "3.0.0"
     },
-    "scoped": "donavanbecker",
-    "author": "donavanbecker",
+    "scoped": "bwp91",
+    "author": "bwp91",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -485,8 +485,8 @@
     "icon": "icons/homebridge-smarthq.png",
     "unmaintained": false,
     "newScope": false,
-    "scoped": "donavanbecker",
-    "author": "donavanbecker",
+    "scoped": "bwp91",
+    "author": "bwp91",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
