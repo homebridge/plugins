@@ -4,6 +4,7 @@
   "@homebridge-plugins/homebridge-august": "bwp91",
   "@homebridge-plugins/homebridge-camera-ffmpeg": "sunookitsune",
   "@homebridge-plugins/homebridge-cloudflared-tunnel": "bwp91",
+  "@homebridge-plugins/homebridge-controlmyspa": "bwp91",
   "@homebridge-plugins/homebridge-ecoplugs": "IWCaldwell",
   "@homebridge-plugins/homebridge-ecovacs": "bwp91",
   "@homebridge-plugins/homebridge-eufy-security": "lenoxys",

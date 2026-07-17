@@ -1,4 +1,5 @@
 {
+  "@homebridge-plugins/homebridge-controlmyspa": "Homebridge ControlMySpa",
   "@homebridge-plugins/homebridge-ewelink": "Homebridge eWeLink",
   "@homebridge-plugins/homebridge-noip": "Homebridge No-IP",
   "@ncovercash/homebridge-wled-presets": "Homebridge WLED Presets",

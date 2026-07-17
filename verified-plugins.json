@@ -19,6 +19,7 @@
   "@homebridge-plugins/homebridge-august",
   "@homebridge-plugins/homebridge-camera-ffmpeg",
   "@homebridge-plugins/homebridge-cloudflared-tunnel",
+  "@homebridge-plugins/homebridge-controlmyspa",
   "@homebridge-plugins/homebridge-ecoplugs",
   "@homebridge-plugins/homebridge-ecovacs",
   "@homebridge-plugins/homebridge-eufy-security",

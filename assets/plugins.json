@@ -239,6 +239,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-controlmyspa": {
+    "name": "Homebridge ControlMySpa",
+    "hidden": false,
+    "icon": "icons/homebridge-controlmyspa.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": "bwp91",
+    "author": "bwp91",
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-ecoplugs": {
     "name": null,
     "hidden": false,
