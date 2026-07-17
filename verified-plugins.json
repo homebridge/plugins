@@ -370,6 +370,7 @@
   "homebridge-myleviton",
   "homebridge-mylink",
   "homebridge-myplace",
+  "homebridge-myplaceiq",
   "homebridge-myq-camera",
   "homebridge-mysmartblinds-bridge",
   "homebridge-mystrataheat",
