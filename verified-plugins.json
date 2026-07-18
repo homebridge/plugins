@@ -349,6 +349,7 @@
   "homebridge-mhi-wfrac",
   "homebridge-mi-humidifier",
   "homebridge-mi-hygrothermograph",
+  "homebridge-mi-hygrothermograph-hb2",
   "homebridge-midea-platform",
   "homebridge-mieleathome",
   "homebridge-mihomegateway",
