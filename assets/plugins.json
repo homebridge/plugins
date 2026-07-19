@@ -1879,6 +1879,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-calendar-state": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-calendar-state.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-camera-ffmpeg": {
     "name": null,
     "hidden": false,

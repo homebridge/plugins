@@ -143,6 +143,7 @@
   "homebridge-bthome",
   "homebridge-caddx-interlogix",
   "homebridge-calendar-scheduler",
+  "homebridge-calendar-state",
   "homebridge-camera-ffmpeg",
   "homebridge-camera-ui",
   "homebridge-carrier-infinity",
