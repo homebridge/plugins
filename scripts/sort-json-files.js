@@ -36,6 +36,8 @@ const verified = sortArrayFile('verified-plugins.json')
 const verifiedPlus = sortArrayFile('verified-plus-plugins.json')
 const hidden = sortArrayFile('hidden-plugins.json')
 const unmaintained = sortArrayFile('unmaintained-plugins.json')
+const ble = sortArrayFile('plugins-with-ble.json')
+const matter = sortArrayFile('plugins-with-matter.json')
 
 const authorsSorted = sortObjectFile('plugin-authors.json')
 const namesSorted = sortObjectFile('plugin-names.json')
@@ -79,6 +81,8 @@ const fullJson = [
   ...verifiedPlus,
   ...hidden,
   ...unmaintained,
+  ...ble,
+  ...matter,
   ...hasScopeKeys,
   ...authorsSortedKeys,
   ...namesSortedKeys,
@@ -97,6 +101,8 @@ const fullJson = [
       changelog: changelogsSortedKeys.includes(key) ? changelogsSorted[key] : null,
       verified: verified.includes(key),
       verifiedPlus: verifiedPlus.includes(key),
+      ble: ble.includes(key),
+      matter: matter.includes(key),
     }
     return obj
   }, {})
@@ -130,6 +136,8 @@ const shortenedKeys = {
   changelog: 'c',
   verified: 'v',
   verifiedPlus: 'p',
+  ble: 'b',
+  matter: 'm',
 }
 
 const filteredJsonV2 = Object.keys(fullJson).reduce((obj, key) => {
@@ -165,4 +173,6 @@ console.log(`- Verified With Icon: ${fullArray.filter(plugin => plugin.verified 
 console.log(`- Verified Without Icon: ${fullArray.filter(plugin => plugin.verified && !plugin.icon).length}`)
 console.log(`- Verified Total: ${fullArray.filter(plugin => plugin.verified).length}`)
 console.log(`- Verified Plus Total: ${fullArray.filter(plugin => plugin.verifiedPlus).length}`)
+console.log(`- BLE Total: ${fullArray.filter(plugin => plugin.ble).length}`)
+console.log(`- Matter Total: ${fullArray.filter(plugin => plugin.matter).length}`)
 console.log('-----------------------------')
