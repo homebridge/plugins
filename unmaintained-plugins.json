@@ -1,9 +1,4 @@
 [
-  "@homebridge-plugins/homebridge-ecovacs",
-  "@homebridge-plugins/homebridge-ewelink",
-  "@homebridge-plugins/homebridge-govee",
-  "@homebridge-plugins/homebridge-meross",
-  "@homebridge-plugins/homebridge-wemo",
   "homebridge-arlo",
   "homebridge-blinkcameras",
   "homebridge-davis",
