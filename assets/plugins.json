@@ -723,6 +723,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@prasad.edlabadkar/homebridge-smarteefi": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-smarteefi.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@prs.io/homebridge-smartthings-webhook": {
     "name": null,
     "hidden": false,
