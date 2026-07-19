@@ -5367,6 +5367,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-panasonic-smart-app": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-panasonic-smart-app.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-pc-volume": {
     "name": null,
     "hidden": false,

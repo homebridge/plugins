@@ -418,6 +418,7 @@
   "homebridge-palgate",
   "homebridge-panasonic-ac-platform",
   "homebridge-panasonic-miraie-ac-platform",
+  "homebridge-panasonic-smart-app",
   "homebridge-pc-volume",
   "homebridge-pentair-cloud",
   "homebridge-pentair-intellicenter-ai",
