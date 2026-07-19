@@ -32,6 +32,7 @@
   "@homebridge-plugins/homebridge-tuya": "icons/homebridge-tuya.png",
   "@homebridge-plugins/homebridge-wemo": "icons/homebridge-wemo.png",
   "@pietrolubini/homebridge-ecoflow": "icons/homebridge-ecoflow.png",
+  "@prasad-edlabadkar/homebridge-wiser": "icons/homebridge-wiser.png",
   "@qandnotu/homebridge-molekule": "icons/homebridge-molekule.png",
   "@qandnotu/homebridge-pura": "icons/homebridge-pura.png",
   "@smarterhomeapp/homebridge-vantage": "icons/homebridge-vantage.png",

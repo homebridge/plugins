@@ -711,6 +711,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@prasad-edlabadkar/homebridge-wiser": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-wiser.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@prs.io/homebridge-smartthings-webhook": {
     "name": null,
     "hidden": false,
