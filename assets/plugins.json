@@ -5727,20 +5727,6 @@
     "ble": false,
     "matter": false
   },
-  "homebridge-nefit-easy": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "unmaintained": true,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
-  },
   "homebridge-neptun-smart": {
     "name": null,
     "hidden": false,
