@@ -2646,7 +2646,7 @@
   "homebridge-daikin-local-platform": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-daikin-local-platform.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,

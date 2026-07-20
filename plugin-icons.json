@@ -64,6 +64,7 @@
   "homebridge-cync-app": "icons/homebridge-cync-app.png",
   "homebridge-dahua-alarm": "icons/homebridge-dahua-alarm.png",
   "homebridge-dahua-gate-release": "icons/homebridge-dahua-gate-release.png",
+  "homebridge-daikin-local-platform": "icons/homebridge-daikin-local-platform.png",
   "homebridge-deconz": "icons/homebridge-deconz.png",
   "homebridge-delay-countdown-switch": "icons/homebridge-delay-countdown-switch.png",
   "homebridge-delay-switch": "icons/homebridge-delay-switch.png",
