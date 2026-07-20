@@ -50,8 +50,11 @@ jobs:
         if: ${{ steps.check-command.outputs.is_check_command == 'true' && contains(github.event.issue.labels.*.name, 'request-verification') }}
         with:
           github_token: ${{ secrets.github_token }}
+          # Only transient review-state labels belong here. `verified` is deliberately NOT
+          # removed: it is a terminal state mirroring verified-plugins.json, set only by a
+          # maintainer, so re-running /check on an already-verified plugin must not undo it.
+          # (Re-adding `verified` also re-posts the congrats comment via label-commenter.)
           labels: |
             awaiting-changes
             awaiting-user-reply
-            verified
             currently-reviewing
