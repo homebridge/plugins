@@ -3866,7 +3866,7 @@
   "homebridge-jci-hitachi-platform": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-jci-hitachi-platform.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
