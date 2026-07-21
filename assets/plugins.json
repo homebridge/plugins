@@ -9,9 +9,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@350d/homebridge-http-lock": {
     "name": null,
@@ -23,9 +21,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@350d/homebridge-seam": {
     "name": null,
@@ -37,9 +33,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@balansse/homebridge-vivint": {
     "name": null,
@@ -51,9 +45,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@boozilla/homebridge-shome": {
     "name": null,
@@ -65,9 +57,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@busse/homebridge-pluggit": {
     "name": null,
@@ -79,9 +69,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@chazepps/homebridge-hejhome": {
     "name": null,
@@ -93,9 +81,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@danielgindi/homebridge-bcp-charger": {
     "name": null,
@@ -107,9 +93,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@dppeak/homebridge-sleepiq": {
     "name": null,
@@ -121,9 +105,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@dr_chai/homebridge-airthings": {
     "name": null,
@@ -135,9 +117,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": true,
-    "matter": false
+    "verifiedPlus": false
   },
   "@elshaer/homebridge-hdl-buspro-enhanced": {
     "name": null,
@@ -149,9 +129,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@george.talusan/homebridge-eufy-robovac": {
     "name": null,
@@ -163,9 +141,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@hansfriedrich/homebridge-feller-wiser": {
     "name": null,
@@ -177,9 +153,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@hernas/homebridge-panasonic-heat-pump": {
     "name": null,
@@ -191,9 +165,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@hernas/homebridge-salus-sq610": {
     "name": null,
@@ -205,9 +177,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-air": {
     "name": null,
@@ -219,9 +189,7 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-aladdin-connect": {
     "name": null,
@@ -233,9 +201,7 @@
     "author": "derek-miller",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-august": {
     "name": null,
@@ -247,9 +213,7 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-camera-ffmpeg": {
     "name": null,
@@ -261,9 +225,7 @@
     "author": "sunookitsune",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-cloudflared-tunnel": {
     "name": null,
@@ -275,9 +237,7 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-controlmyspa": {
     "name": "Homebridge ControlMySpa",
@@ -289,9 +249,7 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-ecoplugs": {
     "name": null,
@@ -303,9 +261,7 @@
     "author": "IWCaldwell",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-ecovacs": {
     "name": null,
@@ -317,9 +273,7 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-eufy-security": {
     "name": null,
@@ -331,9 +285,7 @@
     "author": "lenoxys",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-ewelink": {
     "name": "Homebridge eWeLink",
@@ -345,9 +297,7 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-govee": {
     "name": null,
@@ -359,9 +309,7 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": true,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-homepod-radio": {
     "name": null,
@@ -373,9 +321,7 @@
     "author": "petro-kushchak",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-lutron": {
     "name": null,
@@ -387,9 +333,7 @@
     "author": "thenewwazoo",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-lutron-caseta-leap": {
     "name": null,
@@ -405,9 +349,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-matter": {
     "name": null,
@@ -419,9 +361,7 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-meater": {
     "name": null,
@@ -433,9 +373,7 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-meross": {
     "name": null,
@@ -447,9 +385,7 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-noip": {
     "name": "Homebridge No-IP",
@@ -461,9 +397,7 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-plugin-update-check": {
     "name": null,
@@ -479,9 +413,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-pura": {
     "name": null,
@@ -493,9 +425,7 @@
     "author": "QandnotU",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-rainbird": {
     "name": null,
@@ -507,9 +437,7 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-resideo": {
     "name": null,
@@ -521,9 +449,7 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-roomba": {
     "name": null,
@@ -535,9 +461,7 @@
     "author": "karlvr",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-sharkiq": {
     "name": null,
@@ -549,9 +473,7 @@
     "author": "Bubba8291",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-smarthq": {
     "name": null,
@@ -563,9 +485,7 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-tado": {
     "name": null,
@@ -577,9 +497,7 @@
     "author": "smart7324",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-tuya": {
     "name": null,
@@ -591,9 +509,7 @@
     "author": "tassy-h",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-unifi-network": {
     "name": null,
@@ -609,9 +525,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-unifi-smartpower": {
     "name": null,
@@ -623,9 +537,7 @@
     "author": "derek-miller",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-updater": {
     "name": null,
@@ -637,9 +549,7 @@
     "author": "sunookitsune",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-wattbox": {
     "name": null,
@@ -651,9 +561,7 @@
     "author": "derek-miller",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@homebridge-plugins/homebridge-wemo": {
     "name": null,
@@ -665,9 +573,7 @@
     "author": "bwp91",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@jackietreeh0rn/homebridge-blink-security": {
     "name": null,
@@ -679,9 +585,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@jackietreeh0rn/homebridge-smartrent": {
     "name": null,
@@ -693,9 +597,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@jay-d-tyler/homebridge-somfy-protect": {
     "name": null,
@@ -707,9 +609,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@jay-d-tyler/homebridge-somfy-protect-automate": {
     "name": null,
@@ -721,9 +621,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@mikezucker/homebridge-kohler-generator": {
     "name": null,
@@ -735,9 +633,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@milo526/homebridge-tuya-web": {
     "name": null,
@@ -749,9 +645,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@ncovercash/homebridge-wled-presets": {
     "name": "Homebridge WLED Presets",
@@ -763,9 +657,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@o-lukas/homebridge-smartthings-tv": {
     "name": null,
@@ -777,9 +669,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@oblongmedulla/homebridge-pawport": {
     "name": null,
@@ -791,9 +681,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@petro-kushchak/homebridge-homepod-radio": {
     "name": null,
@@ -809,9 +697,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@pietrolubini/homebridge-ecoflow": {
     "name": null,
@@ -823,9 +709,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@prasad-edlabadkar/homebridge-wiser": {
     "name": null,
@@ -837,9 +721,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "@prasad.edlabadkar/homebridge-smarteefi": {
     "name": null,
@@ -851,9 +733,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@prs.io/homebridge-smartthings-webhook": {
     "name": null,
@@ -865,9 +745,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@pst-on-npm/homebridge-enocean": {
     "name": "Homebridge EnOcean",
@@ -879,9 +757,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@puchupala/homebridge-nature-remo-multi-toggle-light": {
     "name": null,
@@ -893,9 +769,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@qandnotu/homebridge-molekule": {
     "name": null,
@@ -907,9 +781,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@qandnotu/homebridge-pura": {
     "name": null,
@@ -925,9 +797,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@rsauget/homebridge-flexom": {
     "name": null,
@@ -939,9 +809,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@smarterhomeapp/homebridge-vantage": {
     "name": null,
@@ -953,9 +821,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@string-bean/homebridge-drayton-wiser": {
     "name": null,
@@ -967,9 +833,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@switchbot/homebridge-switchbot": {
     "name": null,
@@ -981,9 +845,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": true,
-    "matter": true
+    "verifiedPlus": false
   },
   "@tassy-h/homebridge-tuya-platform": {
     "name": null,
@@ -999,9 +861,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@toharush/homebridge-redalert": {
     "name": null,
@@ -1013,9 +873,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@ubreu/homebridge-helios-kwl": {
     "name": null,
@@ -1027,9 +885,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@ubreu/homebridge-ibricks": {
     "name": null,
@@ -1041,9 +897,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@vandubois/homebridge-virtual-switch": {
     "name": null,
@@ -1055,9 +909,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@viguza/homebridge-ezviz": {
     "name": null,
@@ -1069,9 +921,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "@xenuiswatching/homebridge-hubspace": {
     "name": null,
@@ -1083,9 +933,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-3em-energy-meter": {
     "name": null,
@@ -1097,9 +945,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-433-arduino": {
     "name": null,
@@ -1111,9 +957,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-abode-lights": {
     "name": null,
@@ -1125,9 +969,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ac-freedom": {
     "name": null,
@@ -1139,9 +981,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-actron-neo": {
     "name": null,
@@ -1153,9 +993,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-actron-que": {
     "name": null,
@@ -1167,9 +1005,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-adb": {
     "name": null,
@@ -1181,9 +1017,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-adguardhome": {
     "name": null,
@@ -1195,9 +1029,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-adt-pulse": {
     "name": null,
@@ -1209,9 +1041,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-advanced-timer": {
     "name": null,
@@ -1223,9 +1053,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-aeg-robot-matter": {
     "name": null,
@@ -1237,9 +1065,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "homebridge-agile-octopus-rates": {
     "name": null,
@@ -1251,9 +1077,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ahoy-dtu": {
     "name": null,
@@ -1265,9 +1089,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-aiper": {
     "name": null,
@@ -1279,9 +1101,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-air": {
     "name": null,
@@ -1297,9 +1117,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-air-q": {
     "name": null,
@@ -1311,9 +1129,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-airconditioner-mitsubishi-au-nz": {
     "name": null,
@@ -1325,9 +1141,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-airfi": {
     "name": null,
@@ -1339,9 +1153,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-airmega-iocare": {
     "name": null,
@@ -1353,9 +1165,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-airport-express-connected": {
     "name": null,
@@ -1367,9 +1177,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-airthings": {
     "name": null,
@@ -1381,9 +1189,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-airtouch5-platform": {
     "name": null,
@@ -1395,9 +1201,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-airzone-cloud": {
     "name": null,
@@ -1409,9 +1213,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-alexa": {
     "name": null,
@@ -1423,9 +1225,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-alexa-player": {
     "name": null,
@@ -1437,9 +1237,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-alexa-smarthome": {
     "name": null,
@@ -1451,9 +1249,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-alphaess": {
     "name": null,
@@ -1465,9 +1261,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-amazondash-mac": {
     "name": null,
@@ -1479,9 +1273,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ambiback": {
     "name": null,
@@ -1493,9 +1285,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ambient-realtime": {
     "name": null,
@@ -1507,9 +1297,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ambient-weather-sensors": {
     "name": null,
@@ -1521,9 +1309,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-androidtv": {
     "name": null,
@@ -1535,9 +1321,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-anthemreceiver": {
     "name": null,
@@ -1549,9 +1333,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-apc-back-ups-hs500": {
     "name": null,
@@ -1563,9 +1345,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-appletv-enhanced": {
     "name": null,
@@ -1577,9 +1357,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-aqara-ir-controller": {
     "name": null,
@@ -1591,9 +1369,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-aqicn": {
     "name": null,
@@ -1605,9 +1381,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-arctic-spas": {
     "name": null,
@@ -1619,9 +1393,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-arduino-esp-platform": {
     "name": null,
@@ -1633,9 +1405,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-argo": {
     "name": null,
@@ -1647,9 +1417,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-arlo": {
     "name": null,
@@ -1661,9 +1429,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-atomberg-fan": {
     "name": null,
@@ -1675,9 +1441,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-august": {
     "name": null,
@@ -1693,9 +1457,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-automower": {
     "name": null,
@@ -1707,9 +1469,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-automower-platform": {
     "name": null,
@@ -1721,9 +1481,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-aux-cloud": {
     "name": null,
@@ -1735,9 +1493,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "homebridge-awair2": {
     "name": null,
@@ -1749,9 +1505,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-awattar": {
     "name": "Homebridge aWATTar",
@@ -1763,9 +1517,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-away-mode": {
     "name": null,
@@ -1777,9 +1529,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-aws-iot": {
     "name": null,
@@ -1791,9 +1541,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-balboa-spa": {
     "name": null,
@@ -1805,9 +1553,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "homebridge-bambu-lab": {
     "name": null,
@@ -1819,9 +1565,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-bed-control": {
     "name": null,
@@ -1833,9 +1577,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-beoplay": {
     "name": null,
@@ -1847,9 +1589,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-bigassfans-2": {
     "name": null,
@@ -1861,9 +1601,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-biocat": {
     "name": null,
@@ -1875,9 +1613,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-blaq": {
     "name": "Homebridge blaQ",
@@ -1889,9 +1625,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-blauberg-vento": {
     "name": null,
@@ -1903,9 +1637,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ble-thermobeacon": {
     "name": null,
@@ -1917,9 +1649,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": true,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-blinds": {
     "name": null,
@@ -1931,9 +1661,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-blinds-cmd": {
     "name": null,
@@ -1945,9 +1673,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-blink-for-home-new": {
     "name": null,
@@ -1959,9 +1685,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-blinkcameras": {
     "name": null,
@@ -1973,9 +1697,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-blueair-purifier": {
     "name": null,
@@ -1987,9 +1709,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-bocco-notification": {
     "name": null,
@@ -2001,9 +1721,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-bold": {
     "name": null,
@@ -2015,9 +1733,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-bold-ble": {
     "name": null,
@@ -2029,9 +1745,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": true,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-bond": {
     "name": null,
@@ -2043,9 +1757,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-bondbridge": {
     "name": null,
@@ -2057,9 +1769,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-bosch-nefit-easy": {
     "name": null,
@@ -2071,9 +1781,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-boschcontrolpanel_bgseries": {
     "name": null,
@@ -2085,9 +1793,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-bravia": {
     "name": null,
@@ -2099,9 +1805,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-bravia-enhanced": {
     "name": null,
@@ -2113,9 +1817,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-brewer": {
     "name": null,
@@ -2127,9 +1829,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": true,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-browsercam": {
     "name": null,
@@ -2141,9 +1841,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-bthome": {
     "name": null,
@@ -2155,9 +1853,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": true,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-caddx-interlogix": {
     "name": null,
@@ -2169,9 +1865,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-calendar-scheduler": {
     "name": null,
@@ -2183,9 +1877,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-calendar-state": {
     "name": null,
@@ -2197,9 +1889,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-camera-ffmpeg": {
     "name": null,
@@ -2215,9 +1905,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-camera-ui": {
     "name": null,
@@ -2229,9 +1917,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-carrier-infinity": {
     "name": null,
@@ -2243,9 +1929,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-centri-mypropane": {
     "name": null,
@@ -2257,9 +1941,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-cgd-garage-door": {
     "name": null,
@@ -2271,9 +1953,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-clearlight-sauna": {
     "name": null,
@@ -2285,9 +1965,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-cloudflared-tunnel": {
     "name": null,
@@ -2303,9 +1981,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-comed-hourlypricing": {
     "name": null,
@@ -2317,9 +1993,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-comelit-platform": {
     "name": null,
@@ -2331,9 +2005,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-comelit-sb-platform": {
     "name": null,
@@ -2345,9 +2017,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-comelit-vedo-platform": {
     "name": null,
@@ -2359,9 +2029,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-config-ui": {
     "name": null,
@@ -2373,9 +2041,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-config-ui-rdp": {
     "name": null,
@@ -2387,9 +2053,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-config-ui-x": {
     "name": null,
@@ -2401,9 +2065,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-connectlife-ac": {
     "name": null,
@@ -2415,9 +2077,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-connectlife-aircon": {
     "name": null,
@@ -2429,9 +2089,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-cool-automation": {
     "name": null,
@@ -2443,9 +2101,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-coviva-hager": {
     "name": null,
@@ -2457,9 +2113,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-crestron-home": {
     "name": null,
@@ -2471,9 +2125,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-cron-scheduler": {
     "name": null,
@@ -2485,9 +2137,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-cuby": {
     "name": null,
@@ -2499,9 +2149,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-cync-app": {
     "name": null,
@@ -2513,9 +2161,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-daelim-smarthome": {
     "name": null,
@@ -2527,9 +2173,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-dafang-mqtt-republish": {
     "name": null,
@@ -2541,9 +2185,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-dahua-alarm": {
     "name": null,
@@ -2555,9 +2197,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-dahua-alerts": {
     "name": null,
@@ -2569,9 +2209,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-dahua-camera-ultimate": {
     "name": null,
@@ -2583,9 +2221,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-dahua-gate-release": {
     "name": null,
@@ -2597,9 +2233,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-dahua-ultimate": {
     "name": null,
@@ -2611,9 +2245,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-daikin-cloud": {
     "name": null,
@@ -2625,9 +2257,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-daikin-local": {
     "name": null,
@@ -2639,9 +2269,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-daikin-local-platform": {
     "name": null,
@@ -2653,9 +2281,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-daikin-oneplus": {
     "name": null,
@@ -2667,9 +2293,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-daikin-smart-ac": {
     "name": null,
@@ -2681,9 +2305,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-daikin-tempsensor-nocloud": {
     "name": null,
@@ -2695,9 +2317,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-davis": {
     "name": null,
@@ -2709,9 +2329,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-deconz": {
     "name": null,
@@ -2723,9 +2341,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-deebot": {
     "name": null,
@@ -2741,9 +2357,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-deebotecovacs": {
     "name": null,
@@ -2755,9 +2369,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-delay-countdown-switch": {
     "name": null,
@@ -2769,9 +2381,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-delay-switch": {
     "name": null,
@@ -2783,9 +2393,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-delonghi-comfort": {
     "name": null,
@@ -2797,9 +2405,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-denon-heos": {
     "name": null,
@@ -2811,9 +2417,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-denon-tv": {
     "name": null,
@@ -2825,9 +2429,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-device-alive": {
     "name": null,
@@ -2839,9 +2441,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-deye": {
     "name": null,
@@ -2853,9 +2453,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-dibby-wemo": {
     "name": null,
@@ -2867,9 +2465,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-digitalstrom-plugin": {
     "name": null,
@@ -2881,9 +2477,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-dolphin": {
     "name": null,
@@ -2895,9 +2489,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-doorbell-telegram-photo": {
     "name": null,
@@ -2909,9 +2501,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-doorbird": {
     "name": null,
@@ -2923,9 +2513,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-dreambox": {
     "name": null,
@@ -2937,9 +2525,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-dreamscreen-rm": {
     "name": null,
@@ -2951,9 +2537,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-dreo": {
     "name": null,
@@ -2965,9 +2549,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-dummy": {
     "name": null,
@@ -2979,9 +2561,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "homebridge-dune-hd": {
     "name": null,
@@ -2993,9 +2573,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-dynamicapi": {
     "name": null,
@@ -3007,9 +2585,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-dyson-bp01": {
     "name": null,
@@ -3021,9 +2597,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-dyson-pure-cool": {
     "name": null,
@@ -3035,9 +2609,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-easee": {
     "name": null,
@@ -3049,9 +2621,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-easy-mqtt": {
     "name": null,
@@ -3063,9 +2633,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "homebridge-ecobee-status": {
     "name": null,
@@ -3077,9 +2645,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ecoforest-thermostat": {
     "name": null,
@@ -3091,9 +2657,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-econet-rheem": {
     "name": null,
@@ -3105,9 +2669,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ecowitt-weather-sensors": {
     "name": null,
@@ -3119,9 +2681,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-edomoticz": {
     "name": null,
@@ -3133,9 +2693,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-egreat-androidtv": {
     "name": null,
@@ -3147,9 +2705,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-electra-smart-v2": {
     "name": null,
@@ -3161,9 +2717,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-electricitymaps": {
     "name": null,
@@ -3175,9 +2729,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-elkm1": {
     "name": null,
@@ -3189,9 +2741,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-eltako-minisafe2": {
     "name": null,
@@ -3203,9 +2753,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-emerald-hws": {
     "name": null,
@@ -3217,9 +2765,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-enphase-envoy": {
     "name": null,
@@ -3231,9 +2777,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-enviroindoor": {
     "name": null,
@@ -3245,9 +2789,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-enviroplus": {
     "name": null,
@@ -3259,9 +2801,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-envirourban": {
     "name": null,
@@ -3273,9 +2813,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-envisalink": {
     "name": null,
@@ -3287,9 +2825,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-envisalink-ademco": {
     "name": null,
@@ -3301,9 +2837,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-eosstb": {
     "name": null,
@@ -3315,9 +2849,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-esphome-haier-ac": {
     "name": null,
@@ -3329,9 +2861,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-eufy-security": {
     "name": null,
@@ -3347,9 +2877,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-eveatmo": {
     "name": null,
@@ -3361,9 +2889,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-evohome": {
     "name": null,
@@ -3375,9 +2901,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ewelink": {
     "name": null,
@@ -3393,9 +2917,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-exivo": {
     "name": null,
@@ -3407,9 +2929,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-faber-range-hood": {
     "name": null,
@@ -3421,9 +2941,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-fhem": {
     "name": null,
@@ -3435,9 +2953,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-fibaro-hc3": {
     "name": null,
@@ -3449,9 +2965,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-fibaro-home-center": {
     "name": null,
@@ -3463,9 +2977,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-flair": {
     "name": null,
@@ -3477,9 +2989,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-flobymoen": {
     "name": null,
@@ -3491,9 +3001,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-flume": {
     "name": null,
@@ -3505,9 +3013,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-fordpass": {
     "name": null,
@@ -3519,9 +3025,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-foscam-controls": {
     "name": null,
@@ -3533,9 +3037,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-fp2": {
     "name": null,
@@ -3547,9 +3049,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-freeathome-local-api": {
     "name": null,
@@ -3561,9 +3061,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-frigidaire-dehumidifier": {
     "name": null,
@@ -3575,9 +3073,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-fritz-platform": {
     "name": null,
@@ -3589,9 +3085,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ftp-motion": {
     "name": null,
@@ -3603,9 +3097,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-fujitsu-airstage": {
     "name": null,
@@ -3617,9 +3109,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-futurehome": {
     "name": null,
@@ -3631,9 +3121,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-garagedooropenercloud": {
     "name": null,
@@ -3645,9 +3133,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-genie-aladdin-connect": {
     "name": null,
@@ -3663,9 +3149,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-giv-iog-local": {
     "name": null,
@@ -3677,9 +3161,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-glances": {
     "name": null,
@@ -3691,9 +3173,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-godox-tl": {
     "name": null,
@@ -3705,9 +3185,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": true,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-gogogate2": {
     "name": null,
@@ -3719,9 +3197,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-google-nest-sdm": {
     "name": null,
@@ -3733,9 +3209,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-govee": {
     "name": null,
@@ -3751,9 +3225,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-gpio-doorbell": {
     "name": null,
@@ -3765,9 +3237,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-gpio-electric-rim-lock": {
     "name": null,
@@ -3779,9 +3249,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-gpio-rgb-ledstrip": {
     "name": null,
@@ -3793,9 +3261,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-gpio-rgbw-ledstrip": {
     "name": null,
@@ -3807,9 +3273,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-gree-ac": {
     "name": null,
@@ -3821,9 +3285,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-green-mountain-grills": {
     "name": null,
@@ -3835,9 +3297,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-grohe-sense": {
     "name": null,
@@ -3849,9 +3309,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-grumptech-timetriggers": {
     "name": null,
@@ -3863,9 +3321,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-gsh": {
     "name": "Homebridge Google Smart Home",
@@ -3877,9 +3333,7 @@
     "author": "NorthernMan54",
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-haieracbridge-platform": {
     "name": null,
@@ -3891,9 +3345,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-harmony": {
     "name": null,
@@ -3905,9 +3357,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-hatch-baby-rest": {
     "name": null,
@@ -3919,9 +3369,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-heurespleines-heurescreuses": {
     "name": null,
@@ -3933,9 +3381,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-hikconnect": {
     "name": null,
@@ -3947,9 +3393,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-hikvision-ultimate": {
     "name": null,
@@ -3961,9 +3405,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-hilo": {
     "name": null,
@@ -3975,9 +3417,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-hive-thermostat": {
     "name": null,
@@ -3989,9 +3429,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "homebridge-home-depot-hubspace": {
     "name": null,
@@ -4003,9 +3441,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-homeassistant-garagedoor": {
     "name": null,
@@ -4017,9 +3453,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-homeassistant-things": {
     "name": null,
@@ -4031,9 +3465,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-homeconnect": {
     "name": null,
@@ -4045,9 +3477,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-homekit-control": {
     "name": null,
@@ -4059,9 +3489,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-homepod-mini-music-sensor": {
     "name": null,
@@ -4073,9 +3501,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-homewizard-energy-socket": {
     "name": null,
@@ -4087,9 +3513,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-homewizard-power-consumption": {
     "name": null,
@@ -4101,9 +3525,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-homeworks": {
     "name": null,
@@ -4115,9 +3537,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-homiris": {
     "name": null,
@@ -4129,9 +3549,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-hsd": {
     "name": null,
@@ -4143,9 +3561,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-http-curtain": {
     "name": null,
@@ -4157,9 +3573,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-http-garage-doors": {
     "name": null,
@@ -4171,9 +3585,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-http-json-thermometer": {
     "name": null,
@@ -4185,9 +3597,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-http-leak-sensor": {
     "name": null,
@@ -4199,9 +3609,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-http-sensors-switches": {
     "name": null,
@@ -4213,9 +3621,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-hubitat-tonesto7": {
     "name": null,
@@ -4227,9 +3633,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-hubspace": {
     "name": null,
@@ -4241,9 +3645,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-hue": {
     "name": null,
@@ -4255,9 +3657,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-hue-daylight-sync": {
     "name": null,
@@ -4269,9 +3669,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-hunter-hydrawise": {
     "name": null,
@@ -4283,9 +3681,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-hyperion-jub": {
     "name": null,
@@ -4297,9 +3693,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-hyundai-bluelink": {
     "name": null,
@@ -4311,9 +3705,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-hyundai-ht": {
     "name": null,
@@ -4325,9 +3717,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-iaqualink": {
     "name": null,
@@ -4339,9 +3729,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-icloud-smtp": {
     "name": null,
@@ -4353,9 +3741,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ies-heatpump": {
     "name": null,
@@ -4367,9 +3753,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-infinitude-v2": {
     "name": null,
@@ -4381,9 +3765,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-intelliclima": {
     "name": null,
@@ -4395,9 +3777,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-inteo-somfy-blinds": {
     "name": null,
@@ -4409,9 +3789,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-intercom": {
     "name": null,
@@ -4423,9 +3801,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-intercom-automation-hat": {
     "name": null,
@@ -4437,9 +3813,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "homebridge-iotas-v2": {
     "name": null,
@@ -4451,9 +3825,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-irobot-v2": {
     "name": null,
@@ -4465,9 +3837,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-itho-daalderop": {
     "name": null,
@@ -4479,9 +3849,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-jablotron": {
     "name": null,
@@ -4493,9 +3861,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-jci-hitachi-platform": {
     "name": null,
@@ -4507,9 +3873,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-jewish-calendar": {
     "name": null,
@@ -4521,9 +3885,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-juicebox": {
     "name": null,
@@ -4535,9 +3897,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-kasa-hub": {
     "name": null,
@@ -4549,9 +3909,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-kasa-python": {
     "name": null,
@@ -4563,9 +3921,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-kdk-plugin": {
     "name": null,
@@ -4577,9 +3933,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-keylights": {
     "name": null,
@@ -4591,9 +3945,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-kiwigrid": {
     "name": null,
@@ -4605,9 +3957,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-klereo-connect": {
     "name": null,
@@ -4619,9 +3969,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-kobold": {
     "name": null,
@@ -4633,9 +3981,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-kodi": {
     "name": null,
@@ -4647,9 +3993,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-konnected": {
     "name": null,
@@ -4661,9 +4005,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-kumo": {
     "name": null,
@@ -4675,9 +4017,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-la-marzocco": {
     "name": null,
@@ -4689,9 +4029,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-lacrosseview": {
     "name": "Homebridge La Crosse View",
@@ -4703,9 +4041,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-lametric": {
     "name": null,
@@ -4717,9 +4053,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-lametric-time-messenger": {
     "name": null,
@@ -4731,9 +4065,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-landroid": {
     "name": null,
@@ -4745,9 +4077,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-lanternic": {
     "name": null,
@@ -4759,9 +4089,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": true,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-legrand-radiant": {
     "name": null,
@@ -4773,9 +4101,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-lennox": {
     "name": null,
@@ -4787,9 +4113,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-lennox-icomfort-cloud": {
     "name": null,
@@ -4801,9 +4125,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-leridian-dynamics": {
     "name": null,
@@ -4815,9 +4137,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-letpot": {
     "name": null,
@@ -4829,9 +4149,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-level-sense": {
     "name": null,
@@ -4843,9 +4161,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-levoit-air-purifier": {
     "name": null,
@@ -4857,9 +4173,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-levoit-humidifiers": {
     "name": null,
@@ -4871,9 +4185,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-lg-enervu": {
     "name": null,
@@ -4885,9 +4197,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-lg-thinq": {
     "name": null,
@@ -4899,9 +4209,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-lg-thinqconnect-ac": {
     "name": null,
@@ -4913,9 +4221,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-lgwebos-tv": {
     "name": "LG webOS TV",
@@ -4927,9 +4233,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-lifx-plugin": {
     "name": null,
@@ -4941,9 +4245,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-lighthouse": {
     "name": null,
@@ -4955,9 +4257,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": true,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-linak": {
     "name": null,
@@ -4969,9 +4269,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": true,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-litter-robot-connect": {
     "name": null,
@@ -4983,9 +4281,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-logic-switch": {
     "name": null,
@@ -4997,9 +4293,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-logo-platform": {
     "name": null,
@@ -5011,9 +4305,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-loxone-control": {
     "name": null,
@@ -5025,9 +4317,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-loxone-proxy": {
     "name": null,
@@ -5039,9 +4329,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-luftdaten": {
     "name": null,
@@ -5053,9 +4341,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-lutron-caseta-leap": {
     "name": null,
@@ -5071,9 +4357,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-luxtronik2": {
     "name": null,
@@ -5085,9 +4369,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-magic-occupancy": {
     "name": null,
@@ -5099,9 +4381,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-magichome-dynamic-platform": {
     "name": null,
@@ -5113,9 +4393,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-meater": {
     "name": null,
@@ -5131,9 +4409,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-melcloud-control": {
     "name": null,
@@ -5145,9 +4421,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-meraki-control": {
     "name": null,
@@ -5159,9 +4433,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-meraki-mt-sensor-ng": {
     "name": null,
@@ -5173,9 +4445,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mercedesme": {
     "name": null,
@@ -5187,9 +4457,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-meross": {
     "name": null,
@@ -5205,9 +4473,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mertik-fireplace": {
     "name": null,
@@ -5219,9 +4485,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-messenger": {
     "name": null,
@@ -5233,9 +4497,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mhacwifi1-lan": {
     "name": null,
@@ -5247,9 +4509,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mhi-wfrac": {
     "name": null,
@@ -5261,9 +4521,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mi-humidifier": {
     "name": null,
@@ -5275,9 +4533,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mi-hygrothermograph-hb2": {
     "name": null,
@@ -5289,9 +4545,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": true,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-midea-platform": {
     "name": null,
@@ -5303,9 +4557,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mieleathome": {
     "name": null,
@@ -5317,9 +4569,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mihomegateway": {
     "name": null,
@@ -5331,9 +4581,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-milighthub-platform": {
     "name": null,
@@ -5345,9 +4593,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-miot": {
     "name": null,
@@ -5359,9 +4605,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mitsubishi-wfrac": {
     "name": null,
@@ -5373,9 +4617,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mobilelink": {
     "name": null,
@@ -5387,9 +4629,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-modern-forms-fans-v2": {
     "name": null,
@@ -5401,9 +4641,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-monster-smart-lighting": {
     "name": null,
@@ -5415,9 +4653,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-moodo": {
     "name": null,
@@ -5429,9 +4665,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-moonraker": {
     "name": null,
@@ -5443,9 +4677,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-moonside": {
     "name": null,
@@ -5457,9 +4689,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mqtt-ceiling-fan-remote": {
     "name": null,
@@ -5471,9 +4701,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mqtt-tasmota": {
     "name": null,
@@ -5485,9 +4713,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mqttsmokesensor": {
     "name": null,
@@ -5499,9 +4725,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-multiple-switch": {
     "name": null,
@@ -5513,9 +4737,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-multiswitcheroo": {
     "name": null,
@@ -5527,9 +4749,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-music": {
     "name": null,
@@ -5541,9 +4761,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-musiccast-multiroom": {
     "name": null,
@@ -5555,9 +4773,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-my-wallbox": {
     "name": null,
@@ -5569,9 +4785,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-myleviton": {
     "name": null,
@@ -5583,9 +4797,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mylink": {
     "name": null,
@@ -5597,9 +4809,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-myplace": {
     "name": null,
@@ -5611,9 +4821,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-myplaceiq": {
     "name": null,
@@ -5625,9 +4833,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-myq-camera": {
     "name": null,
@@ -5639,9 +4845,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mysmartblinds-bridge": {
     "name": null,
@@ -5653,9 +4857,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-mystrataheat": {
     "name": null,
@@ -5667,9 +4869,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-nanit-pro": {
     "name": null,
@@ -5681,9 +4881,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-nb": {
     "name": null,
@@ -5695,9 +4893,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-neakasa": {
     "name": null,
@@ -5709,9 +4905,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-nee-vo-propane": {
     "name": null,
@@ -5723,9 +4917,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-neptun-smart": {
     "name": null,
@@ -5737,9 +4929,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ness-d16x": {
     "name": null,
@@ -5751,9 +4941,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-nest": {
     "name": null,
@@ -5765,9 +4953,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-nest-accfactory": {
     "name": null,
@@ -5779,9 +4965,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-netatmo-home-control": {
     "name": null,
@@ -5793,9 +4977,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-network-presence": {
     "name": null,
@@ -5807,9 +4989,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-nextdns": {
     "name": "Homebridge NextDNS",
@@ -5821,9 +5001,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ngbs-icon-thermostat": {
     "name": null,
@@ -5835,9 +5013,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-nhc-1": {
     "name": null,
@@ -5849,9 +5025,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-node-alarm-dot-com": {
     "name": null,
@@ -5863,9 +5037,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-noip": {
     "name": null,
@@ -5881,9 +5053,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-nolongerevil-nest": {
     "name": null,
@@ -5895,9 +5065,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-nordpool-baltics": {
     "name": null,
@@ -5909,9 +5077,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-notify-alerts": {
     "name": null,
@@ -5923,9 +5089,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-notifyevents": {
     "name": null,
@@ -5937,9 +5101,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-nuheat2": {
     "name": null,
@@ -5951,9 +5113,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-nukiio": {
     "name": null,
@@ -5965,9 +5125,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-nuvo": {
     "name": null,
@@ -5979,9 +5137,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-octoprint-motion": {
     "name": null,
@@ -5993,9 +5149,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-omlet": {
     "name": null,
@@ -6007,9 +5161,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-omnik": {
     "name": null,
@@ -6021,9 +5173,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-omnilink-platform": {
     "name": null,
@@ -6035,9 +5185,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-omnilogic-pool": {
     "name": null,
@@ -6049,9 +5197,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ondilo-ico": {
     "name": null,
@@ -6063,9 +5209,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-open-sesame": {
     "name": null,
@@ -6077,9 +5221,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-openclaw": {
     "name": null,
@@ -6091,9 +5233,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-openrgb": {
     "name": null,
@@ -6105,9 +5245,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-opensprinkler-api": {
     "name": null,
@@ -6119,9 +5257,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-openwebif-tv": {
     "name": null,
@@ -6133,9 +5269,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-openwrt-control": {
     "name": null,
@@ -6147,9 +5281,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-oppo-udp": {
     "name": null,
@@ -6161,9 +5293,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-orbit-irrigation": {
     "name": null,
@@ -6175,9 +5305,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-otgw": {
     "name": null,
@@ -6189,9 +5317,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-otodo-vav": {
     "name": "Homebridge Otodo VAV",
@@ -6203,9 +5329,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-overda-uranus": {
     "name": null,
@@ -6217,9 +5341,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-owfs": {
     "name": null,
@@ -6231,9 +5353,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-p1": {
     "name": null,
@@ -6245,9 +5365,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-palgate": {
     "name": null,
@@ -6259,9 +5377,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-panasonic-ac-platform": {
     "name": null,
@@ -6273,9 +5389,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-panasonic-miraie-ac-platform": {
     "name": null,
@@ -6287,9 +5401,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-panasonic-smart-app": {
     "name": null,
@@ -6301,9 +5413,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-pc-volume": {
     "name": null,
@@ -6315,9 +5425,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-pentair-cloud": {
     "name": null,
@@ -6329,9 +5437,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-pentair-intellicenter-ai": {
     "name": "Homebridge Pentair IntelliCenter AI",
@@ -6343,9 +5449,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-pentair-screenlogic": {
     "name": null,
@@ -6357,9 +5461,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-petkit-pet-feeder": {
     "name": null,
@@ -6371,9 +5473,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-petkit-platform": {
     "name": null,
@@ -6385,9 +5485,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-petsafe-smart-feed": {
     "name": null,
@@ -6399,9 +5497,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-philips-air": {
     "name": null,
@@ -6413,9 +5509,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-philips-android-tv": {
     "name": null,
@@ -6427,9 +5521,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-philips-dline-sicp": {
     "name": null,
@@ -6441,9 +5533,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-philipsair-platform": {
     "name": null,
@@ -6455,9 +5545,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-philipstv-saphitvos": {
     "name": null,
@@ -6469,9 +5557,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-pichler-pkom4": {
     "name": null,
@@ -6483,9 +5569,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-pico": {
     "name": null,
@@ -6497,9 +5581,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-pico-w-bridge": {
     "name": null,
@@ -6511,9 +5593,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-pihole": {
     "name": null,
@@ -6525,9 +5605,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-pima-force": {
     "name": null,
@@ -6539,9 +5617,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-pitboss": {
     "name": null,
@@ -6553,9 +5629,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-platform-maxcube": {
     "name": null,
@@ -6567,9 +5641,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-platform-orbit": {
     "name": null,
@@ -6581,9 +5653,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-playstation": {
     "name": null,
@@ -6595,9 +5665,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-playstation-title-game": {
     "name": null,
@@ -6609,9 +5677,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-plex-metadata": {
     "name": null,
@@ -6623,9 +5689,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-plugin-govee": {
     "name": null,
@@ -6637,9 +5701,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": true,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-plugin-homewhiz": {
     "name": null,
@@ -6651,9 +5713,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-plugin-klares4": {
     "name": null,
@@ -6665,9 +5725,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "homebridge-plugin-update-check": {
     "name": null,
@@ -6683,9 +5741,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-pollen": {
     "name": null,
@@ -6697,9 +5753,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-porsche-taycan": {
     "name": null,
@@ -6711,9 +5765,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-powershades": {
     "name": "Homebridge PowerShades",
@@ -6725,9 +5777,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-prayer-times": {
     "name": null,
@@ -6739,9 +5789,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-presence-switch-msgraph": {
     "name": null,
@@ -6753,9 +5801,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-presence-switch-slack": {
     "name": null,
@@ -6767,9 +5813,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-printer": {
     "name": null,
@@ -6781,9 +5825,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-programmable-http-switch": {
     "name": null,
@@ -6795,9 +5837,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-prosegur": {
     "name": null,
@@ -6809,9 +5849,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-prusa-connect-camera": {
     "name": null,
@@ -6823,9 +5861,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-prusa-link": {
     "name": null,
@@ -6837,9 +5873,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-purpleair": {
     "name": null,
@@ -6851,9 +5885,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-purpleair-sensor": {
     "name": null,
@@ -6865,9 +5897,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-pushover-notification": {
     "name": null,
@@ -6879,9 +5909,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-qolsys": {
     "name": null,
@@ -6893,9 +5921,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ra2-select": {
     "name": null,
@@ -6907,9 +5933,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-rachio-irrigation": {
     "name": null,
@@ -6921,9 +5945,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-rademacher-homepilot": {
     "name": null,
@@ -6935,9 +5957,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-radiora2": {
     "name": null,
@@ -6949,9 +5969,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-rainbird": {
     "name": null,
@@ -6967,9 +5985,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-rainsoft-remind": {
     "name": null,
@@ -6981,9 +5997,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ratgdo": {
     "name": null,
@@ -6995,9 +6009,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-red-alert-via-kumta": {
     "name": null,
@@ -7009,9 +6021,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-remootio": {
     "name": null,
@@ -7023,9 +6033,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-renson-healthbox3": {
     "name": null,
@@ -7037,9 +6045,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-resideo": {
     "name": null,
@@ -7055,9 +6061,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-rgb-ledstrip": {
     "name": null,
@@ -7069,9 +6073,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ring": {
     "name": null,
@@ -7083,9 +6085,7 @@
     "author": null,
     "changelog": "packages/homebridge-ring/",
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-rinnai-controlr": {
     "name": null,
@@ -7097,9 +6097,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-rinnai-touch-platform": {
     "name": null,
@@ -7111,9 +6109,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-rivian": {
     "name": null,
@@ -7125,9 +6121,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-robonect": {
     "name": null,
@@ -7139,9 +6133,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-roborock-matter": {
     "name": null,
@@ -7153,9 +6145,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "homebridge-rocket-smart-home-ui": {
     "name": null,
@@ -7167,9 +6157,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-rointe-unofficial": {
     "name": null,
@@ -7181,9 +6169,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-roomba2": {
     "name": null,
@@ -7199,9 +6185,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-rpi": {
     "name": null,
@@ -7213,9 +6197,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-rpi-rf-switch": {
     "name": null,
@@ -7227,9 +6209,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-samsung-tizen": {
     "name": null,
@@ -7241,9 +6221,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-samsung-windfree-ac": {
     "name": null,
@@ -7255,9 +6233,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-samsungtv-2014": {
     "name": null,
@@ -7269,9 +6245,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-samsungtvht": {
     "name": null,
@@ -7283,9 +6257,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sanremo-cube-coffeemachine": {
     "name": null,
@@ -7297,9 +6269,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-saphi-tv": {
     "name": null,
@@ -7311,9 +6281,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-satel-integra": {
     "name": null,
@@ -7325,9 +6293,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-scentair": {
     "name": null,
@@ -7339,9 +6305,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-scout": {
     "name": null,
@@ -7353,9 +6317,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-seasons": {
     "name": null,
@@ -7367,9 +6329,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-securitysystem": {
     "name": null,
@@ -7381,9 +6341,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sense-energy-monitor": {
     "name": null,
@@ -7395,9 +6353,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sensi": {
     "name": null,
@@ -7409,9 +6365,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sensibo-ac": {
     "name": null,
@@ -7423,9 +6377,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sensit-tank-monitor": {
     "name": null,
@@ -7437,9 +6389,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sensorpush": {
     "name": "Homebridge SensorPush",
@@ -7451,9 +6401,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-server": {
     "name": null,
@@ -7465,9 +6413,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sharkiq": {
     "name": null,
@@ -7483,9 +6429,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-shelly": {
     "name": null,
@@ -7497,9 +6441,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-shelly-3em": {
     "name": null,
@@ -7511,9 +6453,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-shelly-ng": {
     "name": null,
@@ -7525,9 +6465,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-shortcuts-buttons": {
     "name": null,
@@ -7539,9 +6477,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sht3x": {
     "name": null,
@@ -7553,9 +6489,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-signalk": {
     "name": null,
@@ -7567,9 +6501,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-simpler-wled": {
     "name": null,
@@ -7581,9 +6513,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-simplisafe3": {
     "name": null,
@@ -7595,9 +6525,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sinricpro": {
     "name": null,
@@ -7609,9 +6537,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sleepme": {
     "name": null,
@@ -7623,9 +6549,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sleepme-dockpro": {
     "name": null,
@@ -7637,9 +6561,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sleeptracker-bed": {
     "name": null,
@@ -7651,9 +6573,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sma-home-manager": {
     "name": null,
@@ -7665,9 +6585,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-smart-irrigation": {
     "name": null,
@@ -7679,9 +6597,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-smart-occupancy": {
     "name": null,
@@ -7693,9 +6609,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-smarthomeng": {
     "name": null,
@@ -7707,9 +6621,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-smartika": {
     "name": null,
@@ -7721,9 +6633,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-smartthings-ik": {
     "name": null,
@@ -7735,9 +6645,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-smartthings-oauth": {
     "name": null,
@@ -7749,9 +6657,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-smtp-motion": {
     "name": null,
@@ -7763,9 +6669,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-snowsense": {
     "name": null,
@@ -7777,9 +6681,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-solaxcloud-api": {
     "name": null,
@@ -7791,9 +6693,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-solis5g-battery": {
     "name": null,
@@ -7805,9 +6705,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-somfy-hotwired": {
     "name": null,
@@ -7819,9 +6717,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-somfy-rfxcom": {
     "name": null,
@@ -7833,9 +6729,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-somfy-tahoma": {
     "name": null,
@@ -7847,9 +6741,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-somfy-tahoma-screen": {
     "name": null,
@@ -7861,9 +6753,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-somneo": {
     "name": null,
@@ -7875,9 +6765,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sonos": {
     "name": null,
@@ -7889,9 +6777,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sonos-alert": {
     "name": null,
@@ -7903,9 +6789,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sonos-control": {
     "name": null,
@@ -7917,9 +6801,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sonos-multiroom": {
     "name": null,
@@ -7931,9 +6813,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sonos-starter-track": {
     "name": null,
@@ -7945,9 +6825,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sony-adcp": {
     "name": null,
@@ -7959,9 +6837,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sony-audio": {
     "name": null,
@@ -7973,9 +6849,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sp108e-platform": {
     "name": null,
@@ -7987,9 +6861,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-spanet": {
     "name": null,
@@ -8001,9 +6873,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-spotify-speaker": {
     "name": null,
@@ -8015,9 +6885,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-spruce-irrigation": {
     "name": null,
@@ -8029,9 +6897,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ssh-platform": {
     "name": null,
@@ -8043,9 +6909,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-stagekit": {
     "name": null,
@@ -8057,9 +6921,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-stagg-ekg-plus": {
     "name": null,
@@ -8071,9 +6933,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-star-projector": {
     "name": null,
@@ -8085,9 +6945,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sternet-smart-lan": {
     "name": null,
@@ -8099,9 +6957,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-stormaudio-isp": {
     "name": null,
@@ -8113,9 +6969,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-stream-sensors": {
     "name": null,
@@ -8127,9 +6981,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sunsa": {
     "name": null,
@@ -8141,9 +6993,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-sunsynk": {
     "name": null,
@@ -8155,9 +7005,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-swidget-fans": {
     "name": null,
@@ -8169,9 +7017,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-switch-button": {
     "name": null,
@@ -8183,9 +7029,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-switchbot-bluetooth-platform": {
     "name": null,
@@ -8197,9 +7041,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-switchbot-for-mac": {
     "name": null,
@@ -8211,9 +7053,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-switchbot-sensor-ble": {
     "name": null,
@@ -8225,9 +7065,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-switcher-platform": {
     "name": null,
@@ -8239,9 +7077,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tadiran-ac": {
     "name": null,
@@ -8253,9 +7089,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tado-platform": {
     "name": null,
@@ -8271,9 +7105,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tapo-camera": {
     "name": null,
@@ -8285,9 +7117,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tasmota": {
     "name": null,
@@ -8299,9 +7129,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tasmota-control": {
     "name": null,
@@ -8313,9 +7141,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tasmota-zbbridge": {
     "name": null,
@@ -8327,9 +7153,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tcc": {
     "name": null,
@@ -8341,9 +7165,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-television-universal-control": {
     "name": null,
@@ -8355,9 +7177,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-temperature-sensor-dht": {
     "name": null,
@@ -8369,9 +7189,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tempo": {
     "name": null,
@@ -8383,9 +7201,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tempstick": {
     "name": null,
@@ -8397,9 +7213,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tesmart": {
     "name": "Homebridge TESmart",
@@ -8411,9 +7225,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tessie": {
     "name": null,
@@ -8425,9 +7237,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tesvor-matter": {
     "name": null,
@@ -8439,9 +7249,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "homebridge-tesy-heater-mqtt": {
     "name": null,
@@ -8453,9 +7261,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-texecom-connect": {
     "name": null,
@@ -8467,9 +7273,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-texecom-full": {
     "name": null,
@@ -8481,9 +7285,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-thermobit": {
     "name": null,
@@ -8495,9 +7297,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tibber-price": {
     "name": null,
@@ -8509,9 +7309,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tibberswitch": {
     "name": null,
@@ -8523,9 +7321,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tidbyt": {
     "name": null,
@@ -8537,9 +7333,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tivo-control": {
     "name": null,
@@ -8551,9 +7345,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-to-hoobs": {
     "name": null,
@@ -8565,9 +7357,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tovala": {
     "name": null,
@@ -8579,9 +7369,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tp-link-access-control": {
     "name": null,
@@ -8593,9 +7381,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tp-link-powerline": {
     "name": null,
@@ -8607,9 +7393,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tplink-smarthome": {
     "name": null,
@@ -8621,9 +7405,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-trane-nexia": {
     "name": null,
@@ -8635,9 +7417,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tryfi": {
     "name": null,
@@ -8649,9 +7429,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tsvesync": {
     "name": null,
@@ -8663,9 +7441,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ttlock": {
     "name": null,
@@ -8677,9 +7453,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tuya": {
     "name": null,
@@ -8691,9 +7465,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tuya-ir": {
     "name": null,
@@ -8705,9 +7477,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tuya-matter": {
     "name": null,
@@ -8719,9 +7489,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "homebridge-tuya-platform": {
     "name": null,
@@ -8733,9 +7501,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-tuya-platform-talrhvfork": {
     "name": null,
@@ -8747,9 +7513,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-twinkly-plus": {
     "name": null,
@@ -8761,9 +7525,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-uconnect": {
     "name": null,
@@ -8775,9 +7537,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ueboom": {
     "name": null,
@@ -8789,9 +7549,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ui": {
     "name": null,
@@ -8803,9 +7561,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-unifi-access": {
     "name": null,
@@ -8817,9 +7573,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-unifi-poe-control": {
     "name": null,
@@ -8831,9 +7585,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-unifi-protect": {
     "name": null,
@@ -8845,9 +7597,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-unifi-protect-camera-motion": {
     "name": null,
@@ -8859,9 +7609,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-unifi-protect-webhook": {
     "name": null,
@@ -8873,9 +7621,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-unifi-smartpower": {
     "name": null,
@@ -8887,9 +7633,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-universal-tasmota-irhvac": {
     "name": null,
@@ -8901,9 +7645,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ups": {
     "name": null,
@@ -8915,9 +7657,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-valor-fireplace": {
     "name": null,
@@ -8929,9 +7669,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-velux": {
     "name": null,
@@ -8943,9 +7681,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-velux-active": {
     "name": null,
@@ -8957,9 +7693,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-verisure": {
     "name": null,
@@ -8971,9 +7705,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-videodoorbell": {
     "name": null,
@@ -8985,9 +7717,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-vieramatic": {
     "name": null,
@@ -8999,9 +7729,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-viessmann-vicare": {
     "name": null,
@@ -9013,9 +7741,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-virtual-accessories": {
     "name": null,
@@ -9027,9 +7753,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-volvo-xc90": {
     "name": null,
@@ -9041,9 +7765,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-washingmachine-pow": {
     "name": null,
@@ -9055,9 +7777,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-wattbox": {
     "name": null,
@@ -9073,9 +7793,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-wattbox-ip": {
     "name": null,
@@ -9087,9 +7805,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-weather-noaa": {
     "name": null,
@@ -9101,9 +7817,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-weather-plus": {
     "name": null,
@@ -9115,9 +7829,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-weatherflow-tempest": {
     "name": null,
@@ -9129,9 +7841,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-weatherxm": {
     "name": null,
@@ -9143,9 +7853,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-webos-tv": {
     "name": null,
@@ -9157,9 +7865,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-website-change-check": {
     "name": null,
@@ -9171,9 +7877,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-wemo": {
     "name": null,
@@ -9189,9 +7893,7 @@
     "author": null,
     "changelog": null,
     "verified": false,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-winix-purifiers": {
     "name": null,
@@ -9203,9 +7905,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-wiz-lan": {
     "name": null,
@@ -9217,9 +7917,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-wled-ws": {
     "name": null,
@@ -9231,9 +7929,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-wol": {
     "name": null,
@@ -9245,9 +7941,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-ws": {
     "name": null,
@@ -9259,9 +7953,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-wyze-smart-home": {
     "name": null,
@@ -9273,9 +7965,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-x-sense-v2": {
     "name": null,
@@ -9287,9 +7977,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-xbloom": {
     "name": null,
@@ -9301,9 +7989,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-xbox-tv": {
     "name": null,
@@ -9315,9 +8001,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-xfinityhome": {
     "name": null,
@@ -9329,9 +8013,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-xiaomi-aqara-ac-cooler": {
     "name": null,
@@ -9343,9 +8025,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-xiaomi-fan": {
     "name": null,
@@ -9357,9 +8037,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-xiaomi-mi-air-purifier": {
     "name": null,
@@ -9371,9 +8049,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-xiaomi-roborock-matter": {
     "name": null,
@@ -9385,9 +8061,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": true
+    "verifiedPlus": false
   },
   "homebridge-xiaomi-roborock-vacuum": {
     "name": null,
@@ -9399,9 +8073,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-yamaha-receiver": {
     "name": null,
@@ -9413,9 +8085,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-yeelighter": {
     "name": null,
@@ -9427,9 +8097,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-yet-another-ping": {
     "name": null,
@@ -9441,9 +8109,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-yindl": {
     "name": null,
@@ -9455,9 +8121,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-yolink": {
     "name": null,
@@ -9469,9 +8133,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-z2m": {
     "name": null,
@@ -9483,9 +8145,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-zidoo-androidtv": {
     "name": null,
@@ -9497,9 +8157,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-zigbee-nt": {
     "name": null,
@@ -9511,9 +8169,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-zp": {
     "name": null,
@@ -9525,9 +8181,7 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   },
   "homebridge-zwave-usb": {
     "name": null,
@@ -9539,8 +8193,6 @@
     "author": null,
     "changelog": null,
     "verified": true,
-    "verifiedPlus": false,
-    "ble": false,
-    "matter": false
+    "verifiedPlus": false
   }
 }
