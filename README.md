@@ -115,6 +115,25 @@ See the [Unmaintained Plugins](https://github.com/homebridge/plugins/wiki/Unmain
 
 See the [Unmaintained Plugins](https://github.com/homebridge/plugins/wiki/Unmaintained-Plugins) wiki page for more information about maintaining an unmaintained plugin, and a current list of plugins that need a new maintainer.
 
+## Advertising Matter Support
+
+If your plugin exposes accessories to Matter, add the `supports-matter` keyword to your plugin's `package.json`, alongside the `homebridge-plugin` keyword:
+
+```json
+{
+  "keywords": [
+    "homebridge-plugin",
+    "supports-matter"
+  ]
+}
+```
+
+From Homebridge UI v5.28.0, plugins declaring this keyword show a Matter badge on their plugin card, so users can see which plugins can expose accessories to Matter.
+
+Only add the keyword if your plugin registers Matter accessories itself — it is not for plugins that simply produce HAP accessories, since Homebridge can bridge those to Matter regardless.
+
+See the [Matter Plugins](https://github.com/homebridge/homebridge/wiki/Matter-Plugins) wiki page for more information.
+
 ## Verified Plugin Bundles
 
 The purpose of this is to help make the plugin installation process faster and more reliable for verified plugins.
