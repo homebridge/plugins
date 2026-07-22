@@ -5463,6 +5463,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-persistent-alarm": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-persistent-alarm.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-petkit-pet-feeder": {
     "name": null,
     "hidden": false,

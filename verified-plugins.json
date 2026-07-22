@@ -427,6 +427,7 @@
   "homebridge-pentair-cloud",
   "homebridge-pentair-intellicenter-ai",
   "homebridge-pentair-screenlogic",
+  "homebridge-persistent-alarm",
   "homebridge-petkit-pet-feeder",
   "homebridge-petkit-platform",
   "homebridge-petsafe-smart-feed",
