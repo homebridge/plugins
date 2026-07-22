@@ -592,6 +592,7 @@
   "homebridge-unifi-access",
   "homebridge-unifi-poe-control",
   "homebridge-unifi-protect",
+  "homebridge-unifi-protect-alarm-hub",
   "homebridge-unifi-protect-camera-motion",
   "homebridge-unifi-protect-webhook",
   "homebridge-unifi-smartpower",
