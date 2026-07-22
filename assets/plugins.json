@@ -329,8 +329,8 @@
     "icon": "icons/homebridge-lutron.png",
     "unmaintained": false,
     "newScope": false,
-    "scoped": "thenewwazoo",
-    "author": "thenewwazoo",
+    "scoped": "bwp91",
+    "author": "bwp91",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -457,8 +457,8 @@
     "icon": "icons/homebridge-roomba.png",
     "unmaintained": false,
     "newScope": false,
-    "scoped": "karlvr",
-    "author": "karlvr",
+    "scoped": "bwp91",
+    "author": "bwp91",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -469,8 +469,8 @@
     "icon": "icons/homebridge-sharkiq.png",
     "unmaintained": false,
     "newScope": false,
-    "scoped": "Bubba8291",
-    "author": "Bubba8291",
+    "scoped": "bwp91",
+    "author": "bwp91",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
@@ -545,8 +545,8 @@
     "icon": null,
     "unmaintained": false,
     "newScope": false,
-    "scoped": "sunookitsune",
-    "author": "sunookitsune",
+    "scoped": "bwp91",
+    "author": "bwp91",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
