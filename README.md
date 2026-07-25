@@ -115,24 +115,31 @@ See the [Unmaintained Plugins](https://github.com/homebridge/plugins/wiki/Unmain
 
 See the [Unmaintained Plugins](https://github.com/homebridge/plugins/wiki/Unmaintained-Plugins) wiki page for more information about maintaining an unmaintained plugin, and a current list of plugins that need a new maintainer.
 
-## Advertising Matter Support
+## Declaring Supported Transports
 
-If your plugin exposes accessories to Matter, add the `supports-matter` keyword to your plugin's `package.json`, alongside the `homebridge-plugin` keyword:
+Plugins can declare which transports they publish accessories over, using two `package.json` keywords alongside the `homebridge-plugin` keyword:
+
+- `supports-hap` — the plugin publishes accessories over HAP (HomeKit)
+- `supports-matter` — the plugin registers Matter accessories itself
 
 ```json
 {
   "keywords": [
     "homebridge-plugin",
+    "supports-hap",
     "supports-matter"
   ]
 }
 ```
 
-From Homebridge UI v5.28.0, plugins declaring this keyword show a Matter badge on their plugin card, so users can see which plugins can expose accessories to Matter.
+If you declare one transport keyword, declare all the transports you support — the Homebridge UI reads a declaration as complete. From Homebridge UI v5.28.0:
 
-Only add the keyword if your plugin registers Matter accessories itself — it is not for plugins that simply produce HAP accessories, since Homebridge can bridge those to Matter regardless.
+- Plugins declaring `supports-matter` show a Matter badge on their plugin card.
+- A plugin declaring `supports-matter` without `supports-hap` is treated as Matter-only — its new child bridges default to Matter enabled and HAP disabled, so users are not shown a HAP QR code that would pair an empty bridge.
 
-See the [Matter Plugins](https://github.com/homebridge/homebridge/wiki/Matter-Plugins) wiki page for more information.
+Only add `supports-matter` if your plugin registers Matter accessories itself — it is not for plugins that simply produce HAP accessories, since Homebridge can bridge those to Matter regardless.
+
+See the [Matter Plugins](https://github.com/homebridge/homebridge/wiki/Matter-Plugins) wiki page for the full convention.
 
 ## Verified Plugin Bundles
 
