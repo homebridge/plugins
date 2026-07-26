@@ -283,6 +283,7 @@
   "homebridge-http-sensors-switches",
   "homebridge-hubitat-tonesto7",
   "homebridge-hubspace",
+  "homebridge-hubspace-platform",
   "homebridge-hue",
   "homebridge-hue-daylight-sync",
   "homebridge-hunter-hydrawise",
