@@ -12,7 +12,7 @@ body:
     attributes:
       value: >
         Please double check the [requirements
-        list](https://github.com/homebridge/plugins#requirements) before
+        list](https://github.com/homebridge/plugins/wiki/Verified-Plugins) before
         submitting a request.
   - type: input
     id: plugin-name

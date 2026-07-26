@@ -38,26 +38,7 @@ The **Verified By Homebridge** program allows plugin developers to get their plu
 
 ### Requirements
 
-The Homebridge project team will check that your plugin meets the following criteria:
-
-- **General**
-  - The plugin must be of type [dynamic platform](https://developers.homebridge.io/#/#dynamic-platform-template).
-  - The plugin must offer functionality that is not already provided by an existing **verified** plugin.
-- **Repo**
-  - The plugin must be published to NPM and the source code available on a GitHub repository, with issues enabled.
-  - A GitHub release should be created for every new version of your plugin, with release notes.
-- **Environment**
-  - The plugin must run on all [supported LTS versions of Node.js](https://github.com/homebridge/homebridge/wiki/How-To-Update-Node.js), at the time of writing this is Node `v22` and `v24`.
-  - The plugin must successfully install and not start unless it is configured.
-  - The plugin must not execute post-install scripts that modify the user's system in any way.
-  - The plugin must not require the user to run Homebridge in a TTY or with non-standard startup parameters, even for initial configuration.
-- **Codebase**
-  - The plugin must implement the [Homebridge Plugin Settings GUI](https://developers.homebridge.io/#/config-schema).
-  - The plugin must not contain any analytics or calls that enable you to track the user.
-  - If the plugin needs to write files to disk (cache, keys, etc.), it must store them inside the Homebridge storage directory.
-  - The plugin must not throw unhandled exceptions, the plugin must catch and log its own errors.
-
-These verification requirements were last updated on 2026-05-05. Existing verified plugins will have met the requirements at the time of verification, and not necessarily the current requirements.
+The Homebridge project team will check that your plugin meets the verification criteria, which are listed on the [Verified Plugins](https://github.com/homebridge/plugins/wiki/Verified-Plugins) wiki page.
 
 ### How To Request Verification
 
