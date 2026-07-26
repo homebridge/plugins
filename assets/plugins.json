@@ -3087,18 +3087,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-frigidaire-dehumidifier": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "unmaintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-fritz-platform": {
     "name": null,
     "hidden": false,
