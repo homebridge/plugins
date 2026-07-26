@@ -2352,7 +2352,7 @@
     "scoped": false,
     "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "homebridge-davis-2": {
