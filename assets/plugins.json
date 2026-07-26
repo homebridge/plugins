@@ -3443,18 +3443,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-home-depot-hubspace": {
-    "name": null,
-    "hidden": false,
-    "icon": "icons/homebridge-home-depot-hubspace.png",
-    "unmaintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-homeassistant-garagedoor": {
     "name": null,
     "hidden": false,
