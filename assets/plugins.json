@@ -71,6 +71,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@cecnic1989/homebridge-frigidaire-dehumidifier": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@chazepps/homebridge-hejhome": {
     "name": null,
     "hidden": false,

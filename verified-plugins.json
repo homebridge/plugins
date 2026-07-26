@@ -5,6 +5,7 @@
   "@balansse/homebridge-vivint",
   "@boozilla/homebridge-shome",
   "@busse/homebridge-pluggit",
+  "@cecnic1989/homebridge-frigidaire-dehumidifier",
   "@chazepps/homebridge-hejhome",
   "@danielgindi/homebridge-bcp-charger",
   "@dppeak/homebridge-sleepiq",
