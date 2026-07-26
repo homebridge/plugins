@@ -56,8 +56,9 @@ The Homebridge project team will check that your plugin meets the following crit
   - The plugin must not contain any analytics or calls that enable you to track the user.
   - If the plugin needs to write files to disk (cache, keys, etc.), it must store them inside the Homebridge storage directory.
   - The plugin must not throw unhandled exceptions, the plugin must catch and log its own errors.
+  - The plugin must declare its supported transports by including at least one of the `supports-hap` or `supports-matter` keywords in its `package.json` — see [Declaring Supported Transports](#declaring-supported-transports).
 
-These verification requirements were last updated on 2026-05-05. Existing verified plugins will have met the requirements at the time of verification, and not necessarily the current requirements.
+These verification requirements were last updated on 2026-07-26. Existing verified plugins will have met the requirements at the time of verification, and not necessarily the current requirements.
 
 ### How To Request Verification
 

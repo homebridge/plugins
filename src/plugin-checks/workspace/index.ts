@@ -159,6 +159,7 @@ class CheckHomebridgePlugin {
       GITHUB_ACCEPT: 'application/vnd.github+json',
     },
     REQUIRED_KEYWORD: 'homebridge-plugin',
+    TRANSPORT_KEYWORDS: ['supports-hap', 'supports-matter'],
     FORBIDDEN_SCRIPTS: ['preinstall', 'install', 'postinstall'],
     REQUIRED_PLUGIN_TYPE: 'platform',
     FORBIDDEN_DEPENDENCIES: ['homebridge', 'hap-nodejs'],
@@ -390,6 +391,14 @@ class CheckHomebridgePlugin {
         }
       } else {
         this.failed.push('Package JSON: `\'homebridge-plugin\'` in `keywords` missing')
+      }
+
+      // The Homebridge UI reads these to adapt the child bridge defaults and plugin card
+      const transportKeywords: readonly string[] = CheckHomebridgePlugin.CONSTANTS.TRANSPORT_KEYWORDS
+      if (keywords.some(keyword => typeof keyword === 'string' && transportKeywords.includes(keyword.toLowerCase()))) {
+        this.passed.push('Package JSON: `keywords` declare the supported transports (`\'supports-hap\'` and/or `\'supports-matter\'`)')
+      } else {
+        this.failed.push('Package JSON: `keywords` must include at least one of `\'supports-hap\'` or `\'supports-matter\'` — see [Declaring Supported Transports](https://github.com/homebridge/plugins#declaring-supported-transports)')
       }
     } else {
       this.failed.push('Package JSON: `keywords` property missing')
