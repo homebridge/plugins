@@ -209,12 +209,27 @@ class PluginTarballs {
   private async getLatestVersions(): Promise<void> {
     for (const pluginName of this.pluginList) {
       try {
-        const response = await axios.get(`https://registry.npmjs.org/${pluginName}/latest`)
+        // Deliberately NOT the `/<name>/latest` shortcut: that endpoint can serve
+        // a cached response naming a version which has since been unpublished,
+        // leaving us trying to pack something the registry no longer has. Reading
+        // `dist-tags` from the packument keeps the tag and the version list
+        // consistent, and the abbreviated form keeps the payload small.
+        const response = await axios.get(`https://registry.npmjs.org/${pluginName}`, {
+          headers: { accept: 'application/vnd.npm.install-v1+json' },
+        })
+
+        const version: string | undefined = response.data['dist-tags']?.latest
+
+        // Belt and braces — if the tag still disagrees with the published
+        // versions, fail this plugin rather than the whole run.
+        if (!version || !response.data.versions?.[version]) {
+          throw new Error(`registry reports latest as '${version}', but no such published version exists`)
+        }
 
         const plugin: Plugin = {
           name: pluginName,
           valid: true,
-          version: response.data.version,
+          version,
           packaged: false,
         }
 
