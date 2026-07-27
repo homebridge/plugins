@@ -486,6 +486,9 @@ class PluginTarballs {
         await fs.remove(targetDir)
         await fs.remove(path.join(this.workDir, this.pluginAssetName(plugin, 'tar.gz')))
         await fs.remove(path.join(this.workDir, this.pluginAssetName(plugin, 'sha256')))
+        // Surface the failure in the release notes rather than letting it pass
+        // silently now that the upload step skips unpacked plugins.
+        this.pluginsNotProcessed.push({ plugin, error: (e as Error).message })
       }
     }
   }
@@ -495,6 +498,14 @@ class PluginTarballs {
    */
   private async uploadAssets(): Promise<void> {
     for (const plugin of this.pluginMap) {
+      // Packing can fail for reasons outside our control — most often an author
+      // unpublishing the version we resolved from the registry. The partial
+      // artefacts were cleaned up, so reading them here would throw ENOENT and
+      // fail the whole run, discarding the plugins that packed perfectly well.
+      if (!plugin.packaged) {
+        continue
+      }
+
       let allAssetsUploaded = true
       let rateLimitExhausted = false
 
