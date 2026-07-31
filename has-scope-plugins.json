@@ -15,6 +15,11 @@
     "switch": "2.3.1"
   },
   {
+    "from": "@milo526/homebridge-tuya-web",
+    "to": "@homebridge-plugins/homebridge-tuya-web",
+    "switch": "1.1.6"
+  },
+  {
     "from": "@petro-kushchak/homebridge-homepod-radio",
     "to": "@homebridge-plugins/homebridge-homepod-radio",
     "switch": "3.2.6"

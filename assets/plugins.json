@@ -523,6 +523,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-tuya-web": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": "bwp91",
+    "author": "bwp91",
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-unifi-network": {
     "name": null,
     "hidden": false,
@@ -652,11 +664,15 @@
     "hidden": false,
     "icon": null,
     "unmaintained": false,
-    "newScope": false,
+    "newScope": {
+      "from": "@milo526/homebridge-tuya-web",
+      "to": "@homebridge-plugins/homebridge-tuya-web",
+      "switch": "1.1.6"
+    },
     "scoped": false,
     "author": null,
     "changelog": null,
-    "verified": true,
+    "verified": false,
     "verifiedPlus": false
   },
   "@ncovercash/homebridge-wled-presets": {
