@@ -357,6 +357,7 @@
   "homebridge-mihomegateway",
   "homebridge-milighthub-platform",
   "homebridge-miot",
+  "homebridge-mitsubishi-heatpump",
   "homebridge-mitsubishi-wfrac",
   "homebridge-mobilelink",
   "homebridge-modern-forms-fans-v2",

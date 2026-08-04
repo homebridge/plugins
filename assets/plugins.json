@@ -4635,6 +4635,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-mitsubishi-heatpump": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-mitsubishi-wfrac": {
     "name": null,
     "hidden": false,
