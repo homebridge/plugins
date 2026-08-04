@@ -7291,6 +7291,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-tempurpedic": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-tempurpedic.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-tesmart": {
     "name": "Homebridge TESmart",
     "hidden": false,
