@@ -3759,6 +3759,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-iaqualink-matter": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-iaqualink-matter.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-icloud-smtp": {
     "name": null,
     "hidden": false,
