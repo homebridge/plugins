@@ -6843,6 +6843,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-sonos-control-pro": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-sonos-control-pro.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-sonos-multiroom": {
     "name": null,
     "hidden": false,
