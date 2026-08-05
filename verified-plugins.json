@@ -156,6 +156,7 @@
   "homebridge-comelit-platform",
   "homebridge-comelit-sb-platform",
   "homebridge-comelit-vedo-platform",
+  "homebridge-concert",
   "homebridge-config-ui-x",
   "homebridge-connectlife-ac",
   "homebridge-connectlife-aircon",
