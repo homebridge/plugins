@@ -6531,6 +6531,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-shelly-matter": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-shelly-ng": {
     "name": null,
     "hidden": false,
