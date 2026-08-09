@@ -5218,7 +5218,7 @@
   "homebridge-octopus-energy-live": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-octopus-energy-live.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
