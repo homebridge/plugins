@@ -7894,7 +7894,7 @@
   "homebridge-voltie-charger": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-voltie-charger.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
