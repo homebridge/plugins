@@ -1219,6 +1219,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-airtouch2plus": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-airtouch2plus.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-airtouch5-platform": {
     "name": null,
     "hidden": false,
