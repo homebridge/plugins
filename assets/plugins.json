@@ -3423,6 +3423,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-harvia-sauna": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-harvia-sauna.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-hatch-baby-rest": {
     "name": null,
     "hidden": false,
