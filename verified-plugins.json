@@ -471,6 +471,7 @@
   "homebridge-purpleair",
   "homebridge-purpleair-sensor",
   "homebridge-pushover-notification",
+  "homebridge-qbittorrent-plugin",
   "homebridge-qolsys",
   "homebridge-ra2-select",
   "homebridge-rachio-irrigation",
