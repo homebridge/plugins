@@ -1763,6 +1763,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-bluos": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-bluos.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-bocco-notification": {
     "name": null,
     "hidden": false,
