@@ -6171,6 +6171,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-read-your-meter-pro": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-read-your-meter-pro.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-red-alert-via-kumta": {
     "name": null,
     "hidden": false,
