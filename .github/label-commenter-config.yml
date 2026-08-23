@@ -55,7 +55,7 @@ labels:
             - [ ] The plugin must not execute post-install scripts that modify the users' system in any way.
             - [ ] The plugin must not require the user to run Homebridge in a TTY or with non-standard startup parameters, even for initial configuration.
           - **Codebase**
-            - [ ] The plugin must implement the [Homebridge Plugin Settings GUI](https://developers.homebridge.io/#/config-schema).
+            - [ ] The plugin must implement the [Homebridge Plugin Settings GUI](https://developers.homebridge.io/#/config-screen/schema).
             - [ ] The plugin must not contain any analytics or calls that enable you to track the user.
             - [ ] If the plugin needs to write files to disk (cache, keys, etc.), it must store them inside the Homebridge storage directory.
             - [ ] The plugin must not throw unhandled exceptions, the plugin must catch and log its own errors.
