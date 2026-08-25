@@ -5130,7 +5130,7 @@
   "homebridge-netro": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-netro.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
