@@ -3378,7 +3378,7 @@
   "homebridge-grizzl-e": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-grizzl-e.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
