@@ -537,6 +537,7 @@
   "homebridge-smartthings-oauth",
   "homebridge-smtp-motion",
   "homebridge-snowsense",
+  "homebridge-solaredge-modbus-tcp",
   "homebridge-solaxcloud-api",
   "homebridge-solis5g-battery",
   "homebridge-somfy-hotwired",

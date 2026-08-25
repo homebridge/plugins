@@ -6915,6 +6915,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-solaredge-modbus-tcp": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-solaxcloud-api": {
     "name": null,
     "hidden": false,
