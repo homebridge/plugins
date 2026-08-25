@@ -6918,7 +6918,7 @@
   "homebridge-solaredge-modbus-tcp": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-solaredge-modbus-tcp.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
