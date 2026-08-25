@@ -3375,6 +3375,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-grizzl-e": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-grohe-sense": {
     "name": null,
     "hidden": false,
