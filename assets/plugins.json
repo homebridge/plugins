@@ -5975,18 +5975,6 @@
     "verified": true,
     "verifiedPlus": false
   },
-  "homebridge-presence-switch-msgraph": {
-    "name": null,
-    "hidden": false,
-    "icon": null,
-    "unmaintained": false,
-    "newScope": false,
-    "scoped": false,
-    "author": null,
-    "changelog": null,
-    "verified": true,
-    "verifiedPlus": false
-  },
   "homebridge-presence-switch-slack": {
     "name": null,
     "hidden": false,
