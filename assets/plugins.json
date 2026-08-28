@@ -5374,7 +5374,7 @@
   "homebridge-ondilo-ico": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-ondilo-ico.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
