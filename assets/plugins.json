@@ -4498,7 +4498,7 @@
   "homebridge-magic-home-pro": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-magic-home-pro.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
