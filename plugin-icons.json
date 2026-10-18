@@ -31,6 +31,7 @@
   "@homebridge-plugins/homebridge-tado": "icons/homebridge-tado.png",
   "@homebridge-plugins/homebridge-tuya": "icons/homebridge-tuya.png",
   "@homebridge-plugins/homebridge-wemo": "icons/homebridge-wemo.png",
+  "@mdjhnson/homebridge-yoto": "icons/homebridge-yoto.png",
   "@pietrolubini/homebridge-ecoflow": "icons/homebridge-ecoflow.png",
   "@prasad-edlabadkar/homebridge-wiser": "icons/homebridge-wiser.png",
   "@prasad.edlabadkar/homebridge-smarteefi": "icons/homebridge-smarteefi.png",

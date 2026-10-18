@@ -49,6 +49,7 @@
   "@jackietreeh0rn/homebridge-smartrent",
   "@jay-d-tyler/homebridge-somfy-protect",
   "@jay-d-tyler/homebridge-somfy-protect-automate",
+  "@mdjhnson/homebridge-yoto",
   "@mikezucker/homebridge-kohler-generator",
   "@ncovercash/homebridge-wled-presets",
   "@o-lukas/homebridge-smartthings-tv",

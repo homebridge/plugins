@@ -647,6 +647,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@mdjhnson/homebridge-yoto": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-yoto.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@mikezucker/homebridge-kohler-generator": {
     "name": null,
     "hidden": false,
