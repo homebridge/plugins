@@ -5695,6 +5695,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-peloton": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-peloton.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-pentair-cloud": {
     "name": null,
     "hidden": false,
