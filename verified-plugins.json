@@ -11,6 +11,7 @@
   "@dppeak/homebridge-sleepiq",
   "@dr_chai/homebridge-airthings",
   "@elshaer/homebridge-hdl-buspro-enhanced",
+  "@flipped-energy/homebridge-flipped-energy",
   "@george.talusan/homebridge-eufy-robovac",
   "@hansfriedrich/homebridge-feller-wiser",
   "@hernas/homebridge-panasonic-heat-pump",

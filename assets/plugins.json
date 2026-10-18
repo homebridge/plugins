@@ -143,6 +143,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@flipped-energy/homebridge-flipped-energy": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-flipped-energy.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@george.talusan/homebridge-eufy-robovac": {
     "name": null,
     "hidden": false,
