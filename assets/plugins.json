@@ -6455,6 +6455,18 @@
     "verified": false,
     "verifiedPlus": false
   },
+  "homebridge-rpc3control": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-rpc3control.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-rpi": {
     "name": null,
     "hidden": false,

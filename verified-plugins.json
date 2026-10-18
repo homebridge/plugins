@@ -501,6 +501,7 @@
   "homebridge-robonect",
   "homebridge-roborock-matter",
   "homebridge-rointe-unofficial",
+  "homebridge-rpc3control",
   "homebridge-rpi",
   "homebridge-rpi-rf-switch",
   "homebridge-samsung-tizen",
