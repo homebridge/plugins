@@ -1134,7 +1134,7 @@
   "homebridge-aiper": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-aiper.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
