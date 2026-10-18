@@ -6083,6 +6083,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-powerview-gen1-gen2": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-powerview-gen1-gen2.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-prayer-times": {
     "name": null,
     "hidden": false,
