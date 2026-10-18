@@ -2867,6 +2867,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-electrolux-live": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-eliot-smart-control": {
     "name": null,
     "hidden": false,
