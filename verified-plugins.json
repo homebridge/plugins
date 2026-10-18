@@ -129,6 +129,7 @@
   "homebridge-bambu-lab",
   "homebridge-bed-control",
   "homebridge-beoplay",
+  "homebridge-bewave-mqtt",
   "homebridge-bigassfans-2",
   "homebridge-biocat",
   "homebridge-blaq",
