@@ -109,6 +109,7 @@
   "homebridge-anthemreceiver",
   "homebridge-apc-back-ups-hs500",
   "homebridge-appletv-enhanced",
+  "homebridge-appliance-monitor",
   "homebridge-aqara-ir-controller",
   "homebridge-aqicn",
   "homebridge-aqua-temp-connect",

@@ -1435,6 +1435,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-appliance-monitor": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-appliance-monitor.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-aqara-ir-controller": {
     "name": null,
     "hidden": false,
