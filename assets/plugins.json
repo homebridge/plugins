@@ -5223,6 +5223,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-nexus21": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-ngbs-icon-thermostat": {
     "name": null,
     "hidden": false,
