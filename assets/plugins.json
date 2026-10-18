@@ -4407,6 +4407,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-laskomex-doorbell": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-laskomex-doorbell.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-legrand-radiant": {
     "name": null,
     "hidden": false,
