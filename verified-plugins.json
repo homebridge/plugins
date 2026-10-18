@@ -113,6 +113,7 @@
   "homebridge-arctic-spas",
   "homebridge-arduino-esp-platform",
   "homebridge-argo",
+  "homebridge-atlas",
   "homebridge-atomberg-fan",
   "homebridge-automower",
   "homebridge-automower-platform",
