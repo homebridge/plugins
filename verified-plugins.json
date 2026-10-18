@@ -95,6 +95,7 @@
   "homebridge-airtouch2plus",
   "homebridge-airtouch5-platform",
   "homebridge-airzone-cloud",
+  "homebridge-ajax-sia",
   "homebridge-alexa",
   "homebridge-alexa-player",
   "homebridge-alexa-smarthome",
