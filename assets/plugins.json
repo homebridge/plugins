@@ -4467,6 +4467,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-lindy-classic8": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-litter-robot-connect": {
     "name": null,
     "hidden": false,
