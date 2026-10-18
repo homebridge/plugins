@@ -259,6 +259,7 @@
   "homebridge-godox-tl",
   "homebridge-gogogate2",
   "homebridge-google-nest-sdm",
+  "homebridge-gouly",
   "homebridge-gpio-doorbell",
   "homebridge-gpio-electric-rim-lock",
   "homebridge-gpio-rgb-ledstrip",
