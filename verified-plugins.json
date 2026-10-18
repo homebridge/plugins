@@ -168,6 +168,7 @@
   "homebridge-crestron-home",
   "homebridge-cron-scheduler",
   "homebridge-cuby",
+  "homebridge-cuby-helios",
   "homebridge-cync-app",
   "homebridge-daelim-smarthome",
   "homebridge-dafang-mqtt-republish",
