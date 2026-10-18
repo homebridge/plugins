@@ -211,6 +211,7 @@
   "homebridge-dynamicapi",
   "homebridge-dyson-bp01",
   "homebridge-dyson-pure-cool",
+  "homebridge-dyson-solarcycle-morph",
   "homebridge-easee",
   "homebridge-easy-mqtt",
   "homebridge-ecobee-status",
