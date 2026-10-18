@@ -466,6 +466,7 @@
   "homebridge-petkit-platform",
   "homebridge-petsafe-smart-feed",
   "homebridge-philips-air",
+  "homebridge-philips-airplus-cloud",
   "homebridge-philips-android-tv",
   "homebridge-philips-dline-sicp",
   "homebridge-philipsair-platform",
