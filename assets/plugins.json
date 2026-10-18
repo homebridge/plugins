@@ -5311,6 +5311,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-notify-switch": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-notify-switch.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-notifyevents": {
     "name": null,
     "hidden": false,
