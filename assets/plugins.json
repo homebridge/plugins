@@ -2855,6 +2855,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-eliot-smart-control": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-eliot-smart-control.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-elkm1": {
     "name": null,
     "hidden": false,
