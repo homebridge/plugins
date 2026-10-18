@@ -6599,6 +6599,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-script2": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-script2.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-seasons": {
     "name": null,
     "hidden": false,
