@@ -24,7 +24,7 @@ jobs:
           else
             echo "is_check_command=false" >> $GITHUB_OUTPUT
           fi
-      - uses: actions-ecosystem/action-add-labels@bd52874380e3909a1ac983768df6976535ece7f8 # v1.1.0
+      - uses: actions-ecosystem/action-add-labels@18f1af5e3544586314bbe15c0273249c770b2daf # v1.1.3
         if: ${{ steps.check-command.outputs.is_check_command == 'true' && contains(github.event.issue.labels.*.name, 'request-verification') }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
