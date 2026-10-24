@@ -531,6 +531,7 @@
   "homebridge-rpc3control",
   "homebridge-rpi",
   "homebridge-rpi-rf-switch",
+  "homebridge-rti-inovattive",
   "homebridge-samsung-tizen",
   "homebridge-samsung-windfree-ac",
   "homebridge-samsungtv-2014",
