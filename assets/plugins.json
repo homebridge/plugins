@@ -659,6 +659,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@jerome71/homebridge-heatzy-platform": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@mdjhnson/homebridge-yoto": {
     "name": null,
     "hidden": false,
