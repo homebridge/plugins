@@ -178,7 +178,10 @@ class PluginTarballs {
     const verifiedPluginsSet = new Set(this.pluginList)
     let assetsRemoved = 0
 
-    for (const release of [...this.newReleases, ...this.oldReleases]) {
+    for (const release of [
+      ...this.newReleases,
+      ...this.oldReleases,
+    ]) {
       console.log(`Removing any unverified assets from the ${release.assets.length} total assets in the ${release.tag_name} release...`)
 
       for (const asset of release.assets) {
@@ -246,7 +249,15 @@ class PluginTarballs {
         }
       } catch (e) {
         console.log(`ERROR: ${pluginName}`, (e as Error).message)
-        this.pluginsNotProcessed.push({ plugin: { name: pluginName, valid: false, version: null, packaged: false }, error: (e as Error).message })
+        this.pluginsNotProcessed.push({
+          plugin: {
+            name: pluginName,
+            valid: false,
+            version: null,
+            packaged: false,
+          },
+          error: (e as Error).message,
+        })
       }
     }
   }
@@ -255,7 +266,10 @@ class PluginTarballs {
    * Remove assets for older releases, keeping only the most recent version
    */
   private async removeAssetsForOlderReleases(): Promise<void> {
-    for (const release of [...this.newReleases, ...this.oldReleases]) {
+    for (const release of [
+      ...this.newReleases,
+      ...this.oldReleases,
+    ]) {
       const pluginAssetsMap: {
         [pluginName: string]: {
           version: string
@@ -350,7 +364,10 @@ class PluginTarballs {
    * Update the GitHub Release
    */
   private async updateRelease(): Promise<void> {
-    for (const release of [...this.newReleases, ...this.oldReleases]) {
+    for (const release of [
+      ...this.newReleases,
+      ...this.oldReleases,
+    ]) {
       try {
         const dateStr = new Date().toISOString().split('T')[0]
         const label = this.releaseNameMap[release.tag_name] || 'Plugin Tarballs'
@@ -382,7 +399,10 @@ class PluginTarballs {
    * Generate a file to keep track of the total number of downloads
    */
   private async generateDownloadStats(): Promise<void> {
-    for (const release of [...this.newReleases, ...this.oldReleases]) {
+    for (const release of [
+      ...this.newReleases,
+      ...this.oldReleases,
+    ]) {
       this.releaseStats = {}
 
       const pluginBundleAssets = release.assets.filter(x => x.name.endsWith('.tar.gz'))
@@ -482,12 +502,25 @@ class PluginTarballs {
           await fs.remove(path.join(targetDir, 'node_modules', '.package-lock.json'))
 
           // Package plugin
-          await execFileAsync('tar', ['-C', `${targetDir}/node_modules`, '--owner=0', '--group=0', '--format=posix', '-czf', this.pluginAssetName(plugin, 'tar.gz'), '.'], {
+          await execFileAsync('tar', [
+            '-C',
+            `${targetDir}/node_modules`,
+            '--owner=0',
+            '--group=0',
+            '--format=posix',
+            '-czf',
+            this.pluginAssetName(plugin, 'tar.gz'),
+            '.',
+          ], {
             cwd: this.workDir,
           })
 
           // Shasum 256 the package
-          const { stdout: shasum } = await execFileAsync('shasum', ['-a', '256', this.pluginAssetName(plugin, 'tar.gz')], {
+          const { stdout: shasum } = await execFileAsync('shasum', [
+            '-a',
+            '256',
+            this.pluginAssetName(plugin, 'tar.gz'),
+          ], {
             cwd: this.workDir,
           })
           await fs.writeFile(path.join(this.workDir, this.pluginAssetName(plugin, 'sha256')), shasum)
@@ -636,7 +669,10 @@ class PluginTarballs {
    * Delete previous versions of the assets
    */
   private async removeOldAssets(): Promise<void> {
-    for (const release of [...this.newReleases, ...this.oldReleases]) {
+    for (const release of [
+      ...this.newReleases,
+      ...this.oldReleases,
+    ]) {
       for (const plugin of this.pluginMap) {
         for (const assetType of ['tar.gz', 'sha256']) {
           const assetsToRemove = release

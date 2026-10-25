@@ -87,14 +87,26 @@ const fullJson = [
   .sort()
   .reduce((obj, key) => {
     obj[key] = {
-      name: namesSortedKeys.includes(key) ? namesSorted[key] : null,
+      name: namesSortedKeys.includes(key)
+        ? namesSorted[key]
+        : null,
       hidden: hidden.includes(key),
-      icon: (verified.includes(key) || verifiedPlus.includes(key)) && fs.existsSync(`./${icons[key]}`) ? icons[key] : null,
+      icon: (verified.includes(key) || verifiedPlus.includes(key)) && fs.existsSync(`./${icons[key]}`)
+        ? icons[key]
+        : null,
       unmaintained: unmaintained.includes(key),
-      newScope: hasScopeKeys.includes(key) ? hasScopeSorted.find(plugin => plugin.from === key) : false,
-      scoped: (key.startsWith('@homebridge-plugins/') && authorsSortedKeys.includes(key)) ? authorsSorted[key] : false,
-      author: authorsSortedKeys.includes(key) ? authorsSorted[key] : null,
-      changelog: changelogsSortedKeys.includes(key) ? changelogsSorted[key] : null,
+      newScope: hasScopeKeys.includes(key)
+        ? hasScopeSorted.find(plugin => plugin.from === key)
+        : false,
+      scoped: (key.startsWith('@homebridge-plugins/') && authorsSortedKeys.includes(key))
+        ? authorsSorted[key]
+        : false,
+      author: authorsSortedKeys.includes(key)
+        ? authorsSorted[key]
+        : null,
+      changelog: changelogsSortedKeys.includes(key)
+        ? changelogsSorted[key]
+        : null,
       verified: verified.includes(key),
       verifiedPlus: verifiedPlus.includes(key),
     }
@@ -111,7 +123,9 @@ const filteredJson = Object.keys(fullJson).reduce((obj, key) => {
     if (propValue === true) {
       props[propKey] = 1
     } else if (typeof propValue === 'string') {
-      props[propKey] = propKey === 'icon' ? iconToShortName(propValue) : propValue
+      props[propKey] = propKey === 'icon'
+        ? iconToShortName(propValue)
+        : propValue
     } else if (propValue && typeof propValue === 'object') {
       props[propKey] = propValue
     }
@@ -141,7 +155,9 @@ const filteredJsonV2 = Object.keys(fullJson).reduce((obj, key) => {
     if (propValue === true) {
       props[shortKey] = 1
     } else if (typeof propValue === 'string') {
-      props[shortKey] = propKey === 'icon' ? iconToShortName(propValue) : propValue
+      props[shortKey] = propKey === 'icon'
+        ? iconToShortName(propValue)
+        : propValue
     } else if (propValue && typeof propValue === 'object') {
       props[shortKey] = propValue
     }

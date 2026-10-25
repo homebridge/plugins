@@ -220,16 +220,46 @@ class CheckHomebridgePlugin {
 
   private async runAllTests(): Promise<void> {
     const staticTests = [
-      { name: 'Created Test Area', method: () => this.createTestArea() },
-      { name: 'Installed Plugin', method: () => this.install() },
-      { name: 'Tested Package JSON', method: () => this.testPackageJson() },
-      { name: 'Tested NPM Package', method: () => this.testNpmPackage() },
-      { name: 'Tested GitHub Version Sync', method: () => this.testGitHubVersionSync() },
-      { name: 'Tested Config Schema', method: () => this.testConfigSchema() },
-      { name: 'Tested Dependencies', method: () => this.testDependencies() },
-      { name: 'Tested Security Vulnerabilities', method: () => this.testSecurityVulnerabilities() },
-      { name: 'Tested Code Safety', method: () => this.testCodeSafety() },
-      { name: 'Tested Permissions', method: () => this.testPermissions() },
+      {
+        name: 'Created Test Area',
+        method: () => this.createTestArea(),
+      },
+      {
+        name: 'Installed Plugin',
+        method: () => this.install(),
+      },
+      {
+        name: 'Tested Package JSON',
+        method: () => this.testPackageJson(),
+      },
+      {
+        name: 'Tested NPM Package',
+        method: () => this.testNpmPackage(),
+      },
+      {
+        name: 'Tested GitHub Version Sync',
+        method: () => this.testGitHubVersionSync(),
+      },
+      {
+        name: 'Tested Config Schema',
+        method: () => this.testConfigSchema(),
+      },
+      {
+        name: 'Tested Dependencies',
+        method: () => this.testDependencies(),
+      },
+      {
+        name: 'Tested Security Vulnerabilities',
+        method: () => this.testSecurityVulnerabilities(),
+      },
+      {
+        name: 'Tested Code Safety',
+        method: () => this.testCodeSafety(),
+      },
+      {
+        name: 'Tested Permissions',
+        method: () => this.testPermissions(),
+      },
     ]
 
     // Run static analysis tests first
@@ -304,7 +334,9 @@ class CheckHomebridgePlugin {
       proc.on('error', (err) => {
         finish(() => {
           this.failed.push(`Installation: failed to start npm - ${this.handleError(err)}`)
-          reject(err instanceof Error ? err : new Error(String(err)))
+          reject(err instanceof Error
+            ? err
+            : new Error(String(err)))
         })
       })
 
@@ -502,7 +534,9 @@ class CheckHomebridgePlugin {
 
       const initializer = typeof pluginModules === 'function'
         ? pluginModules
-        : (pluginModules && typeof pluginModules.default === 'function' ? pluginModules.default : null)
+        : (pluginModules && typeof pluginModules.default === 'function'
+            ? pluginModules.default
+            : null)
 
       if (initializer) {
         this.passed.push('Package JSON: initializer function found')
@@ -544,13 +578,17 @@ class CheckHomebridgePlugin {
           Service: passthrough,
           Characteristic: passthrough,
           Categories: passthrough,
-          uuid: { generate: (s: string) => `uuid-${s}` },
+          uuid: {
+            generate: (s: string) => `uuid-${s}`,
+          },
           HAPStatus: passthrough,
           HapStatusError: passthrough,
         },
         hapLegacyTypes: passthrough,
         platformAccessory: function PlatformAccessory() {
-          return new Proxy({ context: {}, services: [] }, { get: () => () => undefined })
+          return new Proxy({ context: {}, services: [] }, {
+            get: () => () => undefined,
+          })
         },
         user: {
           storagePath: () => '/tmp',
@@ -567,7 +605,9 @@ class CheckHomebridgePlugin {
       }
 
       initializer(stubApi)
-      this.registeredNames = [...new Set(names)]
+      this.registeredNames = [
+        ...new Set(names),
+      ]
     } catch {
       // Initializer threw with the stub API — skip the consistency check.
       this.registeredNames = []
@@ -595,7 +635,13 @@ class CheckHomebridgePlugin {
     if (typeof entry !== 'object') {
       return null
     }
-    for (const key of ['.', 'import', 'require', 'node', 'default']) {
+    for (const key of [
+      '.',
+      'import',
+      'require',
+      'node',
+      'default',
+    ]) {
       if (key in entry) {
         const resolved = this.resolveExportsEntry(entry[key])
         if (resolved) {
@@ -846,7 +892,9 @@ class CheckHomebridgePlugin {
       ajv.compile(schema)
       this.passed.push('Config Schema JSON: contains valid JSON Schema')
     } catch (e) {
-      const error = e instanceof Error ? e.message : String(e)
+      const error = e instanceof Error
+        ? e.message
+        : String(e)
 
       // Check if this is the common 'required must be array' error pattern
       if (error.includes('required must be array') && hasRequiredBooleanError) {
@@ -1033,7 +1081,9 @@ class CheckHomebridgePlugin {
       ...(packageJSON.peerDependenciesMeta ?? {}),
     }
     const bundled = packageJSON.bundledDependencies ?? packageJSON.bundleDependencies
-    const bundledList = Array.isArray(bundled) ? bundled : []
+    const bundledList = Array.isArray(bundled)
+      ? bundled
+      : []
 
     for (const dep of CheckHomebridgePlugin.CONSTANTS.FORBIDDEN_DEPENDENCIES) {
       if (dep in declared || bundledList.includes(dep)) {
@@ -1181,33 +1231,49 @@ class CheckHomebridgePlugin {
 
       // Add critical findings to manual review
       if (criticalFindings.length > 0) {
-        const patterns = [...new Set(criticalFindings.map(f => f.message))]
+        const patterns = [
+          ...new Set(criticalFindings.map(f => f.message)),
+        ]
         for (const pattern of patterns) {
           const files = criticalFindings.filter(f => f.message === pattern)
-          const fileList = [...new Set(files.map(f => f.file))].slice(0, 2).join(', ')
-          const moreFiles = files.length > 2 ? ` and ${files.length - 2} more` : ''
+          const fileList = [
+            ...new Set(files.map(f => f.file)),
+          ].slice(0, 2).join(', ')
+          const moreFiles = files.length > 2
+            ? ` and ${files.length - 2} more`
+            : ''
           this.manualReview.push(`Security [Critical]: ${pattern} in ${fileList}${moreFiles}`)
         }
       }
 
       // Add high severity findings to manual review
       if (highFindings.length > 0) {
-        const patterns = [...new Set(highFindings.map(f => f.message))]
+        const patterns = [
+          ...new Set(highFindings.map(f => f.message)),
+        ]
         for (const pattern of patterns) {
           const files = highFindings.filter(f => f.message === pattern)
-          const fileList = [...new Set(files.map(f => f.file))].slice(0, 2).join(', ')
-          const moreFiles = files.length > 2 ? ` and ${files.length - 2} more` : ''
+          const fileList = [
+            ...new Set(files.map(f => f.file)),
+          ].slice(0, 2).join(', ')
+          const moreFiles = files.length > 2
+            ? ` and ${files.length - 2} more`
+            : ''
           this.manualReview.push(`Security: ${pattern} in ${fileList}${moreFiles}`)
         }
       }
 
       // Add medium severity findings to manual review
       if (mediumFindings.length > 0) {
-        const patterns = [...new Set(mediumFindings.map(f => f.message))]
+        const patterns = [
+          ...new Set(mediumFindings.map(f => f.message)),
+        ]
         for (const pattern of patterns) {
           const files = mediumFindings.filter(f => f.message === pattern)
           const count = files.length
-          this.manualReview.push(`Security: ${pattern} found in ${count} file${count > 1 ? 's' : ''}`)
+          this.manualReview.push(`Security: ${pattern} found in ${count} file${count > 1
+            ? 's'
+            : ''}`)
         }
       }
 
@@ -1232,7 +1298,13 @@ class CheckHomebridgePlugin {
 
       // Check for suspicious scripts that might elevate privileges
       if (packageJson.scripts) {
-        const suspiciousScripts = ['preinstall', 'install', 'postinstall', 'preuninstall', 'postuninstall']
+        const suspiciousScripts = [
+          'preinstall',
+          'install',
+          'postinstall',
+          'preuninstall',
+          'postuninstall',
+        ]
 
         for (const scriptName of suspiciousScripts) {
           const script = packageJson.scripts[scriptName]
@@ -1381,7 +1453,9 @@ class CheckHomebridgePlugin {
     // should only write inside the Homebridge storage directory).
     if (this.diskWritePaths.size > 0) {
       const paths = [...this.diskWritePaths].slice(0, 8).join(', ')
-      const more = this.diskWritePaths.size > 8 ? ` and ${this.diskWritePaths.size - 8} more` : ''
+      const more = this.diskWritePaths.size > 8
+        ? ` and ${this.diskWritePaths.size - 8} more`
+        : ''
       this.manualReview.push(
         `Disk Writes: plugin wrote outside the Homebridge storage directory: ${paths}${more}. `
         + 'Plugins should only write to the Homebridge storage path (e.g. via `api.user.storagePath()`).',
@@ -1410,7 +1484,12 @@ class CheckHomebridgePlugin {
     try {
       await fs.mkdirp(storagePath)
       const hbConfig = this.generateHomebridgeConfig(
-        { name: 'shutdown', config: baseConfig, expectStartup: true, description: 'shutdown/reload safety' },
+        {
+          name: 'shutdown',
+          config: baseConfig,
+          expectStartup: true,
+          description: 'shutdown/reload safety',
+        },
         port,
       )
       await fs.writeJson(join(storagePath, 'config.json'), hbConfig, { spaces: 2 })
@@ -1633,7 +1712,9 @@ class CheckHomebridgePlugin {
         finish(() => reject(new Error('Homebridge install timed out')))
       }, 5 * 60 * 1000)
 
-      proc.on('error', err => finish(() => reject(err instanceof Error ? err : new Error(String(err)))))
+      proc.on('error', err => finish(() => reject(err instanceof Error
+        ? err
+        : new Error(String(err)))))
       proc.on('close', (code) => {
         finish(() => {
           if (code === 0) {
@@ -1748,7 +1829,12 @@ class CheckHomebridgePlugin {
     }
 
     // Combine both sources of required properties
-    const allRequired = [...new Set([...requiredFromArray, ...requiredFromProperties])]
+    const allRequired = [
+      ...new Set([
+        ...requiredFromArray,
+        ...requiredFromProperties,
+      ]),
+    ]
 
     for (const prop of allRequired) {
       if (prop === 'platform') {
@@ -1951,7 +2037,9 @@ class CheckHomebridgePlugin {
           case '\\w': return 'a'
           case '\\s': return ' '
           case '.': return 'a'
-          default: return atom.length === 2 && atom[0] === '\\' ? atom[1] : atom
+          default: return atom.length === 2 && atom[0] === '\\'
+            ? atom[1]
+            : atom
         }
       }
 
@@ -2006,7 +2094,9 @@ class CheckHomebridgePlugin {
           i += 1
         }
 
-        const unit = atom.length > 1 && atom[0] !== '\\' ? atom : expand(atom)
+        const unit = atom.length > 1 && atom[0] !== '\\'
+          ? atom
+          : expand(atom)
         out += unit.repeat(Math.max(0, Math.min(count, 16)))
       }
 
@@ -2107,7 +2197,9 @@ class CheckHomebridgePlugin {
    */
   private buildPluginLoadedPatterns(): RegExp[] {
     const esc = (s: string): string => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-    const alias = this.configSchema?.pluginAlias ? esc(this.configSchema.pluginAlias) : ''
+    const alias = this.configSchema?.pluginAlias
+      ? esc(this.configSchema.pluginAlias)
+      : ''
 
     if (!alias) {
       return []
@@ -2134,7 +2226,9 @@ class CheckHomebridgePlugin {
       const result = await this.runRealHomebridgeTest(scenario)
 
       // Check both startup and plugin loading expectations
-      const startupOk = scenario.expectStartup ? result.success : !result.success
+      const startupOk = scenario.expectStartup
+        ? result.success
+        : !result.success
       const pluginLoadingOk = scenario.expectPluginToLoad === undefined
         || (scenario.expectPluginToLoad === result.pluginLoaded)
 
@@ -2266,7 +2360,13 @@ class CheckHomebridgePlugin {
         require('node:fs').writeFileSync(scriptPath, monitorScript)
 
         // Start Homebridge process with HTTP monitoring
-        homebridgeProcess = spawn('node', ['-r', scriptPath, 'node_modules/.bin/homebridge', '-U', storagePath], {
+        homebridgeProcess = spawn('node', [
+          '-r',
+          scriptPath,
+          'node_modules/.bin/homebridge',
+          '-U',
+          storagePath,
+        ], {
           cwd: this.testPath,
           stdio: 'pipe',
           env: {
@@ -3354,7 +3454,11 @@ try {
 
     for (const req of this.allHttpRequests) {
       if (!urlCounts[req.url]) {
-        urlCounts[req.url] = { count: 0, methods: new Set(), scenarios: new Set() }
+        urlCounts[req.url] = {
+          count: 0,
+          methods: new Set(),
+          scenarios: new Set(),
+        }
       }
       urlCounts[req.url].count += 1
       urlCounts[req.url].methods.add(req.method)

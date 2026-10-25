@@ -234,7 +234,12 @@ class PluginChecks {
   async runTests() {
     // create container
     try {
-      execFileSync('docker', ['build', '-t', PluginChecks.DOCKER_IMAGE_NAME, '.'], {
+      execFileSync('docker', [
+        'build',
+        '-t',
+        PluginChecks.DOCKER_IMAGE_NAME,
+        '.',
+      ], {
         cwd: __dirname,
         stdio: 'inherit',
       })
@@ -334,7 +339,9 @@ class PluginChecks {
     let summary = '- External HTTP requests detected:\n'
 
     // Sort URLs for consistent output
-    const sortedUrls = [...requestsByUrl.keys()].toSorted()
+    const sortedUrls = [
+      ...requestsByUrl.keys(),
+    ].toSorted()
 
     for (const url of sortedUrls) {
       const entry = requestsByUrl.get(url)!
@@ -356,7 +363,9 @@ class PluginChecks {
     const labels = await octokit.rest.issues.listLabelsOnIssue(restParams)
     const existingLabels = new Set(labels.data.map((l: any) => l.name))
 
-    const labelsToAdd = successful ? [PluginChecks.LABELS.AWAITING_FINAL_REVIEW] : [PluginChecks.LABELS.AWAITING_CHANGES]
+    const labelsToAdd = successful
+      ? [PluginChecks.LABELS.AWAITING_FINAL_REVIEW]
+      : [PluginChecks.LABELS.AWAITING_CHANGES]
     const labelsToRemove = successful
       ? [PluginChecks.LABELS.AWAITING_CHANGES, PluginChecks.LABELS.PENDING]
       : [PluginChecks.LABELS.PENDING, PluginChecks.LABELS.AWAITING_FINAL_REVIEW]
@@ -364,7 +373,10 @@ class PluginChecks {
     // Add labels that don't exist
     for (const label of labelsToAdd) {
       if (!existingLabels.has(label)) {
-        await octokit.rest.issues.addLabels({ ...restParams, labels: [label] })
+        await octokit.rest.issues.addLabels({
+          ...restParams,
+          labels: [label],
+        })
       }
     }
 

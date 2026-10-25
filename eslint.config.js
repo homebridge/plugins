@@ -33,7 +33,10 @@ export default antfu({
     'style/brace-style': ['error', '1tbs'],
     'style/quote-props': ['error', 'consistent-as-needed'],
     'test/no-only-tests': 'error',
-    'unused-imports/no-unused-vars': ['error', { caughtErrors: 'none' }],
+    'unused-imports/no-unused-vars': [
+      'error',
+      { caughtErrors: 'none' },
+    ],
   },
   typescript: true,
   yaml: true,
