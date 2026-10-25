@@ -5887,6 +5887,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-pagerduty": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-pagerduty.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-palgate": {
     "name": null,
     "hidden": false,
