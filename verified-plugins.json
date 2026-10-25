@@ -2,6 +2,7 @@
   "@0x5e/homebridge-tuya-platform",
   "@350d/homebridge-http-lock",
   "@350d/homebridge-seam",
+  "@atdr/homebridge-philipsair-platform",
   "@balansse/homebridge-vivint",
   "@boozilla/homebridge-shome",
   "@busse/homebridge-pluggit",

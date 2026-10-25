@@ -35,6 +35,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@atdr/homebridge-philipsair-platform": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@balansse/homebridge-vivint": {
     "name": null,
     "hidden": false,
