@@ -7,6 +7,10 @@ name: Icon Request Check
 # The comment carries a hidden marker with the result and a SHA-256 of the image it
 # checked. The Icon Approved workflow (icon-approved.yml) only applies an icon when
 # the latest check passed and the image is still the one that was checked.
+#
+# A request for a plugin that is not verified is reported as needing changes, but the
+# marker still records the request and image as valid. Icon Approved does not look at
+# verification, so a maintainer can still approve one as a one-off.
 on:
   issues:
     types:
@@ -124,6 +128,13 @@ jobs:
           RESULT_FILE: ${{ runner.temp }}/icon-result.json
         run: |
           node scripts/apply-icon-request.js prepare
+          # Note whether the plugin is verified; only this check cares
+          PLUGIN=$(jq -r '.plugin // empty' "$RESULT_FILE")
+          if [[ -n "$PLUGIN" ]]; then
+            jq --arg plugin "$PLUGIN" --slurpfile verified verified-plugins.json --slurpfile plus verified-plus-plugins.json \
+              '. + {verified: (($verified[0] + $plus[0]) | index($plugin) != null)}' "$RESULT_FILE" > "$RESULT_FILE.tmp"
+            mv "$RESULT_FILE.tmp" "$RESULT_FILE"
+          fi
           echo "result=$(jq -c . "$RESULT_FILE")" >> "$GITHUB_OUTPUT"
 
   report:
@@ -159,14 +170,23 @@ jobs:
               result = { ok: false, error: 'The check failed before it produced a result; a maintainer will look at the workflow log.' };
             }
 
-            // Hidden data the Icon Approved workflow reads when the icon is approved
-            const data = { ok: result.ok === true, sha256: result.sourceSha256 || null, plugin: result.plugin || null };
+            // Ready for review only if the request is valid and the plugin is verified
+            const notVerified = result.ok && result.verified === false;
+            const ready = result.ok && !notVerified;
+
+            // Hidden data the Icon Approved workflow reads when the icon is approved. `ok`
+            // means the request and image are valid, even for a plugin that is not
+            // verified, so a maintainer can still approve that as a one-off.
+            const data = { ok: result.ok === true, verified: result.verified ?? null, sha256: result.sourceSha256 || null, plugin: result.plugin || null };
             let body = `<!-- ${MARKER} ${JSON.stringify(data)} -->\n`;
             if (result.ok) {
               const size = result.width === 100 && result.height === 100
                 ? '100 × 100 px'
                 : `${result.width} × ${result.height} px, will be resized to 100 × 100 px`;
-              body += '### ✅ This icon request is ready for review\n\n'
+              body += (ready
+                ? '### ✅ This icon request is ready for review\n\n'
+                : '### ❌ This icon request needs changes\n\n'
+                  + `> \`${result.plugin}\` is not a verified plugin. Icons are added for verified plugins, so please [request verification](${repoUrl}/issues/new/choose) first.\n\n`)
                 + `- **Plugin:** \`${result.plugin}\`\n`
                 + `- **Requested by:** ${result.requester}\n`
                 + `- **Icon:** ${size}\n`
@@ -174,7 +194,9 @@ jobs:
                   ? `- **Replaces the current icon:** <img src="${repoUrl}/raw/latest/${result.replaces}" width="50" height="50" alt="current icon">\n`
                   : '')
                 + `\n<img src="${result.source}" width="100" height="100" alt="requested icon">\n\n`
-                + 'A maintainer will review the icon. If you change it, this check runs again.';
+                + (ready
+                  ? 'A maintainer will review the icon. If you change it, this check runs again.'
+                  : 'Once the plugin is verified, comment `/check` to run this check again.');
             } else {
               body += '### ❌ This icon request needs changes\n\n'
                 + `> ${result.error}\n\n`
@@ -197,8 +219,8 @@ jobs:
             if (!has('request-icon')) {
               add.push('request-icon');
             }
-            add.push(result.ok ? 'awaiting-final-review' : 'awaiting-changes');
-            const remove = ['pending', result.ok ? 'awaiting-changes' : 'awaiting-final-review'];
+            add.push(ready ? 'awaiting-final-review' : 'awaiting-changes');
+            const remove = ['pending', ready ? 'awaiting-changes' : 'awaiting-final-review'];
             await github.rest.issues.addLabels({ ...issue, labels: add });
             for (const name of remove.filter(has)) {
               await github.rest.issues.removeLabel({ ...issue, name });
@@ -207,7 +229,9 @@ jobs:
             const summary = core.summary.addHeading(`Icon request check: #${issue.issue_number}`, 3);
             if (result.ok) {
               summary
-                .addRaw('✅ **Ready for review**', true)
+                .addRaw(ready
+                  ? '✅ **Ready for review**'
+                  : '❌ **Needs changes:** the plugin is not verified. The request and image are otherwise valid and recorded in the check marker, so a maintainer can still approve this as a one-off.', true)
                 .addList([
                   `Plugin: \`${result.plugin}\``,
                   `Requested by: ${result.requester}`,
