@@ -1,4 +1,4 @@
-name: Icon Request
+name: Icon Approved
 
 # A maintainer approves an icon by adding the `icon-approved` label to an icon request
 # (an issue labelled `request-icon`). This downloads the icon, makes it a 100x100
@@ -62,21 +62,30 @@ jobs:
             const canWrite = permission => ['admin', 'maintain', 'write'].includes(permission);
 
             const approver = context.payload.sender.login;
+            const author = context.payload.issue.user.login;
+            const summary = core.summary.addHeading('Authorize', 3).addList([
+              `Issue: #${context.issue.number} by @${author}`,
+              `Approved by: @${approver}`,
+            ]);
+
             const approverPermission = await permissionOf(approver);
             if (!canWrite(approverPermission)) {
               await github.rest.issues.removeLabel({ ...repo, issue_number: context.issue.number, name: 'icon-approved' });
+              await summary.addRaw(`❌ **Approval rejected:** @${approver} has ${approverPermission} permission; \`icon-approved\` needs write. The label was removed.`, true).write();
               core.setFailed(`${approver} has ${approverPermission} permission; icon-approved needs write.`);
               return;
             }
 
             // Maintainers may request icons for plugins they do not develop
-            core.setOutput('author_is_maintainer', String(canWrite(await permissionOf(context.payload.issue.user.login))));
+            const authorIsMaintainer = canWrite(await permissionOf(author));
+            core.setOutput('author_is_maintainer', String(authorIsMaintainer));
 
             // Only apply an icon whose latest Icon Request Check passed and is not
             // older than the last edit to the issue
-            const refuse = (reason) => {
+            const refuse = async (reason) => {
               core.setOutput('ready', 'false');
               core.setOutput('refusal', reason);
+              await summary.addRaw(`⛔ **Not applied:** ${reason}`, true).write();
             };
             const issue = { ...repo, issue_number: context.issue.number };
             const comments = await github.paginate(github.rest.issues.listComments, issue);
@@ -99,6 +108,14 @@ jobs:
             }
             core.setOutput('ready', 'true');
             core.setOutput('expected_sha256', check.sha256);
+            await summary
+              .addRaw(`✅ **Ready:** the latest check passed (${checkComment.updated_at}) and the issue has not been edited since.`, true)
+              .addList([
+                `Approver permission: ${approverPermission}`,
+                `Requester is a maintainer: ${authorIsMaintainer ? 'yes' : 'no'}`,
+                `Expected image SHA-256: \`${check.sha256}\``,
+              ])
+              .write();
 
   prepare:
     needs: authorize
@@ -141,6 +158,12 @@ jobs:
           if [[ "$(jq -r .ok "$RESULT_FILE")" == "true" ]]; then
             echo "png=$(base64 -w0 "$ICON_FILE")" >> "$GITHUB_OUTPUT"
           fi
+          jq -r --arg size "$(wc -c < "$ICON_FILE" 2>/dev/null | tr -d " ")" '"### Prepare\n" + if .ok then
+            "✅ **Icon prepared** (read-only job, image decoded here only)\n\n"
+            + "- Plugin: `\(.plugin)`\n- Requested by: \(.requester)\n- Source: \(.source)\n"
+            + "- Original size: \(.width) × \(.height) px\n- Image SHA-256: `\(.sourceSha256)` (matches the check)\n"
+            + "- Converted to: 100 × 100 PNG, \($size) bytes"
+          else "❌ **Stopped:** \(.error)" end' "$RESULT_FILE" >> "$GITHUB_STEP_SUMMARY"
 
   apply:
     needs: prepare
@@ -207,6 +230,11 @@ jobs:
             sleep $((attempt * 5))
           done
           echo "result=$(jq -c . "$RESULT_FILE")" >> "$GITHUB_OUTPUT"
+          jq -r --arg repo "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" '"### Apply\n" + if (.ok | not) then "❌ **Not committed:** \(.error)"
+            elif .unchanged then "➖ **Nothing to commit:** the icon for `\(.plugin)` is already up to date."
+            else "✅ **Committed** [`\(.sha[0:7])`](\($repo)/commit/\(.sha)) to `latest`\n\n"
+              + "- \(if .updated then "Replaced" else "Added" end): `\(.iconPath)`\n"
+              + "- Also updated: `plugin-icons.json`, `assets/plugins*.json`" end' "$RESULT_FILE" >> "$GITHUB_STEP_SUMMARY"
 
   report:
     needs:
@@ -267,3 +295,15 @@ jobs:
             if (result.ok) {
               await github.rest.issues.update({ ...issue, state: 'closed', state_reason: 'completed' });
             }
+
+            await core.summary
+              .addHeading('Report', 3)
+              .addRaw(result.ok
+                ? (result.unchanged ? '➖ **No change needed.**' : `✅ **Icon ${result.updated ? 'updated' : 'added'}** for \`${result.plugin}\`.`)
+                : `❌ **Not applied:** ${result.error}`, true)
+              .addList([
+                `Commented on #${context.issue.number}`,
+                'Removed the `icon-approved` label',
+                result.ok ? 'Closed the request' : 'Left the request open',
+              ])
+              .write();

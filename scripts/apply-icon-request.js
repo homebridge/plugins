@@ -1,5 +1,5 @@
 /**
- * Applies the icon from an approved icon request to the repo. Run by the Icon Request
+ * Applies the icon from an approved icon request to the repo. Run by the Icon Approved
  * workflow in two steps, in separate jobs, so the untrusted image is never decoded in
  * a job that can push:
  *

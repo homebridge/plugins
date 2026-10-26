@@ -5,8 +5,8 @@ name: Icon Request Check
 # on the issue up to date saying whether it is ready to approve. Nothing is committed.
 #
 # The comment carries a hidden marker with the result and a SHA-256 of the image it
-# checked. The Icon Request workflow only applies an icon when the latest check passed
-# and the image is still the one that was checked.
+# checked. The Icon Approved workflow (icon-approved.yml) only applies an icon when
+# the latest check passed and the image is still the one that was checked.
 on:
   issues:
     types:
@@ -159,7 +159,7 @@ jobs:
               result = { ok: false, error: 'The check failed before it produced a result; a maintainer will look at the workflow log.' };
             }
 
-            // Hidden data the Icon Request workflow reads when the icon is approved
+            // Hidden data the Icon Approved workflow reads when the icon is approved
             const data = { ok: result.ok === true, sha256: result.sourceSha256 || null, plugin: result.plugin || null };
             let body = `<!-- ${MARKER} ${JSON.stringify(data)} -->\n`;
             if (result.ok) {
@@ -203,3 +203,26 @@ jobs:
             for (const name of remove.filter(has)) {
               await github.rest.issues.removeLabel({ ...issue, name });
             }
+
+            const summary = core.summary.addHeading(`Icon request check: #${issue.issue_number}`, 3);
+            if (result.ok) {
+              summary
+                .addRaw('✅ **Ready for review**', true)
+                .addList([
+                  `Plugin: \`${result.plugin}\``,
+                  `Requested by: ${result.requester}`,
+                  `Source: ${result.source}`,
+                  `Original size: ${result.width} × ${result.height} px`,
+                  `Image SHA-256: \`${result.sourceSha256}\` (an approval must match this)`,
+                  `Replaces an existing icon: ${result.replaces ? `yes (\`${result.replaces}\`)` : 'no'}`,
+                ]);
+            } else {
+              summary.addRaw(`❌ **Needs changes:** ${result.error}`, true);
+            }
+            await summary
+              .addList([
+                `${existing ? 'Updated' : 'Posted'} the check comment`,
+                `Labels added: ${add.join(', ')}`,
+                `Labels removed: ${remove.filter(has).join(', ') || 'none'}`,
+              ])
+              .write();
