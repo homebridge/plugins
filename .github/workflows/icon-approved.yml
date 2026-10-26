@@ -291,8 +291,11 @@ jobs:
               await github.rest.issues.removeLabel({ ...issue, name: 'icon-approved' });
             } catch {}
 
-            // The request is done once its icon is in
+            // The request is done once its icon is in; it is no longer awaiting review
             if (result.ok) {
+              try {
+                await github.rest.issues.removeLabel({ ...issue, name: 'awaiting-final-review' });
+              } catch {}
               await github.rest.issues.update({ ...issue, state: 'closed', state_reason: 'completed' });
             }
 
@@ -304,6 +307,6 @@ jobs:
               .addList([
                 `Commented on #${context.issue.number}`,
                 'Removed the `icon-approved` label',
-                result.ok ? 'Closed the request' : 'Left the request open',
+                result.ok ? 'Removed `awaiting-final-review` and closed the request' : 'Left the request open',
               ])
               .write();
