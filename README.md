@@ -13,7 +13,7 @@ Information and resources for Homebridge plugins.
 Create [an issue](https://github.com/homebridge/plugins/issues/new/choose) to:
 
 - request verification for your plugin
-- request an icon for your verified plugin
+- request an icon for your plugin
 - request a transfer into the Homebridge organization (you can choose whether to continue maintaining the plugin)
 - request to maintain an unmaintained plugin listed [here](https://github.com/homebridge/plugins/wiki/Unmaintained-Plugins#available-plugins)
 
@@ -34,7 +34,6 @@ The **Verified By Homebridge** program allows plugin developers to get their plu
 - The **Verified** shield icon will turn green next to your plugin in the [Homebridge UI](https://github.com/homebridge/homebridge-config-ui-x).
 - The [**Donate**](https://github.com/homebridge/homebridge-config-ui-x/wiki/Developers:-Donation-Links) heart icon will turn pink and enable on your plugin tile in the Homebridge UI.
 - Your plugin is bumped to the top of the search results in the Homebridge UI.
-- You can optionally upload an icon for your plugin which will be displayed in the Homebridge UI.
 
 ### Requirements
 

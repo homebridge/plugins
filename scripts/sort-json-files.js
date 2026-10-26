@@ -46,19 +46,12 @@ const hasScopeSorted = hasScope.sort((a, b) => a.from.localeCompare(b.from))
 const hasScopeKeys = hasScopeSorted.map(plugin => plugin.from)
 fs.writeFileSync('has-scope-plugins.json', `${JSON.stringify(hasScopeSorted, null, 2)}\n`)
 
-// A plugin's icon is only shown when the plugin is verified (or verified-plus),
-// so drop icon entries for plugins on neither list, and entries whose icon
-// file is missing from the repo.
+// Any plugin may have an icon, verified or not. Drop entries whose icon file is
+// missing from the repo.
 const icons = JSON.parse(fs.readFileSync('plugin-icons.json', 'utf8'))
-
-fs.writeFileSync('plugin-icons.json', `${JSON.stringify(Object.keys(icons)
+const iconsSorted = Object.keys(icons)
   .filter((key) => {
-    const iconFile = icons[key]
-    if (!verified.includes(key) && !verifiedPlus.includes(key)) {
-      console.log(` - Ignoring icon for ${key} because it is not in the verified or verified-plus lists`)
-      return false
-    }
-    if (!fs.existsSync(`./${iconFile}`)) {
+    if (!fs.existsSync(`./${icons[key]}`)) {
       console.log(` - Ignoring icon for ${key} because the icon file does not exist`)
       return false
     }
@@ -68,8 +61,11 @@ fs.writeFileSync('plugin-icons.json', `${JSON.stringify(Object.keys(icons)
   .reduce((obj, key) => {
     obj[key] = icons[key]
     return obj
-  }, {}), null, 2)}\n`)
+  }, {})
 
+fs.writeFileSync('plugin-icons.json', `${JSON.stringify(iconsSorted, null, 2)}\n`)
+
+const iconsSortedKeys = Object.keys(iconsSorted)
 const authorsSortedKeys = Object.keys(authorsSorted)
 const namesSortedKeys = Object.keys(namesSorted)
 const changelogsSortedKeys = Object.keys(changelogsSorted)
@@ -83,6 +79,8 @@ const fullJson = [
   ...authorsSortedKeys,
   ...namesSortedKeys,
   ...changelogsSortedKeys,
+  // An unverified plugin with an icon may be on no other list
+  ...iconsSortedKeys,
 ]
   .sort()
   .reduce((obj, key) => {
@@ -91,9 +89,7 @@ const fullJson = [
         ? namesSorted[key]
         : null,
       hidden: hidden.includes(key),
-      icon: (verified.includes(key) || verifiedPlus.includes(key)) && fs.existsSync(`./${icons[key]}`)
-        ? icons[key]
-        : null,
+      icon: iconsSorted[key] || null,
       unmaintained: unmaintained.includes(key),
       newScope: hasScopeKeys.includes(key)
         ? hasScopeSorted.find(plugin => plugin.from === key)
@@ -179,6 +175,7 @@ console.log(`- Scoped Total: ${fullArray.filter(plugin => plugin.scoped).length}
 console.log(`- Has New Scope Total: ${fullArray.filter(plugin => plugin.newScope).length}`)
 console.log(`- Verified With Icon: ${fullArray.filter(plugin => plugin.verified && plugin.icon).length}`)
 console.log(`- Verified Without Icon: ${fullArray.filter(plugin => plugin.verified && !plugin.icon).length}`)
+console.log(`- Unverified With Icon: ${fullArray.filter(plugin => !plugin.verified && !plugin.verifiedPlus && plugin.icon).length}`)
 console.log(`- Verified Total: ${fullArray.filter(plugin => plugin.verified).length}`)
 console.log(`- Verified Plus Total: ${fullArray.filter(plugin => plugin.verifiedPlus).length}`)
 console.log('-----------------------------')

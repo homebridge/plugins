@@ -148,13 +148,14 @@ async function main() {
   const body = process.env.ISSUE_BODY || ''
   const plugin = getPluginName(body)
 
-  const verified = [
-    ...readJson('verified-plugins.json'),
-    ...readJson('verified-plus-plugins.json'),
-  ]
-  if (!verified.includes(plugin)) {
-    // scripts/sort-json-files.js drops icon entries for plugins on neither list
-    throw new IconRequestError(`\`${plugin}\` is not on the verified list, and icons are only shown for verified plugins.`)
+  // Any plugin may have an icon, but it must be a real package, so a typo in the
+  // name does not add an icon nothing will ever use
+  const npm = await fetch(`https://registry.npmjs.org/${plugin.replace('/', '%2F')}`, { method: 'HEAD' })
+  if (npm.status === 404) {
+    throw new IconRequestError(`\`${plugin}\` was not found on npm. Please check the "Plugin Name" field.`)
+  }
+  if (!npm.ok) {
+    throw new IconRequestError(`Could not check \`${plugin}\` on npm (HTTP ${npm.status}); please try again later.`)
   }
 
   const source = getIconUrl(body)
