@@ -5,10 +5,14 @@
  *
  *   prepare  Reads the request, checks the plugin exists and that the requester is
  *            its developer, downloads the image and converts it to a 100x100 PNG.
- *            Runs without write access.
+ *            Runs without write access. The Icon Request Check workflow runs this on
+ *            its own to tell the requester whether the request is ready.
  *            Input:  ISSUE_BODY (untrusted), ISSUE_AUTHOR, AUTHOR_IS_MAINTAINER,
- *                    GITHUB_TOKEN (read-only), ICON_FILE (where to write the PNG)
- *            Output: { ok, plugin, source, width, height, requester } or { ok: false, error }
+ *                    GITHUB_TOKEN (read-only), ICON_FILE (where to write the PNG),
+ *                    EXPECTED_SHA256 (optional: refuse unless the downloaded image
+ *                    is the one the check approved)
+ *            Output: { ok, plugin, source, sourceSha256, width, height, requester,
+ *                    replaces } or { ok: false, error }
  *
  *   commit   Re-checks the prepared PNG without decoding it, then writes it to icons/
  *            and adds it to plugin-icons.json. Runs in the job that pushes.
@@ -23,6 +27,7 @@
  */
 
 import { Buffer } from 'node:buffer'
+import { createHash } from 'node:crypto'
 import fs from 'node:fs'
 import process from 'node:process'
 
@@ -73,7 +78,9 @@ function getPluginName(body) {
     .replace(/^`+|`+$/g, '')
     .toLowerCase()
   if (!PLUGIN_NAME.test(name)) {
-    throw new IconRequestError(`Could not read a valid plugin name from the "Plugin Name" field (found \`${name || 'nothing'}\`).`)
+    // Quoted back on the issue, so keep it short and unable to break out of the code span
+    const found = name.replace(/`/g, '').slice(0, 80) || 'nothing'
+    throw new IconRequestError(`Could not read a valid plugin name from the "Plugin Name" field (found \`${found}\`).`)
   }
   return name
 }
@@ -261,15 +268,26 @@ async function prepare() {
   const plugin = getPluginName(body)
   const requester = await checkRequester(plugin)
   const source = getIconUrl(body)
-  const { png, width, height } = await toIcon(await download(source))
+  const image = await download(source)
+
+  // Fingerprint of the original image, so an approval can insist on the image the
+  // check showed rather than whatever the issue holds by then
+  const sourceSha256 = createHash('sha256').update(image).digest('hex')
+  if (process.env.EXPECTED_SHA256 && process.env.EXPECTED_SHA256 !== sourceSha256) {
+    throw new IconRequestError('The icon has changed since the request was last checked. Please review the new icon before approving it.')
+  }
+
+  const { png, width, height } = await toIcon(image)
   fs.writeFileSync(process.env.ICON_FILE, png)
   return {
     ok: true,
     plugin,
     source,
+    sourceSha256,
     width,
     height,
     requester,
+    replaces: readJson('plugin-icons.json')[plugin] || null,
   }
 }
 
