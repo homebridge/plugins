@@ -1,9 +1,10 @@
 name: Icon Request
 
 # A maintainer approves an icon by adding the `icon-approved` label to an icon request
-# (or to a verification request that attached an icon). This downloads the icon,
-# makes it a 100x100 PNG, adds it to icons/ and plugin-icons.json, regenerates
-# assets/, commits to `latest`, and reports back on the issue.
+# (an issue labelled `request-icon`). This downloads the icon, makes it a 100x100
+# PNG, adds it to icons/ and plugin-icons.json, regenerates assets/, commits to
+# `latest`, reports back on the issue and closes it. The label is ignored on any
+# other issue.
 on:
   issues:
     types:
@@ -20,7 +21,7 @@ concurrency:
 
 jobs:
   apply-icon:
-    if: github.event.label.name == 'icon-approved'
+    if: github.event.label.name == 'icon-approved' && contains(github.event.issue.labels.*.name, 'request-icon')
     runs-on: ubuntu-latest
     steps:
       - name: Check the approver can write to the repo
@@ -136,8 +137,7 @@ jobs:
               await github.rest.issues.removeLabel({ ...issue, name: 'icon-approved' });
             } catch {}
 
-            // An icon request is done once its icon is in; a verification request stays open for review
-            const labels = context.payload.issue.labels.map(l => l.name);
-            if (result.ok && labels.includes('request-icon')) {
+            // The request is done once its icon is in
+            if (result.ok) {
               await github.rest.issues.update({ ...issue, state: 'closed', state_reason: 'completed' });
             }
