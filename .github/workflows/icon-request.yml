@@ -1,0 +1,143 @@
+name: Icon Request
+
+# A maintainer approves an icon by adding the `icon-approved` label to an icon request
+# (or to a verification request that attached an icon). This downloads the icon,
+# makes it a 100x100 PNG, adds it to icons/ and plugin-icons.json, regenerates
+# assets/, commits to `latest`, and reports back on the issue.
+on:
+  issues:
+    types:
+      - labeled
+
+permissions:
+  contents: write
+  issues: write
+
+# One at a time, so two approvals never race on plugin-icons.json and assets/
+concurrency:
+  group: icon-request
+  cancel-in-progress: false
+
+jobs:
+  apply-icon:
+    if: github.event.label.name == 'icon-approved'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the approver can write to the repo
+        id: permission
+        uses: actions/github-script@v9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data } = await github.rest.repos.getCollaboratorPermissionLevel({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              username: context.payload.sender.login,
+            });
+            if (!['admin', 'maintain', 'write'].includes(data.permission)) {
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                name: 'icon-approved',
+              });
+              core.setFailed(`${context.payload.sender.login} has ${data.permission} permission; icon-approved needs write.`);
+            }
+
+      - uses: actions/checkout@v7
+        with:
+          ref: latest
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: v24
+
+      - name: Install sharp
+        run: npm install --no-save sharp@0.35.4
+
+      - name: Apply the icon and commit
+        id: apply
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          RESULT_FILE: ${{ runner.temp }}/icon-result.json
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          # Rebuilding from a fresh `latest` on each attempt means a push that loses a
+          # race to another commit is simply redone on top of it.
+          for attempt in 1 2 3; do
+            git fetch --quiet origin latest
+            git reset --quiet --hard origin/latest
+
+            node scripts/apply-icon-request.js
+            if [[ "$(jq -r .ok "$RESULT_FILE")" != "true" ]]; then
+              exit 0
+            fi
+            PLUGIN=$(jq -r .plugin "$RESULT_FILE")
+            ICON_PATH=$(jq -r .iconPath "$RESULT_FILE")
+
+            # Sorts the JSON files and regenerates assets/plugins*.json
+            node scripts/sort-json-files.js
+
+            if git diff --quiet && [[ -z "$(git ls-files --others --exclude-standard icons)" ]]; then
+              jq '. + {unchanged: true}' "$RESULT_FILE" > "$RESULT_FILE.tmp" && mv "$RESULT_FILE.tmp" "$RESULT_FILE"
+              exit 0
+            fi
+
+            git add -- "$ICON_PATH" plugin-icons.json assets
+            git commit --quiet -m "icon: $PLUGIN" -m "From homebridge/plugins#$ISSUE_NUMBER"
+            if git push --quiet origin HEAD:latest; then
+              jq --arg sha "$(git rev-parse HEAD)" '. + {sha: $sha}' "$RESULT_FILE" > "$RESULT_FILE.tmp" && mv "$RESULT_FILE.tmp" "$RESULT_FILE"
+              exit 0
+            fi
+            echo "Push failed (attempt $attempt), retrying on the new latest"
+            sleep $((attempt * 5))
+          done
+          echo '{"ok": false, "error": "The icon could not be pushed to `latest` after 3 attempts; see the workflow log."}' > "$RESULT_FILE"
+
+      - name: Report on the issue
+        if: always() && steps.permission.outcome == 'success'
+        uses: actions/github-script@v9
+        env:
+          RESULT_FILE: ${{ runner.temp }}/icon-result.json
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('node:fs');
+            const issue = { owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number };
+            const run = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+
+            let result;
+            try {
+              result = JSON.parse(fs.readFileSync(process.env.RESULT_FILE, 'utf8'));
+            } catch {
+              result = { ok: false, error: 'The icon workflow failed before it produced a result.' };
+            }
+
+            let body;
+            if (!result.ok) {
+              body = `The icon could not be added automatically:\n\n> ${result.error}\n\n`
+                + 'Once this is fixed (for example by editing the icon in the issue), a maintainer can add the `icon-approved` label again.\n\n'
+                + `[Workflow run](${run})`;
+            } else if (result.unchanged) {
+              body = `The icon for \`${result.plugin}\` was already up to date; nothing was changed.`;
+            } else {
+              const resized = result.width === 100 && result.height === 100 ? '' : ` (resized from ${result.width} × ${result.height} px)`;
+              body = `${result.updated ? 'Updated' : 'Added'} the icon for \`${result.plugin}\`${resized} in ${result.sha.slice(0, 7)}. `
+                + 'It should show in the Homebridge UI within the hour.\n\n'
+                + `<img src="${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/raw/${result.sha}/${result.iconPath}" width="100" height="100" alt="${result.plugin} icon">`;
+            }
+            await github.rest.issues.createComment({ ...issue, body });
+
+            // Clear the approval either way, so adding it again re-runs this
+            try {
+              await github.rest.issues.removeLabel({ ...issue, name: 'icon-approved' });
+            } catch {}
+
+            // An icon request is done once its icon is in; a verification request stays open for review
+            const labels = context.payload.issue.labels.map(l => l.name);
+            if (result.ok && labels.includes('request-icon')) {
+              await github.rest.issues.update({ ...issue, state: 'closed', state_reason: 'completed' });
+            }
