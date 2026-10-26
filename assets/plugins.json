@@ -6082,7 +6082,7 @@
   "homebridge-philips-airplus-cloud": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-philips-airplus-cloud.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
@@ -7174,7 +7174,7 @@
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
-    "author": null,
+    "author": "shamoon",
     "changelog": null,
     "verified": true,
     "verifiedPlus": false
