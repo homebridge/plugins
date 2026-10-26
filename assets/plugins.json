@@ -5226,7 +5226,7 @@
   "homebridge-my-tadiran": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-my-tadiran.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
