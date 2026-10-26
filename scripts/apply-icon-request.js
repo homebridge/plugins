@@ -152,8 +152,8 @@ async function main() {
   const body = process.env.ISSUE_BODY || ''
   const plugin = getPluginName(body)
 
-  // Any plugin may have an icon, but it must be a real package, so a typo in the
-  // name does not add an icon nothing will ever use
+  // The plugin must be a real package, so a typo in the name does not add an
+  // icon nothing will ever use
   const npm = await fetch(`https://registry.npmjs.org/${plugin.replace('/', '%2F')}`, { method: 'HEAD' })
   if (npm.status === 404) {
     throw new IconRequestError(`\`${plugin}\` was not found on npm. Please check the "Plugin Name" field.`)

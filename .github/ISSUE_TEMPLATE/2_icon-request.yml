@@ -1,5 +1,5 @@
 name: Plugin Icon Request
-description: Request an icon for your plugin.
+description: Request an icon for your verified plugin.
 title: 'Plugin Icon Request: homebridge-'
 labels:
   - request-icon
@@ -10,8 +10,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        - Icons can only be requested by the developer of a plugin.
-        - Your plugin does not need to be verified to have an icon.
+        - A plugin must be **verified** before requesting an icon.
+        - Icons can only be request by the developer of a plugin.
   - type: input
     id: plugin-name
     attributes:

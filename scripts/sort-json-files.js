@@ -46,8 +46,7 @@ const hasScopeSorted = hasScope.sort((a, b) => a.from.localeCompare(b.from))
 const hasScopeKeys = hasScopeSorted.map(plugin => plugin.from)
 fs.writeFileSync('has-scope-plugins.json', `${JSON.stringify(hasScopeSorted, null, 2)}\n`)
 
-// Any plugin may have an icon, verified or not. Drop entries whose icon file is
-// missing from the repo.
+// Drop icon entries whose icon file is missing from the repo.
 const icons = JSON.parse(fs.readFileSync('plugin-icons.json', 'utf8'))
 const iconsSorted = Object.keys(icons)
   .filter((key) => {
@@ -79,7 +78,7 @@ const fullJson = [
   ...authorsSortedKeys,
   ...namesSortedKeys,
   ...changelogsSortedKeys,
-  // An unverified plugin with an icon may be on no other list
+  // A plugin with an icon may be on no other list
   ...iconsSortedKeys,
 ]
   .sort()
@@ -175,7 +174,6 @@ console.log(`- Scoped Total: ${fullArray.filter(plugin => plugin.scoped).length}
 console.log(`- Has New Scope Total: ${fullArray.filter(plugin => plugin.newScope).length}`)
 console.log(`- Verified With Icon: ${fullArray.filter(plugin => plugin.verified && plugin.icon).length}`)
 console.log(`- Verified Without Icon: ${fullArray.filter(plugin => plugin.verified && !plugin.icon).length}`)
-console.log(`- Unverified With Icon: ${fullArray.filter(plugin => !plugin.verified && !plugin.verifiedPlus && plugin.icon).length}`)
 console.log(`- Verified Total: ${fullArray.filter(plugin => plugin.verified).length}`)
 console.log(`- Verified Plus Total: ${fullArray.filter(plugin => plugin.verifiedPlus).length}`)
 console.log('-----------------------------')
