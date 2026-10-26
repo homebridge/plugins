@@ -1,0 +1,309 @@
+name: Icon Approved
+
+# A maintainer approves an icon by adding the `icon-approved` label to an icon request
+# (an issue labelled `request-icon`). This downloads the icon, makes it a 100x100
+# PNG, adds it to icons/ and plugin-icons.json, regenerates assets/, commits to
+# `latest`, reports back on the issue and closes it. The label is ignored on any
+# other issue.
+#
+# Approval only goes ahead when the latest Icon Request Check (icon-request-check.yml)
+# passed, the issue has not been edited since, and the image downloaded now is the one
+# that check fingerprinted.
+#
+# The untrusted image is downloaded and decoded in the `prepare` job, which has no
+# write access and keeps no git credentials. Only the finished PNG is passed on to
+# the `apply` job that pushes, which checks it again without decoding it.
+#
+# Stage 2 (not yet built): also apply the icon attached to a verification request
+# when a maintainer adds the `verified` label, leaving that issue's closing to the
+# verification flow. scripts/apply-icon-request.js already reads the verification
+# form's "Plugin Icon (Optional)" field, so this needs a second trigger here, not
+# a new script.
+on:
+  issues:
+    types:
+      - labeled
+
+permissions: {}
+
+# One at a time, so two approvals never race on plugin-icons.json and assets/
+concurrency:
+  group: icon-request
+  cancel-in-progress: false
+
+jobs:
+  authorize:
+    if: github.event.label.name == 'icon-approved' && contains(github.event.issue.labels.*.name, 'request-icon')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    outputs:
+      author_is_maintainer: ${{ steps.check.outputs.author_is_maintainer }}
+      ready: ${{ steps.check.outputs.ready }}
+      expected_sha256: ${{ steps.check.outputs.expected_sha256 }}
+      refusal: ${{ steps.check.outputs.refusal }}
+    steps:
+      - name: Check the approver, and that the request passed its check
+        id: check
+        uses: actions/github-script@v9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const repo = { owner: context.repo.owner, repo: context.repo.repo };
+            const permissionOf = async (username) => {
+              try {
+                const { data } = await github.rest.repos.getCollaboratorPermissionLevel({ ...repo, username });
+                return data.permission;
+              } catch {
+                return 'none';
+              }
+            };
+            const canWrite = permission => ['admin', 'maintain', 'write'].includes(permission);
+
+            const approver = context.payload.sender.login;
+            const author = context.payload.issue.user.login;
+            const summary = core.summary.addHeading('Authorize', 3).addList([
+              `Issue: #${context.issue.number} by @${author}`,
+              `Approved by: @${approver}`,
+            ]);
+
+            const approverPermission = await permissionOf(approver);
+            if (!canWrite(approverPermission)) {
+              await github.rest.issues.removeLabel({ ...repo, issue_number: context.issue.number, name: 'icon-approved' });
+              await summary.addRaw(`❌ **Approval rejected:** @${approver} has ${approverPermission} permission; \`icon-approved\` needs write. The label was removed.`, true).write();
+              core.setFailed(`${approver} has ${approverPermission} permission; icon-approved needs write.`);
+              return;
+            }
+
+            // Maintainers may request icons for plugins they do not develop
+            const authorIsMaintainer = canWrite(await permissionOf(author));
+            core.setOutput('author_is_maintainer', String(authorIsMaintainer));
+
+            // Only apply an icon whose latest Icon Request Check passed and is not
+            // older than the last edit to the issue
+            const refuse = async (reason) => {
+              core.setOutput('ready', 'false');
+              core.setOutput('refusal', reason);
+              await summary.addRaw(`⛔ **Not applied:** ${reason}`, true).write();
+            };
+            const issue = { ...repo, issue_number: context.issue.number };
+            const comments = await github.paginate(github.rest.issues.listComments, issue);
+            const checkComment = comments.findLast(c => c.user.login === 'github-actions[bot]' && c.body.includes('<!-- icon-request-check '));
+            const data = checkComment?.body.match(/<!-- icon-request-check (\{.*?\}) -->/);
+            if (!data) {
+              return refuse('This request has not been checked yet. Comment `/check` to run the check, then approve it once it passes.');
+            }
+            const check = JSON.parse(data[1]);
+            if (!check.ok || !check.sha256) {
+              return refuse('The latest check of this request found a problem (see the check comment), so the icon was not applied.');
+            }
+            const { repository } = await github.graphql(
+              'query($owner: String!, $repo: String!, $number: Int!) { repository(owner: $owner, name: $repo) { issue(number: $number) { lastEditedAt } } }',
+              { owner: repo.owner, repo: repo.repo, number: context.issue.number },
+            );
+            const lastEditedAt = repository.issue.lastEditedAt;
+            if (lastEditedAt && new Date(lastEditedAt) > new Date(checkComment.updated_at)) {
+              return refuse('The request was edited after its last check. Wait for the check comment to update, review it, then approve again.');
+            }
+            core.setOutput('ready', 'true');
+            core.setOutput('expected_sha256', check.sha256);
+            await summary
+              .addRaw(`✅ **Ready:** the latest check passed (${checkComment.updated_at}) and the issue has not been edited since.`, true)
+              .addList([
+                `Approver permission: ${approverPermission}`,
+                `Requester is a maintainer: ${authorIsMaintainer ? 'yes' : 'no'}`,
+                `Expected image SHA-256: \`${check.sha256}\``,
+              ])
+              .write();
+
+  prepare:
+    needs: authorize
+    if: needs.authorize.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    outputs:
+      ok: ${{ steps.prepare.outputs.ok }}
+      result: ${{ steps.prepare.outputs.result }}
+      png: ${{ steps.prepare.outputs.png }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: latest
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: v24
+
+      - name: Install sharp
+        run: npm install --no-save sharp@0.35.4
+
+      - name: Check the request and convert the icon
+        id: prepare
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+          AUTHOR_IS_MAINTAINER: ${{ needs.authorize.outputs.author_is_maintainer }}
+          EXPECTED_SHA256: ${{ needs.authorize.outputs.expected_sha256 }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ICON_FILE: ${{ runner.temp }}/icon.png
+          RESULT_FILE: ${{ runner.temp }}/icon-result.json
+        run: |
+          node scripts/apply-icon-request.js prepare
+          echo "ok=$(jq -r .ok "$RESULT_FILE")" >> "$GITHUB_OUTPUT"
+          echo "result=$(jq -c . "$RESULT_FILE")" >> "$GITHUB_OUTPUT"
+          if [[ "$(jq -r .ok "$RESULT_FILE")" == "true" ]]; then
+            echo "png=$(base64 -w0 "$ICON_FILE")" >> "$GITHUB_OUTPUT"
+          fi
+          jq -r --arg size "$(wc -c < "$ICON_FILE" 2>/dev/null | tr -d " ")" '"### Prepare\n" + if .ok then
+            "✅ **Icon prepared** (read-only job, image decoded here only)\n\n"
+            + "- Plugin: `\(.plugin)`\n- Requested by: \(.requester)\n- Source: \(.source)\n"
+            + "- Original size: \(.width) × \(.height) px\n- Image SHA-256: `\(.sourceSha256)` (matches the check)\n"
+            + "- Converted to: 100 × 100 PNG, \($size) bytes"
+          else "❌ **Stopped:** \(.error)" end' "$RESULT_FILE" >> "$GITHUB_STEP_SUMMARY"
+
+  apply:
+    needs: prepare
+    if: needs.prepare.outputs.ok == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    outputs:
+      result: ${{ steps.apply.outputs.result }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: latest
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: v24
+
+      - name: Apply the icon and commit
+        id: apply
+        env:
+          PREPARED: ${{ needs.prepare.outputs.result }}
+          ICON_PNG: ${{ needs.prepare.outputs.png }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ICON_FILE: ${{ runner.temp }}/icon.png
+          RESULT_FILE: ${{ runner.temp }}/icon-result.json
+        run: |
+          printf '%s' "$ICON_PNG" | base64 -d > "$ICON_FILE"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          # Rebuilding from a fresh `latest` on each attempt means a push that loses a
+          # race to another commit is simply redone on top of it.
+          for attempt in 1 2 3; do
+            git fetch --quiet origin latest
+            git reset --quiet --hard origin/latest
+
+            node scripts/apply-icon-request.js commit
+            if [[ "$(jq -r .ok "$RESULT_FILE")" != "true" ]]; then
+              break
+            fi
+            PLUGIN=$(jq -r .plugin "$RESULT_FILE")
+            ICON_PATH=$(jq -r .iconPath "$RESULT_FILE")
+
+            # Sorts the JSON files and regenerates assets/plugins*.json
+            node scripts/sort-json-files.js
+
+            if git diff --quiet && [[ -z "$(git ls-files --others --exclude-standard icons)" ]]; then
+              jq '. + {unchanged: true}' "$RESULT_FILE" > "$RESULT_FILE.tmp" && mv "$RESULT_FILE.tmp" "$RESULT_FILE"
+              break
+            fi
+
+            git add -- "$ICON_PATH" plugin-icons.json assets
+            git commit --quiet -m "icon: $PLUGIN" -m "From homebridge/plugins#$ISSUE_NUMBER"
+            if git push --quiet origin HEAD:latest; then
+              jq --arg sha "$(git rev-parse HEAD)" '. + {sha: $sha}' "$RESULT_FILE" > "$RESULT_FILE.tmp" && mv "$RESULT_FILE.tmp" "$RESULT_FILE"
+              break
+            fi
+            echo "Push failed (attempt $attempt), retrying on the new latest"
+            if [[ $attempt == 3 ]]; then
+              echo '{"ok": false, "error": "The icon could not be pushed to `latest` after 3 attempts; see the workflow log."}' > "$RESULT_FILE"
+            fi
+            sleep $((attempt * 5))
+          done
+          echo "result=$(jq -c . "$RESULT_FILE")" >> "$GITHUB_OUTPUT"
+          jq -r --arg repo "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" '"### Apply\n" + if (.ok | not) then "❌ **Not committed:** \(.error)"
+            elif .unchanged then "➖ **Nothing to commit:** the icon for `\(.plugin)` is already up to date."
+            else "✅ **Committed** [`\(.sha[0:7])`](\($repo)/commit/\(.sha)) to `latest`\n\n"
+              + "- \(if .updated then "Replaced" else "Added" end): `\(.iconPath)`\n"
+              + "- Also updated: `plugin-icons.json`, `assets/plugins*.json`" end' "$RESULT_FILE" >> "$GITHUB_STEP_SUMMARY"
+
+  report:
+    needs:
+      - authorize
+      - prepare
+      - apply
+    if: always() && needs.authorize.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    steps:
+      - name: Report on the issue
+        uses: actions/github-script@v9
+        env:
+          REFUSAL: ${{ needs.authorize.outputs.refusal }}
+          PREPARE_RESULT: ${{ needs.prepare.outputs.result }}
+          APPLY_RESULT: ${{ needs.apply.outputs.result }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = { owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number };
+            const run = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+
+            let result;
+            try {
+              result = process.env.REFUSAL
+                ? { ok: false, error: process.env.REFUSAL }
+                : JSON.parse(process.env.APPLY_RESULT || process.env.PREPARE_RESULT);
+            } catch {
+              result = { ok: false, error: 'The icon workflow failed before it produced a result.' };
+            }
+            if (result.ok && !result.sha && !result.unchanged) {
+              result = { ok: false, error: 'The icon was prepared but not committed; see the workflow log.' };
+            }
+
+            let body;
+            if (!result.ok) {
+              body = `The icon could not be added automatically:\n\n> ${result.error}\n\n`
+                + 'Once this is fixed (for example by editing the icon in the issue), a maintainer can add the `icon-approved` label again.\n\n'
+                + `[Workflow run](${run})`;
+            } else if (result.unchanged) {
+              body = `The icon for \`${result.plugin}\` was already up to date; nothing was changed.`;
+            } else {
+              const resized = result.width === 100 && result.height === 100 ? '' : ` (resized from ${result.width} × ${result.height} px)`;
+              body = `${result.updated ? 'Updated' : 'Added'} the icon for \`${result.plugin}\`${resized} in ${result.sha.slice(0, 7)}. `
+                + 'It should show in the Homebridge UI within the hour.\n\n'
+                + `<img src="${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/raw/${result.sha}/${result.iconPath}" width="100" height="100" alt="${result.plugin} icon">`;
+            }
+            await github.rest.issues.createComment({ ...issue, body });
+
+            // Clear the approval either way, so adding it again re-runs this
+            try {
+              await github.rest.issues.removeLabel({ ...issue, name: 'icon-approved' });
+            } catch {}
+
+            // The request is done once its icon is in
+            if (result.ok) {
+              await github.rest.issues.update({ ...issue, state: 'closed', state_reason: 'completed' });
+            }
+
+            await core.summary
+              .addHeading('Report', 3)
+              .addRaw(result.ok
+                ? (result.unchanged ? '➖ **No change needed.**' : `✅ **Icon ${result.updated ? 'updated' : 'added'}** for \`${result.plugin}\`.`)
+                : `❌ **Not applied:** ${result.error}`, true)
+              .addList([
+                `Commented on #${context.issue.number}`,
+                'Removed the `icon-approved` label',
+                result.ok ? 'Closed the request' : 'Left the request open',
+              ])
+              .write();
