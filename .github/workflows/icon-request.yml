@@ -5,6 +5,12 @@ name: Icon Request
 # PNG, adds it to icons/ and plugin-icons.json, regenerates assets/, commits to
 # `latest`, reports back on the issue and closes it. The label is ignored on any
 # other issue.
+#
+# Stage 2 (not yet built): also apply the icon attached to a verification request
+# when a maintainer adds the `verified` label, leaving that issue's closing to the
+# verification flow. scripts/apply-icon-request.js already reads the verification
+# form's "Plugin Icon (Optional)" field, so this needs a second trigger here, not
+# a new script.
 on:
   issues:
     types:

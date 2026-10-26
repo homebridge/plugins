@@ -1,7 +1,11 @@
 /**
- * Applies the icon from an approved icon request (or a verification request that
- * attached one) to the repo: downloads the image, makes it a 100x100 PNG in
- * icons/, and adds it to plugin-icons.json. Run by the Icon Request workflow.
+ * Applies the icon from an approved icon request to the repo: downloads the image,
+ * makes it a 100x100 PNG in icons/, and adds it to plugin-icons.json. Run by the
+ * Icon Request workflow.
+ *
+ * It also reads the verification request form's "Plugin Icon (Optional)" field, for
+ * stage 2: applying an attached icon when a verification request gets `verified`.
+ * The workflow does not trigger on that yet.
  *
  * Input:  ISSUE_BODY env var (the issue form body, untrusted).
  * Output: a JSON result on stdout and in RESULT_FILE when set:
