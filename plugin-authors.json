@@ -29,5 +29,6 @@
   "@homebridge-plugins/homebridge-updater": "bwp91",
   "@homebridge-plugins/homebridge-wattbox": "derek-miller",
   "@homebridge-plugins/homebridge-wemo": "bwp91",
-  "homebridge-gsh": "NorthernMan54"
+  "homebridge-gsh": "NorthernMan54",
+  "homebridge-simplisafe3": "shamoon"
 }
