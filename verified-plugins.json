@@ -466,6 +466,7 @@
   "homebridge-panasonic-ac-platform",
   "homebridge-panasonic-miraie-ac-platform",
   "homebridge-panasonic-smart-app",
+  "homebridge-pax-calima",
   "homebridge-pc-volume",
   "homebridge-peloton",
   "homebridge-pentair-cloud",
