@@ -14,11 +14,9 @@ name: Icon Approved
 # write access and keeps no git credentials. Only the finished PNG is passed on to
 # the `apply` job that pushes, which checks it again without decoding it.
 #
-# Stage 2 (not yet built): also apply the icon attached to a verification request
-# when a maintainer adds the `verified` label, leaving that issue's closing to the
-# verification flow. scripts/apply-icon-request.js already reads the verification
-# form's "Plugin Icon (Optional)" field, so this needs a second trigger here, not
-# a new script.
+# The icon attached to a verification request is applied by the Plugin Verified
+# workflow (verify-approved.yml) when the request gets `verified`, using the same
+# scripts/apply-icon-request.js steps.
 on:
   issues:
     types:
