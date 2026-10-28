@@ -11,6 +11,14 @@
  *                  before the label) is always accepted, so the label still closes the
  *                  request as it did before this workflow existed.
  *
+ *   validate       Run as `node scripts/apply-verification.js validate` by Plugin Checks
+ *                  before it checks the plugin. Checks the request form can be read:
+ *                  the plugin name, that it is on npm, that the repo link is a GitHub
+ *                  repo and the same one the package names, and that every question
+ *                  was answered.
+ *                  Input:  ISSUE_BODY (untrusted), GITHUB_TOKEN (read-only)
+ *                  Output: { ok, plugin, hasIcon, errors }
+ *
  *   add            Run as `node scripts/apply-verification.js add` in the job that
  *                  pushes. Adds PLUGIN to verified-plugins.json.
  *                  Input:  PLUGIN
@@ -64,9 +72,101 @@ export function getPluginName(body) {
   return name
 }
 
-// True when the optional icon field holds a link or attachment rather than "_No response_"
+// Every `### heading` in the body with the text under it
+function getSections(body) {
+  return [
+    ...body.replace(/\r\n/g, '\n').matchAll(/^### (.+)$/gm),
+  ]
+    .map(match => ({
+      heading: match[1].trim(),
+      text: getSection(body, match[1].trim()),
+    }))
+}
+
+// owner/repo from a GitHub URL or an npm `repository` value, or null
+export function parseGitHubRepo(value) {
+  const text = String(value || '').trim()
+  const match = text.match(/github\.com[/:]([\w.-]+)\/([\w.-]+?)(?:\.git)?(?:[/#?].*)?$/i)
+    || text.match(/^(?:github:)?([\w.-]+)\/([\w.-]+?)(?:\.git)?$/i)
+  return match
+    ? `${match[1]}/${match[2]}`
+    : null
+}
+
+/**
+ * Checks a verification request's form can be read, before the plugin checks run.
+ * Returns { ok, plugin, hasIcon, errors }; each error is posted on the issue.
+ *
+ *   getPackage async (plugin) => the npm package's latest manifest, or null if not on npm
+ *   getRepo    async ('owner/repo') => the repo's current full name (following
+ *              renames), or null if it does not exist or is private
+ */
+export async function validateRequest(body, { getPackage, getRepo }) {
+  const errors = []
+  const form = 'Please edit the request so it matches the [verification request form](https://github.com/homebridge/plugins/issues/new?template=1_verification-request.yml)'
+
+  let plugin = null
+  try {
+    plugin = getPluginName(body)
+  } catch (e) {
+    if (!(e instanceof VerificationError)) {
+      throw e
+    }
+    errors.push(`${e.message} ${form}, with only the npm package name under "Plugin Name".`)
+  }
+
+  const pkg = plugin && await getPackage(plugin)
+  if (plugin && !pkg) {
+    errors.push(`\`${plugin}\` was not found on npm. Please check the "Plugin Name" field.`)
+  }
+
+  const link = getSection(body, 'Link To GitHub Repo').split('\n')[0].trim()
+  // Any address in the repo counts (…/tree/main, #readme), not an npm page or a bare name
+  const linked = /^https:\/\/(?:www\.)?github\.com\/[\w.-]+\/[\w.-]+/i.test(link) && parseGitHubRepo(link)
+  if (!linked) {
+    errors.push('The "Link To GitHub Repo" field should be the repository\'s address, like `https://github.com/owner/homebridge-xyz`.')
+  } else {
+    const linkedRepo = await getRepo(linked)
+    if (!linkedRepo) {
+      errors.push(`\`${linked}\` was not found on GitHub. The repository must be public.`)
+    } else if (pkg) {
+      const packageRepo = parseGitHubRepo(typeof pkg.repository === 'string'
+        ? pkg.repository
+        : pkg.repository?.url)
+      const packageResolved = packageRepo && await getRepo(packageRepo)
+      if (!packageRepo) {
+        errors.push(`\`${plugin}\` has no GitHub \`repository\` in its \`package.json\` on npm.`)
+      } else if ((packageResolved || packageRepo).toLowerCase() !== linkedRepo.toLowerCase()) {
+        errors.push(`The "Link To GitHub Repo" field is \`${linkedRepo}\`, but \`${plugin}\` on npm names \`${packageResolved || packageRepo}\` as its repository. They should be the same.`)
+      }
+    }
+  }
+
+  // The form's questions are the sections that start "The plugin" / "If the plugin"
+  for (const { heading, text } of getSections(body)) {
+    if (/^(?:if )?the plugin\b/i.test(heading) && (!text || /^(?:Choose an option\.\.\.|_No response_)$/.test(text))) {
+      errors.push(`Please answer "${heading.slice(0, 120)}"`)
+    }
+  }
+
+  return {
+    ok: errors.length === 0,
+    plugin,
+    hasIcon: hasIcon(body),
+    errors,
+  }
+}
+
+// True when the optional icon field holds an image: embedded, or a link to an image file
+// or an issue attachment. The same rule scripts/apply-icon-request.js uses to find it,
+// so text pasted into the field (which may contain other links) is not taken for an icon.
 export function hasIcon(body) {
-  return /https:\/\//.test(getSection(body, 'Plugin Icon'))
+  const section = getSection(body, 'Plugin Icon')
+  return /<img[^>]*\ssrc="[^"]+"|!\[[^\]]*\]\([^)\s]+\)/.test(section)
+    || [
+      ...section.matchAll(/https:\/\/[^\s)<>"]+/g),
+    ]
+      .some(([link]) => /\.(?:png|jpe?g|webp)(?:\?|$)/i.test(link.replace(/[.,]+$/, '')) || link.includes('/user-attachments/assets/'))
 }
 
 /**
@@ -221,6 +321,39 @@ export async function loadApproval({ github, context }) {
   })
 }
 
+async function getNpmPackage(plugin) {
+  const res = await fetch(`https://registry.npmjs.org/${encodeURIComponent(plugin)}/latest`, {
+    signal: AbortSignal.timeout(30_000),
+  })
+  if (res.status === 404) {
+    return null
+  }
+  if (!res.ok) {
+    throw new VerificationError(`Could not look up \`${plugin}\` on npm (HTTP ${res.status}); comment \`/check\` to try again later.`)
+  }
+  return res.json()
+}
+
+async function getGitHubRepo(fullName) {
+  const res = await fetch(`https://api.github.com/repos/${fullName}`, {
+    headers: process.env.GITHUB_TOKEN
+      ? { authorization: `Bearer ${process.env.GITHUB_TOKEN}` }
+      : {},
+    signal: AbortSignal.timeout(30_000),
+  })
+  if (res.status === 404) {
+    return null
+  }
+  if (!res.ok) {
+    throw new VerificationError(`Could not look up \`${fullName}\` on GitHub (HTTP ${res.status}); comment \`/check\` to try again later.`)
+  }
+  return (await res.json()).full_name
+}
+
+function validate() {
+  return validateRequest(process.env.ISSUE_BODY || '', { getPackage: getNpmPackage, getRepo: getGitHubRepo })
+}
+
 function add() {
   const plugin = process.env.PLUGIN || ''
   // Re-checked here: the name came from the issue body
@@ -239,7 +372,7 @@ function add() {
 
 // Only runs as a command; the workflow also imports this file for checkApproval
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const steps = { add }
+  const steps = { add, validate }
   const step = steps[process.argv[2]]
 
   let result
@@ -247,7 +380,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     if (!step) {
       throw new Error(`Usage: node scripts/apply-verification.js <${Object.keys(steps).join('|')}>`)
     }
-    result = step()
+    result = await step()
   } catch (e) {
     if (!(e instanceof VerificationError)) {
       console.error(e)
@@ -256,8 +389,12 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
       ok: false,
       error: e instanceof VerificationError
         ? e.message
-        : 'The plugin could not be added because of an unexpected error; see the workflow log.',
+        : 'The step failed because of an unexpected error; see the workflow log.',
     }
+  }
+  // validate reports its problems as a list
+  if (!result.ok && !result.errors) {
+    result.errors = [result.error]
   }
 
   console.log(JSON.stringify(result, null, 2))
