@@ -7635,6 +7635,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-stagg-ekg-pro": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-stagg-ekg-pro.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-star-projector": {
     "name": null,
     "hidden": false,
