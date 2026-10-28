@@ -24,11 +24,6 @@ on:
 
 permissions: {}
 
-# One at a time, so two approvals never race on plugin-icons.json and assets/
-concurrency:
-  group: icon-request
-  cancel-in-progress: false
-
 jobs:
   authorize:
     if: github.event.label.name == 'icon-approved' && contains(github.event.issue.labels.*.name, 'request-icon')
@@ -166,6 +161,12 @@ jobs:
   apply:
     needs: prepare
     if: needs.prepare.outputs.ok == 'true'
+    # One commit to the JSON files at a time, shared with Plugin Verified. `queue: max`
+    # keeps every waiting run: without it, GitHub cancels a pending run as soon as
+    # another one joins the group, so approving three icons quickly dropped the middle one.
+    concurrency:
+      group: plugin-json-files
+      queue: max
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:

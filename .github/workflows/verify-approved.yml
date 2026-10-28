@@ -175,6 +175,12 @@ jobs:
       - prepare-icon
     # prepare-icon is skipped when there is no icon, and a failed icon never blocks verifying
     if: always() && needs.authorize.outputs.ready == 'true' && needs.authorize.outputs.already_verified != 'true'
+    # One commit to the JSON files at a time, shared with Icon Approved. `queue: max`
+    # keeps every waiting run (up to 100), so verifying a batch of plugins queues them
+    # rather than GitHub cancelling all but the newest pending one.
+    concurrency:
+      group: plugin-json-files
+      queue: max
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -211,8 +217,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
 
           # Rebuilding from a fresh `latest` on each attempt means a push that loses a
-          # race to another commit (say, a batch of plugins verified together) is
-          # simply redone on top of it.
+          # race to another commit (say, one pushed by hand) is simply redone on top of it.
           for attempt in 1 2 3 4 5; do
             git fetch --quiet origin latest
             git reset --quiet --hard origin/latest
