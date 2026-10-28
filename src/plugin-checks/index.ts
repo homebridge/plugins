@@ -182,6 +182,13 @@ class PluginChecks {
       comment += '- Feel free to ask any questions you have by replying to this issue.'
     }
 
+    // Read by the Plugin Verified workflow (scripts/apply-verification.js). `<` and `>`
+    // are escaped so the plugin name cannot close the HTML comment.
+    const marker = JSON.stringify({ ok: allPassed, plugin: this.pluginName || null, version: this.version || null })
+      .replace(/</g, '\\u003c')
+      .replace(/>/g, '\\u003e')
+    comment += `\n\n<!-- plugin-checks ${marker} -->`
+
     await this.addComment(allPassed, comment)
   }
 
