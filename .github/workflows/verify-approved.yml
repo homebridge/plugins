@@ -41,6 +41,7 @@ jobs:
       has_icon: ${{ steps.check.outputs.has_icon }}
       author_is_maintainer: ${{ steps.check.outputs.author_is_maintainer }}
       refusal: ${{ steps.check.outputs.refusal }}
+      rejected: ${{ steps.check.outputs.rejected }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -53,8 +54,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { checkApproval, isCheckComment } = await import(`${process.env.GITHUB_WORKSPACE}/scripts/apply-verification.js`);
-            const fs = require('node:fs');
+            const { loadApproval } = await import(`${process.env.GITHUB_WORKSPACE}/scripts/apply-verification.js`);
             const repo = { owner: context.repo.owner, repo: context.repo.repo };
             const issue = { ...repo, issue_number: context.issue.number };
             const permissionOf = async (username) => {
@@ -77,6 +77,8 @@ jobs:
             const approverPermission = await permissionOf(approver);
             if (!canWrite(approverPermission)) {
               await github.rest.issues.removeLabel({ ...issue, name: 'verified' });
+              // The label is already gone; `report` stays quiet rather than comment on it
+              core.setOutput('rejected', 'true');
               await summary.addRaw(`❌ **Rejected:** @${approver} has ${approverPermission} permission; \`verified\` needs write. The label was removed.`, true).write();
               core.setFailed(`${approver} has ${approverPermission} permission; verified needs write.`);
               return;
@@ -84,26 +86,7 @@ jobs:
             // Passed on to the icon check: maintainers may add icons for any plugin
             core.setOutput('author_is_maintainer', String(canWrite(await permissionOf(author))));
 
-            const comments = await github.paginate(github.rest.issues.listComments, issue);
-            const { repository } = await github.graphql(
-              'query($owner: String!, $repo: String!, $number: Int!) { repository(owner: $owner, name: $repo) { issue(number: $number) { lastEditedAt } } }',
-              { owner: repo.owner, repo: repo.repo, number: context.issue.number },
-            );
-            const result = await checkApproval({
-              body: context.payload.issue.body,
-              labels: context.payload.issue.labels.map(label => label.name),
-              checkComment: comments.findLast(isCheckComment) || null,
-              lastEditedAt: repository.issue.lastEditedAt,
-              verified: JSON.parse(fs.readFileSync('verified-plugins.json', 'utf8')),
-              authors: JSON.parse(fs.readFileSync('plugin-authors.json', 'utf8')),
-              getLatestVersion: async (plugin) => {
-                const res = await fetch(`https://registry.npmjs.org/${encodeURIComponent(plugin)}/latest`, { signal: AbortSignal.timeout(30000) });
-                if (!res.ok) {
-                  throw new Error(`npm returned HTTP ${res.status}`);
-                }
-                return (await res.json()).version;
-              },
-            });
+            const result = await loadApproval({ github, context });
 
             core.setOutput('ready', String(result.ready));
             core.setOutput('plugin', result.plugin || '');
@@ -185,8 +168,9 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: write
+      issues: read
     outputs:
-      result: ${{ steps.apply.outputs.result }}
+      result: ${{ steps.apply.outputs.result || steps.recheck.outputs.result }}
       icon: ${{ steps.apply.outputs.icon }}
     steps:
       - uses: actions/checkout@v7
@@ -197,8 +181,35 @@ jobs:
         with:
           node-version: v24
 
+      # This job can wait in the queue behind other approvals, so the approval is
+      # checked again here: a new version may have been published, a new /check may
+      # have failed, or the request may have been edited in the meantime.
+      - name: Check the approval still holds
+        id: recheck
+        uses: actions/github-script@v9
+        env:
+          PLUGIN: ${{ needs.authorize.outputs.plugin }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { loadApproval } = await import(`${process.env.GITHUB_WORKSPACE}/scripts/apply-verification.js`);
+            const result = await loadApproval({ github, context });
+            if (result.ready && result.plugin !== process.env.PLUGIN) {
+              result.ready = false;
+              result.refusal = 'The plugin name in the request changed while the approval was waiting. Add `verified` again to verify it.';
+            }
+            if (!result.ready) {
+              core.setOutput('result', JSON.stringify({ ok: false, error: result.refusal }));
+              await core.summary.addHeading('Recheck', 3).addRaw(`⛔ **Not verified:** ${result.refusal}`, true).write();
+            } else if (result.alreadyVerified) {
+              core.setOutput('result', JSON.stringify({ ok: true, plugin: result.plugin, unchanged: true }));
+            } else {
+              core.setOutput('ready', 'true');
+            }
+
       - name: Verify the plugin and commit
         id: apply
+        if: steps.recheck.outputs.ready == 'true'
         env:
           PLUGIN: ${{ needs.authorize.outputs.plugin }}
           ICON_OK: ${{ needs.prepare-icon.outputs.ok }}
@@ -222,6 +233,8 @@ jobs:
             git fetch --quiet origin latest
             git reset --quiet --hard origin/latest
             git clean --quiet -fd icons
+            # Cleared on every attempt, so an icon from a discarded attempt is never reported
+            echo '{}' > "$ICON_RESULT_FILE"
 
             node scripts/apply-verification.js add
             # Not ok, or verified by someone else since the authorize job: nothing to add
@@ -230,7 +243,6 @@ jobs:
             fi
 
             # The icon is optional; a problem with it is reported, not fatal
-            echo '{}' > "$ICON_RESULT_FILE"
             if [[ "$ICON_OK" == "true" ]]; then
               RESULT_FILE="$ICON_RESULT_FILE" node scripts/apply-icon-request.js commit
             fi
@@ -265,7 +277,10 @@ jobs:
       - authorize
       - prepare-icon
       - apply
-    if: always() && needs.authorize.result == 'success'
+    # Also runs when authorize failed (say, a GitHub API error), so `verified` is never
+    # left on a request that was not verified. Not when the approver lacked write access:
+    # authorize has already removed the label.
+    if: always() && needs.authorize.result != 'skipped' && needs.authorize.outputs.rejected != 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:

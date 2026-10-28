@@ -2,7 +2,8 @@
  * Adds a plugin to verified-plugins.json when a maintainer adds the `verified` label to
  * a verification request. Used by the Plugin Verified workflow in two places:
  *
- *   checkApproval  Imported by the workflow's `authorize` job. Reads the plugin name
+ *   checkApproval  Called by loadApproval from the workflow's `authorize` job, and again
+ *                  from the `apply` job before committing. Reads the plugin name
  *                  from the request and decides whether it can be verified now: the
  *                  latest Plugin Checks comment passed, was run against the version
  *                  that is `latest` on npm, and the request has not been edited since.
@@ -27,8 +28,10 @@ import { pathToFileURL } from 'node:url'
 // Same rule Homebridge uses to recognise a plugin package
 export const PLUGIN_NAME = /^(?:@[a-z0-9][\w.-]*\/)?homebridge-[a-z0-9][\w.-]*$/
 
-// Written by src/plugin-checks/index.ts at the end of its results comment
-const CHECK_MARKER = /<!-- plugin-checks (\{.*?\}) -->/
+// Written by src/plugin-checks/index.ts as the very end of its results comment. Only
+// that position counts: the comment also quotes plugin output (error messages in the
+// failure list), so a marker anywhere else could be planted by the plugin.
+const CHECK_MARKER = /<!-- plugin-checks (\{[^\n]*\}) -->\s*$/
 const CHECK_HEADING = '### ℹ️ Check Details'
 
 export class VerificationError extends Error {}
@@ -90,7 +93,10 @@ export function readCheckComment(body) {
   return {
     ok: body.includes('### 🟢 Passed Checks') && !body.includes('### 🔴 Failed Checks'),
     plugin: null,
-    version: body.match(/These checks were run against `v([^`]+)`/)?.[1] || null,
+    // The last one: Check Details comes after the quoted plugin output
+    version: [
+      ...body.matchAll(/These checks were run against `v([^`]+)`/g),
+    ].pop()?.[1] || null,
   }
 }
 
@@ -175,6 +181,44 @@ export async function checkApproval({ body, labels, checkComment, lastEditedAt, 
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'))
+}
+
+async function getNpmLatestVersion(plugin) {
+  const res = await fetch(`https://registry.npmjs.org/${encodeURIComponent(plugin)}/latest`, {
+    signal: AbortSignal.timeout(30_000),
+  })
+  if (!res.ok) {
+    throw new Error(`npm returned HTTP ${res.status}`)
+  }
+  return (await res.json()).version
+}
+
+/**
+ * Loads the request as it is now and runs checkApproval on it. Called from
+ * actions/github-script (with its `github` and `context`), in a checkout of `latest`.
+ * The workflow runs it twice: when the label is added, and again just before
+ * committing, since the commit can wait in a queue behind other approvals.
+ */
+export async function loadApproval({ github, context }) {
+  const repo = { owner: context.repo.owner, repo: context.repo.repo }
+  const issueNumber = context.issue.number
+  const { data: issue } = await github.rest.issues.get({ ...repo, issue_number: issueNumber })
+  const comments = await github.paginate(github.rest.issues.listComments, { ...repo, issue_number: issueNumber })
+  const { repository } = await github.graphql(
+    'query($owner: String!, $repo: String!, $number: Int!) { repository(owner: $owner, name: $repo) { issue(number: $number) { lastEditedAt } } }',
+    { ...repo, number: issueNumber },
+  )
+  return checkApproval({
+    body: issue.body,
+    labels: issue.labels.map(label => typeof label === 'string'
+      ? label
+      : label.name),
+    checkComment: comments.findLast(isCheckComment) || null,
+    lastEditedAt: repository.issue.lastEditedAt,
+    verified: readJson('verified-plugins.json'),
+    authors: readJson('plugin-authors.json'),
+    getLatestVersion: getNpmLatestVersion,
+  })
 }
 
 function add() {
