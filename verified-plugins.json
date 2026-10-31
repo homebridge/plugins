@@ -133,6 +133,7 @@
   "homebridge-bed-control",
   "homebridge-beoplay",
   "homebridge-bewave-mqtt",
+  "homebridge-bgh-smartcontrol",
   "homebridge-bigassfans-2",
   "homebridge-biocat",
   "homebridge-blaq",
