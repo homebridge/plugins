@@ -2163,6 +2163,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-chargecore": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-chargecore.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-clearlight-sauna": {
     "name": null,
     "hidden": false,
