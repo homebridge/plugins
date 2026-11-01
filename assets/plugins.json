@@ -899,6 +899,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@rygine/homebridge-omnilogic-local": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-omnilogic-local.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@smarterhomeapp/homebridge-vantage": {
     "name": null,
     "hidden": false,
