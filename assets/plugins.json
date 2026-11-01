@@ -6706,7 +6706,7 @@
     "unmaintained": false,
     "newScope": {
       "from": "homebridge-resideo",
-      "to": "@homebridge-plugins/homebridge-firstalert",
+      "to": "@homebridge-plugins/homebridge-resideo",
       "switch": "3.0.0"
     },
     "scoped": false,
@@ -8412,7 +8412,11 @@
     "hidden": false,
     "icon": null,
     "unmaintained": false,
-    "newScope": false,
+    "newScope": {
+      "from": "homebridge-unifi-smartpower",
+      "to": "@homebridge-plugins/homebridge-unifi-smartpower",
+      "switch": "2.3.1"
+    },
     "scoped": false,
     "author": null,
     "changelog": null,
