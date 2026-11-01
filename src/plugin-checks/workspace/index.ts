@@ -42,6 +42,10 @@ interface PackageJSON {
   bugs?: {
     url?: string
   }
+  repository?: string | {
+    url?: string
+    directory?: string
+  }
   keywords?: string[]
   scripts?: Record<string, string>
   engines?: {
@@ -180,6 +184,7 @@ class CheckHomebridgePlugin {
   private testPath = ''
   private gitHubRepo = ''
   private gitHubAuthor = ''
+  private gitHubDirectory = ''
   private configSchema: ConfigSchema | null = null
   private allHttpRequests: HttpRequest[] = []
   // Platform/accessory names captured by calling the plugin's initializer with
@@ -361,6 +366,11 @@ class CheckHomebridgePlugin {
       // Capture the version up front so the results can always report which
       // version was tested, even when other package.json checks fail
       this.packageVersion = packageJSON.version || ''
+
+      // Monorepo plugins declare their package folder in repository.directory
+      if (typeof packageJSON.repository === 'object' && packageJSON.repository?.directory) {
+        this.gitHubDirectory = `${packageJSON.repository.directory.replace(/\/+$/, '')}/`
+      }
 
       this.validateHomepage(packageJSON)
       this.validateBugsUrl(packageJSON)
@@ -752,7 +762,7 @@ class CheckHomebridgePlugin {
 
   private async validateGitHubPackageJsonVersion(): Promise<void> {
     try {
-      const packageJsonUrl = `${CheckHomebridgePlugin.CONSTANTS.URLS.GITHUB_API}/repos/${this.gitHubAuthor}/${this.gitHubRepo}/contents/package.json`
+      const packageJsonUrl = `${CheckHomebridgePlugin.CONSTANTS.URLS.GITHUB_API}/repos/${this.gitHubAuthor}/${this.gitHubRepo}/contents/${this.gitHubDirectory}package.json`
       const { statusCode, body } = await request(packageJsonUrl, {
         headers: this.gitHubApiHeaders(),
       })
