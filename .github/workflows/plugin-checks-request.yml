@@ -28,11 +28,17 @@ jobs:
           PLUGIN_INPUT: ${{ inputs.plugin }}
           EVENT_NAME: ${{ github.event_name }}
           HAS_VERIFICATION_LABEL: ${{ contains(github.event.issue.labels.*.name, 'request-verification') }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
           COMMENT_ID: ${{ github.event.comment.id }}
           COMMENT_AUTHOR_TYPE: ${{ github.event.comment.user.type }}
         run: |
           if [[ "$EVENT_NAME" == "issues" ]] && [[ "$HAS_VERIFICATION_LABEL" == "true" ]]; then
             echo "run=true" >> $GITHUB_OUTPUT
+          elif [[ "$EVENT_NAME" == "issues" ]] && [[ "$ISSUE_TITLE" == "Verification Request:"* ]]; then
+            # The form adds the labels, but requests that lost them were never checked
+            # and nobody was told. The title is the form's, so treat it as a request.
+            echo "run=true" >> $GITHUB_OUTPUT
+            echo "add_labels=true" >> $GITHUB_OUTPUT
           elif [[ "$EVENT_NAME" == "workflow_dispatch" ]] && [[ -n "$PLUGIN_INPUT" ]]; then
             echo "run=true" >> $GITHUB_OUTPUT
           elif [[ "$EVENT_NAME" == "issue_comment" ]] && [[ "$COMMENT_AUTHOR_TYPE" != "Bot" ]]; then
@@ -67,6 +73,96 @@ jobs:
               body: 'It looks like you wanted to re-run the checks, but the checks have **not** been started.\n\nTo run them, please add a new comment with `/check` on a line by itself (it can be the only thing in the comment). It will not be picked up when it is part of a longer line.'
             });
 
+      - name: Label a request that has lost its labels
+        if: steps.should-run.outputs.add_labels == 'true'
+        uses: actions/github-script@v9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['request-verification', 'pending'],
+            });
+
+      # Before anything is installed: a request whose form cannot be read is told what
+      # to fix, rather than getting plugin check failures that look like the plugin's fault
+      - name: Check the request form
+        id: form
+        if: steps.should-run.outputs.run == 'true' && github.event_name != 'workflow_dispatch'
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RESULT_FILE: ${{ runner.temp }}/form-result.json
+        run: |
+          node scripts/apply-verification.js validate
+          echo "ok=$(jq -r .ok "$RESULT_FILE")" >> "$GITHUB_OUTPUT"
+          echo "plugin=$(jq -r '.plugin // ""' "$RESULT_FILE")" >> "$GITHUB_OUTPUT"
+          echo "has_icon=$(jq -r '.hasIcon // false' "$RESULT_FILE")" >> "$GITHUB_OUTPUT"
+          echo "errors=$(jq -c '.errors // []' "$RESULT_FILE")" >> "$GITHUB_OUTPUT"
+
+      # The same check the icon is given when the request is verified (scripts/apply-icon-request.js)
+      - name: Check the icon
+        id: icon
+        if: steps.form.outputs.ok == 'true' && steps.form.outputs.has_icon == 'true'
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+          AUTHOR_IS_MAINTAINER: ${{ contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association) }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ICON_FILE: ${{ runner.temp }}/icon.png
+          RESULT_FILE: ${{ runner.temp }}/icon-result.json
+        run: |
+          npm install --no-save sharp@0.35.4 > /dev/null
+          node scripts/apply-icon-request.js prepare > /dev/null
+          echo "ok=$(jq -r .ok "$RESULT_FILE")" >> "$GITHUB_OUTPUT"
+          echo "error=$(jq -r '.error // ""' "$RESULT_FILE")" >> "$GITHUB_OUTPUT"
+
+      - name: Report problems with the request form
+        id: form-problems
+        if: steps.form.outputs.ok == 'false' || steps.icon.outputs.ok == 'false'
+        uses: actions/github-script@v9
+        env:
+          FORM_ERRORS: ${{ steps.form.outputs.errors }}
+          ICON_ERROR: ${{ steps.icon.outputs.error }}
+          PLUGIN: ${{ steps.form.outputs.plugin }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const errors = JSON.parse(process.env.FORM_ERRORS || '[]');
+            if (process.env.ICON_ERROR) {
+              errors.push(`Plugin Icon: ${process.env.ICON_ERROR} The icon is optional, so you can also remove it.`);
+            }
+            const run = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            // Shaped like a Plugin Checks result, with a failing marker, so the Plugin
+            // Verified workflow reads it as the latest (failed) check
+            const marker = JSON.stringify({ ok: false, plugin: process.env.PLUGIN || null, version: null })
+              .replace(/</g, '\\u003c').replace(/>/g, '\\u003e');
+            const body = '### 🔴 Failed Checks\n\n'
+              + 'The plugin was not checked, because the request form could not be read:\n\n'
+              + errors.map(e => `- ${e}`).join('\n')
+              + '\n\n### ℹ️ Check Details\n\n'
+              + `- The plugin itself was not checked. Link to the run workflow: [visit →](${run}).\n\n`
+              + '### 📋 Next Steps\n\n'
+              + '- **Edit this request to fix the form, then comment `/check` on this issue to run the checks.**\n'
+              + '- Feel free to ask any questions you have by replying to this issue.'
+              + `\n\n<!-- plugin-checks ${marker} -->`;
+            const issue = { owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number };
+            // On /check, Issue Labeler adds `pending` and removes `awaiting-changes` at the
+            // same time as this run starts. The plugin checks take minutes so always finish
+            // after it; this takes seconds, so wait for it rather than have our labels undone.
+            if (context.eventName === 'issue_comment') {
+              await new Promise(resolve => setTimeout(resolve, 30000));
+            }
+            await github.rest.issues.createComment({ ...issue, body });
+            await github.rest.issues.addLabels({ ...issue, labels: ['awaiting-changes'] });
+            for (const name of ['pending', 'awaiting-final-review']) {
+              try {
+                await github.rest.issues.removeLabel({ ...issue, name });
+              } catch {}
+            }
+
       - name: React with eyes emoji
         if: steps.should-run.outputs.run == 'true' && github.event_name == 'issue_comment'
         uses: actions/github-script@v9
@@ -97,25 +193,26 @@ jobs:
               console.log('Label awaiting-final-review not found or already removed');
             }
       - name: Install Dependencies & Build
-        if: steps.should-run.outputs.run == 'true'
+        if: steps.should-run.outputs.run == 'true' && steps.form-problems.outcome == 'skipped'
         run: npm install && npm install --prefix src/plugin-checks/workspace && npm run plugin-checks:build
       - name: Extract Plugin Name
-        if: steps.should-run.outputs.run == 'true'
+        if: steps.should-run.outputs.run == 'true' && steps.form-problems.outcome == 'skipped'
         id: extract
         env:
-          ISSUE_BODY: ${{ github.event.issue.body }}
+          FORM_PLUGIN: ${{ steps.form.outputs.plugin }}
           PLUGIN_INPUT: ${{ inputs.plugin }}
           EVENT_NAME: ${{ github.event_name }}
         run: |
+          # Read from the form by its heading in "Check the request form", not by line number
           if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
             PLUGIN_NAME="$PLUGIN_INPUT"
           else
-            PLUGIN_NAME=$(echo "$ISSUE_BODY" | awk 'NR==3' | tr -d ' ')
+            PLUGIN_NAME="$FORM_PLUGIN"
           fi
           PLUGIN_NAME=$(echo "$PLUGIN_NAME" | tr -d '\n\r')
           echo "plugin_name=$PLUGIN_NAME" >> $GITHUB_OUTPUT
       - name: Check Plugin
-        if: steps.should-run.outputs.run == 'true'
+        if: steps.should-run.outputs.run == 'true' && steps.form-problems.outcome == 'skipped'
         uses: ./src/plugin-checks
         with:
           plugin: ${{ steps.extract.outputs.plugin_name }}
