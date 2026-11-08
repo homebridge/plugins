@@ -7899,6 +7899,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-synology-monitor": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-synology-monitor.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-tadiran-ac": {
     "name": null,
     "hidden": false,

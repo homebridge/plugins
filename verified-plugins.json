@@ -619,6 +619,7 @@
   "homebridge-switchbot-for-mac",
   "homebridge-switchbot-sensor-ble",
   "homebridge-switcher-platform",
+  "homebridge-synology-monitor",
   "homebridge-tadiran-ac",
   "homebridge-tapo-camera",
   "homebridge-tasmota",
