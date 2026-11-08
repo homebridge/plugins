@@ -5586,7 +5586,7 @@
   "homebridge-nest-accfactory": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-nest-accfactory.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
