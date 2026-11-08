@@ -125,6 +125,7 @@
   "homebridge-automower",
   "homebridge-automower-platform",
   "homebridge-aux-cloud",
+  "homebridge-avpro-edge-matrix",
   "homebridge-awair-local",
   "homebridge-awair2",
   "homebridge-away-mode",

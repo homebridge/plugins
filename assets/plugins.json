@@ -1655,6 +1655,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-avpro-edge-matrix": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-awair-local": {
     "name": null,
     "hidden": false,
