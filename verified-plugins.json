@@ -268,6 +268,7 @@
   "homebridge-fp2",
   "homebridge-freeathome-local-api",
   "homebridge-freebox-player-delta-hb2",
+  "homebridge-freebox-player-pop",
   "homebridge-fritz-platform",
   "homebridge-fronius-ohmpilot",
   "homebridge-ftp-motion",
