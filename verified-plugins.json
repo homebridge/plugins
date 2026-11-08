@@ -8,6 +8,7 @@
   "@busse/homebridge-pluggit",
   "@cecnic1989/homebridge-frigidaire-dehumidifier",
   "@chazepps/homebridge-hejhome",
+  "@cteq3132/homebridge-heatzy-pilote-as-thermostat",
   "@danielgindi/homebridge-bcp-charger",
   "@dppeak/homebridge-sleepiq",
   "@dr_chai/homebridge-airthings",
