@@ -5331,6 +5331,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-much-smarther": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-much-smarther.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-multiple-switch": {
     "name": null,
     "hidden": false,
