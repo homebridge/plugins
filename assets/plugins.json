@@ -1167,6 +1167,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-agent-atv": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-agile-octopus-rates": {
     "name": null,
     "hidden": false,
