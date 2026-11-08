@@ -150,7 +150,7 @@ interface HttpRequest {
   scenario: string
 }
 
-class CheckHomebridgePlugin {
+export class CheckHomebridgePlugin {
   private static readonly CONSTANTS = {
     URLS: {
       NODE_DIST: 'https://nodejs.org/dist/index.json',
@@ -413,6 +413,9 @@ class CheckHomebridgePlugin {
         } else {
           this.gitHubAuthor = ''
           this.gitHubRepo = ''
+          // Without a GitHub repo the GitHub checks below cannot run, so this
+          // must fail rather than be skipped
+          this.failed.push(`GitHub Repo: the source code must be on a public GitHub repository with issues enabled, but \`bugs.url\` (\`${bugsUrl}\`) does not point to one — set it to the repository's issues page, e.g. \`https://github.com/owner/repo/issues\` (see [Verified Plugins](https://github.com/homebridge/plugins/wiki/Verified-Plugins))`)
         }
       } else {
         this.failed.push('Package JSON: `bugs.url` exists but does not start with `https://`')
@@ -3496,5 +3499,8 @@ try {
   }
 }
 
-const checkHomebridgePlugin = new CheckHomebridgePlugin()
-void checkHomebridgePlugin.start()
+// Only run when started directly (`tsx index.ts`), so the tests can import the class
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+  const checkHomebridgePlugin = new CheckHomebridgePlugin()
+  void checkHomebridgePlugin.start()
+}

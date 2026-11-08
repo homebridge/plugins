@@ -19,6 +19,7 @@
     "lint:fix": "npm run lint -- --fix",
     "plugin-checks:build": "tsc -p src/plugin-checks",
     "plugin-checks:run": "node src/plugin-checks/index.js",
+    "plugin-checks:test": "vitest run src/plugin-checks",
     "plugin-lists:build": "tsc -p src/plugin-lists",
     "plugin-lists:run": "node src/plugin-lists/index.js",
     "plugin-tarballs:build": "tsc -p src/plugin-tarballs",
@@ -38,7 +39,8 @@
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^26.6.6",
     "eslint-plugin-format": "^2.0.1",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^5.1.0"
   },
   "overrides": {
     "micromark-extension-math": {
