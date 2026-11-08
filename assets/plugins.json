@@ -4767,6 +4767,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-linksys-velop": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-linksys-velop.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-litter-robot-connect": {
     "name": null,
     "hidden": false,
