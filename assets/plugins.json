@@ -3671,6 +3671,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-goodwe-es": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-google-nest-sdm": {
     "name": null,
     "hidden": false,
