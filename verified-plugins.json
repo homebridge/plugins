@@ -259,6 +259,7 @@
   "homebridge-evohome",
   "homebridge-exivo",
   "homebridge-faber-range-hood",
+  "homebridge-fake-homekey",
   "homebridge-fhem",
   "homebridge-fibaro-hc3",
   "homebridge-fibaro-home-center",
