@@ -1411,6 +1411,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-alorair-lite": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-alorair-lite.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-alphaess": {
     "name": null,
     "hidden": false,
