@@ -6623,6 +6623,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-prana-local": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-prayer-times": {
     "name": null,
     "hidden": false,
