@@ -4395,6 +4395,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-intratone": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-intratone.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-iotas-v2": {
     "name": null,
     "hidden": false,
