@@ -376,6 +376,7 @@
   "homebridge-levoit-humidifiers",
   "homebridge-lg-enervu",
   "homebridge-lg-thinq",
+  "homebridge-lg-thinq-system-boiler",
   "homebridge-lg-thinqconnect-ac",
   "homebridge-lgwebos-tv",
   "homebridge-lifx-plugin",
