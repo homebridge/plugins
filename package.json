@@ -30,7 +30,7 @@
     "@actions/core": "^3.0.1",
     "@actions/github": "^9.1.1",
     "@octokit/core": "^7.0.8",
-    "axios": "^1.21.0",
+    "axios": "^1.21.1",
     "fs-extra": "^11.4.1"
   },
   "devDependencies": {
@@ -51,7 +51,8 @@
     }
   },
   "allowScripts": {
-    "@fastify/pre-commit": true
+    "@fastify/pre-commit": true,
+    "fsevents": true
   },
   "pre-commit": [
     "sort-json-files"
