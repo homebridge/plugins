@@ -475,6 +475,18 @@
     "verified": false,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-printer": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-printer.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": "bwp91",
+    "author": "bwp91",
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-pura": {
     "name": null,
     "hidden": false,
