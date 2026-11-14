@@ -17,6 +17,7 @@
   "@homebridge-plugins/homebridge-meater": "bwp91",
   "@homebridge-plugins/homebridge-meross": "bwp91",
   "@homebridge-plugins/homebridge-noip": "bwp91",
+  "@homebridge-plugins/homebridge-openeo": "bwp91",
   "@homebridge-plugins/homebridge-printer": "bwp91",
   "@homebridge-plugins/homebridge-pura": "QandnotU",
   "@homebridge-plugins/homebridge-rainbird": "bwp91",

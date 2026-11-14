@@ -36,6 +36,7 @@
   "@homebridge-plugins/homebridge-meater",
   "@homebridge-plugins/homebridge-meross",
   "@homebridge-plugins/homebridge-noip",
+  "@homebridge-plugins/homebridge-openeo",
   "@homebridge-plugins/homebridge-printer",
   "@homebridge-plugins/homebridge-pura",
   "@homebridge-plugins/homebridge-rainbird",
