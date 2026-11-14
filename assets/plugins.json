@@ -359,6 +359,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-hdhomerun": {
+    "name": "Homebridge HDHomeRun",
+    "hidden": false,
+    "icon": "icons/homebridge-hdhomerun.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": "bwp91",
+    "author": "bwp91",
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-homepod-radio": {
     "name": null,
     "hidden": false,

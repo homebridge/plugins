@@ -29,6 +29,7 @@
   "@homebridge-plugins/homebridge-eufy-security",
   "@homebridge-plugins/homebridge-ewelink",
   "@homebridge-plugins/homebridge-govee",
+  "@homebridge-plugins/homebridge-hdhomerun",
   "@homebridge-plugins/homebridge-homepod-radio",
   "@homebridge-plugins/homebridge-lutron",
   "@homebridge-plugins/homebridge-matter",

@@ -17,6 +17,7 @@
   "@homebridge-plugins/homebridge-eufy-security": "icons/homebridge-eufy-security.png",
   "@homebridge-plugins/homebridge-ewelink": "icons/homebridge-ewelink.png",
   "@homebridge-plugins/homebridge-govee": "icons/homebridge-govee.png",
+  "@homebridge-plugins/homebridge-hdhomerun": "icons/homebridge-hdhomerun.png",
   "@homebridge-plugins/homebridge-homepod-radio": "icons/homebridge-homepod-radio.png",
   "@homebridge-plugins/homebridge-lutron": "icons/homebridge-lutron.png",
   "@homebridge-plugins/homebridge-matter": "icons/homebridge-matter.png",
