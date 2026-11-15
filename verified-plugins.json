@@ -26,6 +26,7 @@
   "@homebridge-plugins/homebridge-controlmyspa",
   "@homebridge-plugins/homebridge-ecoplugs",
   "@homebridge-plugins/homebridge-ecovacs",
+  "@homebridge-plugins/homebridge-eufy",
   "@homebridge-plugins/homebridge-eufy-security",
   "@homebridge-plugins/homebridge-ewelink",
   "@homebridge-plugins/homebridge-govee",

@@ -1,5 +1,10 @@
 [
   {
+    "from": "@homebridge-plugins/homebridge-eufy-security",
+    "to": "@homebridge-plugins/homebridge-eufy",
+    "switch": "5.0.0"
+  },
+  {
     "from": "@homebridge-plugins/homebridge-lutron-caseta-leap",
     "to": "@homebridge-plugins/homebridge-lutron",
     "switch": "3.1.3"
