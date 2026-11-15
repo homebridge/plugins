@@ -301,6 +301,7 @@
   "homebridge-grumptech-timetriggers",
   "homebridge-gsh",
   "homebridge-haieracbridge-platform",
+  "homebridge-hap-homematic",
   "homebridge-harmony",
   "homebridge-harmony-home-control",
   "homebridge-harvia-sauna",
