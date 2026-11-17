@@ -237,6 +237,7 @@
   "homebridge-easee",
   "homebridge-easy-mqtt",
   "homebridge-ecobee-status",
+  "homebridge-ecoflow-river-3-plus",
   "homebridge-ecoforest-thermostat",
   "homebridge-econet-rheem",
   "homebridge-ecowitt-weather-sensors",
