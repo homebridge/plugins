@@ -608,6 +608,7 @@
   "homebridge-sofabaton-x1s",
   "homebridge-solaredge-modbus-tcp",
   "homebridge-solaxcloud-api",
+  "homebridge-solis-cloud-api",
   "homebridge-solis5g-battery",
   "homebridge-somfy-hotwired",
   "homebridge-somfy-rfxcom",
