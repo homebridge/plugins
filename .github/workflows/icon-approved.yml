@@ -14,22 +14,15 @@ name: Icon Approved
 # write access and keeps no git credentials. Only the finished PNG is passed on to
 # the `apply` job that pushes, which checks it again without decoding it.
 #
-# Stage 2 (not yet built): also apply the icon attached to a verification request
-# when a maintainer adds the `verified` label, leaving that issue's closing to the
-# verification flow. scripts/apply-icon-request.js already reads the verification
-# form's "Plugin Icon (Optional)" field, so this needs a second trigger here, not
-# a new script.
+# The icon attached to a verification request is applied by the Plugin Verified
+# workflow (verify-approved.yml) when the request gets `verified`, using the same
+# scripts/apply-icon-request.js steps.
 on:
   issues:
     types:
       - labeled
 
 permissions: {}
-
-# One at a time, so two approvals never race on plugin-icons.json and assets/
-concurrency:
-  group: icon-request
-  cancel-in-progress: false
 
 jobs:
   authorize:
@@ -168,6 +161,12 @@ jobs:
   apply:
     needs: prepare
     if: needs.prepare.outputs.ok == 'true'
+    # One commit to the JSON files at a time, shared with Plugin Verified. `queue: max`
+    # keeps every waiting run: without it, GitHub cancels a pending run as soon as
+    # another one joins the group, so approving three icons quickly dropped the middle one.
+    concurrency:
+      group: plugin-json-files
+      queue: max
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
