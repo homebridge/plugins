@@ -5975,6 +5975,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-notion-honey": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-nuheat2": {
     "name": null,
     "hidden": false,
