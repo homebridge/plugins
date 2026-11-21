@@ -641,6 +641,7 @@
   "homebridge-stream-sensors",
   "homebridge-sunsa",
   "homebridge-sunsynk",
+  "homebridge-superfan",
   "homebridge-swidget-fans",
   "homebridge-switch-button",
   "homebridge-switchbot-bluetooth-platform",
