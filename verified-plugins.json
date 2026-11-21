@@ -360,6 +360,7 @@
   "homebridge-kasa-hub",
   "homebridge-kasa-python",
   "homebridge-kdk-plugin",
+  "homebridge-keurig",
   "homebridge-keylights",
   "homebridge-kiwigrid",
   "homebridge-klereo-connect",
