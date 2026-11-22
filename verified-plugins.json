@@ -566,6 +566,7 @@
   "homebridge-rpi",
   "homebridge-rpi-rf-switch",
   "homebridge-rti-inovattive",
+  "homebridge-samsung-local",
   "homebridge-samsung-tizen",
   "homebridge-samsung-windfree-ac",
   "homebridge-samsungtv-2014",
