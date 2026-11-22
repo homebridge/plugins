@@ -8495,6 +8495,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-thermoworks": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-tibber-price": {
     "name": null,
     "hidden": false,
