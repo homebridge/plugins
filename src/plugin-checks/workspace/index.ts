@@ -3263,6 +3263,9 @@ const originalStatSync = fs.statSync;
 
 const ignoredFilePaths = [
   'node_modules/@dabh/diagnostics/adapters/process.env.js',
+  // ASN.1 schema modules named after the structures they define (private_key_info.js, ...),
+  // loaded by werift (WebRTC) via @peculiar/x509; no key file is read
+  'node_modules/@peculiar/asn1-',
 ];
 
 function checkSuspiciousPath(path, operation) {
