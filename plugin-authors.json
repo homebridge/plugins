@@ -25,6 +25,7 @@
   "@homebridge-plugins/homebridge-resideo": "bwp91",
   "@homebridge-plugins/homebridge-roomba": "bwp91",
   "@homebridge-plugins/homebridge-sharkiq": "bwp91",
+  "@homebridge-plugins/homebridge-shelly-energy": "bwp91",
   "@homebridge-plugins/homebridge-smarthq": "bwp91",
   "@homebridge-plugins/homebridge-tado": "smart7324",
   "@homebridge-plugins/homebridge-tuya": "tassy-h",

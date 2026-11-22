@@ -4,6 +4,7 @@
   "@homebridge-plugins/homebridge-hdhomerun": "Homebridge HDHomeRun",
   "@homebridge-plugins/homebridge-noip": "Homebridge No-IP",
   "@homebridge-plugins/homebridge-openeo": "Homebridge OpenEO",
+  "@homebridge-plugins/homebridge-shelly-energy": "Homebridge Shelly Energy",
   "@ncovercash/homebridge-wled-presets": "Homebridge WLED Presets",
   "@pst-on-npm/homebridge-enocean": "Homebridge EnOcean",
   "homebridge-awattar": "Homebridge aWATTar",

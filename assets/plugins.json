@@ -575,6 +575,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@homebridge-plugins/homebridge-shelly-energy": {
+    "name": "Homebridge Shelly Energy",
+    "hidden": false,
+    "icon": "icons/homebridge-shelly-energy.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": "bwp91",
+    "author": "bwp91",
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@homebridge-plugins/homebridge-smarthq": {
     "name": null,
     "hidden": false,
