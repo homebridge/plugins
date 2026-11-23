@@ -4534,7 +4534,7 @@
   "homebridge-ir-patio-heater": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-ir-patio-heater.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
