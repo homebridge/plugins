@@ -1051,6 +1051,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@tplnet/homebridge-heos-multiroom-audio": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-heos-multiroom-audio.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@ubreu/homebridge-helios-kwl": {
     "name": null,
     "hidden": false,

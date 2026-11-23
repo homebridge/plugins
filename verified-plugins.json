@@ -78,6 +78,7 @@
   "@string-bean/homebridge-drayton-wiser",
   "@switchbot/homebridge-switchbot",
   "@toharush/homebridge-redalert",
+  "@tplnet/homebridge-heos-multiroom-audio",
   "@ubreu/homebridge-helios-kwl",
   "@ubreu/homebridge-ibricks",
   "@vandubois/homebridge-virtual-switch",
