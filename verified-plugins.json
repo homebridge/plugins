@@ -141,6 +141,7 @@
   "homebridge-aws-iot",
   "homebridge-balboa-spa",
   "homebridge-bambu-lab",
+  "homebridge-beautyrest-local",
   "homebridge-bed-control",
   "homebridge-beoplay",
   "homebridge-bewave-mqtt",
