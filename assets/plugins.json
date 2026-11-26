@@ -4675,6 +4675,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-kidde-smoke-detectors": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-kiwigrid": {
     "name": null,
     "hidden": false,
