@@ -8747,6 +8747,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-tuya-ir-hub": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-tuya-ir-hub.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-tuya-matter": {
     "name": null,
     "hidden": false,
