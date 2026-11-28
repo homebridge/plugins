@@ -21,9 +21,9 @@
  *
  * Both write their result as JSON to stdout and to RESULT_FILE when set.
  *
- * It also reads the verification request form's "Plugin Icon (Optional)" field, for
- * stage 2: applying an attached icon when a verification request gets `verified`.
- * The workflow does not trigger on that yet.
+ * It also reads the verification request form's "Plugin Icon (Optional)" field: the
+ * Plugin Verified workflow runs both steps (without EXPECTED_SHA256) to add the icon
+ * attached to a verification request when it gets `verified`.
  */
 
 import { Buffer } from 'node:buffer'
