@@ -8967,6 +8967,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "homebridge-v2c-trydan": {
+    "name": null,
+    "hidden": false,
+    "icon": null,
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "homebridge-valor-fireplace": {
     "name": null,
     "hidden": false,
