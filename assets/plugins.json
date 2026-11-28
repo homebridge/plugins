@@ -155,6 +155,18 @@
     "verified": true,
     "verifiedPlus": false
   },
+  "@dylannlaw/homebridge-daikin-air-purifier": {
+    "name": null,
+    "hidden": false,
+    "icon": "icons/homebridge-daikin-air-purifier.png",
+    "unmaintained": false,
+    "newScope": false,
+    "scoped": false,
+    "author": null,
+    "changelog": null,
+    "verified": true,
+    "verifiedPlus": false
+  },
   "@elshaer/homebridge-hdl-buspro-enhanced": {
     "name": null,
     "hidden": false,

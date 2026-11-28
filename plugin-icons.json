@@ -4,6 +4,7 @@
   "@350d/homebridge-seam": "icons/homebridge-seam.png",
   "@boozilla/homebridge-shome": "icons/homebridge-shome.png",
   "@chazepps/homebridge-hejhome": "icons/homebridge-hejhome.png",
+  "@dylannlaw/homebridge-daikin-air-purifier": "icons/homebridge-daikin-air-purifier.png",
   "@elshaer/homebridge-hdl-buspro-enhanced": "icons/homebridge-hdl-buspro-enhanced.png",
   "@flipped-energy/homebridge-flipped-energy": "icons/homebridge-flipped-energy.png",
   "@homebridge-plugins/homebridge-air": "icons/homebridge-air.png",

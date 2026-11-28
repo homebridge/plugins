@@ -12,6 +12,7 @@
   "@danielgindi/homebridge-bcp-charger",
   "@dppeak/homebridge-sleepiq",
   "@dr_chai/homebridge-airthings",
+  "@dylannlaw/homebridge-daikin-air-purifier",
   "@elshaer/homebridge-hdl-buspro-enhanced",
   "@flipped-energy/homebridge-flipped-energy",
   "@george.talusan/homebridge-eufy-robovac",
