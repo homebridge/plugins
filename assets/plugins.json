@@ -4678,7 +4678,7 @@
   "homebridge-kidde-smoke-detectors": {
     "name": null,
     "hidden": false,
-    "icon": null,
+    "icon": "icons/homebridge-kidde-smoke-detectors.png",
     "unmaintained": false,
     "newScope": false,
     "scoped": false,
